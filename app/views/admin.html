@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Administration</title>		
+       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}">
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="utf-8"></script>
+        #{get 'moreScripts' /}
+    </head>
+    <body id="admin">
+        
+        <div id="header">
+            <div id="logo">
+                Covami <span>administration</span>
+            </div>
+            <ul id="adminMenu">
+                <li class="${request.controller == 'Admin' ? 'selected' : ''}">
+                    <a href="@{Covami.index()}">Home</a>
+                </li>
+                <li class="${request.controller == 'Users' ? 'selected' : ''}">
+                    <a href="@{Users.list()}">Users</a>
+                </li>
+                <li class="${request.controller == 'Cars' ? 'selected' : ''}">
+                    <a href="@{Cars.list()}">Cars</a>
+                </li>
+            </ul>
+            <ul id="tools">
+                <li>
+                    <a href="@{Secure.logout()}">Déconnection</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div id="main">
+            #{doLayout /} 
+        </div>
+        
+        <p id="footer">
+            
+        </p>
+        
+    </body>
+</html>

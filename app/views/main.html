@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>#{get 'title' /}</title>		
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" type="text/css" media="screen" 
+            href="@{'/public/stylesheets/main.css'}" />
+        <link rel="shortcut icon" type="image/png" 
+            href="@{'/public/images/favicon.png'}" />
+    </head>
+    <body>
+        
+        <div id="header">
+            <div id="logo">
+                Covami
+            </div>
+            <ul id="tools">
+                #{if secure == null}
+                <li>
+                   <a href="@{Secure.logout()}">Déconnection</a>
+                </li>
+                #{/if}
+                #{if secure != null}
+                <li>
+                   <a href="@{Secure.login()}">Connection</a>
+                </li>
+                #{/if}
+            </ul>
+            <ul id="adminMenu">
+                #{secure.check 'admin'}
+                <li>
+                    <a href="admin/">Administration</a>
+                </li>
+                #{/secure.check}
+            </ul>
+            <div id="title">
+                <span class="about">About Covami</span>
+            </div>
+        </div>
+        
+        <div id="main">
+            #{doLayout /} 
+        </div>
+        
+        <p id="footer">
+           
+        </p>
+        
+    </body>
+</html>

@@ -1,0 +1,25 @@
+User(bob):
+    email:          bob@gmail.com
+    password:       secret
+    fullname:       Bob
+    isAdmin:        true
+    
+User(jeff):
+    email:          jeff@gmail.com
+    password:       secret
+    fullname:       Jeff    
+    
+Car(firstBobCar):
+    name:          clio
+    cost:          2
+    owner:         bob
+ 
+Car(secondBobCar):
+    name:         twingo
+    cost:          1
+    owner:         bob
+             
+Car(firstJeffCar):
+    name:          picasso
+    cost:          2
+    owner:         jeff
