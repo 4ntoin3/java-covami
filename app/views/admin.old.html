@@ -16,17 +16,7 @@
             <div id="logo">
                 Covami <span>administration</span>
             </div>
-            <ul id="adminMenu">
-                <li class="${request.controller == 'Admin' ? 'selected' : ''}">
-                    <a href="@{Covami.index()}">Home</a>
-                </li>
-                <li class="${request.controller == 'Users' ? 'selected' : ''}">
-                    <a href="@{Users.list()}">Users</a>
-                </li>
-                <li class="${request.controller == 'Cars' ? 'selected' : ''}">
-                    <a href="@{Cars.list()}">Cars</a>
-                </li>
-            </ul>
+           
             <ul id="tools">
                 <li>
                     <a href="@{Secure.logout()}">Déconnection</a>

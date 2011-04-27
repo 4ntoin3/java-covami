@@ -1,6 +1,5 @@
 #{extends 'CRUD/layout.html' /}
 
-
 <div id="crudList" class="${type.name}">
 	
 	<h2 id="crudListTitle">&{'crud.list.title', type.name}</h2>
@@ -10,7 +9,7 @@
 	</div>
 
 	<div id="crudListTable">
-		#{crud.table fields:['email', 'fullname', 'isAdmin'] /}
+		#{crud.table fields:['name', 'cost', 'owner'] /}
 	</div>
 	
 	<div id="crudListPagination">
@@ -22,4 +21,3 @@
 	</p>
 
 </div>
-

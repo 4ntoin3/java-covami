@@ -1,51 +1,91 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
- 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>#{get 'title' /}</title>		
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" type="text/css" media="screen" 
-            href="@{'/public/stylesheets/main.css'}" />
-        <link rel="shortcut icon" type="image/png" 
-            href="@{'/public/images/favicon.png'}" />
-    </head>
-    <body>
+        <title>#{ get 'title' /}</title>
         
-        <div id="header">
-            <div id="logo">
-                Covami
+        <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+        <meta name="author" content="Antoine Esnault, Pierre Gasté" />
+        <meta name="description" content="Le meilleur moyen de se déplacer entre amis" />
+        <meta name="keywords" content="covoiturage,covami,voiture,amis" />
+        <meta name="robots" content="index, follow" />
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}" />
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/covami.css'}" />
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}" />
+        
+        <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="utf-8"></script>
+        #{get 'moreScripts' /}
+    </head>
+    
+    <body>
+        <div class="wrap background">
+            
+            <!-- Module de recherche pour les membres connectés -->
+            #{if secure == null}
+            <div id="search">
+                <form action="">
+                    <fieldset>
+                        <input type="text" class="field" value="Search Keywords" />
+                        <input type="submit" class="button" value="" />
+                    </fieldset>
+                </form>
             </div>
-            <ul id="tools">
+            #{/if}
+            <!-- Meu de navigation -->
+            <ul id="menu">
+                <!-- Items pour tous -->
+                <li><a class="${request.action == 'User.dashboard' ? 'current' : ''}" href="@{User.dashboard}">HOME</a></li>
+                
+                <!-- Items pour connectés -->
                 #{if secure == null}
-                <li>
-                   <a href="@{Secure.logout()}">Déconnection</a>
-                </li>
+                <li><a class="${request.controller == 'Map' ? 'current' : ''}" href="@{Map.index}">CARTE</a></li>
+                <li><a class="${request.controller == 'Way' ? 'current' : ''}" href="@{Way.index}">TRAJETS</a></li>
+                <li><a class="${request.controller == 'Friend' ? 'current' : ''}" href="@{Friend.index}">AMIS</a></li>
+                <li><a class="${request.controller == 'Car' ? 'current' : ''}" href="@{Car.index}">MES VOITURES</a></li>
+                <li><a class="${request.action == 'User.profile' ? 'current' : ''}" href="@{User.profile}">MON PROFIL</a></li>
+                <li><a href="@{User.logout}">DECONNEXION</a></li>
                 #{/if}
+                
+                <!-- Items pour non connectés -->
                 #{if secure != null}
-                <li>
-                   <a href="@{Secure.login()}">Connection</a>
-                </li>
+                <li><a class="${request.action == 'User.login' ? 'current' : ''}" href="@{User.login}">CONNEXION</a></li>
                 #{/if}
-            </ul>
-            <ul id="adminMenu">
+                
+                <!-- Items pour un role administrateur -->
                 #{secure.check 'admin'}
-                <li>
-                    <a href="admin/">Administration</a>
-                </li>
                 #{/secure.check}
             </ul>
-            <div id="title">
-                <span class="about">About Covami</span>
+            
+            <!-- Zone de titre dynamique -->
+            <div id="logo">
+                <h1><a href="#">#{ get 'title' /}</a></h1>
+                <h2 id="slogan">#{ get 'more_infos' /}</h2>
+            </div>
+            <div class="clear"></div>
+            
+            <!-- Zone de content -->
+            #{doLayout /}
+            
+        </div>
+
+        <!-- Footer -->
+        <div id="promo">
+            <div class="wrap">	
+                <div class="col">
+                    <img src="@{'public/images/logo_footer.png'}" alt="" /> 
+                </div>
+                <div class="col">
+                    <h2>A propos de Covami</h2>
+                    <p>Covami est une plateforme entièrement gratuite de covoiturage entre amis. Elle vous permet de gérer vos contacts et de planifier tous vos voyages en toute simplicité !</p>
+                </div>
+                <div class="col last">
+                    <h2>Les Auteurs</h2>
+                    <p>Covami est une solution développé par <a href="http://www.twitter.com/4ntoin3">Antoine Esnault</a> et <a href="http://www.twitter.com/PierreGaste">Pierre Gasté</a> lors d'un projet d'année à l'EPSI Nantes.</p>
+                </div>
+                <div id="footer">
+                    <p>Copyright &copy; 2011. Covami. Tous droits réservés.</p>
+                </div>
             </div>
         </div>
-        
-        <div id="main">
-            #{doLayout /} 
-        </div>
-        
-        <p id="footer">
-           
-        </p>
-        
     </body>
 </html>
