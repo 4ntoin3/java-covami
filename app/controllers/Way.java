@@ -11,7 +11,7 @@ public class Way extends CRUD {
      */
     public static void index()
     {
-        redirect("way/list");
+        redirect("/way/list");
     }
     
     /**

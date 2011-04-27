@@ -8,7 +8,7 @@ import play.mvc.Controller;
  */
 public class Carte extends Controller {
     public static void index(){
-        redirect("carte/show");
+        redirect("/carte/show");
     }
     
     public static void show(){
