@@ -6,7 +6,7 @@ import play.mvc.Controller;
  *
  * @author pierregaste
  */
-public class Map extends Controller {
+public class Carte extends Controller {
     public static void index(){
         show();
     }

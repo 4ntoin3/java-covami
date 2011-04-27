@@ -49,4 +49,12 @@ public class User extends Controller {
         render();
     }
     
+    /**
+     * Page d'inscription au service
+     */
+    public static void subscribe()
+    {
+        render();
+    }
+    
 }
