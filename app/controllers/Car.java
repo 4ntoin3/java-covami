@@ -13,7 +13,7 @@ public class Car extends Controller {
      */
     public static void index()
     {
-        list();
+        redirect("/car/list");
     }
     
     /**

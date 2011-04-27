@@ -13,7 +13,7 @@ public class User extends Controller {
      */
     public static void index()
     {
-        dashboard();
+        redirect("/");
     }
     
     /**

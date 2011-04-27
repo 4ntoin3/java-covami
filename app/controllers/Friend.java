@@ -13,7 +13,7 @@ public class Friend extends Controller {
      */
     public static void index()
     {
-        list();
+        redirect("friend/list");
     }
     
     /**
