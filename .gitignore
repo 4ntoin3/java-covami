@@ -2,3 +2,5 @@
 /tmp/
 /test-result/
 /modules/
+/logs/
+cobertura.ser
