@@ -15,8 +15,14 @@ import play.test.FunctionalTest;
 public class WayTest extends FunctionalTest {
 
     @Test
-    public void testThatWayPageWorks() {
+    public void testThatIndexPageWorks() {
         Response response = GET("/way");
+        assertStatus(302,response);
+    }
+    
+    @Test
+    public void testThatListPageWorks() {
+        Response response = GET("/way/list");
         assertIsOk(response);
         assertContentType("text/html", response);
         assertCharset("utf-8", response);

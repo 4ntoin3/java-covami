@@ -14,10 +14,16 @@ import play.test.FunctionalTest;
 public class MapTest extends FunctionalTest{
     
     @Test
-    public void testThatMapPageWorks() {
+    public void testThatIndexPageWorks() {
         Response response = GET("/carte");
+        assertStatus(302,response);
+    }
+    
+    @Test
+    public void testThatShowPageWorks() {
+        Response response = GET("/carte/show");
         assertIsOk(response);
         assertContentType("text/html", response);
         assertCharset("utf-8", response);
-    }    
+    }
 }

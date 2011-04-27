@@ -15,8 +15,14 @@ import play.test.FunctionalTest;
 public class CarTest extends FunctionalTest{
     
     @Test
-    public void testThatCarPageWorks() {
+    public void testThatIndexPageWorks() {
         Response response = GET("/car");
+        assertStatus(302,response);
+    }
+    
+    @Test
+    public void testThatListPageWorks() {
+        Response response = GET("/car/list");
         assertIsOk(response);
         assertContentType("text/html", response);
         assertCharset("utf-8", response);
