@@ -1,0 +1,9 @@
+24 avr. 2011 19:40:00,586 INFO  ~ Starting D:\Perso\Documents\Dropbox\play_project\covami
+24 avr. 2011 19:40:00,599 WARN  ~ Declaring modules in application.conf is deprecated. Use dependencies.yml instead (module.crud)
+24 avr. 2011 19:40:00,601 INFO  ~ Module crud is available (C:\play\modules\crud)
+24 avr. 2011 19:40:00,601 WARN  ~ Declaring modules in application.conf is deprecated. Use dependencies.yml instead (module.secure)
+24 avr. 2011 19:40:00,604 INFO  ~ Module secure is available (C:\play\modules\secure)
+24 avr. 2011 19:40:00,793 WARN  ~ You're running Play! in DEV mode
+24 avr. 2011 19:40:01,002 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+24 avr. 2011 19:40:28,591 INFO  ~ Connected to jdbc:h2:mem:play;MODE=MYSQL;LOCK_MODE=0
+24 avr. 2011 19:40:30,242 INFO  ~ Application 'covami' is now started !
