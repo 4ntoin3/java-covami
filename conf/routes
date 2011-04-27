@@ -3,20 +3,23 @@
 # ~~~~
 
 # Home page
-GET     /                                       Application.index
+GET /                       User.dashboard
+
+# Action par défaut d'un controlleur
+GET /{controller}           {controller}.index
 
 #Covami
-GET     /covami/                                 Covami.index
+GET /covami/                Covami.index
 
 # Import Secure routes
-*       /                                       module:secure
+*   /                       module:secure
 
 # Administration
-GET     /covami/admin/?                         Admin.index
-*       /admin                                  module:crud
+GET /covami/admin/?         Admin.index
+*   /admin                  module:crud
 
 # Map static resources from the /app/public folder to the /public path
-GET     /public/                                staticDir:public
+GET /public/                staticDir:public
 
 # Catch all
-*       /{controller}/{action}                  {controller}.{action}
+*   /{controller}/{action}  {controller}.{action}

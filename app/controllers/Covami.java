@@ -20,7 +20,7 @@ public class Covami extends Controller {
     @Before
     static void setConnectedUser() {
         if (Security.isConnected()) {
-            User user = User.find("byEmail", Security.connected()).first();
+            models.User user = models.User.find("byEmail", Security.connected()).first();
             renderArgs.put("user", user.fullname);
 
         }
