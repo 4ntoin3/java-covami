@@ -7,18 +7,18 @@ package controllers;
 public class Way extends CRUD {
     
     /**
-     * Méthode par défaut appellé via :
-     * /way
+     * Action par défaut
      */
     public static void index()
     {
         list();
     }
     
+    /**
+     * Listing des trajets
+     */
     public static void list()
     {
-        String cov_title_page = "Tous les trajets";
-        
-        render(cov_title_page);
+        render();
     }
 }
