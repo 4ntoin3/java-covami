@@ -1,3 +1,5 @@
+package functional;
+
 import org.junit.*;
 import play.test.*;
 import play.mvc.*;
@@ -12,6 +14,5 @@ public class ApplicationTest extends FunctionalTest {
         assertIsOk(response);
         assertContentType("text/html", response);
         assertCharset("utf-8", response);
-    }
-    
+    }    
 }
