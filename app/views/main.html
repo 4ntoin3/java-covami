@@ -33,12 +33,10 @@
             #{/if}
             <!-- Meu de navigation -->
             <ul id="menu">
-                <!-- Items pour tous -->
-                <li><a class="${request.action == 'User.dashboard' ? 'current' : ''}" href="@{User.dashboard}">HOME</a></li>
-                
                 <!-- Items pour connectés -->
                 #{if secure == null}
-                <li><a class="${request.controller == 'Map' ? 'current' : ''}" href="@{Map.index}">CARTE</a></li>
+                <li><a class="${request.action == 'User.dashboard' ? 'current' : ''}" href="@{User.dashboard}">HOME</a></li>
+                <li><a class="${request.controller == 'Map' ? 'current' : ''}" href="@{Carte.index}">CARTE</a></li>
                 <li><a class="${request.controller == 'Way' ? 'current' : ''}" href="@{Way.index}">TRAJETS</a></li>
                 <li><a class="${request.controller == 'Friend' ? 'current' : ''}" href="@{Friend.index}">AMIS</a></li>
                 <li><a class="${request.controller == 'Car' ? 'current' : ''}" href="@{Car.index}">MES VOITURES</a></li>
@@ -49,6 +47,7 @@
                 <!-- Items pour non connectés -->
                 #{if secure != null}
                 <li><a class="${request.action == 'User.login' ? 'current' : ''}" href="@{User.login}">CONNEXION</a></li>
+                <li><a class="${request.action == 'User.subscribe' ? 'current' : ''}" href="@{User.subscribe}">INSCRIPTION</a></li>
                 #{/if}
                 
                 <!-- Items pour un role administrateur -->
