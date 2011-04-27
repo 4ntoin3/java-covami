@@ -12,6 +12,7 @@ public class UserTest extends FunctionalTest {
     public void testThatIndexPageWorks() {
         Response response = GET("/user");
         assertStatus(302,response);
+        assertHeaderEquals("Location", "http://localhost/", response);
     }    
     
     @Test

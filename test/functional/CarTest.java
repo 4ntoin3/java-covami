@@ -18,6 +18,7 @@ public class CarTest extends FunctionalTest{
     public void testThatIndexPageWorks() {
         Response response = GET("/car");
         assertStatus(302,response);
+        assertHeaderEquals("Location", "http://localhost/car/list", response);
     }
     
     @Test

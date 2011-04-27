@@ -17,6 +17,7 @@ public class MapTest extends FunctionalTest{
     public void testThatIndexPageWorks() {
         Response response = GET("/carte");
         assertStatus(302,response);
+        assertHeaderEquals("Location", "http://localhost/carte/show", response);
     }
     
     @Test

@@ -18,6 +18,7 @@ public class WayTest extends FunctionalTest {
     public void testThatIndexPageWorks() {
         Response response = GET("/way");
         assertStatus(302,response);
+        assertHeaderEquals("Location", "http://localhost/way/list", response);
     }
     
     @Test
