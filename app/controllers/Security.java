@@ -33,6 +33,10 @@ public class Security extends Secure.Security {
          User.dashboard();
     }
     
+    static boolean testPierre()
+    {
+        return true;
+    }
     /**
      * @todo REFACTORING!
      * @param profile
