@@ -1,12 +1,21 @@
 package controllers;
 
-import play.mvc.Controller;
+import play.mvc.*;
 
 /**
  *
  * @author pierregaste
  */
+@With(Secure.class)
 public class User extends Controller {
+    
+    @Before
+    static void setConnectedUser() {
+        if (Security.isConnected()) {
+            models.User user = models.User.find("byEmail", Security.connected()).first();
+            renderArgs.put("user", user.fullname);
+        }
+    }
     
     /**
      * Action par défaut
@@ -20,14 +29,6 @@ public class User extends Controller {
      * Tableau de bord de l'utilisateur
      */
     public static void dashboard()
-    {
-        render();
-    }
-    
-    /**
-     * Page de connexion
-     */
-    public static void login()
     {
         render();
     }
