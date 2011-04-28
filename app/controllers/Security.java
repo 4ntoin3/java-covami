@@ -23,7 +23,7 @@ public class Security extends Secure.Security {
      * Méthode appellée lors de la déconnexion de l'utilisateur
      */
     static void onDisconnected() {
-        User.login();
+        User.index();
     }
     
     /**
