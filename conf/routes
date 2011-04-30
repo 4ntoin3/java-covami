@@ -6,7 +6,7 @@
 GET /                       User.dashboard
 
 # Import Secure routes
-*   /                       module:secure
+*   /                       User
 
 # Administration
 #GET /covami/admin/?         Admin.index
