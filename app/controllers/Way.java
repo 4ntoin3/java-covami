@@ -21,4 +21,24 @@ public class Way extends CRUD {
     {
         render();
     }
+    
+    public static void add(){
+        render();
+    }
+    
+    public static void edit(){
+        render();
+    }
+    
+    public static void detail(){
+        render();
+    }
+    
+    public static void cancel(){
+        render();
+    }
+    
+    public static void search(){
+        render();
+    }
 }
