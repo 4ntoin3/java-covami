@@ -33,10 +33,16 @@ public class Security extends Secure.Security {
          User.dashboard();
     }
     
-    static boolean check(String profile) {
+    /**
+     * @todo REFACTORING!
+     * @param profile
+     * @return 
+     */
+    /*static boolean check(String profile) {
         if ("admin".equals(profile)) {
             return models.User.find("byEmail", connected()).<models.User>first().isAdmin;
         }
         return false;  
+    }*/
+    
     }
-}

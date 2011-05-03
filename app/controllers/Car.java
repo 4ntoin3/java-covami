@@ -17,7 +17,7 @@ public class Car extends Controller {
     }
     
     /**
-     * Liste des voitures du compte connecté
+     * Listing des voitures de l'utilisateur
      */
     public static void list()
     {
