@@ -17,9 +17,33 @@ public class Friend extends Controller {
     }
     
     /**
-     * Listing des amis
+     * Liste les amis du compte connecté
      */
     public static void list()
+    {
+        render();
+    }
+    
+    /**
+     * Ajouter un nouvel ami pour le compte connecté
+     */
+    public static void add()
+    {
+        render();
+    }
+    
+    /**
+     * Supprimer une relation d'amitité pour le compte connecté
+     */
+    public static void delete()
+    {
+        render();
+    }
+    
+    /**
+     * Recherhcer de nouveaux amis
+     */
+    public static void search()
     {
         render();
     }

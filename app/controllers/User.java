@@ -2,12 +2,8 @@ package controllers;
 
 import play.mvc.*;
 
-/**
- *
- * @author pierregaste
- */
 @With(Secure.class)
-public class User extends Controller {
+public class User extends Secure.Security {
     
     @Before
     static void setConnectedUser() {
@@ -17,45 +13,48 @@ public class User extends Controller {
         }
     }
     
-    /**
-     * Action par défaut
-     */
     public static void index()
     {
         redirect("/");
     }
     
-    /**
-     * Tableau de bord de l'utilisateur
-     */
     public static void dashboard()
     {
         render();
     }
     
-    /**
-     * Action de déconnexion
-     * @throws Throwable 
-     */
     public static void logout() throws Throwable
     {
         Secure.logout();
     }
     
-    /**
-     * Page d'édition de profil
-     */
     public static void profile()
     {
         render();
     }
     
-    /**
-     * Page d'inscription au service
-     */
     public static void subscribe()
     {
         render();
     }
+    
+    static boolean authenticate(String username, String password) {
+        return models.User.connect(username, password) != null;
+    }
+    
+    static void onDisconnected() {
+        index();
+    }
+
+    static void onAuthenticated() {
+        dashboard();
+    }
+    
+    /*static boolean check(String profile) {
+        if ("admin".equals(profile)) {
+            return models.User.find("byEmail", connected()).<models.User>first().isAdmin;
+        }
+        return false;
+    }*/
     
 }
