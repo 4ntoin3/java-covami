@@ -4,15 +4,7 @@ import play.mvc.*;
 
 @With(Secure.class)
 public class User extends Controller {
-
-    @Before
-    static void setConnectedUser() {
-        if (Security.isConnected()) {
-            models.User user = models.User.find("byEmail", Security.connected()).first();
-            renderArgs.put("user", user.fullname);
-        }
-    }
-
+    
     /**
      * Action par défaut
      */
@@ -26,7 +18,7 @@ public class User extends Controller {
      */
     public static void dashboard()
     {
-        render();
+        render(User.connected());
     }
 
     /**
@@ -43,14 +35,25 @@ public class User extends Controller {
      */
     public static void profile()
     {
-        render();
+        render(User.connected());
     }
 
     /**
      * Page d'inscription au service
      */
     public static void subscribe()
-    {
+    {        
         render();
+    }
+    
+    public static void subscribe(String email, String password, String fullname){
+        new models.User(email, password, fullname).save();
+        
+        redirect("/login");
+    }
+            
+    public static models.User connected() {
+        models.User user = models.User.find("byEmail", Security.connected()).first();
+        return user;
     }
 }
