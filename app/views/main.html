@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>#{ get 'title' /}</title>
-        
+
         <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
         <meta name="author" content="Antoine Esnault, Pierre Gasté" />
         <meta name="description" content="Le meilleur moyen de se déplacer entre amis" />
@@ -12,14 +12,24 @@
         <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/covami.css'}" />
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}" />
-        
-        <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="utf-8"></script>
+
+        <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="utf-8"></script>        
         #{get 'moreScripts' /}
+
+        <script type="text/javascript" src="http://konami-js.googlecode.com/svn/trunk/konami.js"></script>
+        <script type="text/javascript">
+            konami = new Konami()
+            konami.code = function() {
+                var player = document.getElementsByTagName("audio")[0];
+		player.play();
+            }
+            konami.load()
+        </script>
     </head>
-    
+
     <body>
         <div class="wrap background">
-            
+
             <!-- Module de recherche pour les membres connectés -->
             #{if secure == null}
             <div id="search">
@@ -43,28 +53,32 @@
                 <li><a class="${request.action == 'User.profile' ? 'current' : ''}" href="@{User.profile}">MON PROFIL</a></li>
                 <li><a href="@{User.logout}">DECONNEXION</a></li>
                 #{/if}
-                
+
                 <!-- Items pour non connectés -->
                 #{if secure != null}
                 <li><a class="${request.action == 'User.login' ? 'current' : ''}" href="@{User.login}">CONNEXION</a></li>
                 <li><a class="${request.action == 'User.subscribe' ? 'current' : ''}" href="@{User.subscribe}">INSCRIPTION</a></li>
                 #{/if}
-                
+
                 <!-- Items pour un role administrateur -->
                 #{secure.check 'admin'}
                 #{/secure.check}
             </ul>
-            
+
             <!-- Zone de titre dynamique -->
             <div id="logo">
                 <h1><a href="#">#{ get 'title' /}</a></h1>
                 <h2 id="slogan">#{ get 'more_infos' /}</h2>
             </div>
             <div class="clear"></div>
-            
+            <audio controls style="visibility:hidden"> 
+                <source src="public/call_on_me.ogg" /> 
+                <p class="warning">Le format *.ogg n'est pas pris en charge par votre navigateur</p> 
+            </audio> 
+
             <!-- Zone de content -->
             #{doLayout /}
-            
+
         </div>
 
         <!-- Footer -->
