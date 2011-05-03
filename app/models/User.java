@@ -18,11 +18,16 @@ public class User extends Model {
     @Required
     public String email;
     
+    @Password
     @Required
     public String password;
     
     @Required
     public String fullname;
+    
+    @OneToMany
+    public List<User> friends;
+    
     public boolean isAdmin;
 
     public User(String email, String password, String fullname) {
