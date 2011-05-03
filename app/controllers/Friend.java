@@ -7,20 +7,18 @@ import play.mvc.Controller;
  * @author pierregaste
  */
 public class Friend extends Controller {
-    
+
     /**
      * Action par défaut
      */
-    public static void index()
-    {
+    public static void index() {
         redirect("/friend/list");
     }
-    
+
     /**
      * Liste les amis du compte connecté
      */
-    public static void list()
-    {
+    public static void list() {
         render();
     }
     

@@ -1,5 +1,7 @@
 package functional;
 
+import java.util.HashMap;
+import java.util.Map;
 import org.junit.*;
 import play.test.*;
 import play.mvc.*;
@@ -9,49 +11,52 @@ import models.*;
 public class UserTest extends FunctionalTest {
 
     @Test
-    public void testThatIndexPageWorks() {
+    public void testThatIndexPageSecure() {
         Response response = GET("/user");
-        assertStatus(302,response);
-        assertHeaderEquals("Location", "http://localhost/", response);
-    }    
-    
+        assertStatus(302, response);
+        assertHeaderEquals("Location", "http://localhost/login", response);
+    }
+
     @Test
-    public void testThatDashboardPageWorks() {
+    public void testThatDashboardPageSecure() {
         Response response = GET("/user/dashboard");
-        assertIsOk(response);
-        assertContentType("text/html", response);
-        assertCharset("utf-8", response);
-    }    
-    
-    @Test
-    public void testThatLoginPageWorks() {
-        Response response = GET("/user/login");
-        assertIsOk(response);
-        assertContentType("text/html", response);
-        assertCharset("utf-8", response);
+        assertStatus(302, response);
+        assertHeaderEquals("Location", "http://localhost/login", response);
     }
     
     @Test
-    public void testThatLogoutPageWorks() {
+    public void testThatLogOnWorks() {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("username", "bob@gmail.com");
+        map.put("password", "secret");
+        Response logon = POST("/login", map);
+        assertStatus(302, logon);
+        assertHeaderEquals("Location", "http://localhost/", logon);
+        
+        map.put("username", "toto");
+        logon = POST("/login", map);
+        assertStatus(302, logon);
+        assertHeaderEquals("Location", "http://localhost/login", logon);
+    }
+
+    @Test
+    public void testThatLogoutPageSecure() {
         Response response = GET("/user/logout");
-        assertIsOk(response);
-        assertContentType("text/html", response);
-        assertCharset("utf-8", response);
+        assertStatus(302, response);
+        assertHeaderEquals("Location", "http://localhost/login", response);
     }
-    
+
     @Test
-    public void testThatProfilePageWorks() {
+    public void testThatProfilePageSecure() {
         Response response = GET("/user/profile");
-        assertIsOk(response);
-        assertContentType("text/html", response);
-        assertCharset("utf-8", response);
+        assertStatus(302, response);
+        assertHeaderEquals("Location", "http://localhost/login", response);
     }
-    
+
     @Test
-    public void testThatSubscribePageWorks() {
+    public void testThatSubscribePageSecure() {
         Response response = GET("/user/subscribe");
-        assertIsOk(response);
-        assertContentType("text/html", response);
-        assertCharset("utf-8", response);
+        assertStatus(302, response);
+        assertHeaderEquals("Location", "http://localhost/login", response);
     }
 }
