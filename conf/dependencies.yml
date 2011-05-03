@@ -4,4 +4,3 @@ require:
     - play
     - play -> crud
     - play -> secure
-    - play -> deadbolt 1.4

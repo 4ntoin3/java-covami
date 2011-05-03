@@ -13,23 +13,44 @@ public class User extends Controller {
         }
     }
 
-    public static void index() {
+    /**
+     * Action par défaut
+     */
+    public static void index()
+    {
         redirect("/");
     }
 
-    public static void dashboard() {
+    /**
+     * Tableau de bord de l'utilisateur
+     */
+    public static void dashboard()
+    {
         render();
     }
 
-    public static void logout() throws Throwable {
+    /**
+     * Action de déconnexion
+     * @throws Throwable 
+     */
+    public static void logout() throws Throwable
+    {
         Secure.logout();
     }
 
-    public static void profile() {
+    /**
+     * Page d'édition de profil
+     */
+    public static void profile()
+    {
         render();
     }
 
-    public static void subscribe() {
+    /**
+     * Page d'inscription au service
+     */
+    public static void subscribe()
+    {
         render();
     }
 }
