@@ -5,12 +5,13 @@
 package models;
 
 import java.awt.Point;
+import play.db.jpa.Model;
 
 /**
  *
  * @author Antoine
  */
-public class City {
+public class City extends Model{
     
     public String name;
     public int codeINSEE;
