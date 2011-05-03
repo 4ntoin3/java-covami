@@ -19,9 +19,8 @@
     
     <body>
         <div class="wrap background">
-            
             <!-- Module de recherche pour les membres connectés -->
-            #{if secure == null}
+            #{secure.check 'member' || 'admin'}
             <div id="search">
                 <form action="">
                     <fieldset>
@@ -30,11 +29,12 @@
                     </fieldset>
                 </form>
             </div>
-            #{/if}
+            #{/secure.check}
+            
             <!-- Meu de navigation -->
             <ul id="menu">
                 <!-- Items pour connectés -->
-                #{if secure == null}
+                #{secure.check}
                 <li><a class="${request.action == 'User.dashboard' ? 'current' : ''}" href="@{User.dashboard}">HOME</a></li>
                 <li><a class="${request.controller == 'Map' ? 'current' : ''}" href="@{Carte.index}">CARTE</a></li>
                 <li><a class="${request.controller == 'Way' ? 'current' : ''}" href="@{Way.index}">TRAJETS</a></li>
@@ -42,13 +42,13 @@
                 <li><a class="${request.controller == 'Car' ? 'current' : ''}" href="@{Car.index}">MES VOITURES</a></li>
                 <li><a class="${request.action == 'User.profile' ? 'current' : ''}" href="@{User.profile}">MON PROFIL</a></li>
                 <li><a href="@{User.logout}">DECONNEXION</a></li>
-                #{/if}
+                #{/secure.check}
                 
                 <!-- Items pour non connectés -->
-                #{if secure != null}
+                #{secure.check dqsd}
                 <li><a class="${request.action == 'User.login' ? 'current' : ''}" href="@{User.login}">CONNEXION</a></li>
                 <li><a class="${request.action == 'User.subscribe' ? 'current' : ''}" href="@{User.subscribe}">INSCRIPTION</a></li>
-                #{/if}
+                #{/secure.check}
                 
                 <!-- Items pour un role administrateur -->
                 #{secure.check 'admin'}
@@ -68,6 +68,7 @@
         </div>
 
         <!-- Footer -->
+        <p></p>
         <div id="promo">
             <div class="wrap">	
                 <div class="col">

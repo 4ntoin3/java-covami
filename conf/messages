@@ -4,6 +4,7 @@
 
 isAdmin=User is a admin
 
-secure.username=Your email:
-secure.password=Your password:
-secure.signin=Log in now
+secure.username=Adresse email
+secure.password=Mot de passe
+secure.signin=Connexion
+secure.rembember=Se souvenir de moi
