@@ -3,7 +3,7 @@ package controllers;
 import play.mvc.*;
 
 @With(Secure.class)
-public class User extends Secure.Security {
+public class User extends Controller {
 
     @Before
     static void setConnectedUser() {
