@@ -45,7 +45,7 @@ public class Car extends Controller {
     /**
      * Edit une voiture pour le compte connecté
      */
-    public static void edit()
+    public static void edit(Long id)
     {
         render();
     }
