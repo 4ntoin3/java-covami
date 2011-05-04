@@ -50,7 +50,7 @@ public class Car extends Controller {
         render();
     }
     
-    public static void edit(int id, String name, int cost){
+    public static void edit(Long id, String name, int cost){
         models.Car car = models.Car.findById(id);
         car.name = name;
         car.cost = cost;
@@ -62,7 +62,7 @@ public class Car extends Controller {
     /**
      * Supprime une voiture pour le compte connecté
      */
-    public static void delete(int id)
+    public static void delete(Long id)
     {
         models.Car car = models.Car.findById(id);
         car.delete();
@@ -73,7 +73,7 @@ public class Car extends Controller {
     /**
      * Affiche les informations d'une voiture
      */
-    public static void details(int id)
+    public static void details(Long id)
     {
         models.Car car = models.Car.findById(id);
         render(car);
