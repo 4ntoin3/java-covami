@@ -1,3 +1,38 @@
 #{extends 'main.html' /}
-#{set title:'Mon profil' /}
-#{set more_infos:'Bienvenue sur votre espace profil ! Vous pouvez éditer toutes vos informations personnelles ici.' /}
+#{set title: play.i18n.Messages.get('user.profile.title') /}
+#{set subtitle: play.i18n.Messages.get('user.profile.subtitle') /}
+
+<form action="profile" method="post" class="mainForm">
+    <div class="message">
+        &{'user.profile.message'} :
+    </div>
+
+    <label for="fieldEmail">&{'field.email'}</label>
+    <div class="formField">
+        <input type="text" name="fieldEmail" id="fieldEmail"/>
+    </div>
+
+    <label for="fieldLastname">&{'field.lastname'}</label>
+    <div class="formField">
+        <input type="text" name="fieldLastname" id="fieldLastname"/>
+    </div>
+
+    <label for="fieldFirstname">&{'field.firstname'}</label>
+    <div class="formField">
+        <input type="text" name="fieldFirstname" id="fieldFirstname"/>
+    </div>
+
+    <label for="fieldPassword">&{'field.password'}</label>
+    <div class="formField">
+        <input type="text" name="fieldPassword" id="fieldPassword"/>
+    </div>
+
+    <div class="fieldButtonValidation">
+        <button type="button" name="btnCancel" class="withPix pix16_cancel">&{'buttons.annuler'}</button>
+        <button type="submit" name="btnValidation" class="withPix pix16_valid">&{'buttons.valider'}</button>
+        <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+</form>
+<p></p>
