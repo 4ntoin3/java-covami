@@ -5,3 +5,17 @@
     open('/')
     assertNotTitle('Application error')
 #{/selenium}
+
+#{selenium 'Test login'}
+ 
+    // Try to log in the user area
+    clearSession()
+    open('/login')
+    type('username', 'bob@gmail.com')
+    type('password', 'secret')
+    clickAndWait('btnLogin')
+ 
+    // Verify that the user in correctly logged in
+    assertTextNotPresent('Internal Error')
+    assertLocation('http://localhost:9000/') 
+#{/selenium}
