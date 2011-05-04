@@ -2,29 +2,60 @@
 #{set title: play.i18n.Messages.get('user.profile.title') /}
 #{set subtitle: play.i18n.Messages.get('user.profile.subtitle') /}
 
-<form action="profile" method="post" class="mainForm">
+<div class="mainForm">
+#{form @User.editProfile()}
+
+    #{ifErrors}
+    <p class="error">
+        All fields are required!
+    </p>
+    #{/ifErrors}
     <div class="message">
         &{'user.profile.message'} :
     </div>
 
     <label for="fieldEmail">&{'field.email'}</label>
     <div class="formField">
-        <input type="text" name="fieldEmail" id="fieldEmail"/>
+        #{if flash['user.email'] == null}
+        <input type="text" name="user.email" id="fieldEmail" value="${user.email}"/>        
+        #{/if}
+        #{else}
+        <input type="text" name="user.email" id="fieldEmail" value="${flash['user.email']}"/>
+        #{/else}
+        <span class="error">#{error 'user.email' /}</span>
     </div>
-
-    <label for="fieldLastname">&{'field.lastname'}</label>
+    
+    <label for="fieldPassword">&{'field.password'}</label>
     <div class="formField">
-        <input type="text" name="fieldLastname" id="fieldLastname"/>
+        #{if flash['user.password'] == null}
+        <input type="text" name="user.password" id="fieldPassword" value="${user.password}"/>        
+        #{/if}
+        #{else}
+        <input type="text" name="user.password" id="fieldPassword" value="${flash['user.password']}"/>
+        #{/else}
+        <span class="error">#{error 'user.password' /}</span>
     </div>
 
     <label for="fieldFirstname">&{'field.firstname'}</label>
     <div class="formField">
-        <input type="text" name="fieldFirstname" id="fieldFirstname"/>
+        #{if flash['user.email'] == null}
+        <input type="text" name="user.firstname" id="fieldFirstname" value="${user.firstname}"/>        
+        #{/if}
+        #{else}
+        <input type="text" name="user.firstname" id="fieldFirstname" value="${flash['user.firstname']}"/>
+        #{/else}
+        <span class="error">#{error 'user.firstname' /}</span>
     </div>
-
-    <label for="fieldPassword">&{'field.password'}</label>
+    
+        <label for="fieldLastname">&{'field.lastname'}</label>
     <div class="formField">
-        <input type="text" name="fieldPassword" id="fieldPassword"/>
+        #{if flash['user.email'] == null}
+        <input type="text" name="user.lastname" id="fieldLastname" value="${user.lastname}"/>        
+        #{/if}
+        #{else}
+        <input type="text" name="user.lastname" id="fieldLastname" value="${flash['user.lastname']}"/>
+        #{/else}
+        <span class="error">#{error 'user.lastname' /}</span>
     </div>
 
     <div class="fieldButtonValidation">
@@ -34,5 +65,6 @@
     </div>
 
     <div class="clear"></div>
-</form>
+    #{/form}
+</div>
 <p></p>
