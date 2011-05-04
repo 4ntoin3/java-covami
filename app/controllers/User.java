@@ -33,9 +33,20 @@ public class User extends Controller {
     /**
      * Page d'édition de profil
      */
-    public static void profile()
+    public static void viewProfile()
     {
         render(User.connected());
+    }
+    
+    public static void editProfile(String email, String password, String fullname)
+    {
+        models.User user = User.connected();
+        user.email = email;
+        user.password = password;
+        user.fullname = fullname;
+        user.save();
+        
+        redirect("/user/profile");
     }
 
     /**
