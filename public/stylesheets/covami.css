@@ -20,6 +20,16 @@ button.withPix {
     background-position: 2px center;
     background-repeat: no-repeat;
 }
+.pix16_valid {
+    background-image: url(../images/icons/valid.png);
+    background-position: 2px center;
+    background-repeat: no-repeat;
+}
+.pix16_cancel {
+    background-image: url(../images/icons/cancel.png);
+    background-position: 2px center;
+    background-repeat: no-repeat;
+}
 
 .mainForm .error, .mainForm .success  {
     color: #fff;

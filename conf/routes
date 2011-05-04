@@ -8,10 +8,6 @@ GET /                       User.dashboard
 # Import Secure routes
 *   /                       module:secure
 
-# Administration
-#GET /covami/admin/?         Admin.index
-#*   /admin                  module:crud
-
 # Map static resources from the /app/public folder to the /public path
 GET /public/                staticDir:public
 

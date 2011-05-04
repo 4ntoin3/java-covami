@@ -8,3 +8,19 @@ secure.username=Adresse email
 secure.password=Mot de passe
 secure.signin=Connexion
 secure.rembember=Se souvenir de moi
+
+
+# Buttons
+buttons.valider=Valider
+buttons.annuler=Annuler
+
+# Fields
+field.email=Adresse Email
+field.firstname=Prénom
+field.lastname=Nom
+field.password=Mot de passe
+
+# User > Profile
+user.profile.title=Mon profil
+user.profile.more_info=Bienvenue sur votre espace profil ! Vous pouvez éditer toutes vos informations personnelles ici.
+user.profile.message=Modifiez votre profil en éditant les champs suivants
