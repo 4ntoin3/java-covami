@@ -19,16 +19,23 @@ button.withPix {
 }
 
 
-.mainForm .error, .mainForm .success  {
+.mainForm .success  {
+    background: #67AD10;
     color: #fff;
-    font-size: 12px;
-    text-align: center;
-    margin-bottom: 10px;
-    padding: 5px;
+    padding: 10px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-box-shadow: 0 2px 0 #4E840B; 
 }
 
 .mainForm .error {
-    background: #c00 !important;
+    background: #c00;
+    color: #fff;
+    font-size: 90%;
+    padding: 3px 5px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-box-shadow: 0 2px 0 #800;
 }
 
 .mainForm .success {
@@ -96,7 +103,7 @@ th {
     border: 1px solid #CCC;
 }
 tr {
-    
+
 }
 td {
     border: 1px solid #CCC;
