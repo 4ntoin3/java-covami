@@ -1,13 +1,15 @@
 User(bob):
     email:          bob@gmail.com
     password:       secret
-    fullname:       Bob
+    firstname:      Bob
+    lastname:       LEBRUNT
     isAdmin:        true
     
 User(jeff):
     email:          jeff@gmail.com
     password:       secret
-    fullname:       Jeff    
+    firstname:      Jeff    
+    lastname:       ROBERT
     
 Car(firstBobCar):
     name:          clio
