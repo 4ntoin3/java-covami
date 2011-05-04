@@ -20,7 +20,7 @@ button.withPix {
 
 
 .mainForm .success  {
-    background: #67AD10;
+    background: #008800 !important;
     color: #fff;
     padding: 10px;
     -webkit-border-radius: 6px;
@@ -38,8 +38,8 @@ button.withPix {
     -webkit-box-shadow: 0 2px 0 #800;
 }
 
-.mainForm .success {
-    background: #008800 !important;
+.error {
+    text-align: center;
 }
 
 .mainForm {
