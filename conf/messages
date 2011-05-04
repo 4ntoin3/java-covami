@@ -22,5 +22,21 @@ field.password=Mot de passe
 
 # User > Profile
 user.profile.title=Mon profil
-user.profile.more_info=Bienvenue sur votre espace profil ! Vous pouvez éditer toutes vos informations personnelles ici.
+user.profile.subtitle=Vous pouvez éditer toutes vos informations personnelles ici
 user.profile.message=Modifiez votre profil en éditant les champs suivants
+
+# Car
+car.add=Ajouter une voiture
+
+# Car > List
+car.list.title=Mes Voitures
+car.list.subtitle=Gérer et ajouter vos voitures
+
+car.list.col.actions=Actions
+car.list.col.label=Libellé
+
+car.list.edit_me=Cliquez ici pour éditer cette voiture
+car.list.delete_me=Cliquez ici pour supprimer cette voiture
+car.list.detail_me=Cliquez ici pour afficher plus d'information sur cette voiture
+car.list.empty=Aucune voiture pour le moment
+car.list.add_first=Cliquez ici pour ajouter votre première voiture

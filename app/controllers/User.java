@@ -32,6 +32,8 @@ public class User extends Controller {
 
     /**
      * Page d'édition de profil
+     * 
+     * @view app/view/user/profile.html
      */
     public static void profile()
     {

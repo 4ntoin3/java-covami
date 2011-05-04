@@ -19,6 +19,8 @@ public class Car extends Controller {
     
     /**
      * Liste des voitures du compte connecté
+     * 
+     * @view app/view/car/list.html
      */
     public static void list()
     {

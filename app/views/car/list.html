@@ -1,3 +1,41 @@
 #{extends 'main.html' /}
-#{set title:'Mes Voitures' /}
-#{set more_infos:'Gérer et ajouter vos voitures.' /}
+#{set title: play.i18n.Messages.get('car.list.title') /}
+#{set subtitle: play.i18n.Messages.get('car.list.subtitle') /}
+
+<div class="btn_add_item">
+    <button class="withPix pix16_car_add">&{'car.add'}</button>
+    <div style="clear: both;"></div>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th class="table_col_action">&{'car.list.col.actions'}</th>
+            <th>&{'car.list.col.label'}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="table_col_action">
+                <a href="@{Car.details}" title="&{'car.list.detail_me'}">
+                    <img src="@{'public/images/icons/24/detail.png'}" alt="&{'car.list.detail_me'}" />
+                </a>
+                <a href="@{Car.edit}" title="&{'car.list.edit_me'}">
+                    <img src="@{'public/images/icons/24/edit.png'}" alt="&{'car.list.edit_me'}" />
+                </a>
+                <a href="@{Car.delete}" title="&{'car.list.delete_me'}">
+                    <img src="@{'public/images/icons/24/delete.png'}" alt="&{'car.list.delete_me'}" />
+                </a>
+            </td>
+            <td>
+                La voiture à mamy
+            </td>
+        </tr>
+        <tr>
+            <td class="table_empty" colspan=2>
+                &{'car.list.empty'}.<br/>
+                <a href="@{Car.add}">&{'car.list.add_first'}!</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
