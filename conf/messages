@@ -20,6 +20,9 @@ field.firstname=Prénom
 field.lastname=Nom
 field.password=Mot de passe
 
+field.name=Nom
+field.cost=Coût pour 100km (€)
+
 # User > Profile
 user.profile.title=Mon profil
 user.profile.subtitle=Vous pouvez éditer toutes vos informations personnelles ici
@@ -27,6 +30,9 @@ user.profile.message=Modifiez votre profil en éditant les champs suivants
 
 # Car
 car.add=Ajouter une voiture
+car.edit.title=Ma voiture
+car.edit.subtitle=Vous pouvez éditer les informations relatives à vos voitures ici
+car.edit.message=Modifiez les informations de votre voiture en éditant les champs suivants
 
 # Car > List
 car.list.title=Mes Voitures
