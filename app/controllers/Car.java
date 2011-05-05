@@ -1,6 +1,9 @@
 package controllers;
 
 import java.util.List;
+import play.data.validation.Min;
+import play.data.validation.Required;
+import play.data.validation.Valid;
 import play.mvc.Controller;
 
 /**
@@ -47,14 +50,22 @@ public class Car extends Controller {
      */
     public static void edit(Long id)
     {
-        render();
+        models.Car car = models.Car.findById(id);
+        render(car);
     }
     
-    public static void edit(Long id, String name, int cost){
-        models.Car car = models.Car.findById(id);
-        car.name = name;
-        car.cost = cost;
-        car.save();
+    public static void editCar(Long id, @Required String name, @Required @Min(0) Integer cost){
+        models.Car carEdited = models.Car.findById(id);
+        
+        if (validation.hasErrors()) {
+            params.flash(); // add http parameters to the flash scope
+            validation.keep(); // keep the errors for the next request
+            edit(carEdited.id);
+        }
+        
+        carEdited.name = name;
+        carEdited.cost = cost;
+        carEdited.save();
         
         redirect("/car/list");
     }
