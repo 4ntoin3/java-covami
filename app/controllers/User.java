@@ -43,19 +43,26 @@ public class User extends Controller {
     }
 
     public static void editProfile(@Valid models.User user) {
-        models.User userLog = User.connected();
+        models.User userEdited = User.connected();
 
         if (validation.hasErrors()) {
             params.flash(); // add http parameters to the flash scope
             validation.keep(); // keep the errors for the next request
-            render("/user/profile.html", userLog);
+            redirect("/user/profile");
+        }
+        
+        if(models.User.find("byEmail", user.email).first() != null && !models.User.find("byEmail", user.email).first().equals(userEdited)){
+            validation.addError("user.email", "email used");
+            params.flash(); // add http parameters to the flash scope
+            validation.keep(); // keep the errors for the next request
+            redirect("/user/profile");
         }
 
-        userLog.email = user.email;
-        userLog.password = user.password;
-        userLog.firstname = user.firstname;
-        userLog.lastname = user.lastname;
-        userLog.save();
+        userEdited.email = user.email;
+        userEdited.password = user.password;
+        userEdited.firstname = user.firstname;
+        userEdited.lastname = user.lastname;
+        userEdited.save();
 
         redirect("/user/profile");
     }
