@@ -8,7 +8,7 @@ $(document).ready(function(){
      * @action Return to personnal dashboard
      */
     $('.cancelButton').bind('click', function(){
-        window.location.replace("/");
+        window.location.replace("/"+(document.location.href).split("/")[3]);
     });
     
     $('.addCarButton').bind('click', function(){
