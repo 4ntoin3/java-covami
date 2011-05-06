@@ -1,0 +1,51 @@
+#{extends 'main.html' /}
+#{set title: play.i18n.Messages.get('car.edit.title') /}
+#{set subtitle: play.i18n.Messages.get('car.edit.subtitle') /}
+
+<div class="mainForm">
+#{form @car.editCar(car.id)}
+
+    #{ifErrors}
+    <p class="error">
+        Il y a une erreur de saisie
+    </p>
+       #{errors}
+       <li>${error}</li>
+        #{/errors}
+    #{/ifErrors}
+    <div class="message">
+        &{'car.edit.message'} :
+    </div>
+
+    <label for="fieldName">&{'field.name'}</label>
+    <div class="formField">
+        #{if flash['name'] == null}
+        <input type="text" name="name" id="fieldName" value="${car.name}"/>        
+        #{/if}
+        #{else}
+        <input type="text" name="name" id="fieldName" value="${flash['name']}"/>
+        #{/else}
+        <span class="error">#{error 'name' /}</span>
+    </div>
+    
+    <label for="fieldCost">&{'field.cost'}</label>
+    <div class="formField">
+        #{if flash['cost'] == null}
+        <input type="text" name="cost" id="fieldcost" value="${car.cost}"/>        
+        #{/if}
+        #{else}
+        <input type="text" name="cost" id="fieldcost" value="${flash['cost']}"/>
+        #{/else}
+        <span class="error">#{error 'cost' /}</span>
+    </div>          
+
+    <div class="fieldButtonValidation">
+        <button type="button" name="btnCancel" class="withPix pix16_cancel">&{'buttons.annuler'}</button>
+        <button type="submit" name="btnValidation" class="withPix pix16_valid">&{'buttons.valider'}</button>
+        <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+    #{/form}
+</div>
+<p></p>

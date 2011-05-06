@@ -23,17 +23,21 @@ public class User extends Model {
     public String password;
     
     @Required
-    public String fullname;
+    public String firstname;
+    
+    @Required
+    public String lastname;
     
     @OneToMany
     public List<User> friends;
     
     public boolean isAdmin;
 
-    public User(String email, String password, String fullname) {
+    public User(String email, String password, String firstname, String lastname) {
         this.email = email;
         this.password = password;
-        this.fullname = fullname;
+        this.firstname = firstname;
+        this.lastname = lastname;
     }
 
     public static User connect(String email, String password) {

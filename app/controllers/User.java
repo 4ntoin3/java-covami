@@ -1,10 +1,11 @@
 package controllers;
 
 import play.mvc.*;
+import play.data.validation.*;
 
 @With(Secure.class)
 public class User extends Controller {
-    
+
     /**
      * Action par défaut
      */
@@ -37,23 +38,48 @@ public class User extends Controller {
      */
     public static void profile()
     {
-        render(User.connected());
+        models.User user = User.connected();
+        render(user);
+    }
+
+    public static void editProfile(@Valid models.User user) {
+        models.User userEdited = User.connected();
+
+        if (validation.hasErrors()) {
+            params.flash(); // add http parameters to the flash scope
+            validation.keep(); // keep the errors for the next request
+            redirect("/user/profile");
+        }
+        
+        if(models.User.find("byEmail", user.email).first() != null && !models.User.find("byEmail", user.email).first().equals(userEdited)){
+            validation.addError("user.email", "email used");
+            params.flash(); // add http parameters to the flash scope
+            validation.keep(); // keep the errors for the next request
+            redirect("/user/profile");
+        }
+
+        userEdited.email = user.email;
+        userEdited.password = user.password;
+        userEdited.firstname = user.firstname;
+        userEdited.lastname = user.lastname;
+        userEdited.save();
+
+        redirect("/user/profile");
     }
 
     /**
      * Page d'inscription au service
      */
-    public static void subscribe()
-    {        
+    public static void subscribe() {
         render();
     }
-    
-    public static void subscribe(String email, String password, String fullname){
-        new models.User(email, password, fullname).save();
-        
+
+    public static void subscribe(String email, String password, String firstname, String lastname) {
+        new models.User(email, password, firstname, lastname).save();
+
         redirect("/login");
     }
-            
+
     public static models.User connected() {
         models.User user = models.User.find("byEmail", Security.connected()).first();
         return user;

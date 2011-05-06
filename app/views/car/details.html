@@ -1,0 +1,29 @@
+#{extends 'main.html' /}
+#{set title: play.i18n.Messages.get('car.detail.title') /}
+#{set subtitle: play.i18n.Messages.get('car.detail.subtitle') /}
+
+<table>
+    <thead>
+        <tr>
+            <th class="table_col_action">&{'car.detail.col.actions'}</th>
+            <th>&{'car.detail.col.label'}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>&{'field.carname'}</td>
+            <td>${car.name}</td>
+        </tr>
+        <tr>
+            <td>&{'field.carconsomation'}</td>
+            <td>${car.cost}</td>
+        </tr>
+        
+        #{list items:ways, as:'way'}
+        <tr>
+            <td>${way.startCity?.name} => ${way.finishCity?.name}</td>
+            <td>distance : ${way?.distance}</td>
+        </tr>        
+        #{/list}
+    </tbody>
+</table>

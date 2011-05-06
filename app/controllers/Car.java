@@ -1,6 +1,9 @@
 package controllers;
 
 import java.util.List;
+import javax.persistence.Query;
+import play.data.validation.*;
+import play.db.jpa.JPA;
 import play.mvc.Controller;
 
 /**
@@ -45,16 +48,24 @@ public class Car extends Controller {
     /**
      * Edit une voiture pour le compte connecté
      */
-    public static void edit()
+    public static void edit(Long id)
     {
-        render();
+        models.Car car = models.Car.findById(id);
+        render(car);
     }
     
-    public static void edit(int id, String name, int cost){
-        models.Car car = models.Car.findById(id);
-        car.name = name;
-        car.cost = cost;
-        car.save();
+    public static void editCar(Long id, @Required String name, @Required @Min(0) Integer cost){
+        models.Car carEdited = models.Car.findById(id);
+        
+        if (validation.hasErrors()) {
+            params.flash(); // add http parameters to the flash scope
+            validation.keep(); // keep the errors for the next request
+            edit(carEdited.id);
+        }
+        
+        carEdited.name = name;
+        carEdited.cost = cost;
+        carEdited.save();
         
         redirect("/car/list");
     }
@@ -62,7 +73,7 @@ public class Car extends Controller {
     /**
      * Supprime une voiture pour le compte connecté
      */
-    public static void delete(int id)
+    public static void delete(Long id)
     {
         models.Car car = models.Car.findById(id);
         car.delete();
@@ -73,10 +84,14 @@ public class Car extends Controller {
     /**
      * Affiche les informations d'une voiture
      */
-    public static void details(int id)
+    public static void details(Long id)
     {
         models.Car car = models.Car.findById(id);
-        render(car);
+        List<models.Way> ways = models.Way.find("byCar", car).fetch();
+        Query q = JPA.em().createQuery ("SELECT SUM(w.distance) FROM Way w WHERE car.id ="+car.id);
+        Number totalDistance = (Number) q.getSingleResult();
+        System.out.println("distance :"+totalDistance);
+        render(car, ways);
     }
     
 }

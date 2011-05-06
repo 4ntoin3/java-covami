@@ -1,10 +1,12 @@
 package controllers;
 
+import play.mvc.Controller;
+
 /**
  *
  * @author pierregaste
  */
-public class Way extends CRUD {
+public class Way extends Controller {
     
     /**
      * Action par défaut

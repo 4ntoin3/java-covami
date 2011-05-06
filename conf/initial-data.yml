@@ -1,25 +1,66 @@
 User(bob):
     email:          bob@gmail.com
     password:       secret
-    fullname:       Bob
+    firstname:      Bob
+    lastname:       LEBRUNT
     isAdmin:        true
     
 User(jeff):
     email:          jeff@gmail.com
     password:       secret
-    fullname:       Jeff    
+    firstname:      Jeff    
+    lastname:       ROBERT
     
-Car(firstBobCar):
-    name:          clio
-    cost:          2
-    owner:         bob
+Car(clio):
+    name:           clio
+    cost:           2
+    owner:          bob
  
-Car(secondBobCar):
-    name:         twingo
-    cost:          1
-    owner:         bob
+Car(twingo):
+    name:           twingo
+    cost:           1
+    owner:          bob
              
-Car(firstJeffCar):
-    name:          picasso
-    cost:          2
-    owner:         jeff
+Car(picasso):
+    name:           picasso
+    cost:           2
+    owner:          jeff
+    
+City(paris):
+    name:           paris
+    codeINSEE:      001
+
+City(marseille):
+    name:           marseille
+    codeINSEE:      002
+    
+City(bordeaux):
+    name:           bordeaux
+    codeINSEE:      003
+    
+Way(parisMarseille):
+    startCity:      paris
+    finishCity:     marseille
+    driver:         bob
+    passenger:      jeff
+    distance:       500
+    car:            clio
+    placeAvailable: 1
+    
+Way(marseilleParis):
+    startCity:      marseille
+    finishCity:     paris
+    driver:         bob
+    passenger:      jeff
+    distance:       500
+    car:            clio
+    placeAvailable: 1
+    
+Way(parisBordeaux):
+    startCity:      paris
+    finishCity:     bordeaux
+    driver:         jeff
+    passenger:      bob
+    distance:       400
+    car:            twingo
+    placeAvailable: 1

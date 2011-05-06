@@ -23,7 +23,7 @@ public class CarTest extends UnitTest {
     @Test
     public void createCar() {
         //Create a new User and Save it
-        User bob = new User("bob@gmail.com", "secret", "Bob").save();
+        User bob = new User("bob@gmail.com", "secret", "Bob", "").save();
 
         //Create a new Car
         new Car("clio", 2, bob).save();

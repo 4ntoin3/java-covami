@@ -37,6 +37,7 @@ car.add=Ajouter une voiture
 car.woutDriver=Conducteur non compris
 car.litterForKms=Litres pour 100Km
 car.editForEachWay=Editable pour chaque trajet
+
 # Car > Add
 car.add.subtitle=Ajouter l'un de vos véhicules en toute simplicité !
 
