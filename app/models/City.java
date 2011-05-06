@@ -5,12 +5,14 @@
 package models;
 
 import java.awt.Point;
+import javax.persistence.Entity;
 import play.db.jpa.Model;
 
 /**
  *
  * @author Antoine
  */
+@Entity
 public class City extends Model{
     
     public String name;
@@ -21,6 +23,7 @@ public class City extends Model{
     public City(String name, int codeINSEE, Point gpsPosition) {
         this.name = name;
         this.codeINSEE = codeINSEE;
-        this.gpsPosition = gpsPosition;
+        this.pxPosition = new Point();
+        this.gpsPosition = gpsPosition;        
     }
 }
