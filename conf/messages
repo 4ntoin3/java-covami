@@ -2,6 +2,10 @@
 # For example, for French create a messages.fr file
 #
 
+# General
+defautValue=Valeur par défaut
+
+
 isAdmin=User is a admin
 
 secure.username=Adresse email
@@ -19,6 +23,9 @@ field.email=Adresse Email
 field.firstname=Prénom
 field.lastname=Nom
 field.password=Mot de passe
+field.carname=Nom de la voiture
+field.carcapacity=Places disponibles
+field.carconsomation=Consommation estimée
 
 # User > Profile
 user.profile.title=Mon profil
@@ -27,6 +34,11 @@ user.profile.message=Modifiez votre profil en éditant les champs suivants
 
 # Car
 car.add=Ajouter une voiture
+car.woutDriver=Conducteur non compris
+car.litterForKms=Litres pour 100Km
+car.editForEachWay=Editable pour chaque trajet
+# Car > Add
+car.add.subtitle=Ajouter l'un de vos véhicules en toute simplicité !
 
 # Car > List
 car.list.title=Mes Voitures

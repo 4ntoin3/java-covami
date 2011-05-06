@@ -64,10 +64,18 @@ button.withPix {
     margin-left: 5px;
     width: 630px;
 }
-.mainForm .formField input {
+.mainForm .formField input,
+.mainForm .formField select {
     font-size: 15px;
     padding: 2px;
     border: 1px solid #CCC;
+    float: left;
+}
+.mainForm .formField .message {
+    margin: 0px;
+    float: left;
+    padding: 3px 0px 0px 10px;
+    font-style: italic;
 }
 .mainForm .fieldButtonValidation {
     clear: both;

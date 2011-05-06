@@ -1,0 +1,40 @@
+#{extends 'main.html' /}
+#{set title: play.i18n.Messages.get('car.add') /}
+#{set subtitle: play.i18n.Messages.get('car.add.subtitle') /}
+
+<form method="POST" action="" name="" class="mainForm">
+    <label for="fieldCarname">&{'field.carname'}</label>
+    <div class="formField">
+        <input type="text" name="fieldCarname" id="fieldCarname"/>
+    </div>
+
+    <label for="fieldCarcapacity">&{'field.carcapacity'}</label>
+    <div class="formField">
+        <select name="fieldCarcapacity" id="fieldCarcapacity">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4" selected>4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+        </select>
+        <p class="message">&{'car.woutDriver'}. &{'defautValue'}, &{'car.editForEachWay'}.</p>
+    </div>
+
+    <label for="fieldCarconsomation">&{'field.carconsomation'}</label>
+    <div class="formField">
+        <input type="text" name="fieldCarconsomation" id="fieldCarconsomation" />
+        <p class="message">&{'car.litterForKms'}.</p>
+    </div>
+
+    <div class="fieldButtonValidation">
+        <button type="button" name="btnCancel" class="cancelButton withPix pix16_cancel">&{'buttons.annuler'}</button>
+        <button type="submit" name="btnValidation" class="withPix pix16_valid">&{'buttons.valider'}</button>
+        <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+</form>
+<p></p>
