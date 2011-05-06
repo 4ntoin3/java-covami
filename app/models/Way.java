@@ -20,9 +20,11 @@ import play.db.jpa.Model;
 @Entity
 public class Way extends Model {
     
+    @ManyToOne
     @Required
     public City startCity;
     
+    @ManyToOne
     @Required
     public City finishCity;
     
@@ -39,6 +41,7 @@ public class Way extends Model {
     @Required
     public DateTime dateHourStart;
     
+    @ManyToOne
     @Required
     public Car car;
     
