@@ -1,9 +1,9 @@
 package controllers;
 
 import java.util.List;
-import play.data.validation.Min;
-import play.data.validation.Required;
-import play.data.validation.Valid;
+import javax.persistence.Query;
+import play.data.validation.*;
+import play.db.jpa.JPA;
 import play.mvc.Controller;
 
 /**
@@ -87,7 +87,11 @@ public class Car extends Controller {
     public static void details(Long id)
     {
         models.Car car = models.Car.findById(id);
-        render(car);
+        List<models.Way> ways = models.Way.find("byCar", car).fetch();
+        Query q = JPA.em().createQuery ("SELECT SUM(w.distance) FROM Way w WHERE car.id ="+car.id);
+        Number totalDistance = (Number) q.getSingleResult();
+        System.out.println("distance :"+totalDistance);
+        render(car, ways);
     }
     
 }
