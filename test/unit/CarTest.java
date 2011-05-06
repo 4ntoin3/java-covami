@@ -26,7 +26,7 @@ public class CarTest extends UnitTest {
         User bob = new User("bob@gmail.com", "secret", "Bob", "").save();
 
         //Create a new Car
-        new Car("clio", 2, bob).save();
+        new Car("clio", 4, 2, bob).save();
 
         //Test that the car has been created
         assertEquals(1, Car.count());
@@ -40,6 +40,6 @@ public class CarTest extends UnitTest {
         assertNotNull(firstCar);
         assertEquals(bob, firstCar.owner);
         assertEquals("clio", firstCar.name);
-        assertEquals(2, firstCar.cost);
+        assertEquals(new Integer(2), firstCar.cost);
     }
 }

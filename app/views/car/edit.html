@@ -9,33 +9,61 @@
     <p class="error">
         Il y a une erreur de saisie
     </p>
-       #{errors}
-       <li>${error}</li>
-        #{/errors}
     #{/ifErrors}
     <div class="message">
         &{'car.edit.message'} :
     </div>
 
-    <label for="fieldName">&{'field.name'}</label>
+    <label for="fieldCarname">&{'field.carname'}</label>
     <div class="formField">
         #{if flash['name'] == null}
-        <input type="text" name="name" id="fieldName" value="${car.name}"/>        
+        <input type="text" name="name" id="fieldCarname" value="${car.name}"/>        
         #{/if}
         #{else}
-        <input type="text" name="name" id="fieldName" value="${flash['name']}"/>
+        <input type="text" name="name" id="fieldCarname" value="${flash['name']}"/>
         #{/else}
         <span class="error">#{error 'name' /}</span>
     </div>
     
-    <label for="fieldCost">&{'field.cost'}</label>
+    <label for="fieldCarcapacity">&{'field.carcapacity'}</label>
+    <div class="formField">
+        #{if flash['nbPlace'] == null}
+        <select name="nbPlace" id="fieldCarcapacity" value="${car.nbPlace}"/>
+            <option value="1" #{if car.nbPlace == 1}selected#{/if}>1</option>
+            <option value="2" #{if car.nbPlace == 2}selected#{/if}>2</option>
+            <option value="3" #{if car.nbPlace == 3}selected#{/if}>3</option>
+            <option value="4" #{if car.nbPlace == 4}selected#{/if}>4</option>
+            <option value="5" #{if car.nbPlace == 5}selected#{/if}>5</option>
+            <option value="6" #{if car.nbPlace == 6}selected#{/if}>6</option>
+            <option value="7" #{if car.nbPlace == 7}selected#{/if}>7</option>
+            <option value="8" #{if car.nbPlace == 8}selected#{/if}>8</option>
+        </select>
+        <p class="message">&{'car.woutDriver'}. &{'defautValue'}, &{'car.editForEachWay'}.</p>
+        #{/if}
+        #{else}
+        <select name="nbPlace" id="fieldCarcapacity" value="${flash['car.nbPlace']}"/>
+            <option value="1" #{if flash["car.nbPlace"]== 1}selected#{/if}>1</option>
+            <option value="2" #{if flash["car.nbPlace"]== 2}selected#{/if}>2</option>
+            <option value="3" #{if flash["car.nbPlace"]== 3}selected#{/if}>3</option>
+            <option value="4" #{if flash["car.nbPlace"]== 4}selected#{/if}>4</option>
+            <option value="5" #{if flash["car.nbPlace"]== 5}selected#{/if}>5</option>
+            <option value="6" #{if flash["car.nbPlace"]== 6}selected#{/if}>6</option>
+            <option value="7" #{if flash["car.nbPlace"]== 7}selected#{/if}>7</option>
+            <option value="8" #{if flash["car.nbPlace"]== 8}selected#{/if}>8</option>
+        </select>
+        <p class="message">&{'car.woutDriver'}. &{'defautValue'}, &{'car.editForEachWay'}.</p>
+        #{/else}
+    </div>
+    
+    <label for="fieldCarconsomation">&{'field.carconsomation'}</label>
     <div class="formField">
         #{if flash['cost'] == null}
-        <input type="text" name="cost" id="fieldcost" value="${car.cost}"/>        
+        <input type="text" name="cost" id="fieldCarconsomation" value="${car.cost}"/>        
         #{/if}
         #{else}
         <input type="text" name="cost" id="fieldcost" value="${flash['cost']}"/>
         #{/else}
+        <p class="message">&{'car.litterForKms'}.</p>
         <span class="error">#{error 'cost' /}</span>
     </div>          
 

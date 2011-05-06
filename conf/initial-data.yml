@@ -13,16 +13,19 @@ User(jeff):
     
 Car(clio):
     name:           clio
+    nbPlace:        4
     cost:           2
     owner:          bob
  
 Car(twingo):
     name:           twingo
+    nbPlace:        4
     cost:           1
     owner:          bob
              
 Car(picasso):
     name:           picasso
+    nbPlace:        8
     cost:           2
     owner:          jeff
     
