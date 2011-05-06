@@ -39,9 +39,16 @@ public class Car extends Controller {
         render();
     }
     
-    public static void add(String name, int cost){               
-        new models.Car(name, cost, User.connected()).save();
+    public static void addCar(@Required String name, @Required @Min(1) Integer nbPlace, @Required @Min(0) Integer cost){
         
+        if (validation.hasErrors()) {
+            params.flash(); // add http parameters to the flash scope
+            validation.keep(); // keep the errors for the next request
+            add();
+        }
+        
+        new models.Car(name, nbPlace, cost, User.connected()).save();
+
         redirect("/car/list");
     }
     
@@ -54,7 +61,7 @@ public class Car extends Controller {
         render(car);
     }
     
-    public static void editCar(Long id, @Required String name, @Required @Min(0) Integer cost){
+    public static void editCar(Long id, @Required String name, @Required @Min(1) Integer nbPlace, @Required @Min(0) Integer cost){
         models.Car carEdited = models.Car.findById(id);
         
         if (validation.hasErrors()) {
@@ -64,6 +71,7 @@ public class Car extends Controller {
         }
         
         carEdited.name = name;
+        carEdited.nbPlace = nbPlace;
         carEdited.cost = cost;
         carEdited.save();
         

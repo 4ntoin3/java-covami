@@ -2,31 +2,41 @@
 #{set title: play.i18n.Messages.get('car.add') /}
 #{set subtitle: play.i18n.Messages.get('car.add.subtitle') /}
 
-<form method="POST" action="" name="" class="mainForm">
+<div class="mainForm">
+#{form @car.addCar()}
+
+    #{ifErrors}
+    <p class="error">
+        Il y a une erreur de saisie
+    </p>    
+    #{/ifErrors}
+
     <label for="fieldCarname">&{'field.carname'}</label>
     <div class="formField">
-        <input type="text" name="fieldCarname" id="fieldCarname"/>
+        <input type="text" name="name" id="fieldCarname" value="${flash['name']}"/>
+        <span class="error">#{error 'car.name' /}</span>
     </div>
 
     <label for="fieldCarcapacity">&{'field.carcapacity'}</label>
     <div class="formField">
-        <select name="fieldCarcapacity" id="fieldCarcapacity">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4" selected>4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
+        <select name="nbPlace" id="fieldCarcapacity"/>
+            <option value="1" #{if flash["nbPlace"]== 1}selected#{/if}>1</option>
+            <option value="2" #{if flash["nbPlace"]== 2}selected#{/if}>2</option>
+            <option value="3" #{if flash["nbPlace"]== 3}selected#{/if}>3</option>
+            <option value="4" #{if flash["nbPlace"]== 4}selected#{/if}>4</option>
+            <option value="5" #{if flash["nbPlace"]== 5}selected#{/if}>5</option>
+            <option value="6" #{if flash["nbPlace"]== 6}selected#{/if}>6</option>
+            <option value="7" #{if flash["nbPlace"]== 7}selected#{/if}>7</option>
+            <option value="8" #{if flash["nbPlace"]== 8}selected#{/if}>8</option>
         </select>
         <p class="message">&{'car.woutDriver'}. &{'defautValue'}, &{'car.editForEachWay'}.</p>
     </div>
 
     <label for="fieldCarconsomation">&{'field.carconsomation'}</label>
     <div class="formField">
-        <input type="text" name="fieldCarconsomation" id="fieldCarconsomation" />
+        <input type="text" name="cost" id="fieldCarconsomation"  value="${flash['cost']}"/>
         <p class="message">&{'car.litterForKms'}.</p>
+        <span class="error">#{error 'cost' /}</span>
     </div>
 
     <div class="fieldButtonValidation">
@@ -36,5 +46,6 @@
     </div>
 
     <div class="clear"></div>
-</form>
+#{/form}
+</div>
 <p></p>
