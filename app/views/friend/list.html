@@ -1,3 +1,39 @@
 #{extends 'main.html' /}
 #{set title:'Mes Amis' /}
 #{set more_infos:'Gérer vos amis et trouvez en de nouveaux !' /}
+
+<table>
+    <thead>
+        <tr>
+            <th class="table_col_action">&{'friend.list.col.actions'}</th>
+            <th>&{'friend.list.col.label'}</th>
+        </tr>
+    </thead>
+    <tbody>
+        #{if friends == null}
+        <tr>
+            <td class="table_empty" colspan=2>
+                &{'friend.list.empty'}.<br/>
+                <a href="@{friend.add}">&{'friend.list.add_first'}!</a>
+            </td>
+        </tr>
+        #{/if}
+        #{else}
+        #{list items:friends, as:'friend'}
+        <tr>
+            <td class="table_col_action">
+                <a href="@{user.detail(friend.id)}" title="&{'friend.list.detail_me'}">
+                    <img src="@{'public/images/icons/24/detail.png'}" alt="&{'friend.list.detail_me'}" />
+                </a>
+                <a href="@{friend.delete(friend.id)}" title="&{'friend.list.delete_me'}">
+                    <img src="@{'public/images/icons/24/delete.png'}" alt="&{'friend.list.delete_me'}" />
+                </a>
+            </td>
+            <td>
+                ${friend.firstname} ${friend.lastname}
+            </td>
+        </tr>
+        #{/list}
+        #{/else}
+    </tbody>
+</table>

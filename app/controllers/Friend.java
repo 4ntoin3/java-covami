@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.List;
 import play.mvc.Controller;
 
 /**
@@ -19,30 +20,44 @@ public class Friend extends Controller {
      * Liste les amis du compte connecté
      */
     public static void list() {
-        render();
+        List<models.User> friends = User.connected().friends;
+        
+        render(friends);
     }
     
     /**
      * Ajouter un nouvel ami pour le compte connecté
-     */
-    public static void add()
-    {
-        render();
+     */   
+    public static void add(Long id){
+        models.User user = User.connected();
+        models.User friend = models.User.findById(id);
+        
+        user.friends.add(friend);
+        user.save();
+        
+        redirect("friend/list");
     }
     
     /**
      * Supprimer une relation d'amitité pour le compte connecté
-     */
-    public static void delete()
-    {
-        render();
+     */ 
+    public static void delete(Long id){
+        models.User user = User.connected();
+        models.User friend = models.User.findById(id);
+        
+        user.friends.remove(friend);
+        user.save();
+        
+        redirect("friend/list");
     }
     
     /**
      * Recherhcer de nouveaux amis
      */
-    public static void search()
+    public static void search(String str)
     {
-        render();
+        List<User> friends = models.User.find("byEmailLikeOrFirstnameLikeOrLastnameLike", "%"+str+"%", "%"+str+"%", "%"+str+"%").fetch();
+        
+        redirect("/friend/list", friends);
     }
 }
