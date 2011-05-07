@@ -3,6 +3,7 @@ User(bob):
     password:       secret
     firstname:      Bob
     lastname:       LEBRUNT
+    friends:        [kevin, damien]
     isAdmin:        true
     
 User(jeff):
@@ -11,19 +12,33 @@ User(jeff):
     firstname:      Jeff    
     lastname:       ROBERT
     
-Car(clio):
+User(kevin):
+    email:          kevin@gmail.com
+    password:       secret
+    firstname:      Kevin
+    lastname:       DUGLAND
+    friends:        [bob]
+    
+User(damien):
+    email:          damien@gamail.com
+    password:       secret
+    firstname:      damien
+    lastname:       DUBATEAU
+    firends:        [bob]
+    
+Car(clioBob):
     name:           clio
     nbPlace:        4
     cost:           2
     owner:          bob
  
-Car(twingo):
+Car(twingoBob):
     name:           twingo
     nbPlace:        4
     cost:           1
     owner:          bob
              
-Car(picasso):
+Car(picassoJeff):
     name:           picasso
     nbPlace:        8
     cost:           2
@@ -47,7 +62,7 @@ Way(parisMarseille):
     driver:         bob
     passenger:      jeff
     distance:       500
-    car:            clio
+    car:            clioBob
     placeAvailable: 1
     
 Way(marseilleParis):
@@ -56,7 +71,7 @@ Way(marseilleParis):
     driver:         bob
     passenger:      jeff
     distance:       500
-    car:            clio
+    car:            clioBob
     placeAvailable: 1
     
 Way(parisBordeaux):
@@ -65,5 +80,5 @@ Way(parisBordeaux):
     driver:         jeff
     passenger:      bob
     distance:       400
-    car:            twingo
+    car:            twingoJeff
     placeAvailable: 1
