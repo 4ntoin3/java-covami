@@ -38,7 +38,7 @@
             <!-- Meu de navigation -->
             <ul id="menu">
                 <!-- Items pour connectés -->
-                #{if secure == null}
+                #{if controllers.Security.connected == true}
                 <li><a class="${request.action == 'User.dashboard' ? 'current' : ''}" href="@{User.dashboard}">HOME</a></li>
                 <li><a class="${request.controller == 'Map' ? 'current' : ''}" href="@{Carte.index}">CARTE</a></li>
                 <li><a class="${request.controller == 'Way' ? 'current' : ''}" href="@{Way.index}">TRAJETS</a></li>
@@ -49,8 +49,8 @@
                 #{/if}
 
                 <!-- Items pour non connectés -->
-                #{if secure != null}
-                <li><a class="${request.action == 'User.login' ? 'current' : ''}" href="@{User.login}">CONNEXION</a></li>
+                #{if controllers.Security.connected == false}
+                <li><a class="${request.action == 'Secure.login' ? 'current' : ''}" href="@{Secure.login}">CONNEXION</a></li>
                 <li><a class="${request.action == 'Application.subscribe' ? 'current' : ''}" href="@{Application.subscribe}">INSCRIPTION</a></li>
                 #{/if}
 
