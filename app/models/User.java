@@ -28,7 +28,7 @@ public class User extends Model {
     @Required
     public String lastname;
     
-    @OneToMany
+    @ManyToMany
     public List<User> friends;
     
     public boolean isAdmin;
