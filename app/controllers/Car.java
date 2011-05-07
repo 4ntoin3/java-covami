@@ -57,11 +57,19 @@ public class Car extends Controller {
      */
     public static void edit(Long id)
     {
-        models.Car car = models.Car.findById(id);
+        checkIfTheCarBelongTheUserConnected(id);
+        models.Car car = models.Car.findById(id);              
         render(car);
+    }
+
+    private static void checkIfTheCarBelongTheUserConnected(Long id) {
+        if(!models.Car.find("byOwner", User.connected()).fetch().contains(models.Car.findById(id))){
+            redirect("/car/list");
+        }
     }
     
     public static void editCar(Long id, @Required String name, @Required @Min(1) Integer nbPlace, @Required @Min(0) Integer cost){
+        checkIfTheCarBelongTheUserConnected(id);
         models.Car carEdited = models.Car.findById(id);
         
         if (validation.hasErrors()) {
@@ -83,6 +91,7 @@ public class Car extends Controller {
      */
     public static void delete(Long id)
     {
+        checkIfTheCarBelongTheUserConnected(id);
         models.Car car = models.Car.findById(id);
         car.delete();
         
@@ -94,6 +103,7 @@ public class Car extends Controller {
      */
     public static void details(Long id)
     {
+        checkIfTheCarBelongTheUserConnected(id);
         models.Car car = models.Car.findById(id);
         List<models.Way> ways = models.Way.find("byCar", car).fetch();
         Query q = JPA.em().createQuery ("SELECT SUM(w.distance) FROM Way w WHERE car.id ="+car.id);
