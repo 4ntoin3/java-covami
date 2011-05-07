@@ -41,6 +41,11 @@ public class User extends Controller {
         models.User user = User.connected();
         render(user);
     }
+    
+    public static void detail(Long id){
+        models.User user = models.User.findById(id);
+        render(user);
+    }
 
     public static void editProfile(@Valid models.User user) {
         models.User userEdited = User.connected();

@@ -1,0 +1,26 @@
+#{extends 'main.html' /}
+#{set title: play.i18n.Messages.get('user.profile.title') /}
+#{set subtitle: play.i18n.Messages.get('user.profile.subtitle') /}
+
+<div class="mainForm">
+    <label for="fieldEmail">&{'field.email'}</label>
+    <div class="formField">
+        <input type="text" name="user.email" id="fieldEmail" disabled value="${user.email}"/>        
+        <span class="error">#{error 'user.email' /}</span>
+    </div>
+
+    <label for="fieldFirstname">&{'field.firstname'}</label>
+    <div class="formField">
+        <input type="text" name="user.firstname" id="fieldFirstname" disabled value="${user.firstname}"/>        
+        <span class="error">#{error 'user.firstname' /}</span>
+    </div>
+    
+        <label for="fieldLastname">&{'field.lastname'}</label>
+    <div class="formField">
+        <input type="text" name="user.lastname" id="fieldLastname" disabled value="${user.lastname}"/>        
+        <span class="error">#{error 'user.lastname' /}</span>
+    </div>
+
+    <div class="clear"></div>
+</div>
+<p></p>
