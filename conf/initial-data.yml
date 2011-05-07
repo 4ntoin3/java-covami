@@ -1,3 +1,15 @@
+User(kevin):
+    email:          kevin@gmail.com
+    password:       secret
+    firstname:      Kevin
+    lastname:       DUGLAND
+    
+User(damien):
+    email:          damien@gamail.com
+    password:       secret
+    firstname:      damien
+    lastname:       DUBATEAU
+    
 User(bob):
     email:          bob@gmail.com
     password:       secret
@@ -11,20 +23,6 @@ User(jeff):
     password:       secret
     firstname:      Jeff    
     lastname:       ROBERT
-    
-User(kevin):
-    email:          kevin@gmail.com
-    password:       secret
-    firstname:      Kevin
-    lastname:       DUGLAND
-    friends:        [bob]
-    
-User(damien):
-    email:          damien@gamail.com
-    password:       secret
-    firstname:      damien
-    lastname:       DUBATEAU
-    firends:        [bob]
     
 Car(clioBob):
     name:           clio
@@ -80,5 +78,5 @@ Way(parisBordeaux):
     driver:         jeff
     passenger:      bob
     distance:       400
-    car:            twingoJeff
+    car:            picassoJeff
     placeAvailable: 1
