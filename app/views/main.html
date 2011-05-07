@@ -51,7 +51,7 @@
                 <!-- Items pour non connectés -->
                 #{if secure != null}
                 <li><a class="${request.action == 'User.login' ? 'current' : ''}" href="@{User.login}">CONNEXION</a></li>
-                <li><a class="${request.action == 'User.subscribe' ? 'current' : ''}" href="@{User.subscribe}">INSCRIPTION</a></li>
+                <li><a class="${request.action == 'Application.subscribe' ? 'current' : ''}" href="@{Application.subscribe}">INSCRIPTION</a></li>
                 #{/if}
 
                 <!-- Items pour un role administrateur -->

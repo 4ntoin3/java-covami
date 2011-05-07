@@ -67,19 +67,6 @@ public class User extends Controller {
         redirect("/user/profile");
     }
 
-    /**
-     * Page d'inscription au service
-     */
-    public static void subscribe() {
-        render();
-    }
-
-    public static void subscribe(String email, String password, String firstname, String lastname) {
-        new models.User(email, password, firstname, lastname).save();
-
-        redirect("/login");
-    }
-
     public static models.User connected() {
         models.User user = models.User.find("byEmail", Security.connected()).first();
         return user;
