@@ -1,3 +1,51 @@
 #{extends 'main.html' /}
 #{set title:'Les Trajets' /}
 #{set more_infos:'Tous les trajets du réseau Covami' /}
+
+<div class="btn_add_item">
+    <button class="addButton withPix pix16_way_add">&{'way.add'}</button>
+    <div style="clear: both;"></div>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th class="table_col_action">&{'way.list.col.actions'}</th>
+            <th>&{'way.list.col.label'}</th>
+            <th>&{'way.list.col.nbPassenger'}</th>
+        </tr>
+    </thead>
+    <tbody>
+        #{if ways == null}
+        <tr>
+            <td class="table_empty" colspan=2>
+                &{'way.list.empty'}.<br/>
+                <a href="@{way.add}">&{'way.list.add_first'}!</a>
+            </td>
+        </tr>
+        #{/if}
+        #{else}
+        #{list items:ways, as:'way'}
+        <tr>
+            <td class="table_col_action">
+                <a href="@{way.details(way.id)}" title="&{'way.list.detail_me'}">
+                    <img src="@{'public/images/icons/24/detail.png'}" alt="&{'way.list.detail_me'}" />
+                </a>
+                <a href="@{way.edit(way.id)}" title="&{'way.list.edit_me'}">
+                    <img src="@{'public/images/icons/24/edit.png'}" alt="&{'way.list.edit_me'}" />
+                </a>
+                <a href="@{way.cancel(way.id)}" title="&{'way.list.cancel_me'}">
+                    <img src="@{'public/images/icons/24/delete.png'}" alt="&{'way.list.delete_me'}" />
+                </a>
+            </td>
+            <td>
+                ${way.startCity.name} => ${way.finishCity.name}
+            </td>
+            <td>
+                ${way.passengers.size()}
+            </td>
+        </tr>
+        #{/list}
+        #{/else}
+    </tbody>
+</table>
