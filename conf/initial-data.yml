@@ -58,7 +58,7 @@ Way(parisMarseille):
     startCity:      paris
     finishCity:     marseille
     driver:         bob
-    passenger:      jeff
+    passengers:     [jeff, kevin]
     distance:       500
     car:            clioBob
     placeAvailable: 1
@@ -67,7 +67,7 @@ Way(marseilleParis):
     startCity:      marseille
     finishCity:     paris
     driver:         bob
-    passenger:      jeff
+    passengers:     [jeff]
     distance:       500
     car:            clioBob
     placeAvailable: 1
@@ -76,7 +76,7 @@ Way(parisBordeaux):
     startCity:      paris
     finishCity:     bordeaux
     driver:         jeff
-    passenger:      bob
+    passengers:     [bob]
     distance:       400
     car:            picassoJeff
     placeAvailable: 1
