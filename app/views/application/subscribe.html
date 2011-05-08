@@ -1,6 +1,6 @@
 #{extends 'main.html' /}
-#{set title:'Inscription à Covami' /}
-#{set more_infos:'Créer votre compte Covami rapidement, gratuitement et simplement !' /}
+#{set title: play.i18n.Messages.get('subscribe') /}
+#{set subtitle: play.i18n.Messages.get('subscribe.subtitle') /}
 
 <div class="mainForm">
 #{form @Application.addUser()}
@@ -18,7 +18,7 @@
     
     <label for="fieldPassword">&{'field.password'}</label>
     <div class="formField">
-        <input type="text" name="user.password" id="fieldPassword" value="${flash['user.password']}"/>
+        <input type="password" name="user.password" id="fieldPassword" value="${flash['user.password']}"/>
         <span class="error">#{error 'user.password' /}</span>
     </div>
 

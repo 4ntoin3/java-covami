@@ -1,47 +1,39 @@
 #{extends 'main.html' /}
-<!--<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/secure.css'}" />-->
-#{set title:'Bienvenue sur Covami !' /}
-#{set more_infos:'Pour commencer à utiliser le service, merci de vous authentifier.' /}
+#{set title: play.i18n.Messages.get('login') /}
+#{set subtitle: play.i18n.Messages.get('login.subtitle') /}
 
 <div class="mainForm">
 
     <div class="message">
-        Vous n'avez pas encore de compte ? <a href="@{Application.subscribe}">Inscrivez vous !</a>
+        &{'login.notYetLogin'} <a href="@{Application.subscribe}">&{'login.subscribe'}</a>
     </div>
+    #{form @authenticate()}
+        #{if flash.error}
+            <p class="error">&{flash.error}</p>
+        #{/if}
+        #{if flash.success}
+            <p class="success">&{flash.success}</p>
+        #{/if}
+        
+        <label for="username">&{'login.username'}</label>
+        <div class="formField">
+            <input type="text" name="username" id="username" value="${flash.username}" />
+        </div>
 
-	#{form @authenticate()}
+        <label for="password">&{'login.password'}</label>
+        <div class="formField">
+            <input type="password" name="password" id="password" value="" />
+        </div>
 
-		#{if flash.error}
-    <p class="error">
-        &{flash.error}
-    </p>
-		#{/if}
-		#{if flash.success}
-    <p class="success">
-        &{flash.success}
-    </p>
-		#{/if}
+        <label for="remember">&{'login.remember'}</label>
+        <div class="formField">
+            <input style="margin: 6px 0;" type="checkbox" name="remember" id="remember" value="true" ${flash.remember ? 'checked="true"' : ''} />               
+        </div>
 
-
-    <label for="username">&{'secure.username'}</label>
-    <div class="formField">
-        <input type="text" name="username" id="username" value="${flash.username}" />
-    </div>
-
-    <label for="password">&{'secure.password'}</label>
-    <div class="formField">
-        <input type="password" name="password" id="password" value="" />
-    </div>
-
-    <label for="remember">&{'secure.remember'}</label>
-    <div class="formField">
-        <input style="margin: 6px 0;" type="checkbox" name="remember" id="remember" value="true" ${flash.remember ? 'checked="true"' : ''} />               
-    </div>
-
-    <div class="fieldButtonValidation">
-        <button type="submit" name="btnLogin" class="withPix pix16_login">&{'secure.signin'}</button>        
-        <div class="clear"></div>
-    </div>
-	#{/form}
+        <div class="fieldButtonValidation">
+            <button type="submit" name="btnLogin" class="withPix pix16_login">&{'login.signin'}</button>        
+            <div class="clear"></div>
+        </div>
+    #{/form}
 </div>
 

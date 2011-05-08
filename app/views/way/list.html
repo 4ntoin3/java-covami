@@ -1,9 +1,10 @@
 #{extends 'main.html' /}
-#{set title:'Les Trajets' /}
-#{set more_infos:'Tous les trajets du réseau Covami' /}
+#{set title: play.i18n.Messages.get('way.list.title') /}
+#{set subtitle: play.i18n.Messages.get('way.list.subtitle') /}
 
 <div class="btn_add_item">
-    <button class="addButton withPix pix16_way_add">&{'way.add'}</button>
+    <!-- @TODO Add a icon for button -->
+    <button class="addButton withPix pix16_way_add">&{'way.add.title'}</button>
     <div style="clear: both;"></div>
 </div>
 
@@ -18,7 +19,7 @@
     <tbody>
         #{if ways == null}
         <tr>
-            <td class="table_empty" colspan=2>
+            <td class="table_empty" colspan="3">
                 &{'way.list.empty'}.<br/>
                 <a href="@{way.add}">&{'way.list.add_first'}!</a>
             </td>
@@ -26,6 +27,7 @@
         #{/if}
         #{else}
         #{list items:ways, as:'way'}
+        <!-- @TODO La liste n'est pas affichée ... -->
         <tr>
             <td class="table_col_action">
                 <a href="@{way.details(way.id)}" title="&{'way.list.detail_me'}">

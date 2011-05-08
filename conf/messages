@@ -8,11 +8,6 @@ defautValue=Valeur par défaut
 
 isAdmin=User is a admin
 
-secure.username=Adresse email
-secure.password=Mot de passe
-secure.signin=Connexion
-secure.rembember=Se souvenir de moi
-
 
 # Buttons
 buttons.valider=Valider
@@ -53,3 +48,29 @@ car.list.delete_me=Cliquez ici pour supprimer cette voiture
 car.list.detail_me=Cliquez ici pour afficher plus d'information sur cette voiture
 car.list.empty=Aucune voiture pour le moment
 car.list.add_first=Cliquez ici pour ajouter votre première voiture
+
+
+# Application/Subscribe
+subscribe=Inscription à Covami
+subscribe.subtitle=Créer votre compte Covami rapidement, gratuitement et simplement
+
+# Secure/Login
+login=Bienvenue sur Covami !
+login.subtitle=Pour commencer à utiliser le service, merci de vous authentifier
+login.notYetLogin=Vous n'avez pas encore de compte ?
+login.subscribe=Inscrivez vous !
+login.username=Adresse email
+login.password=Mot de passe
+login.signin=Connexion
+login.remember=Se souvenir de moi
+
+
+# Way
+way.list.title=Les Trajets
+way.list.subtitle=Tous les trajets du réseau Covami
+way.list.col.actions=Actions
+way.list.col.label=Trajet
+way.list.col.nbPassenger=Nombre de passager
+way.list.empty=Aucun trajet pour le moment
+way.list.add_first=Cliquez ici pour ajouter le premier trajet
+way.add.title=Ajouter un nouveau trajet

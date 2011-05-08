@@ -25,7 +25,7 @@
         <div class="wrap background">
 
             <!-- Module de recherche pour les membres connectés -->
-            #{if secure == null}
+            #{if controllers.Security.connected == true}
             <div id="search">
                 <form action="">
                     <fieldset>
