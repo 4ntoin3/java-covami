@@ -11,7 +11,8 @@ $(document).ready(function(){
         window.location.replace("/"+(document.location.href).split("/")[3]);
     });
     
-    $('.addCarButton').bind('click', function(){
-        window.location.replace("/car/add");
+    $('.addButton').bind('click', function(){
+//        window.location.replace("/car/add");
+        window.location.replace("/"+(document.location.href).split("/")[3]+"/add");
     });
 });
