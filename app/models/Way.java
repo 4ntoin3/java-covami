@@ -6,9 +6,7 @@ package models;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import org.joda.time.DateTime;
 import play.data.validation.Required;
 import play.db.jpa.Model;
@@ -32,7 +30,7 @@ public class Way extends Model {
     @Required
     public User driver;
     
-    @OneToMany
+    @ManyToMany
     public List<User> passengers;
     
     @Required
