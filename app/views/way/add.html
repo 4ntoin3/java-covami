@@ -1,0 +1,69 @@
+#{extends 'main.html' /}
+#{set title: play.i18n.Messages.get('way.add') /}
+#{set subtitle: play.i18n.Messages.get('way.add.subtitle') /}
+
+<div class="mainForm">
+#{form @way.addWay()}
+
+    #{ifErrors}
+    <p class="error">
+        Il y a une erreur de saisie
+    </p>    
+    #{errors}
+    <li>$[error}</li>
+    #{/errors}
+    #{/ifErrors}
+
+    <label for="fieldWaystartCity">&{'field.waystartCity'}</label>
+    <div class="formField">
+        <select name="startCity" id="fieldWaystartCity"/>
+            #{list items:cities, as:'city'}
+                <option value=${city.id} #{if flash["startCity"]=="${city.id}"} selected #{/if}>${city.name}</option>
+            #{/list}
+        </select>
+    </div>
+    
+    <label for="fieldWayfinishCity">&{'field.wayfinishCity'}</label>
+    <div class="formField">
+        <select name="finishCity" id="fieldWayfinishCity"/>
+            #{list items:cities, as:'city'}
+                <option value=${city.id} #{if flash["finishCity"]=="${city.id}"} selected #{/if}>${city.name}</option>
+            #{/list}
+        </select>
+    </div>
+
+    <label for="fieldWaycar">&{'field.waycar'}</label>
+    <div class="formField">
+        <select name="car" id="fieldWaycar"/>
+            #{list items:cars, as:'car'}
+                <option value=${car.id} #{if flash["car"]=="${car.id}"} selected #{/if}>${car.name}</option>
+            #{/list}
+        </select>
+    </div>
+    
+    <label for="fieldWayplaceAvailable">&{'field.wayplaceAvailable'}</label>
+    <div class="formField">
+        <select name="placeAvailable" id="fieldCarcapacity"/>
+        #{list items:1..8, as:'i'}
+            <option value=${i} #{if flash["placeAvailable"]=="${i}"}selected#{/if}>${i}</option>
+        #{/list}
+        </select>
+    </div>
+    
+    <label for="fieldWaydateHourStart">&{'field.waydateHourStart'}</label>
+    <div class="formField">
+        <input type="date" name="dateStart" id="fieldWaydateStart"  value="${flash['dateStart']}"/>
+        <input type="time" name="hourStart" id="fieldWayhourStart"  value="${flash['hourStart']}"/>
+        <span class="error">#{error 'dateStart' /}</span>
+    </div>
+
+    <div class="fieldButtonValidation">
+        <button type="button" name="btnCancel" class="cancelButton withPix pix16_cancel">&{'buttons.annuler'}</button>
+        <button type="submit" name="btnValidation" class="withPix pix16_valid">&{'buttons.valider'}</button>
+        <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+#{/form}
+</div>
+<p></p>
