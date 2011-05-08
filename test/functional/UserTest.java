@@ -55,7 +55,7 @@ public class UserTest extends FunctionalTest {
 
     @Test
     public void testThatSubscribePageSecure() {
-        Response response = GET("/user/subscribe");
+        Response response = GET("/application/subscribe");
         assertStatus(302, response);
         assertHeaderEquals("Location", "http://localhost/login", response);
     }
