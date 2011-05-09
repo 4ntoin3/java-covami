@@ -16,27 +16,27 @@
 
     <label for="fieldWaystartCity">&{'field.waystartCity'}</label>
     <div class="formField">
-        <select name="startCity" id="fieldWaystartCity"/>
+        <select name="startCityId" id="fieldWaystartCity"/>
             #{list items:cities, as:'city'}
-                <option value=${city.id} #{if flash["startCity"]=="${city.id}"} selected #{/if}>${city.name}</option>
+                <option value=${city.id} #{if flash["startCityId"]=="${city.id}"} selected #{/if}>${city.name}</option>
             #{/list}
         </select>
     </div>
     
     <label for="fieldWayfinishCity">&{'field.wayfinishCity'}</label>
     <div class="formField">
-        <select name="finishCity" id="fieldWayfinishCity"/>
+        <select name="finishCityId" id="fieldWayfinishCity"/>
             #{list items:cities, as:'city'}
-                <option value=${city.id} #{if flash["finishCity"]=="${city.id}"} selected #{/if}>${city.name}</option>
+                <option value=${city.id} #{if flash["finishCityId"]=="${city.id}"} selected #{/if}>${city.name}</option>
             #{/list}
         </select>
     </div>
 
     <label for="fieldWaycar">&{'field.waycar'}</label>
     <div class="formField">
-        <select name="car" id="fieldWaycar"/>
+        <select name="carId" id="fieldWaycar"/>
             #{list items:cars, as:'car'}
-                <option value=${car.id} #{if flash["car"]=="${car.id}"} selected #{/if}>${car.name}</option>
+                <option value=${car.id} #{if flash["carId"]=="${car.id}"} selected #{/if}>${car.name}</option>
             #{/list}
         </select>
     </div>

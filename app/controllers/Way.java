@@ -1,7 +1,8 @@
 package controllers;
 
-import java.sql.Date;
+import java.awt.Point;
 import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 import models.*;
 import org.joda.time.DateTime;
@@ -14,7 +15,6 @@ import play.mvc.Controller;
  * @author pierregaste
  */
 public class Way extends Controller {
-
     /**
      * Action par défaut
      */
@@ -38,7 +38,7 @@ public class Way extends Controller {
         render(cities, cars);
     }
 
-    public static void addWay(@Required Integer startCity, @Required Integer finishCity, @Required @As("yyyy-MM-dd") Date dateStart, @Required @As("hh:mm") Time hourStart, @Required Integer car) {
+    public static void addWay(@Required Long startCityId, @Required Long finishCityId, @Required Long carId, @Required Integer placeAvailable, @Required @As("yyyy-MM-dd") Date dateStart) {
 
         if (validation.hasErrors()) {
             params.flash(); // add http parameters to the flash scope
@@ -46,7 +46,15 @@ public class Way extends Controller {
             add();
         }
         
-//        new models.Way(City.findById(startCity), City.findById(finishCity), 300, new DateTime, null, null, car)
+        City startCity = City.findById(startCityId);
+        City finishCity = City.findById(finishCityId);
+        models.User driver = User.connected();
+        Double distance = new Double(300);
+        models.Car car = models.Car.findById(carId);
+        
+        new models.Way(startCity, finishCity, driver, distance, dateStart, car, placeAvailable).save();
+        
+        redirect("/way/list");
     }
 
     public static void edit(Long id) {
@@ -59,7 +67,9 @@ public class Way extends Controller {
     }
 
     public static void cancel(Long id) {
-        render();
+        models.Way.findById(id)._delete();
+        
+        redirect("/way/list");
     }
 
     public static void search() {

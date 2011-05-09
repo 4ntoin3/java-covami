@@ -5,9 +5,9 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
-import org.joda.time.DateTime;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
@@ -34,19 +34,19 @@ public class Way extends Model {
     public List<User> passengers;
     
     @Required
-    public double distance;
+    public Double distance;
     
     @Required
-    public DateTime dateHourStart;
+    public Date dateHourStart;
     
     @ManyToOne
     @Required
     public Car car;
     
     @Required
-    public int placeAvailable;
+    public Integer placeAvailable;
 
-    public Way(City startCity, City finishCity, User driver, double distance, DateTime dateHourStart, Car car, int placeAvailable) {
+    public Way(City startCity, City finishCity, User driver, Double distance, Date dateHourStart, Car car, Integer placeAvailable) {
         this.startCity = startCity;
         this.finishCity = finishCity;
         this.driver = driver;
