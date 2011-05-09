@@ -96,22 +96,22 @@ button.withPix {
 
 /* Tableaux
 ------------------------------------------------- */
-table {
+.covami_table {
     border: 1px solid #DFDFDF;
     margin: 10px 0px;
     border-collapse: collapse;
     width: 100%;
 }
-th {
+.covami_table th {
     background-color: #DFDFDF;
     text-shadow: 1px 1px 1px #FFF;
     color: #AF1515;
     border: 1px solid #CCC;
 }
-tr {
+.covami_table tr {
     
 }
-td {
+.covami_table td {
     border: 1px solid #CCC;
 }
 .table_col_action {
