@@ -52,8 +52,8 @@
     
     <label for="fieldWaydateHourStart">&{'field.waydateHourStart'}</label>
     <div class="formField">
-        <input type="date" name="dateStart" id="fieldWaydateStart"  value="${flash['dateStart']}"/>
-        <input type="time" name="hourStart" id="fieldWayhourStart"  value="${flash['hourStart']}"/>
+        <input class="datePickerField" type="text" name="dateStart" id="fieldWaydateStart"  value="${flash['dateStart']}"/>
+        <input class="timePickerField" type="text" name="hourStart" id="fieldWayhourStart"  value="${flash['hourStart']}"/>
         <span class="error">#{error 'dateStart' /}</span>
     </div>
 
