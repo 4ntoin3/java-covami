@@ -1,12 +1,12 @@
 package controllers;
 
-import java.awt.Point;
 import java.sql.Time;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import models.*;
-import org.joda.time.DateTime;
 import play.data.binding.As;
+import play.data.validation.Match;
 import play.data.validation.Required;
 import play.mvc.Controller;
 
@@ -38,8 +38,9 @@ public class Way extends Controller {
         render(cities, cars);
     }
 
-    public static void addWay(@Required Long startCityId, @Required Long finishCityId, @Required Long carId, @Required Integer placeAvailable, @Required @As("yyyy-MM-dd") Date dateStart) {
+    public static void addWay(@Required Long startCityId, @Required Long finishCityId, @Required Long carId, @Required Integer placeAvailable, @Required @As("dd/MM/yyyy") Date dateStart, @Required String hourStart) {
 
+        validation.match(hourStart, "\\d\\d:\\d\\d").message("heure non valide");
         if (validation.hasErrors()) {
             params.flash(); // add http parameters to the flash scope
             validation.keep(); // keep the errors for the next request
@@ -49,11 +50,12 @@ public class Way extends Controller {
         City startCity = City.findById(startCityId);
         City finishCity = City.findById(finishCityId);
         models.User driver = User.connected();
-        Double distance = new Double(300);
+        Double distance = new Double(0);
+        dateStart.setHours(Integer.parseInt(hourStart.split(":")[0]));
+        dateStart.setMinutes(Integer.parseInt(hourStart.split(":")[1]));
         models.Car car = models.Car.findById(carId);
         
-        new models.Way(startCity, finishCity, driver, distance, dateStart, car, placeAvailable).save();
-        
+        new models.Way(startCity, finishCity, driver, distance, dateStart, car, placeAvailable).save();                
         redirect("/way/list");
     }
 
