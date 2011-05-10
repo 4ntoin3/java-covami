@@ -5,6 +5,7 @@
 package models;
 
 import java.awt.Point;
+import java.util.List;
 import javax.persistence.Entity;
 import play.db.jpa.Model;
 
@@ -16,14 +17,21 @@ import play.db.jpa.Model;
 public class City extends Model{
     
     public String name;
-    public int codeINSEE;
-    public Point pxPosition;
-    public Point gpsPosition;
+    public Integer codeINSEE;
+    public Double latitude;
+    public Double longitude;
+    public Point pxPosition;    
 
-    public City(String name, int codeINSEE, Point gpsPosition) {
+    public City(String name, Integer codeINSEE, Double latitude, Double longitude) {
         this.name = name;
         this.codeINSEE = codeINSEE;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.pxPosition = new Point();
-        this.gpsPosition = gpsPosition;        
+    }
+    
+    public List<Road> roads(){                 
+        
+        return Road.find("byFirstcityOrSecondcity", this).fetch();
     }
 }
