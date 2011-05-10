@@ -42,19 +42,19 @@
             <ul id="menu">
                 <!-- Items pour connectés -->
                 #{if controllers.Security.connected == true}
-                <li><a class="${request.action == 'User.dashboard' ? 'current' : ''}" href="@{User.dashboard}">HOME</a></li>
-                <li><a class="${request.controller == 'Carte' ? 'current' : ''}" href="@{Carte.index}">CARTE</a></li>
-                <li><a class="${request.controller == 'Way' ? 'current' : ''}" href="@{Way.index}">TRAJETS</a></li>
-                <li><a class="${request.controller == 'Friend' ? 'current' : ''}" href="@{Friend.index}">AMIS</a></li>
-                <li><a class="${request.controller == 'Car' ? 'current' : ''}" href="@{Car.index}">MES VOITURES</a></li>
-                <li><a class="${request.action == 'User.profile' ? 'current' : ''}" href="@{User.profile}">MON PROFIL</a></li>
-                <li><a href="@{User.logout}">DECONNEXION</a></li>
+                <li><a class="${request.action == 'User.dashboard' ? 'current' : ''}" href="@{User.dashboard}">&{'menu.home'}</a></li>
+                <li><a class="${request.controller == 'Carte' ? 'current' : ''}" href="@{Carte.index}">&{'menu.map'}</a></li>
+                <li><a class="${request.controller == 'Way' ? 'current' : ''}" href="@{Way.index}">&{'menu.ways'}</a></li>
+                <li><a class="${request.controller == 'Friend' ? 'current' : ''}" href="@{Friend.index}">&{'menu.friend'}</a></li>
+                <li><a class="${request.controller == 'Car' ? 'current' : ''}" href="@{Car.index}">&{'menu.cars'}</a></li>
+                <li><a class="${request.action == 'User.profile' ? 'current' : ''}" href="@{User.profile}">&{'menu.profile'}</a></li>
+                <li><a href="@{User.logout}">&{'menu.deconnexion'}</a></li>
                 #{/if}
 
                 <!-- Items pour non connectés -->
                 #{if controllers.Security.connected == false}
-                <li><a class="${request.action == 'Secure.login' ? 'current' : ''}" href="@{Secure.login}">CONNEXION</a></li>
-                <li><a class="${request.action == 'Application.subscribe' ? 'current' : ''}" href="@{Application.subscribe}">INSCRIPTION</a></li>
+                <li><a class="${request.action == 'Secure.login' ? 'current' : ''}" href="@{Secure.login}">&{'menu.connexion'}</a></li>
+                <li><a class="${request.action == 'Application.subscribe' ? 'current' : ''}" href="@{Application.subscribe}">&{'menu.inscription'}</a></li>
                 #{/if}
 
                 <!-- Items pour un role administrateur -->
@@ -81,22 +81,22 @@
                     <img src="@{'public/images/logo_footer.png'}" alt="" /> 
                 </div>
                 <div class="col">
-                    <h2>A propos de Covami</h2>
-                    <p>Covami est une plateforme entièrement gratuite de covoiturage entre amis. Elle vous permet de gérer vos contacts et de planifier tous vos voyages en toute simplicité !</p>
+                    <h2>&{'footer.about.title'}</h2>
+                    <p>&{'footer.about.content'}</p>
                 </div>
                 <div class="col last">
-                    <h2>Les Auteurs</h2>
-                    <p>Covami est une solution développé par <a href="http://www.twitter.com/4ntoin3">Antoine Esnault</a> et <a href="http://www.twitter.com/PierreGaste">Pierre Gasté</a> lors d'un projet d'année à l'EPSI Nantes.</p>
+                    <h2>&{'footer.authors.title'}</h2>
+                    <p>C&{'footer.authors.content'}</p>
                 </div>
                 <div id="footer">
-                    <p>Copyright &copy; 2011. Covami. Tous droits réservés.</p>
+                    <p>&{'footer.copyright'}</p>
                 </div>
             </div>
         </div>
 
         <audio controls style="display: none;"> 
             <source src="/public/media/call_on_me.ogg" /> 
-            <p class="warning">Le format *.ogg n'est pas pris en charge par votre navigateur</p> 
+            <p class="warning">&{'error.oggNotPlay'}</p> 
         </audio>
         
         <script type="text/javascript">

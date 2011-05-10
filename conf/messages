@@ -1,6 +1,10 @@
-##################################
-## Messages de l'appli Covami   ##
-##################################
+##########################################################
+##                                                      ##
+## Messages de l'appli Covami                           ##
+## You can specialize this file for each language.      ##
+## For example, for English create a messages.en file   ##
+##                                                      ##
+##########################################################
 
 # [Section Button]
 btn.valider=Valider
@@ -12,12 +16,56 @@ btn.add.car=Ajouter une voiture
 btn.search.friend=Rechercher de nouveaux amis
 btn.search.way=Rechercher des trajets existants
 btn.inscription=S'inscrire
-# [/Section Button]
+
+# [Section Title]
+title.dashboard=Tableau de bord utilisateur
+title.map=Carte des trajets en cours
+title.way=Les Trajets
+title.way.add=Ajouter un nouveau trajet
+title.friend=Mes amis
+title.car=Mes Véhicules
+title.car.add=Ajouter une voiture
+title.car.edit=Éditer votre voiture
+title.car.details=Fiche de la voiture
+title.profile=Votre profil
+title.user.details=Fiche Utilisateur
+
+# [Section Menu]
+menu.home=ACCUEIL
+menu.connexion=CONNEXION
+menu.inscription=INSCRIPTION
+menu.deconnexion=DECONNEXION
+menu.map=CARTE
+menu.ways=TRAJETS
+menu.friend=MES AMIS
+menu.profile=MON PROFIL
+menu.cars=MES VOITURES
+menu.cars=MES VOITURES
+menu.cars=MES VOITURES
+
+# [Section Subtitle]
+subtitle.dashboard=Retrouvez ici l'ensemble de votre activité sur le réseau !
+subtitle.map=Retrouvez ici l'évolution des trajets de vos amis en temps réel !
+subtitle.way=Créer, éditer ou rejoignez de nouveaux trajets !
+subtitle.way.add=Pour proposer un nouveau trajet, remplissez le formulaire ci-dessous.
+subtitle.friend=Gérer vos amis et rechercher en de nouveaux !
+subtitle.car=Gérer vos voitures et ajouter en de nouvelles !
+subtitle.car.add=Ajouter l'un de vos véhicules en remplissant le formulaire ci-dessous.
+subtitle.car.edit=Modifier les informations de votre véhicule en modifiant le formulaire ci-dessous.
+subtitle.car.details=Retrouvez ici toutes les informations du véhicule
+subtitle.profile=Editer votre profil en modifiant le formulaire ci-dessous.
+subtitle.user.details=Retrouvez ici le profil public de l'utilisateur.
+
+# [Section Footer]
+footer.copyright=Copyright &copy; 2011. Covami. Tous droits réservés.
+footer.about.title=A propos de Covami
+footer.about.content=Covami est une plateforme entièrement gratuite de covoiturage entre amis. Elle vous permet de gérer vos contacts et de planifier tous vos voyages en toute simplicité !
+footer.authors.title=Les Auteurs
+footer.authors.content=ovami est une solution développé par <a href="http://www.twitter.com/4ntoin3">Antoine Esnault</a> et <a href="http://www.twitter.com/PierreGaste">Pierre Gasté</a> lors d'un projet d'année à l'EPSI Nantes.
 
 
-# You can specialize this file for each language.
-# For example, for French create a messages.fr file
-#
+# [Section Error]
+error.oggNotPlay=Le format *.ogg n'est pas pris en charge par votre navigateur
 
 # General
 defautValue=Valeur par défaut
@@ -25,10 +73,6 @@ defautValue=Valeur par défaut
 
 isAdmin=User is a admin
 
-
-# Buttons
-buttons.valider=Valider
-buttons.annuler=Annuler
 
 # Fields
 field.email=Adresse Email
