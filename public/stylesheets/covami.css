@@ -138,6 +138,12 @@ button.withPix {
 .pix16_car_add {
     background-image: url(../images/icons/car_add.png);
 }
+.pix16_way_add {
+    background-image: url(../images/icons/way_add.png);
+}
+.pix16_way_search {
+    background-image: url(../images/icons/way_search.png);
+}
 .pix16_login {
     background-image: url(../images/icons/login.png);
 }
