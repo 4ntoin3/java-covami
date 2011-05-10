@@ -43,7 +43,7 @@
                 <!-- Items pour connectés -->
                 #{if controllers.Security.connected == true}
                 <li><a class="${request.action == 'User.dashboard' ? 'current' : ''}" href="@{User.dashboard}">HOME</a></li>
-                <li><a class="${request.controller == 'Map' ? 'current' : ''}" href="@{Carte.index}">CARTE</a></li>
+                <li><a class="${request.controller == 'Carte' ? 'current' : ''}" href="@{Carte.index}">CARTE</a></li>
                 <li><a class="${request.controller == 'Way' ? 'current' : ''}" href="@{Way.index}">TRAJETS</a></li>
                 <li><a class="${request.controller == 'Friend' ? 'current' : ''}" href="@{Friend.index}">AMIS</a></li>
                 <li><a class="${request.controller == 'Car' ? 'current' : ''}" href="@{Car.index}">MES VOITURES</a></li>
