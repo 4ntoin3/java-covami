@@ -128,7 +128,7 @@ button.withPix {
 
 /* Bloc bouton d'ajout sur page de liste
 ------------------------------------------------- */
-.btn_add_item button {
+.rightTopButtonBox button {
     float: right;
 }
 

@@ -1,3 +1,20 @@
+##################################
+## Messages de l'appli Covami   ##
+##################################
+
+# [Section Button]
+btn.valider=Valider
+btn.annuler=Annuler
+btn.connexion=Connexion
+btn.add=Ajouter
+btn.add.way=Ajouter un trajet
+btn.add.car=Ajouter une voiture
+btn.search.friend=Rechercher de nouveaux amis
+btn.search.way=Rechercher des trajets existants
+btn.inscription=S'inscrire
+# [/Section Button]
+
+
 # You can specialize this file for each language.
 # For example, for French create a messages.fr file
 #
@@ -61,7 +78,6 @@ login.notYetLogin=Vous n'avez pas encore de compte ?
 login.subscribe=Inscrivez vous !
 login.username=Adresse email
 login.password=Mot de passe
-login.signin=Connexion
 login.remember=Se souvenir de moi
 
 
