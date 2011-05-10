@@ -33,6 +33,9 @@ public class Way extends Model {
     @ManyToMany
     public List<User> passengers;
     
+    @ManyToMany
+    public List<City> cities;
+    
     @Required
     public Double distance;
     
@@ -51,6 +54,7 @@ public class Way extends Model {
         this.finishCity = finishCity;
         this.driver = driver;
         this.passengers = new ArrayList<User>();
+        this.cities = new ArrayList<City>();                
         this.distance = distance;
         this.dateHourStart = dateHourStart;
         this.car = car;

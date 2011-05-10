@@ -4,7 +4,6 @@
  */
 package unit;
 
-import java.awt.Point;
 import java.util.Date;
 import models.Car;
 import models.City;
@@ -28,8 +27,8 @@ public class WayTest extends UnitTest {
 
     @Test
     public void createAndRetrieveWay() {
-        City startCity = new City("paris", 1, new  Point(1, 4)).save();
-        City finishCity = new City("marseille", 2, new  Point(1, 4)).save();
+        City startCity = new City("paris", 1, 2.0, 3.0).save();
+        City finishCity = new City("marseille", 2, 5.0, 7.0).save();
         User driver = new User("bob@gmail.com", "secret", "bob", "LEBRUNT").save();
         Double distance = new Double(300);
         Date dateHourStart = new Date();
