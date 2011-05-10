@@ -1,0 +1,22 @@
+.car {
+    float: left;
+    border: 1px solid #CCC;
+    margin: 4px;
+}
+.car .illustration {
+    float: left;
+    width: 64px;
+    height: 64px;
+    margin: 3px;
+}
+.car .description {
+    float: left;
+    margin: 10px 0px 0px 0px;
+    text-align: center;
+    min-width: 145px;
+}
+.car .description h4 {
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px #FFF;
+    padding: 0px 0px 5px 0px;
+}

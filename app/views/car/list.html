@@ -1,47 +1,54 @@
 #{extends 'main.html' /}
 #{set title: play.i18n.Messages.get('title.car') /}
 #{set subtitle: play.i18n.Messages.get('subtitle.car') /}
+#{set 'moreStyles'}
+#{stylesheet 'car.css' /}
+#{/set}
 
 <div class="rightTopButtonBox">
     <button class="addButton withPix pix16_car_add">&{'btn.add.car'}</button>
     <div style="clear: both;"></div>
 </div>
 
-<table class="covami_table">
-    <thead>
-        <tr>
-            <th class="table_col_action">&{'car.list.col.actions'}</th>
-            <th>&{'car.list.col.label'}</th>
-        </tr>
-    </thead>
-    <tbody>
-        #{if cars == null}
-        <tr>
-            <td class="table_empty" colspan=2>
-                &{'car.list.empty'}.<br/>
-                <a href="@{Car.add}">&{'car.list.add_first'}!</a>
-            </td>
-        </tr>
+#{if cars == null}
+    &{'car.list.empty'}.<br/>
+    <a href="@{Car.add}">&{'car.list.add_first'}!</a>
+#{/if}
+#{else}
+#{list items:cars, as:'car'}
+<div class="car">
+    <div class="illustration">
+        #{if car.name == "twingo"}
+        <img src="@{'public/images/cars/twingo.png'}" alt="" />
         #{/if}
+        #{elseif car.name == "clio"}
+        <img src="@{'public/images/cars/clio.png'}" alt="" />
+        #{/elseif}
+        #{elseif car.name == "espace"}
+        <img src="@{'public/images/cars/espace.png'}" alt="" />
+        #{/elseif}
+        #{elseif car.name == "picasso"}
+        <img src="@{'public/images/cars/picasso.png'}" alt="" />
+        #{/elseif}
         #{else}
-        #{list items:cars, as:'car'}
-        <tr>
-            <td class="table_col_action">
-                <a href="@{Car.details(car.id)}" title="&{'car.list.detail_me'}">
-                    <img src="@{'public/images/icons/24/detail.png'}" alt="&{'car.list.detail_me'}" />
-                </a>
-                <a href="@{Car.edit(car.id)}" title="&{'car.list.edit_me'}">
-                    <img src="@{'public/images/icons/24/edit.png'}" alt="&{'car.list.edit_me'}" />
-                </a>
-                <a href="@{Car.delete(car.id)}" title="&{'car.list.delete_me'}">
-                    <img src="@{'public/images/icons/24/delete.png'}" alt="&{'car.list.delete_me'}" />
-                </a>
-            </td>
-            <td>
-                ${car.name}
-            </td>
-        </tr>
-        #{/list}
+        <img src="@{'public/images/icons/64/car.png'}" alt="" />
         #{/else}
-    </tbody>
-</table>
+    </div>
+    <div class="description">
+        <h4>${car.name}</h4>
+        <a href="@{Car.details(car.id)}" title="&{'car.list.detail_me'}">
+            <img src="@{'public/images/icons/24/detail.png'}" alt="&{'car.list.detail_me'}" />
+        </a>
+        <a href="@{Car.edit(car.id)}" title="&{'car.list.edit_me'}">
+            <img src="@{'public/images/icons/24/edit.png'}" alt="&{'car.list.edit_me'}" />
+        </a>
+        <a href="@{Car.delete(car.id)}" title="&{'car.list.delete_me'}">
+            <img src="@{'public/images/icons/24/delete.png'}" alt="&{'car.list.delete_me'}" />
+        </a>
+    </div>
+    <div class="clear"></div>
+</div>
+#{/list}
+#{/else}
+
+<div class="clear"></div>
