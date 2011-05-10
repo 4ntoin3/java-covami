@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    
     /**
      * Cancel button
      * 
@@ -31,11 +30,11 @@ $(document).ready(function(){
      */
     $('.timePickerField').timepicker({
         timeOnlyTitle: 'Heure de départ',
-	timeText: 'Départ a',
-	hourText: 'Heure',
-	minuteText: 'Minute',
-	currentText: 'Heure actuelle',
-	closeText: 'Valider'
+        timeText: 'Départ a',
+        hourText: 'Heure',
+        minuteText: 'Minute',
+        currentText: 'Heure actuelle',
+        closeText: 'Valider'
     });
     
     /**
@@ -47,5 +46,35 @@ $(document).ready(function(){
      */
     $('.datePickerField').datepicker({
         minDate: 0
+    });
+    
+    /**
+     * Focus on search field of Covami
+     * 
+     * @element searchField input name
+     * @event Focus on
+     * @action Erase placeholder if nesserary
+     */
+    $('input[name=searchField]').bind("focus", function(){
+        var that = $(this);
+                
+        if (that.val() == msg.search.invite) {
+            that.val("");
+        }
+    });
+
+    /**
+     * Blur of search field of Covami 
+     * 
+     * @element searchField input name
+     * @event Blur out
+     * @action Replace text if nesserary
+     */
+    $('input[name=searchField]').bind("blur", function(){
+        var that = $(this);
+                
+        if (that.val() == "") {
+            that.val(msg.search.invite);
+        }
     });
 });
