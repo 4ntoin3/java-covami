@@ -56,8 +56,10 @@ public class Friend extends Controller {
      */
     public static void search(String str)
     {
-        List<User> friends = models.User.find("byEmailLikeOrFirstnameLikeOrLastnameLike", "%"+str+"%", "%"+str+"%", "%"+str+"%").fetch();
-        
-        redirect("/friend/list", friends);
+        if(str == null || str.isEmpty()){
+            list();
+        }
+        List<User> friends = models.User.find("email like ? OR firstname like ? OR lastname like ?", "%"+str+"%", "%"+str+"%", "%"+str+"%").fetch();        
+        render("/friend/list.html", friends);
     }
 }
