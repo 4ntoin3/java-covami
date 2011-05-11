@@ -1,12 +1,8 @@
 package controllers;
 
-import java.sql.Time;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import models.*;
 import play.data.binding.As;
-import play.data.validation.Match;
 import play.data.validation.Required;
 import play.mvc.Controller;
 
@@ -26,14 +22,14 @@ public class Way extends Controller {
      * Listing des trajets
      */
     public static void list() {
-        List<models.Way> ways = models.Way.find("byDriver", User.connected()).fetch();
+        List<models.Way> ways = models.Way.find("driver = ? order by datehourstart", User.connected()).fetch();
         render(ways);
     }
 
     public static void add() {
 
-        List<City> cities = City.findAll();
-        List<models.Car> cars = models.Car.find("byOwner", User.connected()).fetch();
+        List<City> cities = City.find("order by name").fetch();
+        List<models.Car> cars = models.Car.find("owner = ? order by name", User.connected()).fetch();
 
         render(cities, cars);
     }
