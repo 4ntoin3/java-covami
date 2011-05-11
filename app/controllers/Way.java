@@ -55,7 +55,9 @@ public class Way extends Controller {
         dateStart.setMinutes(Integer.parseInt(hourStart.split(":")[1]));
         models.Car car = models.Car.findById(carId);
         
-        new models.Way(startCity, finishCity, driver, distance, dateStart, car, placeAvailable).save();                
+        models.Way way = new models.Way(startCity, finishCity, driver, distance, dateStart, car, placeAvailable);                
+        way.calculateWay();
+        way.save();
         redirect("/way/list");
     }
 
