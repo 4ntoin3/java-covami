@@ -55,27 +55,11 @@ public class Node implements Comparable {
     }
 
     /**
-     * Modifie le nooeud
-     * @param prevNode
-     */
-    public void setPrevNode(Node prevNode) {
-        this.prevNode = prevNode;
-    }
-
-    /**
      * Retourne la ville
      * @return sa ville
      */
     public City getCity() {
         return city;
-    }
-
-    /**
-     * Modifie la ville
-     * @param city
-     */
-    public void setCity(City city) {
-        this.city = city;
     }
 
     /**
@@ -87,27 +71,11 @@ public class Node implements Comparable {
     }
 
     /**
-     * Modifie la route
-     * @param nameRoad
-     */
-    public void setNameRoad(String nameRoad) {
-        this.nameRoad = nameRoad;
-    }
-
-    /**
      * Retourne la distance parcouru
      * @return sa distance parcouru
      */
     public double getDistanceCovored() {
         return distanceCovored;
-    }
-
-    /**
-     * Modifie la distance parcouru
-     * @param distanceCovored
-     */
-    public void setDistanceCovored(double distanceCovored) {
-        this.distanceCovored = distanceCovored;
     }
 
     /**
@@ -119,27 +87,11 @@ public class Node implements Comparable {
     }
 
     /**
-     * Modifie la distance entre la ville dans le noueud et la ville d'arrivé
-     * @param distanceEndCity
-     */
-    public void setDistanceEndCity(double distanceEndCity) {
-        this.distanceEndCity = distanceEndCity;
-    }
-
-    /**
      * Retourne le cout du noeud
      * @return son cout
      */
     public double getCost() {
         return cost;
-    }
-
-    /**
-     * Modifie le cout du noeud
-     * @param cost
-     */
-    public void setCost(double cost) {
-        this.cost = cost;
     }
 
     /**
@@ -166,5 +118,10 @@ public class Node implements Comparable {
         } else {
             return 0;
         }
+    }
+    
+    @Override
+    public String toString() {
+        return this.city.name + "; distanceEndCity: " + this.distanceEndCity + "; distanceCovored: " + this.distanceCovored + "; cost = " + this.cost+"\n";
     }
 }
