@@ -22,6 +22,17 @@ $(document).ready(function(){
     });
     
     /**
+     * Search button
+     * 
+     * @element searchButton class
+     * @event click
+     * @action Return to controller search
+     */
+    $('.searchButton').bind('click', function(){
+        window.location.replace("/"+(document.location.href).split("/")[3]+"/search");
+    });
+    
+    /**
      * Timepicker Field
      * 
      * @element timePickerField class
