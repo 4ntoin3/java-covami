@@ -409,6 +409,21 @@ Road(36):
     firstCity:      nimes
     secondCity:     salonDeProvence 
 
+Road(37):
+    name:           37
+    firstCity:      paris
+    secondCity:     troyes 
+
+Road(38):
+    name:           38
+    firstCity:      troyes
+    secondCity:     beauchemin
+
+Road(39):
+    name:           39
+    firstCity:      beauchemin
+    secondCity:     dijon
+
 Way(parisMarseille):
     startCity:      paris
     finishCity:     marseille
