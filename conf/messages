@@ -67,10 +67,14 @@ footer.authors.content=ovami est une solution développé par <a href="http://ww
 # [Section Error]
 error.oggNotPlay=Le format *.ogg n'est pas pris en charge par votre navigateur
 
-
-
 # [Section Recherche]
 search.invite=Recherche amis, trajets, voiture, ...
+
+# [Section Car]
+car.place=place
+car.consommation=consommation
+car.litreAuCent=l/100Km
+
 
 # General
 defautValue=Valeur par défaut
