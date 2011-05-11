@@ -153,3 +153,12 @@ button.withPix {
 .pix16_cancel {
     background-image: url(../images/icons/cancel.png);
 }
+
+/* Bloc de liste vide invitant à l'ajout
+------------------------------------------------- */
+.empty_add_first {
+    border: 1px solid rosybrown;
+    margin: 4px;
+    padding: 10px;
+    text-align: center;
+}

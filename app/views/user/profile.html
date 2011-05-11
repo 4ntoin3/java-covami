@@ -3,17 +3,14 @@
 #{set subtitle: play.i18n.Messages.get('subtitle.profile') /}
 
 <div class="mainForm">
-#{form @User.editProfile()}
+    #{form @User.editProfile()}
     #{ifErrors}
     <p class="error">
         Il y a une erreur de saisie
     </p>
     #{/ifErrors}
-    <div class="message">
-        &{'user.profile.message'} :
-    </div>
 
-    <label for="fieldEmail">&{'field.email'}</label>
+    <label for="fieldEmail">&{'user.email'}</label>
     <div class="formField">
         #{if flash['user.email'] == null}
         <input type="text" name="user.email" id="fieldEmail" value="${user.email}"/>        
@@ -23,8 +20,8 @@
         #{/else}
         <span class="error">#{error 'user.email' /}</span>
     </div>
-    
-    <label for="fieldPassword">&{'field.password'}</label>
+
+    <label for="fieldPassword">&{'user.password'}</label>
     <div class="formField">
         #{if flash['user.password'] == null}
         <input type="text" name="user.password" id="fieldPassword" value="${user.password}"/>        
@@ -35,7 +32,7 @@
         <span class="error">#{error 'user.password' /}</span>
     </div>
 
-    <label for="fieldFirstname">&{'field.firstname'}</label>
+    <label for="fieldFirstname">&{'user.firstname'}</label>
     <div class="formField">
         #{if flash['user.email'] == null}
         <input type="text" name="user.firstname" id="fieldFirstname" value="${user.firstname}"/>        
@@ -45,8 +42,8 @@
         #{/else}
         <span class="error">#{error 'user.firstname' /}</span>
     </div>
-    
-        <label for="fieldLastname">&{'field.lastname'}</label>
+
+    <label for="fieldLastname">&{'user.lastname'}</label>
     <div class="formField">
         #{if flash['user.email'] == null}
         <input type="text" name="user.lastname" id="fieldLastname" value="${user.lastname}"/>        

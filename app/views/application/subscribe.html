@@ -10,25 +10,25 @@
     </p>
     #{/ifErrors}
 
-    <label for="fieldEmail">&{'field.email'}</label>
+    <label for="fieldEmail">&{'user.email'}</label>
     <div class="formField">
         <input type="text" name="user.email" id="fieldEmail" value="${flash['user.email']}"/>
         <span class="error">#{error 'user.email' /}</span>
     </div>
     
-    <label for="fieldPassword">&{'field.password'}</label>
+    <label for="fieldPassword">&{'user.password'}</label>
     <div class="formField">
         <input type="password" name="user.password" id="fieldPassword" value="${flash['user.password']}"/>
         <span class="error">#{error 'user.password' /}</span>
     </div>
 
-    <label for="fieldFirstname">&{'field.firstname'}</label>
+    <label for="fieldFirstname">&{'user.firstname'}</label>
     <div class="formField">
         <input type="text" name="user.firstname" id="fieldFirstname" value="${flash['user.firstname']}"/>
         <span class="error">#{error 'user.firstname' /}</span>
     </div>
     
-        <label for="fieldLastname">&{'field.lastname'}</label>
+        <label for="fieldLastname">&{'user.lastname'}</label>
     <div class="formField">
         <input type="text" name="user.lastname" id="fieldLastname" value="${flash['user.lastname']}"/>
         <span class="error">#{error 'user.lastname' /}</span>

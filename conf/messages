@@ -63,7 +63,6 @@ footer.about.content=Covami est une plateforme entièrement gratuite de covoitur
 footer.authors.title=Les Auteurs
 footer.authors.content=ovami est une solution développé par <a href="http://www.twitter.com/4ntoin3">Antoine Esnault</a> et <a href="http://www.twitter.com/PierreGaste">Pierre Gasté</a> lors d'un projet d'année à l'EPSI Nantes.
 
-
 # [Section Error]
 error.oggNotPlay=Le format *.ogg n'est pas pris en charge par votre navigateur
 
@@ -72,52 +71,35 @@ search.invite=Recherche amis, trajets, voiture, ...
 
 # [Section Car]
 car.place=place
-car.consommation=consommation
+car.available_place=Places disponibles
+car.estimated_consommation=Consommation estimée
 car.litreAuCent=l/100Km
+car.name=Nom de la voiture
+car.without_driver=Conducteur non compris
+car.edit_for_each_way=Editable pour chaque trajet
+car.edit_me=Cliquez ici pour éditer cette voiture
+car.delete_me=Cliquez ici pour supprimer cette voiture
+car.detail_me=Cliquez ici pour afficher plus d'information sur cette voiture
+car.empty=Aucune voiture pour le moment
+car.add_first=Cliquez ici pour ajouter votre première voiture
+
+# [Section User]
+user.email=Adresse email
+user.firstname=Prénom
+user.lastname=Nom
+user.password=Mot de passe
+
+# [Section General]
+general.default_value=Valeur par défaut
 
 
-# General
-defautValue=Valeur par défaut
 
 
-isAdmin=User is a admin
+
+#isAdmin=User is a admin
 
 
-# Fields
-field.email=Adresse Email
-field.firstname=Prénom
-field.lastname=Nom
-field.password=Mot de passe
-field.carname=Nom de la voiture
-field.carcapacity=Places disponibles
-field.carconsomation=Consommation estimée
 
-# User > Profile
-user.profile.title=Mon profil
-user.profile.subtitle=Vous pouvez éditer toutes vos informations personnelles ici
-user.profile.message=Modifiez votre profil en éditant les champs suivants
-
-# Car
-car.add=Ajouter une voiture
-car.woutDriver=Conducteur non compris
-car.litterForKms=Litres pour 100Km
-car.editForEachWay=Editable pour chaque trajet
-
-# Car > Add
-car.add.subtitle=Ajouter l'un de vos véhicules en toute simplicité !
-
-# Car > List
-car.list.title=Mes Voitures
-car.list.subtitle=Gérer et ajouter vos voitures
-
-car.list.col.actions=Actions
-car.list.col.label=Libellé
-
-car.list.edit_me=Cliquez ici pour éditer cette voiture
-car.list.delete_me=Cliquez ici pour supprimer cette voiture
-car.list.detail_me=Cliquez ici pour afficher plus d'information sur cette voiture
-car.list.empty=Aucune voiture pour le moment
-car.list.add_first=Cliquez ici pour ajouter votre première voiture
 
 
 # Application/Subscribe

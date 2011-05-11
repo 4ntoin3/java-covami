@@ -11,8 +11,10 @@
 </div>
 
 #{if cars == null}
-    &{'car.list.empty'}.<br/>
-    <a href="@{Car.add}">&{'car.list.add_first'}!</a>
+    <div class="empty_add_first">
+        &{'car.empty'}.<br/>
+    <a href="@{Car.add}">&{'car.add_first'}!</a>
+    </div>
 #{/if}
 #{else}
 #{list items:cars, as:'car'}
@@ -20,14 +22,14 @@
     <div class="description">
         <h4>${car.name}</h4>
         <p><b>${car.nbPlace}</b> &{'car.place'}#{if car.nbPlace > 1}s#{/if} • <b>${car.cost}</b> &{'car.litreAuCent'}</p>
-        <a href="@{Car.details(car.id)}" title="&{'car.list.detail_me'}">
-            <img src="@{'public/images/icons/24/detail.png'}" alt="&{'car.list.detail_me'}" />
+        <a href="@{Car.details(car.id)}" title="&{'car.detail_me'}">
+            <img src="@{'public/images/icons/24/detail.png'}" alt="&{'car.detail_me'}" />
         </a>
-        <a href="@{Car.edit(car.id)}" title="&{'car.list.edit_me'}">
-            <img src="@{'public/images/icons/24/edit.png'}" alt="&{'car.list.edit_me'}" />
+        <a href="@{Car.edit(car.id)}" title="&{'car.edit_me'}">
+            <img src="@{'public/images/icons/24/edit.png'}" alt="&{'car.edit_me'}" />
         </a>
-        <a href="@{Car.delete(car.id)}" title="&{'car.list.delete_me'}">
-            <img src="@{'public/images/icons/24/delete.png'}" alt="&{'car.list.delete_me'}" />
+        <a href="@{Car.delete(car.id)}" title="&{'car.delete_me'}">
+            <img src="@{'public/images/icons/24/delete.png'}" alt="&{'car.delete_me'}" />
         </a>
     </div>
     <div class="clear"></div>

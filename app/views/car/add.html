@@ -11,26 +11,26 @@
     </p>    
     #{/ifErrors}
 
-    <label for="fieldCarname">&{'field.carname'}</label>
+    <label for="fieldCarname">&{'car.name'}</label>
     <div class="formField">
         <input type="text" name="name" id="fieldCarname" value="${flash['name']}"/>
         <span class="error">#{error 'name' /}</span>
     </div>
 
-    <label for="fieldCarcapacity">&{'field.carcapacity'}</label>
+    <label for="fieldCarcapacity">&{'car.available_place'}</label>
     <div class="formField">
         <select name="nbPlace" id="fieldCarcapacity"/>
         #{list items:1..8, as:'i'}
             <option value=${i} #{if flash["nbPlace"]=="${i}"}selected#{/if}>${i}</option>
         #{/list}
         </select>
-        <p class="message">&{'car.woutDriver'}. &{'defautValue'}, &{'car.editForEachWay'}.</p>
+        <p class="message">&{'car.without_driver'}. &{'general.default_value'}, &{'car.edit_for_each_way'}.</p>
     </div>
 
-    <label for="fieldCarconsomation">&{'field.carconsomation'}</label>
+    <label for="fieldCarconsomation">&{'car.estimated_consommation'}</label>
     <div class="formField">
         <input type="text" name="cost" id="fieldCarconsomation"  value="${flash['cost']}"/>
-        <p class="message">&{'car.litterForKms'}.</p>
+        <p class="message">&{'car.litreAuCent'}.</p>
         <span class="error">#{error 'cost' /}</span>
     </div>
 

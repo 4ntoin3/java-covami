@@ -7,33 +7,34 @@
     <div class="message">
         &{'login.notYetLogin'} <a href="@{Application.subscribe}">&{'login.subscribe'}</a>
     </div>
+    
     #{form @authenticate()}
-        #{if flash.error}
-            <p class="error">&{flash.error}</p>
-        #{/if}
-        #{if flash.success}
-            <p class="success">&{flash.success}</p>
-        #{/if}
-        
-        <label for="username">&{'login.username'}</label>
-        <div class="formField">
-            <input type="text" name="username" id="username" value="${flash.username}" />
-        </div>
+    #{if flash.error}
+    <p class="error">&{flash.error}</p>
+    #{/if}
+    #{if flash.success}
+    <p class="success">&{flash.success}</p>
+    #{/if}
 
-        <label for="password">&{'login.password'}</label>
-        <div class="formField">
-            <input type="password" name="password" id="password" value="" />
-        </div>
+    <label for="username">&{'login.username'}</label>
+    <div class="formField">
+        <input type="text" name="username" id="username" value="${flash.username}" />
+    </div>
 
-        <label for="remember">&{'login.remember'}</label>
-        <div class="formField">
-            <input style="margin: 6px 0;" type="checkbox" name="remember" id="remember" value="true" ${flash.remember ? 'checked="true"' : ''} />               
-        </div>
+    <label for="password">&{'login.password'}</label>
+    <div class="formField">
+        <input type="password" name="password" id="password" value="" />
+    </div>
 
-        <div class="fieldButtonValidation">
-            <button type="submit" name="btnLogin" class="withPix pix16_login">&{'btn.connexion'}</button>        
-            <div class="clear"></div>
-        </div>
+    <label for="remember">&{'login.remember'}</label>
+    <div class="formField">
+        <input style="margin: 6px 0;" type="checkbox" name="remember" id="remember" value="true" ${flash.remember ? 'checked="true"' : ''} />               
+    </div>
+
+    <div class="fieldButtonValidation">
+        <button type="submit" name="btnLogin" class="withPix pix16_login">&{'btn.connexion'}</button>        
+        <div class="clear"></div>
+    </div>
     #{/form}
 </div>
 
