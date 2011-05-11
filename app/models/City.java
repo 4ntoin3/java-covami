@@ -31,6 +31,6 @@ public class City extends Model{
     } 
     
     public List<Road> roads(){                 
-        return Road.find("firstCity = "+this.id+" OR secondCity = "+this.id).fetch();
+        return Road.find("firstCity = "+this.id+" OR secondCity = "+this.id+" order by name").fetch();
     }
 }
