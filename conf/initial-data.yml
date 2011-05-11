@@ -44,16 +44,386 @@ Car(picassoJeff):
     
 City(paris):
     name:           paris
-    codeINSEE:      001
+    codeINSEE:      75100
+    latitude:       48.866667
+    longitude:      2.333333
 
 City(marseille):
     name:           marseille
-    codeINSEE:      002
+    codeINSEE:      13200
+    latitude:       48.866667
+    longitude:      2.333333    
     
 City(bordeaux):
     name:           bordeaux
-    codeINSEE:      003
+    codeINSEE:      33063
+    latitude:       48.866667
+    longitude:      2.333333    
     
+City(leMans):
+    name:           "le mans"
+    codeINSEE:      72181
+    latitude:       48.0
+    longitude:      0.2
+
+City(angers):
+    name:           angers
+    codeINSEE:      49007
+    latitude:       47.466667
+    longitude:      -0.55
+      
+City(orleans):
+    name:           orléans
+    codeINSEE:      45234
+    latitude:       47.916667
+    longitude:      1.9
+      
+City(lesEssarts):
+    name:           "les essarts"
+    codeINSEE:      85084
+    latitude:       46.766667
+    longitude:      -1.233333
+      
+City(niort):
+    name:           niort
+    codeINSEE:      79191
+    latitude:       46.316667
+    longitude:      -0.466667
+        
+City(tours):
+    name:           tours
+    codeINSEE:      37261
+    latitude:       47.383333
+    longitude:      0.683333
+
+City(poitiers):
+    name:           poitiers
+    codeINSEE:      86194
+    latitude:       46.583333
+    longitude:      0.333333
+
+City(vierzon):
+    name:           vierzon
+    codeINSEE:      18279
+    latitude:       47.216667
+    longitude:      2.083333
+
+City(limoges):
+    name:           limoges
+    codeINSEE:      87085
+    latitude:       45.85
+    longitude:      1.25
+
+City(montauban):
+    name:           montauban
+    codeINSEE:      82121
+    latitude:       44.016667
+    longitude:      1.35
+
+City(toulouse):
+    name:           toulouse
+    codeINSEE:      31555
+    latitude:       43.6
+    longitude:      1.433333
+
+City(narbonne):
+    name:           narbonne
+    codeINSEE:      31555
+    latitude:       43.6
+    longitude:      1.433333
+
+City(meze):
+    name:           meze
+    codeINSEE:      34157
+    latitude:       43.416667
+    longitude:      3.6
+
+City(montpellier):
+    name:           montpellier
+    codeINSEE:      34172
+    latitude:       43.6
+    longitude:      3.883333
+
+City(nimes):
+    name:           nimes
+    codeINSEE:      30189
+    latitude:       43.833333
+    longitude:      4.35
+
+City(briveLaGaillarde):
+    name:           "brive-la-gaillarde"
+    codeINSEE:      19031
+    latitude:       45.15
+    longitude:      1.533333
+
+City(beaune):
+    name:           beaune
+    codeINSEE:      21054
+    latitude:       47.033333
+    longitude:      4.833333
+
+City(sance):
+    name:           sancé
+    codeINSEE:      71497
+    latitude:       46.333333
+    longitude:      4.833333
+
+City(lyon):
+    name:           lyon
+    codeINSEE:      69380
+    latitude:       45.75
+    longitude:      4.85
+
+City(valence):
+    name:           valence
+    codeINSEE:      26362
+    latitude:       44.93
+    longitude:      4.9
+
+City(avignon):
+    name:           avignon
+    codeINSEE:      84007
+    latitude:       43.95
+    longitude:      4.816667
+
+City(salonDeProvence):
+    name:           "salon de provence"
+    codeINSEE:      13103
+    latitude:       43.633333
+    longitude:      5.1
+
+City(troyes):
+    name:           troyes
+    codeINSEE:      10387
+    latitude:       48.3
+    longitude:      4.083333
+
+City(beauchemin):
+    name:           beauchemin
+    codeINSEE:      52042
+    latitude:       47.9
+    longitude:      5.25
+
+City(dijon):
+    name:           dijon
+    codeINSEE:      21231
+    latitude:       47.316667
+    longitude:      5.016667
+
+City(saintSeineEnBache):
+    name:           "saint seine en bache"
+    codeINSEE:      21572
+    latitude:       47.116667
+    longitude:      5.366667
+
+City(viriat):
+    name:           viriat
+    codeINSEE:      1451
+    latitude:       46.25
+    longitude:      5.216667
+
+City(pontDain):
+    name:           "pont d'ain"
+    codeINSEE:      1304
+    latitude:       46.05
+    longitude:      5.333333
+
+Road(1):
+    name:           1
+    firstCity:      paris
+    secondCity:     leMans
+
+Road(2):
+    name:           2
+    firstCity:      leMans
+    secondCity:     angers
+
+Road(3):
+    name:           3
+    firstCity:      angers
+    secondCity:     lesEssarts
+
+Road(4):
+    name:           4
+    firstCity:      lesEssarts
+    secondCity:     niort
+
+Road(5):
+    name:           5
+    firstCity:      niort
+    secondCity:     bordeaux
+
+Road(6):
+    name:           6
+    firstCity:      leMans
+    secondCity:     tours
+
+Road(7):
+    name:           7
+    firstCity:      angers
+    secondCity:     tours
+
+Road(8):
+    name:           8
+    firstCity:      paris
+    secondCity:     orleans
+
+Road(9):
+    name:           9
+    firstCity:      orleans
+    secondCity:     tours
+
+Road(10):
+    name:           10
+    firstCity:      orleans
+    secondCity:     vierzon
+
+Road(11):
+    name:           11
+    firstCity:      vierzon
+    secondCity:     tours
+
+Road(12):
+    name:           12
+    firstCity:      tours
+    secondCity:     poitiers
+
+Road(13):
+    name:           13
+    firstCity:      poitiers
+    secondCity:     niort
+
+Road(14):
+    name:           14
+    firstCity:      vierzon
+    secondCity:     limoges
+
+Road(15):
+    name:           15
+    firstCity:      limoges
+    secondCity:     briveLaGaillarde
+
+Road(16):
+    name:           16
+    firstCity:      briveLaGaillarde
+    secondCity:     bordeaux
+
+Road(17):
+    name:           17
+    firstCity:      paris
+    secondCity:     beaune
+
+Road(18):
+    name:           18
+    firstCity:      beaune
+    secondCity:     dijon
+
+Road(19):
+    name:           19
+    firstCity:      dijon
+    secondCity:     saintSeineEnBache
+
+Road(20):
+    name:           20
+    firstCity:      beaune
+    secondCity:     saintSeineEnBache
+
+Road(21):
+    name:           21
+    firstCity:      beaune
+    secondCity:     sance
+
+Road(22):
+    name:           22
+    firstCity:      sance
+    secondCity:     lyon
+
+Road(23):
+    name:           23
+    firstCity:      lyon
+    secondCity:     valence
+
+Road(24):
+    name:           24
+    firstCity:      valence
+    secondCity:     avignon
+
+Road(25):
+    name:           25
+    firstCity:      avignon
+    secondCity:     salonDeProvence
+
+Road(26):
+    name:           26
+    firstCity:      sance
+    secondCity:     viriat
+
+Road(27):
+    name:           27
+    firstCity:      viriat
+    secondCity:     pontDain
+
+Road(28):
+    name:           28
+    firstCity:      pontDain
+    secondCity:     lyon
+  
+
+Road(29):
+    name:           29
+    firstCity:      bordeaux
+    secondCity:     montauban
+
+Road(30):
+    name:           30
+    firstCity:      montauban
+    secondCity:     toulouse
+
+Road(31):
+    name:           31
+    firstCity:      toulouse
+    secondCity:     narbonne
+
+Road(32):
+    name:           32
+    firstCity:      narbonne
+    secondCity:     meze
+
+Road(33):
+    name:           33
+    firstCity:      meze
+    secondCity:     montpellier
+
+Road(34):
+    name:           34
+    firstCity:      montpellier
+    secondCity:     nimes
+
+Road(35):
+    name:           35
+    firstCity:      nimes
+    secondCity:     avignon
+
+Road(36):
+    name:           36
+    firstCity:      nimes
+    secondCity:     salonDeProvence 
+
+Road(37):
+    name:           37
+    firstCity:      paris
+    secondCity:     troyes 
+
+Road(38):
+    name:           38
+    firstCity:      troyes
+    secondCity:     beauchemin
+
+Road(39):
+    name:           39
+    firstCity:      beauchemin
+    secondCity:     dijon
+
 Way(parisMarseille):
     startCity:      paris
     finishCity:     marseille
