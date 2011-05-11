@@ -22,13 +22,14 @@ public class Road extends Model{
     
     @ManyToOne
     public City secondCity;
-    
-    public Double distance;
-
+        
     public Road(String name, City firstCity, City secondCity) {
         this.name = name;
         this.firstCity = firstCity;
         this.secondCity = secondCity;
-        this.distance = Math.sqrt(Math.pow((secondCity.latitude - firstCity.latitude), 2) + Math.pow((secondCity.longitude - firstCity.longitude), 2));
-    }       
+    }
+    
+    public Double distance(){
+        return new Double(Math.sqrt(Math.pow((secondCity.latitude - firstCity.latitude), 2) + Math.pow((secondCity.longitude - firstCity.longitude), 2)));       
+    }
 }
