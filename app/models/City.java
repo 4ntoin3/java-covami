@@ -28,10 +28,9 @@ public class City extends Model{
         this.latitude = latitude;
         this.longitude = longitude;
         this.pxPosition = new Point();
-    }
+    } 
     
     public List<Road> roads(){                 
-        
-        return Road.find("byFirstcityOrSecondcity", this).fetch();
+        return Road.find("firstCity = "+this.id+" OR secondCity = "+this.id).fetch();
     }
 }
