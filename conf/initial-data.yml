@@ -63,7 +63,7 @@ City(bordeaux):
 City(leMans):
     name:           "le mans"
     codeINSEE:      72181
-    latitude:       48
+    latitude:       48.0
     longitude:      0.2
 
 City(angers):
@@ -122,9 +122,9 @@ City(montauban):
 
 City(toulouse):
     name:           toulouse
-    codeINSEE:      
-    latitude:       
-    longitude:      
+    codeINSEE:      31555
+    latitude:       43.6
+    longitude:      1.433333
 
 City(narbonne):
     name:           narbonne
