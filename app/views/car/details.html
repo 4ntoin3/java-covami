@@ -2,28 +2,29 @@
 #{set title: play.i18n.Messages.get('title.car.details') /}
 #{set subtitle: play.i18n.Messages.get('subtitle.car.details') /}
 
-<table class="covami_table">
-    <thead>
-        <tr>
-            <th class="table_col_action">&{'car.detail.col.actions'}</th>
-            <th>&{'car.detail.col.label'}</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>&{'field.carname'}</td>
-            <td>${car.name}</td>
-        </tr>
-        <tr>
-            <td>&{'field.carconsomation'}</td>
-            <td>${car.cost}</td>
-        </tr>
-        
-        #{list items:ways, as:'way'}
-        <tr>
-            <td>${way.startCity?.name} => ${way.finishCity?.name}</td>
-            <td>distance : ${way?.distance}</td>
-        </tr>        
-        #{/list}
-    </tbody>
-</table>
+<a href="@{Car.list}"><span class="">&DDotrahd; &{'car.back_to_list'}</a>
+
+<h2>&#9733; ${car.name.capFirst()}</h2>
+<div class="mainForm">
+    <label>&{'car.name'}</label>
+    <div class="formField labelLine">${car.name.capFirst()}</div>
+
+    <label>&{'car.estimated_consommation'}</label>
+    <div class="formField labelLine">${car.cost} &{'car.litreAuCent'}</div>
+
+    <div class="clear"></div>
+</div>
+
+<h2>&#9733; Trajets de la voiture</h2>
+<div class="mainForm">
+    #{if ways.size == 0}
+    &{'car.empty_list_way_for_car'}.
+    #{/if}
+    #{else}
+    #{list items:ways, as:'way'}
+    <label>@TODO Add startdate</label>
+    <div class="formField labelLine">${way.startCity?.name} => ${way.finishCity?.name} (${way?.distance} kms)</div>      
+    #{/list}
+    #{/else}
+    <div class="clear"></div>
+</div>

@@ -84,6 +84,8 @@ car.delete_me=Cliquez ici pour supprimer cette voiture
 car.detail_me=Cliquez ici pour afficher plus d'information sur cette voiture
 car.empty=Aucune voiture pour le moment
 car.add_first=Cliquez ici pour ajouter votre première voiture
+car.back_to_list=Retour à la liste des voitures
+car.empty_list_way_for_car=Cette voiture n'a encore jamais effectué de trajet sur le réseau Covami
 
 # [Section User]
 user.email=Adresse email

@@ -10,11 +10,8 @@
         Il y a une erreur de saisie
     </p>
     #{/ifErrors}
-    <div class="message">
-        &{'car.edit.message'} :
-    </div>
 
-    <label for="fieldCarname">&{'field.carname'}</label>
+    <label for="fieldCarname">&{'car.name'}</label>
     <div class="formField">
         #{if flash['name'] == null}
         <input type="text" name="name" id="fieldCarname" value="${car.name}"/>        
@@ -25,7 +22,7 @@
         <span class="error">#{error 'name' /}</span>
     </div>
     
-    <label for="fieldCarcapacity">&{'field.carcapacity'}</label>
+    <label for="fieldCarcapacity">&{'car.available_place'}</label>
     <div class="formField">
         #{if flash['nbPlace'] == null}
         <select name="nbPlace" id="fieldCarcapacity" value="${car.nbPlace}"/>
@@ -33,7 +30,7 @@
             <option value=${i} #{if "${car.nbPlace}"=="${i}"}selected#{/if}>${i}</option>
         #{/list}
         </select>
-        <p class="message">&{'car.woutDriver'}. &{'defautValue'}, &{'car.editForEachWay'}.</p>
+        <p class="message">&{'car.without_driver'}. &{'general.default_value'}, &{'car.edit_for_each_way'}.</p>
         #{/if}
         #{else}
         <select name="nbPlace" id="fieldCarcapacity" value="${flash['car.nbPlace']}"/>
@@ -45,7 +42,7 @@
         #{/else}
     </div>
     
-    <label for="fieldCarconsomation">&{'field.carconsomation'}</label>
+    <label for="fieldCarconsomation">&{'car.estimated_consommation'}</label>
     <div class="formField">
         #{if flash['cost'] == null}
         <input type="text" name="cost" id="fieldCarconsomation" value="${car.cost}"/>        
@@ -53,12 +50,12 @@
         #{else}
         <input type="text" name="cost" id="fieldcost" value="${flash['cost']}"/>
         #{/else}
-        <p class="message">&{'car.litterForKms'}.</p>
+        <p class="message">&{'car.litreAuCent'}.</p>
         <span class="error">#{error 'cost' /}</span>
     </div>          
 
     <div class="fieldButtonValidation">
-        <button type="button" name="btnCancel" class="withPix pix16_cancel">&{'btn.annuler'}</button>
+        <button type="button" name="btnCancel" class="cancelButton withPix pix16_cancel">&{'btn.annuler'}</button>
         <button type="submit" name="btnValidation" class="withPix pix16_valid">&{'btn.valider'}</button>
         <div class="clear"></div>
     </div>
