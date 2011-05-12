@@ -1,3 +1,18 @@
 #{extends 'main.html' /}
 #{set title: play.i18n.Messages.get('title.dashboard') /}
 #{set subtitle: play.i18n.Messages.get('subtitle.dashboard') /}
+#{set 'moreStyles'}
+    #{stylesheet 'dashboard.css' /}
+#{/set}
+<div class="box_dashboard" id="box_cars">
+    <h4><span class="toggler">•</span> Activité de mes voitures</h4>
+    <div class="content">coucou</div>
+</div>
+<div class="box_dashboard" id="box_friends">
+    <h4><span class="toggler">•</span> Activité de mes amis</h4>
+    <div class="content"></div>
+</div>
+<div class="box_dashboard" id="box_way">
+    <h4><span class="toggler">•</span> Activité sur mes trajets</h4>
+    <div class="content"></div>
+</div>

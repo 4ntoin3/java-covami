@@ -1,0 +1,12 @@
+.box_dashboard {
+    float: left;
+    width: 288px;
+    margin: 5px;
+    border: 1px solid #54B6EA;
+}
+
+.box_dashboard h4 {
+    padding: 4px;
+    background: #BCDEF2;
+    color: #C93838;
+}

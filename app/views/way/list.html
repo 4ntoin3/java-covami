@@ -3,7 +3,6 @@
 #{set subtitle: play.i18n.Messages.get('subtitle.way') /}
 
 <div class="rightTopButtonBox">
-    <!-- @TODO Add a icon for button -->
     <button class="addButton withPix pix16_way_add">&{'btn.add.way'}</button>
     <button class="searchButton withPix pix16_way_search">&{'btn.search.way'}</button>
     <div style="clear: both;"></div>
@@ -18,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-        #{if ways != null}
+        #{if ways == null}
         <tr>
             <td class="table_empty" colspan="3">
                 &{'way.empty'}.<br/>
