@@ -35,7 +35,7 @@ public class Friend extends Controller {
         user.friends.add(friend);
         user.save();
         
-        redirect("friend/list");
+        redirect("/friend/list");
     }
     
     /**
@@ -48,7 +48,7 @@ public class Friend extends Controller {
         user.friends.remove(friend);
         user.save();
         
-        redirect("friend/list");
+        redirect("/friend/list");
     }
     
     /**
@@ -56,10 +56,12 @@ public class Friend extends Controller {
      */
     public static void search(String str)
     {
+        List<User> friends;
         if(str == null || str.isEmpty()){
-            list();
+            friends = models.User.find("id != ?", User.connected().id).fetch();
+            render("/friend/list.html", friends);
         }
-        List<User> friends = models.User.find("email like ? OR firstname like ? OR lastname like ?", "%"+str+"%", "%"+str+"%", "%"+str+"%").fetch();        
+        friends = models.User.find("email like ? OR firstname like ? OR lastname like ?", "%"+str+"%", "%"+str+"%", "%"+str+"%").fetch();        
         render("/friend/list.html", friends);
     }
 }
