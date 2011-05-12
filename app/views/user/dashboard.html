@@ -1,18 +1,82 @@
 #{extends 'main.html' /}
 #{set title: play.i18n.Messages.get('title.dashboard') /}
 #{set subtitle: play.i18n.Messages.get('subtitle.dashboard') /}
-#{set 'moreStyles'}
-    #{stylesheet 'dashboard.css' /}
-#{/set}
-<div class="box_dashboard" id="box_cars">
-    <h4><span class="toggler">•</span> Activité de mes voitures</h4>
-    <div class="content">coucou</div>
-</div>
-<div class="box_dashboard" id="box_friends">
-    <h4><span class="toggler">•</span> Activité de mes amis</h4>
-    <div class="content"></div>
-</div>
+#{set 'moreStyles'}#{stylesheet 'dashboard.css' /}#{/set}
 <div class="box_dashboard" id="box_way">
-    <h4><span class="toggler">•</span> Activité sur mes trajets</h4>
-    <div class="content"></div>
+    <h4><span class="toggler">&star;</span> &{'user.dashboard.way_activity'}</h4>
+    <div class="content">
+        <p class="empty_box">
+            &{'user.dashboard.no_recent_activity_way'}.
+        </p>
+        
+        
+        <hr/>
+        
+        
+        <ul>
+            <li>
+                <a href="lien/vers/le/friend">Pierre Gasté</a> &{'user.dashboard.accept_participation'} <a href="lien/voyage">Angers - Paris</a>
+            </li>
+            <li>
+                <a href="lien/vers/le/friend">Jean Dupuis</a> &{'user.dashboard.refuse_participation'} <a href="lien/voyage">Niort - Lille</a>
+            </li>
+            <li>
+                <a href="lien/vers/le/user">Antoine Esnault</a> &{'user.dashboard.want_to_participate'} <a href="lien/trajet">Lens - Lyon</a> ?
+                <a href="lien/voyage/accept/user">&{'yes'}</a> • <a href="lien/voyage/refuse/user">&{'no'}</a>
+            </li>
+        </ul>        
+    </div>
 </div>
+
+<div class="box_dashboard" id="box_friends">
+    <h4><span class="toggler">&star;</span> &{'user.dashboard.friend_activity'}</h4>
+    <div class="content">
+        <p class="empty_box">
+            &{'user.dashboard.no_recent_activity_friend'}.<br/>
+            <span style="text-shadow: none;">&{'user.dashboard.want_new_friend'} <a href="page/de/recherche/de/friend">&{'user.dashboard.find_friend_easy'}</a></span>
+        </p>
+
+
+        <hr/>
+
+        <ul>
+            <li><a href="lien/vers/le/friend">Pierre Gasté</a> &{'user.dashboard.accept_friend'}.</li>
+            <li><a href="lien/vers/le/friend">Nicolas Sarkozy</a> &{'user.dashboard.refuse_friend'}.</li>
+            <li><a href="lien/vers/le/user">Antoine Esnault</a> &{'user.dashboard.want_to_be_friend'} ? <a href="lien/de/validation/de/demande">&{'yes'}</a> - <a href="lien/de/refus/de/demande">&{'no'}</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="box_dashboard" id="box_cars" style="clear:both;">
+    <h4><span class="toggler">&star;</span> &{'user.dashboard.car_activity'}</h4>
+    <div class="content">
+        <p class="empty_box">&{'user.dashboard.no_recent_activity_car'}.</p>
+
+
+        <hr/>
+
+
+        <ul>
+            <li><a href="lien/vers/le/trajet">&{'user.dashboard.way'} Nantes - Marseille</a> &{'user.dashboard.with_car'} <a href="lien/vers/la/voiture">Clio</a> &{'user.dashboard.the'} 23/01.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="box_dashboard" id="box_profile">
+    <h4><span class="toggler">&star;</span> &{'user.dashboard.stats'} ! </h4>
+    <div class="content">
+        <p class="title">Robert Bidochon</p>
+        <p class="stats">
+            <img src="@{'public/images/icons/friends.png'}" alt="" /> 45 &{'friend'}s  • 
+            <img src="@{'public/images/icons/cars.png'}" alt="" /> 5 &{'car'}s •
+            <img src="@{'public/images/icons/ways.png'}" alt="" /> 34 &{'way'}s</p>
+        <p class="stats">
+            10 &{'user.dashboard.proposed_way'} • 24 &{'user.dashboard.participation_way'}
+        </p>
+        <p class="stats">
+            <img src="@{'public/images/icons/euro.png'}" alt="&{'user.dashboard.avg_cost'}" /> <i>&{'user.dashboard.avg_cost'}</i> : 4 €<br/>
+            <img src="@{'public/images/icons/smile.png'}" alt="&{'user.dashboard.my_covanote'}" /> <i>&{'user.dashboard.my_covanote'} : </i> 4,6 / 5
+        </p>
+    </div>
+</div>
+<div style="clear:both;"></div>

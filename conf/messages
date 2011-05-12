@@ -93,6 +93,28 @@ user.password=Mot de passe
 user.not_yet_account=Vous n'avez pas encore de compte ?
 user.subscribe=Inscrivez vous !
 user.remember=Se souvenir de moi
+user.dashboard.car_activity=Activité de mes voitures
+user.dashboard.way=Trajet
+user.dashboard.with_car=avec la
+user.dashboard.the=le
+user.dashboard.no_recent_activity_car=Aucune activité à venir concernant vos voitures
+user.dashboard.friend_activity=Activité de mes amis
+user.dashboard.no_recent_activity_friend=Aucune activité récente concernant vos amis
+user.dashboard.want_new_friend=Envie d'ajouter des amis ?
+user.dashboard.find_friend_easy=Rechercher les simplement !
+user.dashboard.accept_friend=a accepté votre demande d'ami
+user.dashboard.refuse_friend=a refusé votre demande d'ami
+user.dashboard.want_to_be_friend=souhaite vous ajouter à ces amis
+user.dashboard.way_activity=Activité sur mes trajets
+user.dashboard.want_to_participate=souhaite participer à
+user.dashboard.accept_participation=a accepté votre participation pour
+user.dashboard.refuse_participation=a refusé votre participation pour
+user.dashboard.no_recent_activity_way=Aucune activité récente concernant vos trajets
+user.dashboard.stats=Mes statistiques Covamienne
+user.dashboard.proposed_way=voyage(s) proposé(s)
+user.dashboard.participation_way=voyage(s) participant(s)
+user.dashboard.avg_cost=Coût moyen de mes voyages
+user.dashboard.my_covanote=Ma Covanote
 
 # [Section General]
 general.default_value=Valeur par défaut
@@ -100,3 +122,12 @@ general.default_value=Valeur par défaut
 # [Section Way]
 way.empty=Aucun trajet pour le moment
 way.add_first=Cliquez ici pour ajouter le premier trajet
+
+
+
+# [Section Autre]
+friend=ami
+car=voiture
+way=voyage
+yes=Oui
+no=Non
