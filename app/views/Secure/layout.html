@@ -1,11 +1,11 @@
 #{extends 'main.html' /}
-#{set title: play.i18n.Messages.get('login') /}
-#{set subtitle: play.i18n.Messages.get('login.subtitle') /}
+#{set title: play.i18n.Messages.get('title.user.login') /}
+#{set subtitle: play.i18n.Messages.get('subtitle.user.login') /}
 
 <div class="mainForm">
 
     <div class="message">
-        &{'login.notYetLogin'} <a href="@{Application.subscribe}">&{'login.subscribe'}</a>
+        &{'user.not_yet_account'} <a href="@{Application.subscribe}">&{'user.subscribe'}</a>
     </div>
     
     #{form @authenticate()}
@@ -16,17 +16,17 @@
     <p class="success">&{flash.success}</p>
     #{/if}
 
-    <label for="username">&{'login.username'}</label>
+    <label for="username">&{'user.email'}</label>
     <div class="formField">
         <input type="text" name="username" id="username" value="${flash.username}" />
     </div>
 
-    <label for="password">&{'login.password'}</label>
+    <label for="password">&{'user.password'}</label>
     <div class="formField">
         <input type="password" name="password" id="password" value="" />
     </div>
 
-    <label for="remember">&{'login.remember'}</label>
+    <label for="remember">&{'user.remember'}</label>
     <div class="formField">
         <input style="margin: 6px 0;" type="checkbox" name="remember" id="remember" value="true" ${flash.remember ? 'checked="true"' : ''} />               
     </div>

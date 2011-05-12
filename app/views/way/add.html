@@ -13,34 +13,34 @@
 
     <label for="fieldWaystartCity">&{'field.waystartCity'}</label>
     <div class="formField">
-        <select name="startCityId" id="fieldWaystartCity"/>
+        <select name="startCityId" id="fieldWaystartCity">
             #{list items:cities, as:'city'}
-                <option value=${city.id} #{if flash["startCityId"]=="${city.id}"} selected #{/if}>${city.name}</option>
+                <option value=${city.id} #{if flash["startCityId"]=="${city.id}"} selected #{/if}>${city.name.capFirst()}</option>
             #{/list}
         </select>
     </div>
     
     <label for="fieldWayfinishCity">&{'field.wayfinishCity'}</label>
     <div class="formField">
-        <select name="finishCityId" id="fieldWayfinishCity"/>
+        <select name="finishCityId" id="fieldWayfinishCity">
             #{list items:cities, as:'city'}
-                <option value=${city.id} #{if flash["finishCityId"]=="${city.id}"} selected #{/if}>${city.name}</option>
+                <option value=${city.id} #{if flash["finishCityId"]=="${city.id}"} selected #{/if}>${city.name.capFirst()}</option>
             #{/list}
         </select>
     </div>
 
     <label for="fieldWaycar">&{'field.waycar'}</label>
     <div class="formField">
-        <select name="carId" id="fieldWaycar"/>
+        <select name="carId" id="fieldWaycar">
             #{list items:cars, as:'car'}
-                <option value=${car.id} #{if flash["carId"]=="${car.id}"} selected #{/if}>${car.name}</option>
+                <option value=${car.id} #{if flash["carId"]=="${car.id}"} selected #{/if}>${car.name.capFirst()}</option>
             #{/list}
         </select>
     </div>
     
     <label for="fieldWayplaceAvailable">&{'field.wayplaceAvailable'}</label>
     <div class="formField">
-        <select name="placeAvailable" id="fieldCarcapacity"/>
+        <select name="placeAvailable" id="fieldCarcapacity">
         #{list items:1..8, as:'i'}
             <option value=${i} #{if flash["placeAvailable"]=="${i}"}selected#{/if}>${i}</option>
         #{/list}

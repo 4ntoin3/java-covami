@@ -43,31 +43,31 @@ Car(picassoJeff):
     owner:          jeff
     
 City(paris):
-    name:           paris
+    name:           Paris
     codeINSEE:      75100
     latitude:       48.866667
     longitude:      2.333333
 
 City(marseille):
-    name:           marseille
+    name:           Marseill
     codeINSEE:      13200
     latitude:       48.866667
     longitude:      2.333333    
     
 City(bordeaux):
-    name:           bordeaux
+    name:           Bordeaux
     codeINSEE:      33063
     latitude:       48.866667
     longitude:      2.333333    
     
 City(leMans):
-    name:           "le mans"
+    name:           "Le Mans"
     codeINSEE:      72181
     latitude:       48.0
     longitude:      0.2
 
 City(angers):
-    name:           angers
+    name:           Angers
     codeINSEE:      49007
     latitude:       47.466667
     longitude:      -0.55

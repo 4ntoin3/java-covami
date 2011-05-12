@@ -18,11 +18,11 @@
         </tr>
     </thead>
     <tbody>
-        #{if ways == null}
+        #{if ways != null}
         <tr>
             <td class="table_empty" colspan="3">
-                &{'way.list.empty'}.<br/>
-                <a href="@{way.add}">&{'way.list.add_first'}!</a>
+                &{'way.empty'}.<br/>
+                <a href="@{way.add}">&{'way.add_first'}!</a>
             </td>
         </tr>
         #{/if}
