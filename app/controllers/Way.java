@@ -52,7 +52,16 @@ public class Way extends Controller {
         models.Car car = models.Car.findById(carId);
         
         models.Way way = new models.Way(startCity, finishCity, driver, distance, dateStart, car, placeAvailable);                
-        way.calculateWay();
+        try {
+            way.calculateWay();
+        } catch (Exception ex) {
+//            validation.addError("user.email", "email used");
+            params.put("fail", "error during the calcul");
+//            String fail = "error during the calcul";
+            params.flash(); // add http parameters to the flash scope
+            validation.keep(); // keep the errors for the next request
+            add();
+        }
         way.save();
         redirect("/way/list");
     }

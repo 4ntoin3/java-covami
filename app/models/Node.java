@@ -15,7 +15,7 @@ public class Node implements Comparable {
     //Ville dans le noeud
     private City city;
     //Nom de la route prise
-    private String nameRoad;
+    private Long idRoad;
     //Distance entre la ville et la ville d'arrivé
     private double distanceEndCity;
     //Distance parcourus
@@ -33,14 +33,14 @@ public class Node implements Comparable {
      * Constructeur
      * @param prevNode noeud précédent
      * @param city villr
-     * @param nameRoad nom de la route
+     * @param idRoad nom de la route
      * @param endCity distance jusqu'a la ville d'arrivé
      * @param distanceCovored distance parcourus
      */
-    public Node(Node prevNode, City city, String nameRoad, City endCity, double distanceCovored) {
+    public Node(Node prevNode, City city, Long idRoad, City endCity, double distanceCovored) {
         this.prevNode = prevNode;
         this.city = city;
-        this.nameRoad = nameRoad;
+        this.idRoad = idRoad;
         this.distanceEndCity = distanceEndCity(endCity);
         this.distanceCovored = distanceCovored;
         this.cost = this.distanceCovored + this.distanceEndCity;
@@ -66,8 +66,8 @@ public class Node implements Comparable {
      * Retourne la route
      * @return sa route
      */
-    public String getNameRoad() {
-        return nameRoad;
+    public Long getIdRoad() {
+        return idRoad;
     }
 
     /**
@@ -102,7 +102,7 @@ public class Node implements Comparable {
     private double distanceEndCity(City endCity) {
         return Math.sqrt(Math.pow((endCity.latitude - city.latitude), 2) + Math.pow((endCity.longitude - city.longitude), 2));
     }
-
+    
     /**
      * Utilisé pour comparer un node à ce node
      * @param obj
