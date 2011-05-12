@@ -162,3 +162,7 @@ button.withPix {
     padding: 10px;
     text-align: center;
 }
+
+.labelLine {
+    padding: 15px 10px 11px 10px!important;
+}

@@ -8,7 +8,7 @@ body { font: .8em "Trebuchet MS", Verdana, Helvetica, sans-serif !important; col
 a { color: #AF1515; cursor: pointer; }
 a:hover { color: #7D1919; }
 h1 { text-shadow: 1px 1px 1px white; font-size: 2em; clear: both; margin: 0 0 5px; }
-h2 { font: normal 1.6em Arial; color: #3D3C3B; margin: 0 0 15px; }
+h2 { font: normal 1.6em Arial; color: #3D3C3B; margin: 15px 0 15px; }
 h2#slogan { font-size: 1.3em; color: #808080; }
 p  { margin: 0 0 15px; line-height: 1.7em; }
 .clear { clear: both; }
