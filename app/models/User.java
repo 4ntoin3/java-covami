@@ -38,6 +38,7 @@ public class User extends Model {
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
+        this.friends = new ArrayList<User>();
     }
 
     public static User connect(String email, String password) {
