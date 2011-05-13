@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import play.mvc.Controller;
 
@@ -20,7 +22,11 @@ public class Friend extends Controller {
      * Liste les amis du compte connecté
      */
     public static void list() {
-        List<models.User> friends = User.connected().friends;
+        List<models.User> friends = new ArrayList<models.User>();
+        
+        for (models.Friend friend : User.connected().friends) {
+            friends.add(friend.user);
+        }
         
         render(friends);
     }
@@ -32,7 +38,10 @@ public class Friend extends Controller {
         models.User user = User.connected();
         models.User friend = models.User.findById(id);
         
-        user.friends.add(friend);
+        
+        models.Friend relation = new models.Friend(friend, 0, new Date());
+        relation.save();
+        user.friends.add(relation);
         user.save();
         
         redirect("/friend/list");
@@ -43,10 +52,11 @@ public class Friend extends Controller {
      */ 
     public static void delete(Long id){
         models.User user = User.connected();
-        models.User friend = models.User.findById(id);
+        models.Friend friend = models.Friend.find("byUser", models.User.findById(id)).first();
         
         user.friends.remove(friend);
         user.save();
+        friend.delete();
         
         redirect("/friend/list");
     }

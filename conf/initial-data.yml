@@ -10,12 +10,20 @@ User(damien):
     firstname:      damien
     lastname:       DUBATEAU
     
+Friend(kevinBob):
+    user:           kevin
+    status:         0
+
+Friend(damienBob):
+    user:           damien
+    status:         0    
+    
 User(bob):
     email:          bob@gmail.com
     password:       secret
     firstname:      Bob
     lastname:       LEBRUNT
-    friends:        [kevin, damien]
+    friends:        [kevinBob, damienBob]
     isAdmin:        true
     
 User(jeff):
