@@ -5,11 +5,13 @@ import models.*;
 import play.data.binding.As;
 import play.data.validation.Required;
 import play.mvc.Controller;
+import play.mvc.With;
 
 /**
  *
  * @author pierregaste
  */
+@With(Secure.class)
 public class Way extends Controller {
     /**
      * Action par défaut
