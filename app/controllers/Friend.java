@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import play.mvc.Controller;
+import play.mvc.With;
 
 /**
  *
  * @author pierregaste
  */
+@With(Secure.class)
 public class Friend extends Controller {
 
     /**

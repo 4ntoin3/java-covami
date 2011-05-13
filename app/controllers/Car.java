@@ -5,11 +5,13 @@ import javax.persistence.Query;
 import play.data.validation.*;
 import play.db.jpa.JPA;
 import play.mvc.Controller;
+import play.mvc.With;
 
 /**
  *
  * @author pierregaste
  */
+@With(Secure.class)
 public class Car extends Controller {
 
     /**
