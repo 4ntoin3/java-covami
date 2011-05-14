@@ -22,11 +22,18 @@ public class User extends Controller {
     public static void dashboard()
     {
         models.User user = User.connected();
-        List<FriendShip> friends_waiting = FriendShip.find("friend = ? and status = ?", user, 0).fetch();
-        List<FriendShip> friends_refuse = FriendShip.find("user = ? and status = ?", user, 1).fetch();
-        List<FriendShip> friends_accept = FriendShip.find("user = ? and status = ?", user, 2).fetch();
+        renderArgs.put("user", user);
         
-        render(friends_waiting, friends_refuse, friends_accept);
+        List<FriendShip> friends_waiting = FriendShip.find("friend = ? and status = ?", user, 0).fetch();
+        renderArgs.put("friends_waiting", friends_waiting);
+        
+        List<FriendShip> friends_refuse = FriendShip.find("user = ? and status = ?", user, 1).fetch();
+        renderArgs.put("friends_refuse", friends_refuse);
+        
+        List<FriendShip> friends_accept = FriendShip.find("user = ? and status = ?", user, 2).fetch();
+        renderArgs.put("friends_accept", friends_accept);
+        
+        render();
     }
 
     /**
