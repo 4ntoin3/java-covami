@@ -27,12 +27,25 @@ public class Friend extends Controller {
         render(friendShips);
     }
 
+    /**
+     * Accepter une demande d'amitiée
+     * @param id 
+     */
     public static void accept(Long id) {
         FriendShip friendship = FriendShip.findById(id);
         if (friendship != null && friendship.status == 0 && friendship.friend == User.connected()) {
             friendship.status = 2;
             friendship.save();
             new FriendShip(friendship.user, friendship.friend, 2, new Date()).save();
+        }
+        User.dashboard();
+    }
+    
+    public static void refuse(Long id){
+        FriendShip friendship = FriendShip.findById(id);
+        if (friendship != null && friendship.status == 0 && friendship.friend == User.connected()) {
+            friendship.status = 1;
+            friendship.save();
         }
         User.dashboard();
     }
@@ -46,7 +59,7 @@ public class Friend extends Controller {
 
         new models.FriendShip(friend, user, 0, new Date()).save();
 
-        redirect("/friend/list");
+        redirect("/friend/search");
     }
 
     /**
@@ -91,7 +104,7 @@ public class Friend extends Controller {
     private static List<User> removeFriendInArray(List<User> users) {
         List<FriendShip> friendShips;
         ArrayList<models.User> friends = new ArrayList<models.User>();
-        friendShips = models.FriendShip.find("byUser", User.connected()).fetch();
+        friendShips = models.FriendShip.find("user = ? and status = 2", User.connected()).fetch();
         for (FriendShip friendShip : friendShips) {
             friends.add(friendShip.friend);
         }
