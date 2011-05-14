@@ -3,6 +3,7 @@ package controllers;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import models.FriendShip;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -24,13 +25,9 @@ public class Friend extends Controller {
      * Liste les amis du compte connecté
      */
     public static void list() {
-        List<models.User> friends = new ArrayList<models.User>();
+        List<models.User> friendShips = models.FriendShip.find("byUser", User.connected()).fetch();
         
-        for (models.Friend friend : User.connected().friends) {
-            friends.add(friend.user);
-        }
-        
-        render(friends);
+        render(friendShips);
     }
     
     /**
@@ -40,11 +37,7 @@ public class Friend extends Controller {
         models.User user = User.connected();
         models.User friend = models.User.findById(id);
         
-        
-        models.Friend relation = new models.Friend(friend, 0, new Date());
-        relation.save();
-        user.friends.add(relation);
-        user.save();
+        new models.FriendShip(friend, user, 0, new Date()).save();
         
         redirect("/friend/list");
     }
@@ -53,12 +46,9 @@ public class Friend extends Controller {
      * Supprimer une relation d'amitité pour le compte connecté
      */ 
     public static void delete(Long id){
-        models.User user = User.connected();
-        models.Friend friend = models.Friend.find("byUser", models.User.findById(id)).first();
+        models.FriendShip friendShip = models.FriendShip.findById(id);
         
-        user.friends.remove(friend);
-        user.save();
-        friend.delete();
+        friendShip.delete();
         
         redirect("/friend/list");
     }
@@ -68,12 +58,19 @@ public class Friend extends Controller {
      */
     public static void search(String str)
     {
-        List<User> friends;
+        List<User> users;
+        List<FriendShip> friendShips;
+        ArrayList<models.User> friends = new ArrayList<models.User>();
         if(str == null || str.isEmpty()){
-            friends = models.User.find("id != ?", User.connected().id).fetch();
-            render("/friend/list.html", friends);
+            users = models.User.find("id != ?", User.connected().id).fetch();
+            friendShips = models.FriendShip.find("byUser", User.connected()).fetch();
+            for (FriendShip friendShip : friendShips) {
+                friends.add(friendShip.friend);
+            }
+            users.removeAll(friends);
+            render("/friend/list.html", users);
         }
-        friends = models.User.find("email like ? OR firstname like ? OR lastname like ?", "%"+str+"%", "%"+str+"%", "%"+str+"%").fetch();        
-        render("/friend/list.html", friends);
+        users = models.User.find("email like ? OR firstname like ? OR lastname like ?", "%"+str+"%", "%"+str+"%", "%"+str+"%").fetch();        
+        render("/friend/list.html", users);
     }
 }
