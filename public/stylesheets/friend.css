@@ -15,3 +15,13 @@
     text-shadow: 1px 1px 1px #FFF;
     padding: 10px;
 }
+
+#searchFriendField {
+    background: none repeat scroll 0 0 #CCEAFC;
+    border: 1px solid #CF0A00;
+    color: #296384;
+    font-size: 15px;
+    padding: 5px;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    width: 300px;
+}

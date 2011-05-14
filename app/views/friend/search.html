@@ -1,36 +1,35 @@
 #{extends 'main.html' /}
-#{set title: play.i18n.Messages.get('title.friend') /}
-#{set subtitle: play.i18n.Messages.get('subtitle.friend') /}
+#{set title: play.i18n.Messages.get('title.friend.search') /}
+#{set subtitle: play.i18n.Messages.get('subtitle.friend.search') /}
+#{set 'moreStyles'}
+#{stylesheet 'friend.css' /}
+#{/set}
 
-<div class="rightTopButtonBox">
-    <button class="searchButton withPix pix16_way_search">&{'btn.search.friend'}</button>
-    <div style="clear: both;"></div>
+<a href="@{Friend.list}">&DDotrahd; &{'friend.back_to_list'}</a>
+<div class="clear"></div>
+#{if users.size == 0}
+<div class="empty_add_first">
+    &{'friend.all_are_friend'}<br/>
+    <a href="@{Friend.list}">&DDotrahd; &{'friend.back_to_list'}</a>
 </div>
+#{/if}
+#{else}
+<div><input type="text" name="searchFriendField" id="searchFriendField" value="&{'friend.findPlaceholder'}" /></div>
+#{list items:users, as:'user'}
+<div class="friend">
+    <div class="description">
+        <h4>${user.firstname.capFirst()} ${user.lastname.capAll()}</h4>
+        <a href="@{friend.add(user.id)}" title="&{'friend.add_me'}">
+            <img src="@{'public/images/icons/24/friend_add.png'}" alt="&{'friend.add_me'}" />
+        </a>
+        <a href="@{user.detail(user.id)}" title="&{'friend.detail_me'}">
+            <img src="@{'public/images/icons/24/detail.png'}" alt="&{'friend.detail_me'}" />
+        </a>
+    </div>
+    <div class="clear"></div>
+</div>
+#{/list}
+#{/else}
+<div class="clear"></div>
 
-<table class="covami_table">
-    <thead>
-        <tr>
-            <th class="table_col_action">&{'friend.list.col.actions'}</th>
-            <th>&{'friend.list.col.label'}</th>
-        </tr>
-    </thead>
-    <tbody>
-        #{if users != null}
-        #{list items:users, as:'user'}
-        <tr>
-            <td class="table_col_action">
-                <a href="@{friend.add(user.id)}" title="&{'friend.list.add_me'}">
-                    <img src="@{'public/images/icons/24/friend_add.png'}" alt="&{'friend.list.add_me'}" />
-                </a>
-                <a href="@{user.detail(user.id)}" title="&{'friend.list.detail_me'}">
-                    <img src="@{'public/images/icons/24/detail.png'}" alt="&{'friend.list.detail_me'}" />
-                </a>
-            </td>
-            <td>
-                ${user.firstname.capFirst()} ${user.lastname.capAll()}
-            </td>
-        </tr>
-        #{/list}
-        #{/if}
-    </tbody>
-</table>
+

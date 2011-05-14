@@ -102,4 +102,54 @@ $(document).ready(function(){
         
         return false;
     });
+    
+    /**
+     * Focus on search new friend
+     * 
+     * @element searchFriendField input name
+     * @event Focus on
+     * @action Erase placeholder if nesserary
+     */
+    $('#searchFriendField').bind("focus", function(){
+        var that = $(this);     
+        if (that.val() == msg.friend.findPlaceholder) {
+            that.val("");
+        }
+    });
+    
+    /**
+     * Blur of filter of friend of Covami 
+     * 
+     * @element searchFriendField input name
+     * @event Blur out
+     * @action Replace text if nesserary
+     */
+    $('#searchFriendField').bind("blur", function(){
+        var that = $(this);
+                
+        if (that.val() == "") {
+            that.val(msg.friend.findPlaceholder);
+        }
+    });
+    
+    /**
+     * Masque les amis non correspondant à la recherche
+     * 
+     * @element searchFriendField
+     * @event   onKeyUp
+     * @action  Hide
+     */
+    $('#searchFriendField').bind("keyup", function(event){
+        var that = $(this);
+        
+        
+        $('.friend').show();
+        //if (that.val().length > 1) {
+        $('.friend').each(function(i,e){
+            if($(e).find('h4').text().toLowerCase().indexOf(that.val().toLowerCase()) == -1){
+                $(e).hide();
+            }
+        });
+    // }
+    });
 });
