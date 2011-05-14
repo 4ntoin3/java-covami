@@ -5,8 +5,8 @@
 <div class="mainForm">
 #{form @Application.addUser()}
     #{ifErrors}
-    <p class="error">
-        Il y a une erreur de saisie
+    <p class="main_error">
+       &{'errors'} : &{'error.cant_continue'}
     </p>
     #{/ifErrors}
 

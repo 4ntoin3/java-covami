@@ -6,9 +6,9 @@
 #{form @way.addWay()}
 
     #{ifErrors}
-    <p class="error">
-        Il y a une erreur de saisie
-    </p>    
+    <p class="main_error">
+       &{'errors'} : &{'error.cant_continue'}
+    </p>  
     #{/ifErrors}
 
     <label for="fieldWaystartCity">&{'field.waystartCity'}</label>
@@ -47,12 +47,16 @@
         </select>
     </div>
     
-    <label for="fieldWaydateHourStart">&{'field.waydateHourStart'}</label>
+    <label for="fieldWaydateStart">&{'field.waydateStart'}</label>
     <div class="formField">
         <input class="datePickerField" type="text" name="dateStart" id="fieldWaydateStart"  value="${flash['dateStart']}"/>
+        <p class="error">#{error 'dateStart' /}</p>
+    </div>
+    
+    <label for="fieldWayHourStart">&{'field.wayHourStart'}</label>
+    <div class="formField">
         <input class="timePickerField" type="text" name="hourStart" id="fieldWayhourStart"  value="${flash['hourStart']}"/>
-        <span class="error">#{error 'dateStart' /}</span>
-        <span class="error">#{error 'hourStart' /}</span>
+        <p class="error">#{error 'hourStart' /}</p>
     </div>
 
     <div class="fieldButtonValidation">

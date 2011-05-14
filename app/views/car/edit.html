@@ -6,8 +6,8 @@
 #{form @car.editCar(car.id)}
 
     #{ifErrors}
-    <p class="error">
-        Il y a une erreur de saisie
+    <p class="main_error">
+       &{'errors'} : &{'error.cant_continue'}
     </p>
     #{/ifErrors}
 

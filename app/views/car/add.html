@@ -6,15 +6,15 @@
 #{form @car.addCar()}
 
     #{ifErrors}
-    <p class="error">
-        Il y a une erreur de saisie
-    </p>    
+    <p class="main_error">
+       &{'errors'} : &{'error.cant_continue'}
+    </p>
     #{/ifErrors}
 
     <label for="fieldCarname">&{'car.name'}</label>
     <div class="formField">
         <input type="text" name="name" id="fieldCarname" value="${flash['name']}"/>
-        <span class="error">#{error 'name' /}</span>
+        <p class="error">#{error 'name' /}</p>
     </div>
 
     <label for="fieldCarcapacity">&{'car.available_place'}</label>
@@ -31,7 +31,7 @@
     <div class="formField">
         <input type="text" name="cost" id="fieldCarconsomation"  value="${flash['cost']}"/>
         <p class="message">&{'car.litreAuCent'}.</p>
-        <span class="error">#{error 'cost' /}</span>
+        <p class="error">#{error 'cost' /}</p>
     </div>
 
     <div class="fieldButtonValidation">
