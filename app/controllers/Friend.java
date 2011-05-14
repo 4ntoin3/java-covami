@@ -25,52 +25,71 @@ public class Friend extends Controller {
      * Liste les amis du compte connecté
      */
     public static void list() {
-        List<models.User> friendShips = models.FriendShip.find("byUser", User.connected()).fetch();
-        
+        List<models.User> friendShips = models.FriendShip.find("user = ? and status = ?", User.connected(), 2).fetch();
+
         render(friendShips);
     }
-    
+
     /**
      * Ajouter un nouvel ami pour le compte connecté
-     */   
-    public static void add(Long id){
+     */
+    public static void add(Long id) {
         models.User user = User.connected();
         models.User friend = models.User.findById(id);
-        
+
         new models.FriendShip(friend, user, 0, new Date()).save();
-        
+
         redirect("/friend/list");
     }
-    
+
     /**
      * Supprimer une relation d'amitité pour le compte connecté
-     */ 
-    public static void delete(Long id){
-        models.FriendShip friendShip = models.FriendShip.findById(id);
+     */
+    public static void delete(Long id) {
+        models.FriendShip friendShipUser = models.FriendShip.findById(id);
+
+        if (friendShipUser == null || friendShipUser.user != User.connected()) {
+            redirect("/friend/list");
+        }
         
-        friendShip.delete();
-        
+        models.FriendShip friendShipFriend = models.FriendShip.find("friend = ? and user = ?", friendShipUser.user, friendShipUser.friend).first();
+
+        friendShipUser.delete();
+        friendShipFriend.delete();
+
         redirect("/friend/list");
     }
-    
+
     /**
      * Recherhcer de nouveaux amis
      */
-    public static void search(String str)
-    {
+    public static void search(String str) {
         List<User> users;
+
+        if (str == null || str.isEmpty()) {
+            users = models.User.find("id != ? order by firstname", User.connected().id).fetch();
+            removeFriendInArray(users);
+            render(users);
+        }
+        users = models.User.find("email like ? OR firstname like ? OR lastname like ? order by firstname", "%" + str + "%", "%" + str + "%", "%" + str + "%").fetch();
+        removeFriendInArray(users);
+        render(users);
+    }
+
+    /**
+     * Return une liste d'utilisateur sans les amis de l'utilisateur connecté
+     * @param users une liste d'utilisateur
+     * @return une liste d'utilisateur
+     */
+    private static List<User> removeFriendInArray(List<User> users) {
         List<FriendShip> friendShips;
         ArrayList<models.User> friends = new ArrayList<models.User>();
-        if(str == null || str.isEmpty()){
-            users = models.User.find("id != ?", User.connected().id).fetch();
-            friendShips = models.FriendShip.find("byUser", User.connected()).fetch();
-            for (FriendShip friendShip : friendShips) {
-                friends.add(friendShip.friend);
-            }
-            users.removeAll(friends);
-            render("/friend/list.html", users);
+        friendShips = models.FriendShip.find("byUser", User.connected()).fetch();
+        for (FriendShip friendShip : friendShips) {
+            friends.add(friendShip.friend);
         }
-        users = models.User.find("email like ? OR firstname like ? OR lastname like ?", "%"+str+"%", "%"+str+"%", "%"+str+"%").fetch();        
-        render("/friend/list.html", users);
+        users.removeAll(friends);
+
+        return users;
     }
 }
