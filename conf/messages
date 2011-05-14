@@ -68,6 +68,7 @@ footer.authors.content=ovami est une solution développé par <a href="http://ww
 # [Section Error]
 error.oggNotPlay=Le format *.ogg n'est pas pris en charge par votre navigateur
 error.cant_continue=Impossible de poursuivre, des erreurs sont survenues.
+error.email_exist=L'adresse email est déjà utilisée.
 
 # [Section Recherche]
 search.invite=Recherche amis, trajets, voiture, ...

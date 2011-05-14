@@ -18,18 +18,18 @@
         #{else}
         <input type="text" name="user.email" id="fieldEmail" value="${flash['user.email']}"/>
         #{/else}
-        <span class="error">#{error 'user.email' /}</span>
+        <p class="error">#{error 'user.email' /}</p>
     </div>
 
     <label for="fieldPassword">&{'user.password'}</label>
     <div class="formField">
         #{if flash['user.password'] == null}
-        <input type="text" name="user.password" id="fieldPassword" value="${user.password}"/>        
+        <input type="password" name="user.password" id="fieldPassword" value="${user.password}"/>        
         #{/if}
         #{else}
-        <input type="text" name="user.password" id="fieldPassword" value="${flash['user.password']}"/>
+        <input type="password" name="user.password" id="fieldPassword" value="${flash['user.password']}"/>
         #{/else}
-        <span class="error">#{error 'user.password' /}</span>
+        <p class="error">#{error 'user.password' /}</p>
     </div>
 
     <label for="fieldFirstname">&{'user.firstname'}</label>
@@ -40,7 +40,7 @@
         #{else}
         <input type="text" name="user.firstname" id="fieldFirstname" value="${flash['user.firstname']}"/>
         #{/else}
-        <span class="error">#{error 'user.firstname' /}</span>
+        <p class="error">#{error 'user.firstname' /}</p>
     </div>
 
     <label for="fieldLastname">&{'user.lastname'}</label>
@@ -51,7 +51,7 @@
         #{else}
         <input type="text" name="user.lastname" id="fieldLastname" value="${flash['user.lastname']}"/>
         #{/else}
-        <span class="error">#{error 'user.lastname' /}</span>
+        <p class="error">#{error 'user.lastname' /}</p>
     </div>
 
     <div class="fieldButtonValidation">
