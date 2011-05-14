@@ -63,14 +63,14 @@ public class User extends Controller {
             redirect("/user/profile");
         }
         
-        if(models.User.find("byEmail", user.email).first() != null && !models.User.find("byEmail", user.email).first().equals(userEdited)){
+        /*if(models.User.find("byEmail", user.email).first() != null && !models.User.find("byEmail", user.email).first().equals(userEdited)){
             validation.addError("user.email", play.i18n.Messages.get("error.email_exist"));
             params.flash(); // add http parameters to the flash scope
             validation.keep(); // keep the errors for the next request
             redirect("/user/profile");
-        }
+        }*/
 
-        userEdited.email = user.email;
+        //userEdited.email = user.email;
         userEdited.password = user.password;
         userEdited.firstname = user.firstname;
         userEdited.lastname = user.lastname;

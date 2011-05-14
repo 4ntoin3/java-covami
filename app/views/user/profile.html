@@ -11,14 +11,8 @@
     #{/ifErrors}
 
     <label for="fieldEmail">&{'user.email'}</label>
-    <div class="formField">
-        #{if flash['user.email'] == null}
-        <input type="text" name="user.email" id="fieldEmail" value="${user.email}"/>        
-        #{/if}
-        #{else}
-        <input type="text" name="user.email" id="fieldEmail" value="${flash['user.email']}"/>
-        #{/else}
-        <p class="error">#{error 'user.email' /}</p>
+    <div class="formField labelLine">
+        ${user.email}
     </div>
 
     <label for="fieldPassword">&{'user.password'}</label>
