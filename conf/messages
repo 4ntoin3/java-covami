@@ -88,11 +88,13 @@ car.empty=Aucune voiture pour le moment
 car.add_first=Cliquez ici pour ajouter votre première voiture
 car.back_to_list=Retour à la liste des voitures
 car.empty_list_way_for_car=Cette voiture n'a encore jamais effectué de trajet sur le réseau Covami
+car.his_ways=Trajets effectués par la voiture
 
 # [Section User]
 user.email=Adresse email
 user.firstname=Prénom
 user.lastname=Nom
+user.covanote=Covanote
 user.password=Mot de passe
 user.not_yet_account=Vous n'avez pas encore de compte ?
 user.subscribe=Inscrivez vous !
@@ -119,6 +121,8 @@ user.dashboard.proposed_way=voyage(s) proposé(s)
 user.dashboard.participation_way=voyage(s) participant(s)
 user.dashboard.avg_cost=Coût moyen de mes voyages
 user.dashboard.my_covanote=Ma Covanote
+user.his_driver_way=Trajets proposés (conducteur) sur le réseau
+user.his_passenger_way=Trajets effectués (passager) sur le réseau
 
 # [Section General]
 general.default_value=Valeur par défaut
@@ -127,6 +131,10 @@ general.default_value=Valeur par défaut
 way.empty=Aucun trajet pour le moment
 way.add_first=Cliquez ici pour ajouter le premier trajet
 
+# [Section Friend]
+friend.back_to_list=Retour à la liste des amis
+friend.his_profil=Son profil
+friend.empty_list_way_for_user=Cet utilisateur n'a encore jamais effectué de trajet sur le réseau Covami
 
 
 # [Section Autre]

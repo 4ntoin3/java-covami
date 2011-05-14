@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import models.FriendShip;
 import play.mvc.*;
@@ -49,9 +50,11 @@ public class User extends Controller {
         render(user);
     }
     
-    public static void detail(Long id){
+    public static void detail(Long id){   
         models.User user = models.User.findById(id);
-        render(user);
+        List<models.Way> waysDriver = models.Way.find("byDriver", user).fetch();
+        List<models.Way> wayPassengers = new ArrayList<models.Way>();
+        render(user, waysDriver, wayPassengers);
     }
 
     public static void editProfile(@Valid models.User user) {

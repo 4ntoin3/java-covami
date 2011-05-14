@@ -2,25 +2,49 @@
 #{set title: play.i18n.Messages.get('title.user.details') /}
 #{set subtitle: play.i18n.Messages.get('subtitle.user.details') /}
 
+<a href="@{Friend.list}"><span class="">&DDotrahd; &{'friend.back_to_list'}</a>
+
+<h2>&#9733; &{'friend.his_profil'}</h2>
 <div class="mainForm">
-    <label for="fieldEmail">&{'field.email'}</label>
-    <div class="formField">
-        <input type="text" name="user.email" id="fieldEmail" disabled value="${user.email}"/>        
-        <span class="error">#{error 'user.email' /}</span>
-    </div>
+    <label>&{'user.email'}</label>
+    <div class="formField labelLine">${user.email}</div>
 
-    <label for="fieldFirstname">&{'field.firstname'}</label>
-    <div class="formField">
-        <input type="text" name="user.firstname" id="fieldFirstname" disabled value="${user.firstname}"/>        
-        <span class="error">#{error 'user.firstname' /}</span>
-    </div>
+    <label>&{'user.firstname'}</label>
+    <div class="formField labelLine">${user.firstname.capFirst()}</div>
     
-        <label for="fieldLastname">&{'field.lastname'}</label>
-    <div class="formField">
-        <input type="text" name="user.lastname" id="fieldLastname" disabled value="${user.lastname}"/>        
-        <span class="error">#{error 'user.lastname' /}</span>
-    </div>
-
+    <label>&{'user.lastname'}</label>
+    <div class="formField labelLine">${user.lastname.capAll()}</div>
+    
+    <label>&{'user.covanote'}</label>
+    <div class="formField labelLine">@TODO Add his covanote</div>
+    
     <div class="clear"></div>
 </div>
-<p></p>
+
+<h2>&#9733; &{'user.his_driver_way'}</h2>
+<div class="mainForm">
+    #{if waysDriver.size == 0}
+    &{'friend.empty_list_way_for_user'}.
+    #{/if}
+    #{else}
+    #{list items:waysDriver, as:'way'}
+    <label>@TODO Add startdate</label>
+    <div class="formField labelLine">${waysDriver.startCity?.name} => ${waysDriver.finishCity?.name} (${waysDriver?.distance} kms)</div>      
+    #{/list}
+    #{/else}
+    <div class="clear"></div>
+</div>
+
+<h2>&#9733; &{'user.his_passenger_way'}</h2>
+<div class="mainForm">
+    #{if wayPassengers.size == 0}
+    &{'friend.empty_list_way_for_user'}.
+    #{/if}
+    #{else}
+    #{list items:wayPassengers, as:'way'}
+    <label>@TODO Add startdate</label>
+    <div class="formField labelLine">${wayPassengers.startCity?.name} => ${wayPassengers.finishCity?.name} (${wayPassengers?.distance} kms)</div>      
+    #{/list}
+    #{/else}
+    <div class="clear"></div>
+</div>
