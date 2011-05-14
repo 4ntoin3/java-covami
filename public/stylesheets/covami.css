@@ -1,0 +1,168 @@
+/* Buttons
+------------------------ */
+button {
+    background-color: #C9E6F8;
+    border: 1px solid #FFF;
+    font-size: 15px;
+    text-shadow: 1px 1px 1px #FFF;
+    color: #2BA1E5;
+    padding: 5px;
+}
+button:hover {
+    color: #1C6B96;
+    cursor: pointer;
+}
+button.withPix {
+    padding-left: 20px;
+    background-position: 2px center;
+    background-repeat: no-repeat;
+}
+
+.mainForm .success  {
+    background: #008800 !important;
+    color: #fff;
+    padding: 10px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-box-shadow: 0 2px 0 #4E840B; 
+}
+
+.mainForm .error {
+    background: #c00;
+    color: #fff;
+    font-size: 90%;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-box-shadow: 0 2px 0 #800;
+}
+
+.error {
+    text-align: center;
+}
+
+.mainForm {
+    width: 880px;
+    padding: 10px;
+    border: 1px solid #AF1515;
+}
+.mainForm .message {
+    padding: 10px;
+
+}
+.mainForm label {
+    clear: both;
+    display: block;
+    font-weight: bold;
+    padding: 12px;
+    float: left;
+    width: 200px;
+    background-color: #D7E7F2;
+    border-top: 1px solid #FFF;
+    font-size: 15px;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+.mainForm .formField {
+    border-top: 1px solid #FFF;
+    float: left;
+    padding: 9px;
+    background-color: #D7E7F2;
+    margin-left: 5px;
+    width: 630px;
+}
+.mainForm .formField input,
+.mainForm .formField select {
+    font-size: 15px;
+    padding: 2px;
+    border: 1px solid #CCC;
+    float: left;
+}
+.mainForm .formField .message {
+    margin: 0px;
+    float: left;
+    padding: 3px 0px 0px 10px;
+    font-style: italic;
+}
+.mainForm .fieldButtonValidation {
+    clear: both;
+    background-color: #D7E7F2;
+    border-top: 1px solid #FFF;
+    padding: 5px;
+    width: 867px;
+}
+.mainForm .fieldButtonValidation button{
+    float: right;
+}
+
+
+/* Tableaux
+------------------------------------------------- */
+.covami_table {
+    border: 1px solid #DFDFDF;
+    margin: 10px 0px;
+    border-collapse: collapse;
+    width: 100%;
+}
+.covami_table th {
+    background-color: #DFDFDF;
+    text-shadow: 1px 1px 1px #FFF;
+    color: #AF1515;
+    border: 1px solid #CCC;
+}
+.covami_table tr {
+    
+}
+.covami_table td {
+    border: 1px solid #CCC;
+}
+.table_col_action {
+    text-align: center;
+    width: 15%;
+}
+.table_empty {
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+    text-shadow: 1px 1px 1px #FFF;
+    font-weight: bold;
+}
+
+/* Bloc bouton d'ajout sur page de liste
+------------------------------------------------- */
+.rightTopButtonBox button {
+    float: right;
+}
+
+
+/* Icone d'illustration en 16 pixels
+------------------------------------------------- */
+.pix16_car_add {
+    background-image: url(../images/icons/car_add.png);
+}
+.pix16_way_add {
+    background-image: url(../images/icons/way_add.png);
+}
+.pix16_way_search {
+    background-image: url(../images/icons/way_search.png);
+}
+.pix16_login {
+    background-image: url(../images/icons/login.png);
+}
+.pix16_valid {
+    background-image: url(../images/icons/valid.png);
+}
+.pix16_cancel {
+    background-image: url(../images/icons/cancel.png);
+}
+
+/* Bloc de liste vide invitant à l'ajout
+------------------------------------------------- */
+.empty_add_first {
+    border: 1px solid rosybrown;
+    margin: 4px;
+    padding: 10px;
+    text-align: center;
+}
+
+.labelLine {
+    padding: 15px 10px 11px 10px!important;
+}

@@ -1,0 +1,66 @@
+#{extends 'main.html' /}
+#{set title: play.i18n.Messages.get('title.profile') /}
+#{set subtitle: play.i18n.Messages.get('subtitle.profile') /}
+
+<div class="mainForm">
+    #{form @User.editProfile()}
+    #{ifErrors}
+    <p class="error">
+        Il y a une erreur de saisie
+    </p>
+    #{/ifErrors}
+
+    <label for="fieldEmail">&{'user.email'}</label>
+    <div class="formField">
+        #{if flash['user.email'] == null}
+        <input type="text" name="user.email" id="fieldEmail" value="${user.email}"/>        
+        #{/if}
+        #{else}
+        <input type="text" name="user.email" id="fieldEmail" value="${flash['user.email']}"/>
+        #{/else}
+        <span class="error">#{error 'user.email' /}</span>
+    </div>
+
+    <label for="fieldPassword">&{'user.password'}</label>
+    <div class="formField">
+        #{if flash['user.password'] == null}
+        <input type="text" name="user.password" id="fieldPassword" value="${user.password}"/>        
+        #{/if}
+        #{else}
+        <input type="text" name="user.password" id="fieldPassword" value="${flash['user.password']}"/>
+        #{/else}
+        <span class="error">#{error 'user.password' /}</span>
+    </div>
+
+    <label for="fieldFirstname">&{'user.firstname'}</label>
+    <div class="formField">
+        #{if flash['user.email'] == null}
+        <input type="text" name="user.firstname" id="fieldFirstname" value="${user.firstname}"/>        
+        #{/if}
+        #{else}
+        <input type="text" name="user.firstname" id="fieldFirstname" value="${flash['user.firstname']}"/>
+        #{/else}
+        <span class="error">#{error 'user.firstname' /}</span>
+    </div>
+
+    <label for="fieldLastname">&{'user.lastname'}</label>
+    <div class="formField">
+        #{if flash['user.email'] == null}
+        <input type="text" name="user.lastname" id="fieldLastname" value="${user.lastname}"/>        
+        #{/if}
+        #{else}
+        <input type="text" name="user.lastname" id="fieldLastname" value="${flash['user.lastname']}"/>
+        #{/else}
+        <span class="error">#{error 'user.lastname' /}</span>
+    </div>
+
+    <div class="fieldButtonValidation">
+        <button type="button" name="btnCancel" class="cancelButton withPix pix16_cancel">&{'btn.annuler'}</button>
+        <button type="submit" name="btnValidation" class="withPix pix16_valid">&{'btn.valider'}</button>
+        <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+    #{/form}
+</div>
+<p></p>

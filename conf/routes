@@ -1,0 +1,18 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET /                       User.dashboard
+
+# Import Secure routes
+*   /                       module:secure
+
+# Map static resources from the /app/public folder to the /public path
+GET /public/                staticDir:public
+
+# Action par défaut d'un controlleur
+GET /{controller}           {controller}.index
+
+# Catch all
+*   /{controller}/{action}  {controller}.{action}

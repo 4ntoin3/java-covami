@@ -1,0 +1,45 @@
+#{extends 'main.html' /}
+#{set title: play.i18n.Messages.get('title.friend') /}
+#{set subtitle: play.i18n.Messages.get('subtitle.friend') /}
+
+<div class="rightTopButtonBox">
+    <!-- @TODO Add a icon for button -->
+    <button class="searchButton withPix pix16_way_search">&{'btn.search.friend'}</button>
+    <div style="clear: both;"></div>
+</div>
+
+<table class="covami_table">
+    <thead>
+        <tr>
+            <th class="table_col_action">&{'friend.list.col.actions'}</th>
+            <th>&{'friend.list.col.label'}</th>
+        </tr>
+    </thead>
+    <tbody>
+        #{if friendShips == null}
+        <tr>
+            <td class="table_empty" colspan=2>
+                &{'friend.list.empty'}.<br/>
+                <a href="@{friend.add}">&{'friend.list.add_first'}!</a>
+            </td>
+        </tr>
+        #{/if}
+        #{else}
+        #{list items:friendShips, as:'friendShip'}
+        <tr>
+            <td class="table_col_action">
+                <a href="@{user.detail(friendShip.friend.id)}" title="&{'friend.list.detail_me'}">
+                    <img src="@{'public/images/icons/24/detail.png'}" alt="&{'friend.list.detail_me'}" />
+                </a>
+                <a href="@{friend.delete(friendShip.id)}" title="&{'friend.list.delete_me'}">
+                    <img src="@{'public/images/icons/24/delete.png'}" alt="&{'friend.list.delete_me'}" />
+                </a>
+            </td>
+            <td>
+                ${friendShip.friend.firstname} ${friendShip.friend.lastname}
+            </td>
+        </tr>
+        #{/list}
+        #{/else}
+    </tbody>
+</table>

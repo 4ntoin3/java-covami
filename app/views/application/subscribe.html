@@ -1,0 +1,46 @@
+#{extends 'main.html' /}
+#{set title: play.i18n.Messages.get('subscribe') /}
+#{set subtitle: play.i18n.Messages.get('subscribe.subtitle') /}
+
+<div class="mainForm">
+#{form @Application.addUser()}
+    #{ifErrors}
+    <p class="error">
+        Il y a une erreur de saisie
+    </p>
+    #{/ifErrors}
+
+    <label for="fieldEmail">&{'user.email'}</label>
+    <div class="formField">
+        <input type="text" name="user.email" id="fieldEmail" value="${flash['user.email']}"/>
+        <span class="error">#{error 'user.email' /}</span>
+    </div>
+    
+    <label for="fieldPassword">&{'user.password'}</label>
+    <div class="formField">
+        <input type="password" name="user.password" id="fieldPassword" value="${flash['user.password']}"/>
+        <span class="error">#{error 'user.password' /}</span>
+    </div>
+
+    <label for="fieldFirstname">&{'user.firstname'}</label>
+    <div class="formField">
+        <input type="text" name="user.firstname" id="fieldFirstname" value="${flash['user.firstname']}"/>
+        <span class="error">#{error 'user.firstname' /}</span>
+    </div>
+    
+        <label for="fieldLastname">&{'user.lastname'}</label>
+    <div class="formField">
+        <input type="text" name="user.lastname" id="fieldLastname" value="${flash['user.lastname']}"/>
+        <span class="error">#{error 'user.lastname' /}</span>
+    </div>
+
+    <div class="fieldButtonValidation">
+        <button type="button" name="btnCancel" class="cancelButton withPix pix16_cancel">&{'btn.annuler'}</button>
+        <button type="submit" name="btnValidation" class="withPix pix16_valid">&{'btn.inscription'}</button>
+        <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+    #{/form}
+</div>
+<p></p>

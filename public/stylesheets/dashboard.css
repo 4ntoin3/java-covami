@@ -1,0 +1,55 @@
+.box_dashboard {
+    float: left;
+    width: 438px;
+    margin: 5px;
+    border: 1px solid #54B6EA;
+}
+
+.box_dashboard h4 {
+    padding: 4px;
+    background: #BCDEF2;
+    color: #C93838;
+}
+.box_dashboard h4 .toggler {
+    font-size: 16px;
+}
+.box_dashboard h4 .toggler:hover {
+    cursor: pointer;
+    color: blue;
+}
+
+.box_dashboard .content {
+    padding: 5px;
+    min-height: 140px;
+}
+.box_dashboard .content .empty_box {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    text-shadow: 1px 1px 1px white;
+}
+
+.box_dashboard .content ul {
+    margin: 0px;
+}
+.box_dashboard .content ul li {
+    margin: 0px 0px 0px 20px;
+    list-style-type:circle;
+}
+
+#box_profile .content .title {
+    font-size: 24px;
+    color: #2182BA;
+    text-align: center;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    padding: 0px;
+    margin: 0px;
+}
+#box_profile .content .stats {
+    margin: 0px;
+    text-align: left;
+    padding: 0px 0px 0px 100px;
+}
+#box_profile .content .stats img {
+    vertical-align: text-bottom;
+}

@@ -1,0 +1,52 @@
+#{extends 'main.html' /}
+#{set title: play.i18n.Messages.get('title.way') /}
+#{set subtitle: play.i18n.Messages.get('subtitle.way') /}
+
+<div class="rightTopButtonBox">
+    <button class="addButton withPix pix16_way_add">&{'btn.add.way'}</button>
+    <button class="searchButton withPix pix16_way_search">&{'btn.search.way'}</button>
+    <div style="clear: both;"></div>
+</div>
+
+<table class="covami_table">
+    <thead>
+        <tr>
+            <th class="table_col_action">&{'way.list.col.actions'}</th>
+            <th>&{'way.list.col.label'}</th>
+            <th>&{'way.list.col.nbPassenger'}</th>
+        </tr>
+    </thead>
+    <tbody>
+        #{if ways == null}
+        <tr>
+            <td class="table_empty" colspan="3">
+                &{'way.empty'}.<br/>
+                <a href="@{way.add}">&{'way.add_first'}!</a>
+            </td>
+        </tr>
+        #{/if}
+        #{else}
+        #{list items:ways, as:'way'}
+        <tr>
+            <td class="table_col_action">
+                <a href="@{way.details(way.id)}" title="&{'way.list.detail_me'}">
+                    <img src="@{'public/images/icons/24/detail.png'}" alt="&{'way.list.detail_me'}" />
+                </a>
+                <a href="@{way.edit(way.id)}" title="&{'way.list.edit_me'}">
+                    <img src="@{'public/images/icons/24/edit.png'}" alt="&{'way.list.edit_me'}" />
+                </a>
+                <a href="@{way.cancel(way.id)}" title="&{'way.list.cancel_me'}">
+                    <img src="@{'public/images/icons/24/delete.png'}" alt="&{'way.list.delete_me'}" />
+                </a>
+            </td>
+            <td>
+                ${way.startCity.name} => ${way.finishCity.name}
+            </td>
+            <td>
+                ${way.passengers.size()}
+            </td>
+        </tr>
+        #{/list}
+        #{/else}
+    </tbody>
+</table>
