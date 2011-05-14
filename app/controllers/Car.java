@@ -70,7 +70,7 @@ public class Car extends Controller {
         }
     }
     
-    public static void editCar(Long id, @Required String name, @Required @Min(1) Integer nbPlace, @Required @Min(0) Integer cost){
+    public static void editCar(Long id, @Required String name, @Required @Min(1) @Max(9) Integer nbPlace, @Required @Min(0) Integer cost){
         checkIfTheCarBelongTheUserConnected(id);
         models.Car carEdited = models.Car.findById(id);
         

@@ -19,7 +19,7 @@
         #{else}
         <input type="text" name="name" id="fieldCarname" value="${flash['name']}"/>
         #{/else}
-        <span class="error">#{error 'name' /}</span>
+        <p class="error">#{error 'name' /}</p>
     </div>
     
     <label for="fieldCarcapacity">&{'car.available_place'}</label>
@@ -38,7 +38,7 @@
             <option value=${i} #{if flash["nbPlace"]=="${i}"}selected#{/if}>${i}</option>
         #{/list}
         </select>
-        <p class="message">&{'car.woutDriver'}. &{'defautValue'}, &{'car.editForEachWay'}.</p>
+        <p class="message">&{'car.without_driver'}. &{'general.default_value'}, &{'car.edit_for_each_way'}.</p>
         #{/else}
     </div>
     
@@ -51,7 +51,7 @@
         <input type="text" name="cost" id="fieldcost" value="${flash['cost']}"/>
         #{/else}
         <p class="message">&{'car.litreAuCent'}.</p>
-        <span class="error">#{error 'cost' /}</span>
+        <p class="error">#{error 'cost' /}</p>
     </div>          
 
     <div class="fieldButtonValidation">
