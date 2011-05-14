@@ -64,7 +64,7 @@ public class User extends Controller {
         render(user, waysDriver, wayPassengers);
     }
 
-    public static void editProfile(@Valid models.User user) {
+    public static void editProfile(@Required String password, @Required String firstname, @Required String lastname) {
         models.User userEdited = User.connected();
 
         if (validation.hasErrors()) {
@@ -73,17 +73,9 @@ public class User extends Controller {
             redirect("/user/profile");
         }
         
-        /*if(models.User.find("byEmail", user.email).first() != null && !models.User.find("byEmail", user.email).first().equals(userEdited)){
-            validation.addError("user.email", play.i18n.Messages.get("error.email_exist"));
-            params.flash(); // add http parameters to the flash scope
-            validation.keep(); // keep the errors for the next request
-            redirect("/user/profile");
-        }*/
-
-        //userEdited.email = user.email;
-        userEdited.password = user.password;
-        userEdited.firstname = user.firstname;
-        userEdited.lastname = user.lastname;
+        userEdited.password = password;
+        userEdited.firstname = firstname;
+        userEdited.lastname = lastname;
         userEdited.save();
 
         redirect("/user/profile");
