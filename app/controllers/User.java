@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.List;
+import models.FriendShip;
 import play.mvc.*;
 import play.data.validation.*;
 
@@ -19,7 +21,12 @@ public class User extends Controller {
      */
     public static void dashboard()
     {
-        render(User.connected());
+        models.User user = User.connected();
+        List<FriendShip> friends_waiting = FriendShip.find("friend = ? and status = ?", user, 0).fetch();
+        List<FriendShip> friends_refuse = FriendShip.find("user = ? and status = ?", user, 1).fetch();
+        List<FriendShip> friends_accept = FriendShip.find("user = ? and status = ?", user, 2).fetch();
+        
+        render(friends_waiting, friends_refuse, friends_accept);
     }
 
     /**

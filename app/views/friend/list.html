@@ -16,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        #{if friends == null}
+        #{if friendShips == null}
         <tr>
             <td class="table_empty" colspan=2>
                 &{'friend.list.empty'}.<br/>
@@ -25,21 +25,18 @@
         </tr>
         #{/if}
         #{else}
-        #{list items:friends, as:'friend'}
+        #{list items:friendShips, as:'friendShip'}
         <tr>
             <td class="table_col_action">
-                <a href="@{friend.add(friend.id)}" title="&{'friend.list.add_me'}">
-                    <img src="@{'public/images/icons/24/friend_add.png'}" alt="&{'friend.list.add_me'}" />
-                </a>
-                <a href="@{user.detail(friend.id)}" title="&{'friend.list.detail_me'}">
+                <a href="@{user.detail(friendShip.friend.id)}" title="&{'friend.list.detail_me'}">
                     <img src="@{'public/images/icons/24/detail.png'}" alt="&{'friend.list.detail_me'}" />
                 </a>
-                <a href="@{friend.delete(friend.id)}" title="&{'friend.list.delete_me'}">
+                <a href="@{friend.delete(friendShip.id)}" title="&{'friend.list.delete_me'}">
                     <img src="@{'public/images/icons/24/delete.png'}" alt="&{'friend.list.delete_me'}" />
                 </a>
             </td>
             <td>
-                ${friend.firstname} ${friend.lastname}
+                ${friendShip.friend.firstname} ${friendShip.friend.lastname}
             </td>
         </tr>
         #{/list}

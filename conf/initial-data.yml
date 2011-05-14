@@ -10,20 +10,70 @@ User(damien):
     firstname:      damien
     lastname:       DUBATEAU
     
+User(antoine):
+    email:          antoine@gmail.com
+    password:       secret
+    firstname:      antoine
+    lastname:       esnault
+    
+User(pierre):
+    email:          pierre@gmail.com
+    password:       secret
+    firstname:      pierre
+    lastname:       gaste
+    
 User(bob):
     email:          bob@gmail.com
     password:       secret
     firstname:      Bob
     lastname:       LEBRUNT
-    friends:        [kevin, damien]
-    isAdmin:        true
-    
+
 User(jeff):
     email:          jeff@gmail.com
     password:       secret
     firstname:      Jeff    
     lastname:       ROBERT
     
+FriendShip(kevinBob):
+    friend:         kevin
+    user:           bob
+    status:         0
+
+FriendShip(damienBob):
+    friend:         damien
+    user:           bob
+    status:         1    
+    
+FriendShip(antoineBob):
+    friend:         antoine
+    user:           bob
+    status:         2
+    
+FriendShip(bobAntoine):
+    friend:         bob
+    user:           antoine
+    status:         2
+     
+FriendShip(kevinJeff):
+    friend:         kevin
+    user:           jeff
+    status:         0
+    
+FriendShip(bobJeff):
+    friend:         bob
+    user:           jeff
+    status:         0
+    
+FriendShip(antoinePierre):
+    friend:         antoine
+    user:           pierre
+    status:         2
+     
+FriendShip(pierreAntoine):
+    friend:         pierre
+    user:           antoine
+    status:         2
+     
 Car(clioBob):
     name:           clio
     nbPlace:        4

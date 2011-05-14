@@ -20,14 +20,12 @@ public class City extends Model{
     public Integer codeINSEE;
     public Double latitude;
     public Double longitude;
-    public Point pxPosition;    
 
     public City(String name, Integer codeINSEE, Double latitude, Double longitude) {
         this.name = name;
         this.codeINSEE = codeINSEE;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.pxPosition = new Point();
     } 
     
     public List<Road> roads(){                 
