@@ -21,7 +21,7 @@ public class FriendShip extends Model{
     public User user;
     
     @Min(0)
-    @Max(2)
+    @Max(3)
     @Required
     public Integer status;
     

@@ -22,7 +22,7 @@ public class Friend extends Controller {
      * Liste les amis du compte connecté
      */
     public static void list() {
-        List<models.User> friendShips = models.FriendShip.find("user = ? and status = ?", User.connected(), 2).fetch();
+        List<models.User> friendShips = models.FriendShip.find("user = ? and (status = ? or status = ?)", User.connected(), 2, 3).fetch();
 
         render(friendShips);
     }
@@ -36,16 +36,30 @@ public class Friend extends Controller {
         if (friendship != null && friendship.status == 0 && friendship.friend == User.connected()) {
             friendship.status = 2;
             friendship.save();
-            new FriendShip(friendship.friend, friendship.user, 2, new Date()).save();
+            new FriendShip(friendship.user, friendship.friend, 3, new Date()).save();
         }
         User.dashboard();
     }
-    
-    public static void refuse(Long id){
+
+    public static void refuse(Long id) {
         FriendShip friendship = FriendShip.findById(id);
         if (friendship != null && friendship.status == 0 && friendship.friend == User.connected()) {
             friendship.status = 1;
             friendship.save();
+        }
+        User.dashboard();
+    }
+
+    public static void validNotification(Long id) {
+        FriendShip friendship = FriendShip.findById(id);
+
+        if (friendship != null && (friendship.status == 1 || friendship.status == 2) && friendship.user == User.connected()) {
+            if (friendship.status == 1) {
+                friendship.delete();
+            } else if (friendship.status == 2) {
+                friendship.status = 3;
+                friendship.save();
+            }
         }
         User.dashboard();
     }
@@ -84,7 +98,7 @@ public class Friend extends Controller {
      * Recherhcer de nouveaux amis
      */
     public static void search(String str) {
-        List<User> users;
+        List<models.User> users;
 
         if (str == null || str.isEmpty()) {
             users = models.User.find("id != ? order by firstname", User.connected().id).fetch();
@@ -101,10 +115,10 @@ public class Friend extends Controller {
      * @param users une liste d'utilisateur
      * @return une liste d'utilisateur
      */
-    private static List<User> removeFriendInArray(List<User> users) {
+    private static List<models.User> removeFriendInArray(List<models.User> users) {
         List<FriendShip> friendShips;
         ArrayList<models.User> friends = new ArrayList<models.User>();
-        friendShips = models.FriendShip.find("user = ? and (status = 2 or status = 0)", User.connected()).fetch();
+        friendShips = models.FriendShip.find("user = ? and status != 1", User.connected()).fetch();
         for (FriendShip friendShip : friendShips) {
             friends.add(friendShip.friend);
         }
