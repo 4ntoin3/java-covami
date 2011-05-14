@@ -1083,7 +1083,7 @@ Way(parisMarseille):
     distance:       500
     car:            clioBob
     placeAvailable: 1
-    dateHourStart:  12/01/2010 10:00
+    dateHourStart:  2010-03-02 10:00:00
     
 Way(marseilleParis):
     startCity:      marseille
@@ -1093,7 +1093,7 @@ Way(marseilleParis):
     distance:       500
     car:            clioBob
     placeAvailable: 3
-    dateHourStart:  14/01/2010 20:00
+    dateHourStart:  2010-03-03 10:00:00
     
 Way(parisBordeaux):
     startCity:      paris
@@ -1103,7 +1103,7 @@ Way(parisBordeaux):
     distance:       400
     car:            picassoJeff
     placeAvailable: 3    
-    dateHourStart:  12/01/2012 10:00
+    dateHourStart:  2010-03-04 10:00:00
     
 Way(marseilleParisBis):
     startCity:      marseille
@@ -1113,4 +1113,4 @@ Way(marseilleParisBis):
     distance:       500
     car:            clioBob
     placeAvailable: 3
-    dateHourStart:  01/01/2011 10:00
+    dateHourStart:  2010-03-05 10:00:00

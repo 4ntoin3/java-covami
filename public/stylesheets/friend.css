@@ -1,0 +1,27 @@
+.friend {
+    float: left;
+    border: 1px solid #CCC;
+    margin: 4px;
+    min-width: 160px;
+    text-align: center;
+    border-radius: 10px;
+}
+.friend:hover {
+    background-color: #A7D5EF;
+    cursor: pointer;
+}
+.friend .description h4 {
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px #FFF;
+    padding: 10px;
+}
+
+#searchFriendField {
+    background: none repeat scroll 0 0 #CCEAFC;
+    border: 1px solid #CF0A00;
+    color: #296384;
+    font-size: 15px;
+    padding: 5px;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    width: 300px;
+}
