@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import models.FriendShip;
 import play.mvc.*;
@@ -64,9 +65,11 @@ public class User extends Controller {
         render(user);
     }
     
-    public static void detail(Long id){
+    public static void detail(Long id){   
         models.User user = models.User.findById(id);
-        render(user);
+        List<models.Way> waysDriver = models.Way.find("byDriver", user).fetch();
+        List<models.Way> wayPassengers = new ArrayList<models.Way>();
+        render(user, waysDriver, wayPassengers);
     }
 
     public static void editProfile(@Valid models.User user) {
@@ -78,14 +81,14 @@ public class User extends Controller {
             redirect("/user/profile");
         }
         
-        if(models.User.find("byEmail", user.email).first() != null && !models.User.find("byEmail", user.email).first().equals(userEdited)){
-            validation.addError("user.email", "email used");
+        /*if(models.User.find("byEmail", user.email).first() != null && !models.User.find("byEmail", user.email).first().equals(userEdited)){
+            validation.addError("user.email", play.i18n.Messages.get("error.email_exist"));
             params.flash(); // add http parameters to the flash scope
             validation.keep(); // keep the errors for the next request
             redirect("/user/profile");
-        }
+        }*/
 
-        userEdited.email = user.email;
+        //userEdited.email = user.email;
         userEdited.password = user.password;
         userEdited.firstname = user.firstname;
         userEdited.lastname = user.lastname;

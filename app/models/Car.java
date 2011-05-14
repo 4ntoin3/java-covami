@@ -16,6 +16,7 @@ public class Car extends Model {
     public String name;
     
     @Min(1)
+    @Max(9)
     @Required
     public Integer nbPlace; 
     

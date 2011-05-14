@@ -67,6 +67,8 @@ footer.authors.content=ovami est une solution développé par <a href="http://ww
 
 # [Section Error]
 error.oggNotPlay=Le format *.ogg n'est pas pris en charge par votre navigateur
+error.cant_continue=Impossible de poursuivre, des erreurs sont survenues.
+error.email_exist=L'adresse email est déjà utilisée.
 
 # [Section Recherche]
 search.invite=Recherche amis, trajets, voiture, ...
@@ -86,11 +88,13 @@ car.empty=Aucune voiture pour le moment
 car.add_first=Cliquez ici pour ajouter votre première voiture
 car.back_to_list=Retour à la liste des voitures
 car.empty_list_way_for_car=Cette voiture n'a encore jamais effectué de trajet sur le réseau Covami
+car.his_ways=Trajets effectués par la voiture
 
 # [Section User]
 user.email=Adresse email
 user.firstname=Prénom
 user.lastname=Nom
+user.covanote=Covanote
 user.password=Mot de passe
 user.not_yet_account=Vous n'avez pas encore de compte ?
 user.subscribe=Inscrivez vous !
@@ -117,6 +121,8 @@ user.dashboard.proposed_way=voyage(s) proposé(s)
 user.dashboard.participation_way=voyage(s) participant(s)
 user.dashboard.avg_cost=Coût moyen de mes voyages
 user.dashboard.my_covanote=Ma Covanote
+user.his_driver_way=Trajets proposés (conducteur) sur le réseau
+user.his_passenger_way=Trajets effectués (passager) sur le réseau
 
 # [Section General]
 general.default_value=Valeur par défaut
@@ -125,6 +131,10 @@ general.default_value=Valeur par défaut
 way.empty=Aucun trajet pour le moment
 way.add_first=Cliquez ici pour ajouter le premier trajet
 
+# [Section Friend]
+friend.back_to_list=Retour à la liste des amis
+friend.his_profil=Son profil
+friend.empty_list_way_for_user=Cet utilisateur n'a encore jamais effectué de trajet sur le réseau Covami
 
 
 # [Section Autre]
@@ -133,3 +143,27 @@ car=voiture
 way=voyage
 yes=Oui
 no=Non
+errors=Erreurs
+
+# [Section Validation]
+validation.required=Ce champ doit être complété.
+validation.minSize=La taille minimum est de %2$d pour ce champ.
+validation.maxSize=La taille minimum est de %2$d pour ce champ.
+validation.email=L'adresse email est invalide.
+validation.range=La valeur du champ doit etre entre %2$d et %3$d.
+validation.min=La valeur du champ doit être plus grand que %2$d.
+validation.max=La valeur du champ doit être plus petite que %2$d.
+validation.match=La valeur du champ doit être de %2$s.
+validation.isTrue=Ce champ doit être validé.
+validation.equals=La valeur du champ doit être égal à &{%2$s}.
+validation.invalid=La valeur est incorrecte.
+validation.future=La valeur doit être ultérieur.
+validation.after=La valeur doit être après : %2$s.
+validation.past=La valeur doit être antérieur.
+validation.before=La valeur doit être avant : %2$s
+validation.object=Echec de la validation
+validation.notFound=Objet non trouvé pour %2$s
+validation.url=L'URL est invalide.
+validation.phone=La valeur n'est pas un numéro de téléphone valide.
+validation.ipv4=La valeur n'est pas une adresse IP valide.
+validation.ipv6=La valeur n'est pas une adresse IP v6 valide.

@@ -88,4 +88,18 @@ $(document).ready(function(){
             that.val(msg.search.invite);
         }
     });
+    
+    /**
+     * Click on delete item button
+     * 
+     * @element delete_conformation link
+     * @event Click
+     * @action Window confirmation for deleting
+     */
+    $('.delete_confirmation').bind("click", function(){
+        if (confirm("ok ok baby ?"))
+            return true;
+        
+        return false;
+    });
 });
