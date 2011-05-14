@@ -36,7 +36,7 @@ public class Friend extends Controller {
         if (friendship != null && friendship.status == 0 && friendship.friend == User.connected()) {
             friendship.status = 2;
             friendship.save();
-            new FriendShip(friendship.user, friendship.friend, 2, new Date()).save();
+            new FriendShip(friendship.friend, friendship.user, 2, new Date()).save();
         }
         User.dashboard();
     }
@@ -88,7 +88,7 @@ public class Friend extends Controller {
 
         if (str == null || str.isEmpty()) {
             users = models.User.find("id != ? order by firstname", User.connected().id).fetch();
-            removeFriendInArray(users);
+            users = removeFriendInArray(users);
             render(users);
         }
         users = models.User.find("email like ? OR firstname like ? OR lastname like ? order by firstname", "%" + str + "%", "%" + str + "%", "%" + str + "%").fetch();
@@ -104,7 +104,7 @@ public class Friend extends Controller {
     private static List<User> removeFriendInArray(List<User> users) {
         List<FriendShip> friendShips;
         ArrayList<models.User> friends = new ArrayList<models.User>();
-        friendShips = models.FriendShip.find("user = ? and status = 2", User.connected()).fetch();
+        friendShips = models.FriendShip.find("user = ? and (status = 2 or status = 0)", User.connected()).fetch();
         for (FriendShip friendShip : friendShips) {
             friends.add(friendShip.friend);
         }

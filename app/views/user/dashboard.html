@@ -37,9 +37,7 @@
             <span style="text-shadow: none;">&{'user.dashboard.want_new_friend'} <a href="@{Friend.search()}">&{'user.dashboard.find_friend_easy'}</a></span>
         </p>
         #{/if}
-
-        <hr/>
-
+        #{else}
         <ul>
             #{list friends_accept, as:'friend_accept'}
             <li><a href="lien/vers/le/friend">${friend_accept.friend.firstname.capFirst()} ${friend_accept.friend.lastname.capFirst()}</a> &{'user.dashboard.accept_friend'}.</li>
@@ -54,6 +52,7 @@
             #{/list}
 <!--            <li><a href="lien/vers/le/user">Antoine Esnault</a> &{'user.dashboard.want_to_be_friend'} ? <a href="lien/de/validation/de/demande">&{'yes'}</a> - <a href="lien/de/refus/de/demande">&{'no'}</a></li>-->
         </ul>
+        #{/else}
     </div>
 </div>
 
