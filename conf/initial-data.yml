@@ -10,27 +10,37 @@ User(damien):
     firstname:      damien
     lastname:       DUBATEAU
     
-Friend(kevinBob):
-    user:           kevin
-    status:         0
-
-Friend(damienBob):
-    user:           damien
-    status:         0    
-    
 User(bob):
     email:          bob@gmail.com
     password:       secret
     firstname:      Bob
     lastname:       LEBRUNT
-    friends:        [kevinBob, damienBob]
-    isAdmin:        true
+
+FriendShip(kevinBob):
+    friend:         kevin
+    user:           bob
+    status:         0
+
+FriendShip(damienBob):
+    friend:         damien
+    user:           bob
+    status:         0    
     
 User(jeff):
     email:          jeff@gmail.com
     password:       secret
     firstname:      Jeff    
     lastname:       ROBERT
+    
+FriendShip(kevinJeff):
+    friend:         kevin
+    user:           jeff
+    status:         0
+    
+FriendShip(bobJeff):
+    friend:         bob
+    user:           jeff
+    status:         0
     
 Car(clioBob):
     name:           clio
