@@ -58,6 +58,23 @@ public class Way extends Model {
         this.car = car;
         this.placeAvailable = placeAvailable;
     }
+    
+    /**
+     * Retourne les trajets auquels l'utilisateur à participer comme passager
+     * @param user
+     * @return une liste de trajet
+     */
+    public static ArrayList<Way> waysByUserAsPassenger(User user){
+        ArrayList<Way> waysParticipation = new ArrayList<Way>();
+        
+        List<models.Way> ways =  models.Way.findAll();
+        for (Way way : ways) {
+            if(way.passengers.contains(user)){
+                waysParticipation.add(way);
+            }
+        }    
+        return waysParticipation;
+    }
 
     /**
      * Recherche le chemin à prendre
