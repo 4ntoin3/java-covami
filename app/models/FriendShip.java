@@ -11,10 +11,13 @@ import play.db.jpa.*;
  * @author Antoine
  */
 @Entity
-public class Friend extends Model{
+public class FriendShip extends Model{
     
     @ManyToOne
     @Required
+    public User friend;
+    
+    @OneToOne
     public User user;
     
     @Min(0)
@@ -25,7 +28,8 @@ public class Friend extends Model{
     @Required
     public Date date;
     
-    public Friend(User user, Integer status, Date date){
+    public FriendShip(User friend, User user, Integer status, Date date){
+        this.friend = friend;
         this.user = user;
         this.status = status;
         this.date = date;
