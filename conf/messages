@@ -135,7 +135,8 @@ way.add_first=Cliquez ici pour ajouter le premier trajet
 friend.back_to_list=Retour à la liste des amis
 friend.his_profil=Son profil
 friend.empty_list_way_for_user=Cet utilisateur n'a encore jamais effectué de trajet sur le réseau Covami
-
+friend.empty=Aucun ami actuellement
+friend.add_first=Cliquez ici pour rechercher de nouveaux amis
 
 # [Section Autre]
 friend=ami
@@ -167,3 +168,6 @@ validation.url=L'URL est invalide.
 validation.phone=La valeur n'est pas un numéro de téléphone valide.
 validation.ipv4=La valeur n'est pas une adresse IP valide.
 validation.ipv6=La valeur n'est pas une adresse IP v6 valide.
+
+# [Section Confirmation]
+confirmation.remove_item=Êtes vous certain de supprimer cet enregistrement ?

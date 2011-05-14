@@ -97,7 +97,7 @@ $(document).ready(function(){
      * @action Window confirmation for deleting
      */
     $('.delete_confirmation').bind("click", function(){
-        if (confirm("ok ok baby ?"))
+        if (confirm(msg.confirmation.remove_item))
             return true;
         
         return false;
