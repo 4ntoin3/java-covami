@@ -12,28 +12,41 @@ public class User extends Controller {
     /**
      * Action par défaut
      */
-    public static void index()
-    {
+    public static void index() {
         redirect("/");
     }
 
     /**
      * Tableau de bord de l'utilisateur
      */
-    public static void dashboard()
-    {
+    public static void dashboard() {
         models.User user = User.connected();
         renderArgs.put("user", user);
-        
+
         List<FriendShip> friends_waiting = FriendShip.find("friend = ? and status = ?", user, 0).fetch();
         renderArgs.put("friends_waiting", friends_waiting);
-        
+
         List<FriendShip> friends_refuse = FriendShip.find("user = ? and status = ?", user, 1).fetch();
         renderArgs.put("friends_refuse", friends_refuse);
-        
+
         List<FriendShip> friends_accept = FriendShip.find("user = ? and status = ?", user, 2).fetch();
         renderArgs.put("friends_accept", friends_accept);
+
+        int number_friend = (int) FriendShip.count("user = ? and status = ?", user, 2);
+        renderArgs.put("number_friend", number_friend);
         
+        int number_car = (int) models.Car.count("byOwner", user);
+        renderArgs.put("number_car", number_car);
+
+        int number_way_driver = (int) models.Way.count("byDriver", user);
+        renderArgs.put("number_way_driver", number_way_driver);
+
+        int number_way_passenger = models.Way.waysByUserAsPassenger(user).size();
+        renderArgs.put("number_way_passenger", number_way_passenger);
+
+        int number_way_total = number_way_driver + number_way_passenger;
+        renderArgs.put("number_way_total", number_way_total);
+
         render();
     }
 
@@ -41,8 +54,7 @@ public class User extends Controller {
      * Action de déconnexion
      * @throws Throwable 
      */
-    public static void logout() throws Throwable
-    {
+    public static void logout() throws Throwable {
         Secure.logout();
     }
 
@@ -51,16 +63,15 @@ public class User extends Controller {
      * 
      * @view app/view/user/profile.html
      */
-    public static void profile()
-    {
+    public static void profile() {
         models.User user = User.connected();
         render(user);
     }
-    
-    public static void detail(Long id){   
+
+    public static void detail(Long id) {
         models.User user = models.User.findById(id);
         List<models.Way> waysDriver = models.Way.find("byDriver", user).fetch();
-        List<models.Way> wayPassengers = new ArrayList<models.Way>();
+        List<models.Way> wayPassengers = models.Way.waysByUserAsPassenger(user);
         render(user, waysDriver, wayPassengers);
     }
 
@@ -72,12 +83,12 @@ public class User extends Controller {
             validation.keep(); // keep the errors for the next request
             redirect("/user/profile");
         }
-        
+
         /*if(models.User.find("byEmail", user.email).first() != null && !models.User.find("byEmail", user.email).first().equals(userEdited)){
-            validation.addError("user.email", play.i18n.Messages.get("error.email_exist"));
-            params.flash(); // add http parameters to the flash scope
-            validation.keep(); // keep the errors for the next request
-            redirect("/user/profile");
+        validation.addError("user.email", play.i18n.Messages.get("error.email_exist"));
+        params.flash(); // add http parameters to the flash scope
+        validation.keep(); // keep the errors for the next request
+        redirect("/user/profile");
         }*/
 
         //userEdited.email = user.email;
