@@ -138,3 +138,23 @@ errors=Erreurs
 
 # [Section Validation]
 validation.required=Ce champ doit être complété.
+validation.minSize=La taille minimum est de %2$d pour ce champ.
+validation.maxSize=La taille minimum est de %2$d pour ce champ.
+validation.email=L'adresse email est invalide.
+validation.range=La valeur du champ doit etre entre %2$d et %3$d.
+validation.min=La valeur du champ doit être plus grand que %2$d.
+validation.max=La valeur du champ doit être plus petite que %2$d.
+validation.match=La valeur du champ doit être de %2$s.
+validation.isTrue=Ce champ doit être validé.
+validation.equals=La valeur du champ doit être égal à &{%2$s}.
+validation.invalid=La valeur est incorrecte.
+validation.future=La valeur doit être ultérieur.
+validation.after=La valeur doit être après : %2$s.
+validation.past=La valeur doit être antérieur.
+validation.before=La valeur doit être avant : %2$s
+validation.object=Echec de la validation
+validation.notFound=Objet non trouvé pour %2$s
+validation.url=L'URL est invalide.
+validation.phone=La valeur n'est pas un numéro de téléphone valide.
+validation.ipv4=La valeur n'est pas une adresse IP valide.
+validation.ipv6=La valeur n'est pas une adresse IP v6 valide.
