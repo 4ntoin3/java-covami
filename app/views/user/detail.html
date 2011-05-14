@@ -28,8 +28,8 @@
     #{/if}
     #{else}
     #{list items:waysDriver, as:'way'}
-    <label>@TODO Add startdate</label>
-    <div class="formField labelLine">${waysDriver.startCity?.name} => ${waysDriver.finishCity?.name} (${waysDriver?.distance} kms)</div>      
+    <label>${way.dateHourStart.getTime().asdate('dd/MM/yyyy hh:mm')}</label>
+    <div class="formField labelLine">${way.startCity?.name} => ${way.finishCity?.name} (${way?.distance} kms)</div>      
     #{/list}
     #{/else}
     <div class="clear"></div>
@@ -42,8 +42,8 @@
     #{/if}
     #{else}
     #{list items:wayPassengers, as:'way'}
-    <label>@TODO Add startdate</label>
-    <div class="formField labelLine">${wayPassengers.startCity?.name} => ${wayPassengers.finishCity?.name} (${wayPassengers?.distance} kms)</div>      
+    <label>${'way.dateHourStart'}</label>
+    <div class="formField labelLine">${way.startCity?.name} => ${way.finishCity?.name} (${way?.distance} kms)</div>      
     #{/list}
     #{/else}
     <div class="clear"></div>
