@@ -42,7 +42,10 @@
         <ul>
             <li><a href="lien/vers/le/friend">Pierre Gasté</a> &{'user.dashboard.accept_friend'}.</li>
             <li><a href="lien/vers/le/friend">Nicolas Sarkozy</a> &{'user.dashboard.refuse_friend'}.</li>
-            <li><a href="lien/vers/le/user">Antoine Esnault</a> &{'user.dashboard.want_to_be_friend'} ? <a href="lien/de/validation/de/demande">&{'yes'}</a> - <a href="lien/de/refus/de/demande">&{'no'}</a></li>
+            #{list items:friends_waiting, as:'friend_waiting'}
+            <li><a href="lien/vers/le/friend">${friend_waiting.user.firstname.capFirst()} ${friend_waiting.user.lastname.capFirst()}</a> &{'user.dashboard.want_to_be_friend'} ? <a href="@{Friend.accept(friend_waiting.id)}">&{'yes'}</a> - <a href="lien/de/refus/de/demande">&{'no'}</a></li>
+            #{/list}
+<!--            <li><a href="lien/vers/le/user">Antoine Esnault</a> &{'user.dashboard.want_to_be_friend'} ? <a href="lien/de/validation/de/demande">&{'yes'}</a> - <a href="lien/de/refus/de/demande">&{'no'}</a></li>-->
         </ul>
     </div>
 </div>

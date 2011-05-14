@@ -1,11 +1,8 @@
 package controllers;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import models.FriendShip;
-import play.mvc.Controller;
-import play.mvc.With;
+import play.mvc.*;
 
 /**
  *
@@ -30,6 +27,16 @@ public class Friend extends Controller {
         render(friendShips);
     }
 
+    public static void accept(Long id) {
+        FriendShip friendship = FriendShip.findById(id);
+        if (friendship != null && friendship.status == 0 && friendship.friend == User.connected()) {
+            friendship.status = 2;
+            friendship.save();
+            new FriendShip(friendship.user, friendship.friend, 2, new Date()).save();
+        }
+        User.dashboard();
+    }
+
     /**
      * Ajouter un nouvel ami pour le compte connecté
      */
@@ -51,7 +58,7 @@ public class Friend extends Controller {
         if (friendShipUser == null || friendShipUser.user != User.connected()) {
             redirect("/friend/list");
         }
-        
+
         models.FriendShip friendShipFriend = models.FriendShip.find("friend = ? and user = ?", friendShipUser.user, friendShipUser.friend).first();
 
         friendShipUser.delete();
