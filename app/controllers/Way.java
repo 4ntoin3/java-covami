@@ -69,7 +69,11 @@ public class Way extends Controller {
     }
 
     public static void edit(Long id) {
-        render();
+        models.Way way = models.Way.findById(id);
+        List<City> cities = City.find("order by name").fetch();
+        List<models.Car> cars = models.Car.find("owner = ? order by name", User.connected()).fetch();
+        
+        render(way, cities, cars);
     }
 
     public static void details(Long id) {
