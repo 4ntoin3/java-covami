@@ -41,22 +41,5 @@
         </tr>
         #{/list}
         #{/else}
-        #{if users != null}
-        #{list items:users, as:'user'}
-        <tr>
-            <td class="table_col_action">
-                <a href="@{friend.add(user.id)}" title="&{'friend.list.add_me'}">
-                    <img src="@{'public/images/icons/24/friend_add.png'}" alt="&{'friend.list.add_me'}" />
-                </a>
-                <a href="@{user.detail(user.id)}" title="&{'friend.list.detail_me'}">
-                    <img src="@{'public/images/icons/24/detail.png'}" alt="&{'friend.list.detail_me'}" />
-                </a>
-            </td>
-            <td>
-                ${user.firstname} ${user.lastname}
-            </td>
-        </tr>
-        #{/list}
-        #{/if}
     </tbody>
 </table>
