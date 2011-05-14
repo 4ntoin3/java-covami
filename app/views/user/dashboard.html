@@ -56,14 +56,14 @@
 <div class="box_dashboard" id="box_cars" style="clear:both;">
     <h4><span class="toggler">&star;</span> &{'user.dashboard.car_activity'}</h4>
     <div class="content">
+        #{if ways_driver.size() == 0}
         <p class="empty_box">&{'user.dashboard.no_recent_activity_car'}.</p>
-
-
-        <hr/>
-
+        #{/if}
 
         <ul>
-            <li><a href="lien/vers/le/trajet">&{'user.dashboard.way'} Nantes - Marseille</a> &{'user.dashboard.with_car'} <a href="lien/vers/la/voiture">Clio</a> &{'user.dashboard.the'} 23/01.</li>
+            #{list ways_driver, as:'way_driver'}
+            <li><a href="@{Way.details(way_driver.id)}">&{'user.dashboard.way'} ${way_driver.startCity.name} - ${way_driver.finishCity.name}</a> &{'user.dashboard.with_car'} <a href="@{Car.details(way_driver.car.id)}">${way_driver.car.name}</a> &{'user.dashboard.the'} ${way_driver.dateHourStart.getTime().asdate('dd/MM/yyyy')}</li>
+            #{/list}
         </ul>
     </div>
 </div>

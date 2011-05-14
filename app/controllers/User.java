@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.Date;
 import java.util.List;
 import models.FriendShip;
 import play.mvc.*;
@@ -45,6 +46,9 @@ public class User extends Controller {
 
         int number_way_total = number_way_driver + number_way_passenger;
         renderArgs.put("number_way_total", number_way_total);
+
+        List<Way> ways_driver = models.Way.find("driver = ? and datehourstart > ?", user, new Date()).fetch();
+        renderArgs.put("ways_driver", ways_driver);
 
         render();
     }
