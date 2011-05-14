@@ -28,15 +28,15 @@ public class User extends Model {
     @Required
     public String lastname;
     
-    @OneToMany(cascade=CascadeType.ALL)
-    public List<Friend> friends;
+//    @OneToMany(cascade=CascadeType.ALL)
+//    public List<Friend> friends;
     
     public User(String email, String password, String firstname, String lastname) {
         this.email = email;
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.friends = new ArrayList<Friend>();
+//        this.friends = new ArrayList<Friend>();
     }
 
     public static User connect(String email, String password) {
