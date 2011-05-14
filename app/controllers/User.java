@@ -71,7 +71,7 @@ public class User extends Controller {
     public static void detail(Long id) {
         models.User user = models.User.findById(id);
         List<models.Way> waysDriver = models.Way.find("byDriver", user).fetch();
-        List<models.Way> wayPassengers = new ArrayList<models.Way>();
+        List<models.Way> wayPassengers = models.Way.waysByUserAsPassenger(user);
         render(user, waysDriver, wayPassengers);
     }
 
