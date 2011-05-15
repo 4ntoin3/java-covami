@@ -54,9 +54,10 @@ public class Way extends Model {
         this.cost = cost;
     }
     
-    public Way(City startCity, City finishCity){
+    public Way(City startCity, City finishCity, Car car){
         this.startCity = startCity;
         this.finishCity = finishCity;
+        this.car = car;
     }
 
     /**
@@ -137,13 +138,13 @@ public class Way extends Model {
     }
     
     public double cost() throws Exception{
-        double kmByLitre = 12.3857628408076;
+        double litreByKm = this.car.cost/100;
         double cost_fuel = 1.5290858352582;
         double tollByKm = 0.0599893844621958;
         double costWay = 0;
         
         this.calculateWay();
-        costWay = (this.distance/kmByLitre)*cost_fuel + this.distance*tollByKm;
+        costWay = (this.distance*litreByKm)*cost_fuel + this.distance*tollByKm;
         
         return costWay;
     }
