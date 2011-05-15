@@ -4,8 +4,7 @@ import java.util.*;
 import models.*;
 import play.data.binding.As;
 import play.data.validation.Required;
-import play.mvc.Controller;
-import play.mvc.With;
+import play.mvc.*;
 
 /**
  *
@@ -123,7 +122,14 @@ public class Way extends Controller {
         redirect("/way/list");
     }
 
-    public static void search() {
-        render();
+    public static void search(String str) {
+        List<models.Way> ways;
+
+        if (str == null || str.isEmpty()) {
+            ways = models.Way.find("driver.id != ? order by datehourstart", User.connected().id).fetch();
+            render(ways);
+        }
+        ways = models.Way.find("driver.id != ? and (firstCity.name like ? OR finishCity.name like ?) order by datehourstart", User.connected().id, "%" + str + "%", "%" + str + "%").fetch();
+        render(ways);
     }
 }
