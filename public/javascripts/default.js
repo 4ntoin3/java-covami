@@ -178,7 +178,14 @@ $(document).ready(function(){
         
         if (car.val() != -1 && startCity.val() != -1 && finishCity.val() != -1) {
             $('.second_part_form').fadeOut();
-            console.debug("ajax");
+                $.ajax({
+                    type: "POST",
+                    url: "calculCost",
+                    data: "startCityId=" + parseInt(startCity.val()) + "&finishCityId=" + parseInt(finishCity.val()) + "&carId=" + parseInt(car.val()),
+                    success: function(msg){
+                        alert( "Data Saved: " + msg );
+                    }
+                });
             $('.second_part_form').fadeIn();
         }
     });
