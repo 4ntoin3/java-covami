@@ -4,8 +4,8 @@
  */
 package models;
 
+import java.util.Date;
 import javax.persistence.*;
-import org.joda.time.DateTime;
 import play.db.jpa.Model;
 
 /**
@@ -23,12 +23,12 @@ public class WayParticipation extends Model {
     
     public Integer status;
     
-    public DateTime dateHourRequest;
+    public Date date;
 
     public WayParticipation(Way way, User participant, Integer status) {
         this.way = way;
         this.participant = participant;
         this.status = status;
-        this.dateHourRequest = new DateTime();
+        this.date = new Date();
     }
 }

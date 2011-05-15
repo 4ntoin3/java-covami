@@ -21,6 +21,10 @@ public class User extends Controller {
     public static void dashboard() {
         models.User user = User.connected();
         renderArgs.put("user", user);
+        
+        List<models.WayParticipation> ways_waiting = models.WayParticipation.find("way.driver = ?", user).fetch();
+        renderArgs.put("ways_waiting", ways_waiting);
+        
 
         List<FriendShip> friends_waiting = FriendShip.find("friend = ? and status = ?", user, 0).fetch();
         renderArgs.put("friends_waiting", friends_waiting);
@@ -70,7 +74,7 @@ public class User extends Controller {
         render(user);
     }
 
-    public static void detail(Long id) {
+    public static void details(Long id) {
         models.User user = models.User.findById(id);
         List<models.Way> waysDriver = models.Way.find("byDriver", user).fetch();
         List<models.Way> wayPassengers = models.Way.waysByUserAsPassenger(user);
