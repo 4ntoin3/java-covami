@@ -142,14 +142,26 @@ $(document).ready(function(){
     $('#searchFriendField').bind("keyup", function(event){
         var that = $(this);
         
-        
         $('.friend').show();
-        //if (that.val().length > 1) {
         $('.friend').each(function(i,e){
             if($(e).find('h4').text().toLowerCase().indexOf(that.val().toLowerCase()) == -1){
                 $(e).hide();
             }
         });
-    // }
     });
+    
+    $('.citySelector').bind("change", function(){
+        var that = $(this);
+        
+        if (that.attr('id') == "fieldWaystartCity") {
+            $('#fieldWayfinishCity option').removeAttr("disabled");
+            $('#fieldWayfinishCity option[value="' + that.val() + '"]').attr('disabled', 'disabled');
+        } else {
+            $('#fieldWaystartCity option').removeAttr("disabled");
+            $('#fieldWaystartCity option[value="' + that.val() + '"]').attr('disabled', 'disabled');
+        }
+        
+        $('#fieldWayfinishCity option[value=-1], #fieldWaystartCity option[value=-1]').attr("disabled", "disabled");
+    });
+    
 });

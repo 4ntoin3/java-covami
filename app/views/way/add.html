@@ -13,7 +13,8 @@
 
     <label for="fieldWaystartCity">&{'field.waystartCity'}</label>
     <div class="formField">
-        <select name="startCityId" id="fieldWaystartCity">
+        <select name="startCityId" id="fieldWaystartCity" class="citySelector">
+            <option value="-1" disabled>Sélectionner une ville de départ</option>
             #{list items:cities, as:'city'}
                 <option value=${city.id} #{if flash["startCityId"]=="${city.id}"} selected #{/if}>${city.name.capFirst()}</option>
             #{/list}
@@ -22,7 +23,8 @@
     
     <label for="fieldWayfinishCity">&{'field.wayfinishCity'}</label>
     <div class="formField">
-        <select name="finishCityId" id="fieldWayfinishCity">
+        <select name="finishCityId" id="fieldWayfinishCity" class="citySelector">
+            <option value="-1" disabled>Sélectionner une ville d'arrivée</option>
             #{list items:cities, as:'city'}
                 <option value=${city.id} #{if flash["finishCityId"]=="${city.id}"} selected #{/if}>${city.name.capFirst()}</option>
             #{/list}
