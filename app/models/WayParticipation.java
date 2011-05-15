@@ -13,19 +13,22 @@ import play.db.jpa.Model;
  * @author Antoine
  */
 @Entity
-public class WayParticipation extends Model{
-    
+public class WayParticipation extends Model {
+
     @ManyToOne
     public Way way;
-    
+   
     @ManyToOne
     public User participant;
     
-    public DateTime dateHourRequest;
+    public Integer status;
     
-    public WayParticipation(Way way, User participant) {
+    public DateTime dateHourRequest;
+
+    public WayParticipation(Way way, User participant, Integer status) {
         this.way = way;
         this.participant = participant;
+        this.status = status;
         this.dateHourRequest = new DateTime();
-    }   
+    }
 }
