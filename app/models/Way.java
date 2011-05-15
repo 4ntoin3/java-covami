@@ -19,27 +19,38 @@ public class Way extends Model {
     @ManyToOne
     @Required
     public City startCity;
+    
     @ManyToOne
     @Required
     public City finishCity;
+    
     @ManyToOne
     @Required
     public User driver;
+    
     @ManyToMany
     public List<User> passengers;
+    
     @ManyToMany
     public List<City> cities;
+    
     @Required
     public Double distance;
+    
     @Required
     public Date dateHourStart;
+    
     @ManyToOne
     @Required
     public Car car;
+    
     @Required
     public Integer placeAvailable;
+    
+    @Required
+    public Double cost;
 
-    public Way(City startCity, City finishCity, User driver, Date dateHourStart, Car car, Integer placeAvailable) {
+    public Way(City startCity, City finishCity, User driver, Date dateHourStart, Car car, Integer placeAvailable, Double cost) {
         this.startCity = startCity;
         this.finishCity = finishCity;
         this.driver = driver;
@@ -49,6 +60,12 @@ public class Way extends Model {
         this.dateHourStart = dateHourStart;
         this.car = car;
         this.placeAvailable = placeAvailable;
+        this.cost = cost;
+    }
+    
+    public Way(City startCity, City finishCity){
+        this.startCity = startCity;
+        this.finishCity = finishCity;
     }
 
     /**
@@ -126,5 +143,17 @@ public class Way extends Model {
                     * Math.cos((way.get(i + 1).longitude * Math.PI / 180) - (way.get(i).longitude * Math.PI / 180))) * 6371;
         }
         return distanceCovored;
+    }
+    
+    public double cost() throws Exception{
+        double kmByLitre = 12.3857628408076;
+        double cost_fuel = 1.5290858352582;
+        double tollByKm = 0.0599893844621958;
+        double costWay = 0;
+        
+        this.calculateWay();
+        costWay = (this.distance/kmByLitre)*cost_fuel + this.distance*tollByKm;
+        
+        return costWay;
     }
 }
