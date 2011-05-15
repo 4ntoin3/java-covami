@@ -3,7 +3,7 @@
 #{set subtitle: play.i18n.Messages.get('subtitle.way.add') /}
 
 <div class="mainForm">
-#{form @way.addWay()}
+#{form @way.editWay(way.id)}
 
     #{ifErrors}
     <p class="main_error">
@@ -47,6 +47,21 @@
         #{/else}
     </div>
 
+    #{if flash['dateStart'] == null}
+    <label for="fieldWaydCost">&{'field.waycost'}</label>
+    <div class="formField">
+        <input class="datePickerField" type="text" name="cost" id="fieldWaydCost"  value="${way.cost}"/>
+        <p class="error">#{error 'cost' /}</p>
+    </div>
+    #{/if}
+    #{else}
+    <label for="fieldWaydCost">&{'field.waycost'}</label>
+    <div class="formField">
+        <input class="datePickerField" type="text" name="cost" id="fieldWaydCost"  value="${flash['cost']}"/>
+        <p class="error">#{error 'cost' /}</p>
+    </div>
+    #{/else}
+    
     <label for="fieldWaycar">&{'field.waycar'}</label>
     <div class="formField">
         #{if flash['carId'] == null}
