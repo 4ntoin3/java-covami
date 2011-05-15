@@ -14,6 +14,8 @@
             <th class="table_col_action">&{'way.list.col.actions'}</th>
             <th>&{'way.list.col.label'}</th>
             <th>&{'way.list.col.nbPassenger'}</th>
+            <th>&{'way.list.col.date'}</th>
+            <th>&{'way.list.col.distance'}</th>
         </tr>
     </thead>
     <tbody>
@@ -44,6 +46,12 @@
             </td>
             <td>
                 ${way.passengers.size()}
+            </td>
+            <td>
+                ${way.dateHourStart.getTime().asdate('dd/MM/yyyy hh:mm')}
+            </td>
+            <td>
+                ${way.distance}
             </td>
         </tr>
         #{/list}
