@@ -132,6 +132,9 @@ general.default_value=Valeur par défaut
 # [Section Way]
 way.empty=Aucun trajet pour le moment
 way.add_first=Cliquez ici pour ajouter le premier trajet
+way.start_city=Ville de départ
+way.finish_city=Ville d'arrivée
+way.car=Voiture
 
 # [Section Friend]
 friend.back_to_list=Retour à la liste des amis

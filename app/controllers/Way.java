@@ -64,11 +64,15 @@ public class Way extends Controller {
         redirect("/way/list");
     }
     
-    public static Double calculCost(Long startCityId, Long finishCityId) throws Exception{
+    public static void calculCost(Long startCityId, Long finishCityId) throws Exception{
         models.City startCity = models.City.findById(startCityId);
         models.City finishCity = models.City.findById(finishCityId);
         
-        return new models.Way(startCity, finishCity).cost();
+        List<Object> jsonReturn = new ArrayList<Object>();
+        jsonReturn.add(new models.Way(startCity, finishCity).cost());
+        //jsonReturn.add();
+        
+        renderJSON(jsonReturn);
     }
 
     public static void edit(Long id) {

@@ -72,7 +72,7 @@ button.withPix {
 .mainForm .formField {
     border-top: 1px solid #FFF;
     float: left;
-    padding: 9px;
+    padding: 7px;
     background-color: #D7E7F2;
     margin-left: 5px;
     width: 630px;
@@ -171,6 +171,14 @@ button.withPix {
     text-align: center;
 }
 
+/*
+*/
 .labelLine {
     padding: 15px 10px 11px 10px!important;
+}
+
+/* Seconde partie de formulaire
+------------------------------------------------- */
+.second_part_form {
+    display: none;
 }
