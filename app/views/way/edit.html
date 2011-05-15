@@ -45,22 +45,7 @@
             #{/list}
         </select>
         #{/else}
-    </div>
-
-    #{if flash['dateStart'] == null}
-    <label for="fieldWaydCost">&{'field.waycost'}</label>
-    <div class="formField">
-        <input class="datePickerField" type="text" name="cost" id="fieldWaydCost"  value="${way.cost}"/>
-        <p class="error">#{error 'cost' /}</p>
-    </div>
-    #{/if}
-    #{else}
-    <label for="fieldWaydCost">&{'field.waycost'}</label>
-    <div class="formField">
-        <input class="datePickerField" type="text" name="cost" id="fieldWaydCost"  value="${flash['cost']}"/>
-        <p class="error">#{error 'cost' /}</p>
-    </div>
-    #{/else}
+    </div>    
     
     <label for="fieldWaycar">&{'field.waycar'}</label>
     <div class="formField">
@@ -80,6 +65,21 @@
         #{/else}
         <span class="error">#{error 'carId' /}</span>
     </div>
+    
+    #{if flash['cost'] == null}
+    <label for="fieldWaydCost">&{'field.waycost'}</label>
+    <div class="formField">
+        <input type="text" name="cost" id="fieldWaydCost"  value="${way.cost}"/>
+        <p class="error">#{error 'cost' /}</p>
+    </div>
+    #{/if}
+    #{else}
+    <label for="fieldWaydCost">&{'field.waycost'}</label>
+    <div class="formField">
+        <input type="text" name="cost" id="fieldWaydCost"  value="${flash['cost']}"/>
+        <p class="error">#{error 'cost' /}</p>
+    </div>
+    #{/else}
     
     <label for="fieldWayplaceAvailable">&{'field.wayplaceAvailable'}</label>
     <div class="formField">
