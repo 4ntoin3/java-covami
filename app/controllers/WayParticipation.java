@@ -10,23 +10,23 @@ import play.mvc.With;
 @With(Secure.class)
 public class WayParticipation extends Controller {
 
-    public static void add(){
-        render();
+    public static void add(Long id){
+        redirect("/way/search");
     }
     
     public static void edit(){
-        render();
+        redirect("/way/search");
     }
     
     public static void cancel(){
-        render();
+        redirect("/way/search");
     }
     
     public static void accept(){
-        render();
+        redirect("/way/search");
     }
 
     public static void refuse(){
-        render();
+        redirect("/way/search");
     }
 }

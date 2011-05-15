@@ -105,7 +105,7 @@ public class Friend extends Controller {
             users = removeFriendInArray(users);
             render(users);
         }
-        users = models.User.find("email like ? OR firstname like ? OR lastname like ? order by firstname", "%" + str + "%", "%" + str + "%", "%" + str + "%").fetch();
+        users = models.User.find("id !=? and (email like ? OR firstname like ? OR lastname like) ? order by firstname", User.connected(), "%" + str + "%", "%" + str + "%", "%" + str + "%").fetch();
         removeFriendInArray(users);
         render(users);
     }

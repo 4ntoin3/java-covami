@@ -13,6 +13,7 @@
         <tr>
             <th class="table_col_action">&{'way.list.col.actions'}</th>
             <th>&{'way.list.col.label'}</th>
+            <th>&{'way.list.col.driver'}</th>
             <th>&{'way.list.col.nbPassenger'}</th>
             <th>&{'way.list.col.date'}</th>
             <th>&{'way.list.col.distance'}</th>
@@ -32,18 +33,18 @@
         #{list items:ways, as:'way'}
         <tr>
             <td class="table_col_action">
+                <a href="@{wayParticipation.add(way.id)}" title="&{'wayparticipation.add_me'}">
+                    <img src="@{'public/images/icons/way_add.png'}" alt="&{'wayparticipation.add_me'}" />
+                </a>
                 <a href="@{way.details(way.id)}" title="&{'way.list.detail_me'}">
                     <img src="@{'public/images/icons/24/detail.png'}" alt="&{'way.list.detail_me'}" />
-                </a>
-                <a href="@{way.edit(way.id)}" title="&{'way.list.edit_me'}">
-                    <img src="@{'public/images/icons/24/edit.png'}" alt="&{'way.list.edit_me'}" />
-                </a>
-                <a href="@{way.cancel(way.id)}" title="&{'way.list.cancel_me'}">
-                    <img src="@{'public/images/icons/24/delete.png'}" alt="&{'way.list.delete_me'}" />
                 </a>
             </td>
             <td>
                 ${way.startCity.name} => ${way.finishCity.name}
+            </td>
+            <td>
+                ${way.driver.firstname} ${way.driver.lastname}
             </td>
             <td>
                 ${way.passengers.size()}

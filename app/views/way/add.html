@@ -30,7 +30,7 @@
             #{/list}
         </select>
     </div>
-
+    
     <label for="fieldWaycar">&{'field.waycar'}</label>
     <div class="formField">
         <select name="carId" id="fieldWaycar">
@@ -41,6 +41,12 @@
         <span class="error">#{error 'carId' /}</span>
     </div>
     
+        <label for="fieldWaydCost">&{'field.waycost'}</label>
+    <div class="formField">
+        <input type="text" name="cost" id="fieldWaydCost"  value="${flash['cost']}"/>
+        <p class="error">#{error 'cost' /}</p>
+    </div>
+        
     <label for="fieldWayplaceAvailable">&{'field.wayplaceAvailable'}</label>
     <div class="formField">
         <select name="placeAvailable" id="fieldCarcapacity">

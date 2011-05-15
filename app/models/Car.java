@@ -1,7 +1,6 @@
 package models;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import play.data.validation.*;
 import play.db.jpa.Model;
 
@@ -24,7 +23,6 @@ public class Car extends Model {
     @Required
     public Integer cost;
     
-    @Required
     @ManyToOne
     public User owner;
 

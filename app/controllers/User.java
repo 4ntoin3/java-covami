@@ -1,7 +1,6 @@
 package controllers;
 
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import models.FriendShip;
 import play.mvc.*;
 import play.data.validation.*;

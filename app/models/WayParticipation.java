@@ -4,13 +4,8 @@
  */
 package models;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import org.joda.time.DateTime;
-import play.data.validation.Required;
 import play.db.jpa.Model;
 
 /**
@@ -21,22 +16,16 @@ import play.db.jpa.Model;
 public class WayParticipation extends Model{
     
     @ManyToOne
-    @Required
     public Way way;
     
-    @OneToMany
-    @Required
-    public List<User> participants;
+    @ManyToOne
+    public User participant;
     
-    @Required
     public DateTime dateHourRequest;
     
-    public DateTime dateHourResponse;
-
-    public WayParticipation(Way way, List<User> participants) {
+    public WayParticipation(Way way, User participant) {
         this.way = way;
-        this.participants = new ArrayList<User>();
-        this.participants = participants;
+        this.participant = participant;
         this.dateHourRequest = new DateTime();
     }   
 }
