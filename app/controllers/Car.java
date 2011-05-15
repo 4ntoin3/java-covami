@@ -4,8 +4,7 @@ import java.util.List;
 import javax.persistence.Query;
 import play.data.validation.*;
 import play.db.jpa.JPA;
-import play.mvc.Controller;
-import play.mvc.With;
+import play.mvc.*;
 
 /**
  *
@@ -41,7 +40,7 @@ public class Car extends Controller {
         render();
     }
     
-    public static void addCar(@Required String name, @Required @Min(1) Integer nbPlace, @Required @Min(0) Integer cost){
+    public static void addCar(@Valid models.Car car){
         
         if (validation.hasErrors()) {
             params.flash(); // add http parameters to the flash scope
@@ -49,7 +48,7 @@ public class Car extends Controller {
             add();
         }
         
-        new models.Car(name, nbPlace, cost, User.connected()).save();
+        new models.Car(car.name, car.nbPlace, car.cost, User.connected()).save();
 
         redirect("/car/list");
     }
@@ -70,7 +69,7 @@ public class Car extends Controller {
         }
     }
     
-    public static void editCar(Long id, @Required String name, @Required @Min(1) @Max(9) Integer nbPlace, @Required @Min(0) Integer cost){
+    public static void editCar(Long id, @Valid models.Car car){
         checkIfTheCarBelongTheUserConnected(id);
         models.Car carEdited = models.Car.findById(id);
         
@@ -80,9 +79,9 @@ public class Car extends Controller {
             edit(carEdited.id);
         }
         
-        carEdited.name = name;
-        carEdited.nbPlace = nbPlace;
-        carEdited.cost = cost;
+        carEdited.name = car.name;
+        carEdited.nbPlace = car.nbPlace;
+        carEdited.cost = car.cost;
         carEdited.save();
         
         redirect("/car/list");

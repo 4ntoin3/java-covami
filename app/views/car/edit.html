@@ -13,19 +13,19 @@
 
     <label for="fieldCarname">&{'car.name'}</label>
     <div class="formField">
-        #{if flash['name'] == null}
-        <input type="text" name="name" id="fieldCarname" value="${car.name}"/>        
+        #{if flash['car.name'] == null}
+        <input type="text" name="car.name" id="fieldCarname" value="${car.name}"/>        
         #{/if}
         #{else}
-        <input type="text" name="name" id="fieldCarname" value="${flash['name']}"/>
+        <input type="text" name="car.name" id="fieldCarname" value="${flash['car.name']}"/>
         #{/else}
-        <p class="error">#{error 'name' /}</p>
+        <p class="error">#{error 'car.name' /}</p>
     </div>
     
     <label for="fieldCarcapacity">&{'car.available_place'}</label>
     <div class="formField">
-        #{if flash['nbPlace'] == null}
-        <select name="nbPlace" id="fieldCarcapacity" value="${car.nbPlace}"/>
+        #{if flash['car.nbPlace'] == null}
+        <select name="car.nbPlace" id="fieldCarcapacity"/>
         #{list items:1..8, as:'i'}
             <option value=${i} #{if "${car.nbPlace}"=="${i}"}selected#{/if}>${i}</option>
         #{/list}
@@ -33,9 +33,9 @@
         <p class="message">&{'car.without_driver'}. &{'general.default_value'}, &{'car.edit_for_each_way'}.</p>
         #{/if}
         #{else}
-        <select name="nbPlace" id="fieldCarcapacity" value="${flash['car.nbPlace']}"/>
+        <select name="car.nbPlace" id="fieldCarcapacity"/>
         #{list items:1..8, as:'i'}
-            <option value=${i} #{if flash["nbPlace"]=="${i}"}selected#{/if}>${i}</option>
+            <option value=${i} #{if flash["car.nbPlace"]=="${i}"}selected#{/if}>${i}</option>
         #{/list}
         </select>
         <p class="message">&{'car.without_driver'}. &{'general.default_value'}, &{'car.edit_for_each_way'}.</p>
@@ -44,14 +44,14 @@
     
     <label for="fieldCarconsomation">&{'car.estimated_consommation'}</label>
     <div class="formField">
-        #{if flash['cost'] == null}
-        <input type="text" name="cost" id="fieldCarconsomation" value="${car.cost}"/>        
+        #{if flash['car.cost'] == null}
+        <input type="text" name="car.cost" id="fieldCarconsomation" value="${car.cost}"/>        
         #{/if}
         #{else}
-        <input type="text" name="cost" id="fieldcost" value="${flash['cost']}"/>
+        <input type="text" name="car.cost" id="fieldcost" value="${flash['car.cost']}"/>
         #{/else}
         <p class="message">&{'car.litreAuCent'}.</p>
-        <p class="error">#{error 'cost' /}</p>
+        <p class="error">#{error 'car.cost' /}</p>
     </div>          
 
     <div class="fieldButtonValidation">

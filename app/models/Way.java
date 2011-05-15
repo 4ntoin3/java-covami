@@ -6,7 +6,6 @@ package models;
 
 import java.util.*;
 import javax.persistence.*;
-import play.data.validation.Required;
 import play.db.jpa.Model;
 
 /**
@@ -17,15 +16,12 @@ import play.db.jpa.Model;
 public class Way extends Model {
 
     @ManyToOne
-    @Required
     public City startCity;
     
     @ManyToOne
-    @Required
     public City finishCity;
     
     @ManyToOne
-    @Required
     public User driver;
     
     @ManyToMany
@@ -34,20 +30,15 @@ public class Way extends Model {
     @ManyToMany
     public List<City> cities;
     
-    @Required
     public Double distance;
     
-    @Required
     public Date dateHourStart;
     
     @ManyToOne
-    @Required
     public Car car;
     
-    @Required
     public Integer placeAvailable;
     
-    @Required
     public Double cost;
 
     public Way(City startCity, City finishCity, User driver, Date dateHourStart, Car car, Integer placeAvailable, Double cost) {

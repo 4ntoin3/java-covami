@@ -34,9 +34,9 @@ public class WayTest extends UnitTest {
         Date dateHourStart = new Date();
         Car car = new Car("clio", 4, 2, driver).save();
         Integer placeAvailable = new Integer(3);
+        Double cost = new Double(0);
         
-         new Way(startCity, finishCity, driver, distance, dateHourStart, car, placeAvailable).save();
-         
+         new Way(startCity, finishCity, driver, dateHourStart, car, placeAvailable, cost).save();         
          Way way = Way.find("byDistance", distance).first();
         
         assertNotNull(way);

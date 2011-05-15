@@ -1,6 +1,5 @@
 package models;
 
-import java.util.*;
 import javax.persistence.*;
 import play.data.validation.*;
 
@@ -13,7 +12,6 @@ import play.db.jpa.*;
 @Entity
 public class User extends Model {
 
-    @Column(unique = true)
     @Email
     @Required
     public String email;

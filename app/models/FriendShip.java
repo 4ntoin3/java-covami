@@ -2,8 +2,6 @@ package models;
 
 import java.util.*;
 import javax.persistence.*;
-import play.data.validation.*;
-
 import play.db.jpa.*;
 
 /**
@@ -14,18 +12,13 @@ import play.db.jpa.*;
 public class FriendShip extends Model{
     
     @ManyToOne
-    @Required
     public User friend;
     
     @OneToOne
     public User user;
     
-    @Min(0)
-    @Max(3)
-    @Required
     public Integer status;
     
-    @Required
     public Date date;
     
     public FriendShip(User friend, User user, Integer status, Date date){

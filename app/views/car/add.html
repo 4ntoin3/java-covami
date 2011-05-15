@@ -13,15 +13,15 @@
 
     <label for="fieldCarname">&{'car.name'}</label>
     <div class="formField">
-        <input type="text" name="name" id="fieldCarname" value="${flash['name']}"/>
-        <p class="error">#{error 'name' /}</p>
+        <input type="text" name="car.name" id="fieldCarname" value="${flash['car.name']}"/>
+        <p class="error">#{error 'car.name' /}</p>
     </div>
 
     <label for="fieldCarcapacity">&{'car.available_place'}</label>
     <div class="formField">
-        <select name="nbPlace" id="fieldCarcapacity"/>
+        <select name="car.nbPlace" id="fieldCarcapacity"/>
         #{list items:1..8, as:'i'}
-            <option value=${i} #{if flash["nbPlace"]=="${i}"}selected#{/if}>${i}</option>
+            <option value=${i} #{if flash["car.nbPlace"]=="${i}"}selected#{/if}>${i}</option>
         #{/list}
         </select>
         <p class="message">&{'car.without_driver'}. &{'general.default_value'}, &{'car.edit_for_each_way'}.</p>
@@ -29,9 +29,9 @@
 
     <label for="fieldCarconsomation">&{'car.estimated_consommation'}</label>
     <div class="formField">
-        <input type="text" name="cost" id="fieldCarconsomation"  value="${flash['cost']}" class="covami_int"/>
+        <input type="text" name="car.cost" id="fieldCarconsomation"  value="${flash['car.cost']}" class="covami_int"/>
         <p class="message">&{'car.litreAuCent'}.</p>
-        <p class="error">#{error 'cost' /}</p>
+        <p class="error">#{error 'car.cost' /}</p>
     </div>
 
     <div class="fieldButtonValidation">
