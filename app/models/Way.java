@@ -139,12 +139,13 @@ public class Way extends Model {
     }
     
     public double cost() throws Exception{
-        double litreByKm = this.car.cost/100;
+        double litreByKm = this.car.cost/100.0;
         double cost_fuel = 1.5290858352582;
         double tollByKm = 0.0599893844621958;
         double costWay = 0;
         
         this.calculateWay();
+        System.out.println("calcul ="+distance+"*"+litreByKm+"*"+cost_fuel+" + "+distance+"*"+tollByKm);
         costWay = (this.distance*litreByKm)*cost_fuel + this.distance*tollByKm;
         
         return costWay;
