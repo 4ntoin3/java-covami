@@ -71,7 +71,8 @@ public class Way extends Controller {
         
         List<Object> jsonReturn = new ArrayList<Object>();
         jsonReturn.add(new models.Way(startCity, finishCity, car).cost());
-        //jsonReturn.add();
+        jsonReturn.add(car.nbPlace);
+        
         renderJSON(jsonReturn);
     }
 

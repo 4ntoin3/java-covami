@@ -77,7 +77,7 @@ FriendShip(pierreAntoine):
 Car(clioBob):
     name:           clio
     nbPlace:        4
-    cost:           2
+    cost:           6
     owner:          bob
  
 Car(twingoBob):
