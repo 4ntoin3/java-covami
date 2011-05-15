@@ -145,7 +145,6 @@ public class Way extends Model {
         double costWay = 0;
         
         this.calculateWay();
-        System.out.println("calcul ="+distance+"*"+litreByKm+"*"+cost_fuel+" + "+distance+"*"+tollByKm);
         costWay = (this.distance*litreByKm)*cost_fuel + this.distance*tollByKm;
         
         return costWay; 
