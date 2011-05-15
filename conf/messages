@@ -135,6 +135,9 @@ way.add_first=Cliquez ici pour ajouter le premier trajet
 way.start_city=Ville de départ
 way.finish_city=Ville d'arrivée
 way.car=Voiture
+way.detail_me=Voir le détail du trajet
+way.edit_me=Editer ce trajet
+way.cancel_me=Supprimer ce trajet
 
 # [Section Friend]
 friend.back_to_list=Retour à la liste des amis

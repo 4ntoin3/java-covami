@@ -147,6 +147,6 @@ public class Way extends Model {
         this.calculateWay();
         costWay = (this.distance*litreByKm)*cost_fuel + this.distance*tollByKm;
         
-        return costWay;
+        return costWay; 
     }
 }

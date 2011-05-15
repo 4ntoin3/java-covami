@@ -1,0 +1,22 @@
+.way {
+    float: left;
+    border: 1px solid #CCC;
+    margin: 4px;
+    min-width: 160px;
+    text-align: center;
+    border-radius: 10px;
+}
+.way:hover {
+    background-color: #A7D5EF;
+    cursor: pointer;
+}
+.way .description h4 {
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px #FFF;
+    padding: 10px;
+    font-weight: bold;
+}
+.way .description p {
+    margin: 0px;
+    padding: 0px;
+}
