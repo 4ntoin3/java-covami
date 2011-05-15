@@ -19,60 +19,52 @@ public class Way extends Model {
     @ManyToOne
     @Required
     public City startCity;
-    
     @ManyToOne
     @Required
     public City finishCity;
-    
     @ManyToOne
     @Required
     public User driver;
-    
     @ManyToMany
     public List<User> passengers;
-    
     @ManyToMany
     public List<City> cities;
-    
     @Required
     public Double distance;
-    
     @Required
     public Date dateHourStart;
-    
     @ManyToOne
     @Required
     public Car car;
-    
     @Required
     public Integer placeAvailable;
 
-    public Way(City startCity, City finishCity, User driver, Double distance, Date dateHourStart, Car car, Integer placeAvailable) {
+    public Way(City startCity, City finishCity, User driver, Date dateHourStart, Car car, Integer placeAvailable) {
         this.startCity = startCity;
         this.finishCity = finishCity;
         this.driver = driver;
         this.passengers = new ArrayList<User>();
         this.cities = new ArrayList<City>();
-        this.distance = distance;
+        this.distance = new Double(0);
         this.dateHourStart = dateHourStart;
         this.car = car;
         this.placeAvailable = placeAvailable;
     }
-    
+
     /**
      * Retourne les trajets auquels l'utilisateur à participer comme passager
      * @param user
      * @return une liste de trajet
      */
-    public static ArrayList<Way> waysByUserAsPassenger(User user){
+    public static ArrayList<Way> waysByUserAsPassenger(User user) {
         ArrayList<Way> waysParticipation = new ArrayList<Way>();
-        
-        List<models.Way> ways =  models.Way.findAll();
+
+        List<models.Way> ways = models.Way.findAll();
         for (Way way : ways) {
-            if(way.passengers.contains(user)){
+            if (way.passengers.contains(user)) {
                 waysParticipation.add(way);
             }
-        }    
+        }
         return waysParticipation;
     }
 
@@ -99,7 +91,7 @@ public class Way extends Model {
             }
         }
         saveWay(node);
-        calculDistanceInKm(cities);
+        this.distance = calculDistanceInKm(cities);
     }
 
     /**
@@ -109,14 +101,14 @@ public class Way extends Model {
     private void saveWay(Node node) {
         Node nodeTmp = node;
         List<Road> roads = new ArrayList();
+        this.cities.clear();
 
         while (nodeTmp.getPrevNode() != null) {
             roads.add((Road) Road.findById(nodeTmp.getIdRoad()));
             nodeTmp = nodeTmp.getPrevNode();
         }
-        Collections.reverse(roads);
 
-        cities.add(startCity);
+        cities.add(finishCity);
         for (Road road : roads) {
             if (cities.get(cities.size() - 1).name.equals(road.firstCity.name)) {
                 cities.add(road.secondCity);
