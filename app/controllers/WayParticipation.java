@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.Date;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -10,31 +11,33 @@ import play.mvc.With;
 @With(Secure.class)
 public class WayParticipation extends Controller {
 
-    public static void add(Long id){
+    public static void add(Long id) {
         models.Way way = models.Way.findById(id);
-        
-        new models.WayParticipation(way, User.connected(), 0).save();
-        
+
+        if (way != null) {
+            new models.WayParticipation(way, User.connected(), 0).save();
+        }
+
         redirect("/way/search");
     }
-    
-    public static void cancel(Long id){
+
+    public static void cancel(Long id) {
         models.WayParticipation participation = models.WayParticipation.findById(id);
         participation.status = 1;
-        
+
         redirect("/way/search");
     }
-    
-    public static void accept(Long id){
+
+    public static void accept(Long id) {
         models.WayParticipation participation = models.WayParticipation.findById(id);
         participation.status = 2;
         redirect("/way/search");
     }
 
-    public static void refuse(Long id){
+    public static void refuse(Long id) {
         models.WayParticipation participation = models.WayParticipation.findById(id);
 
-        
+
         redirect("/way/search");
     }
 }

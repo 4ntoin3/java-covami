@@ -21,7 +21,7 @@
 <div class="friend">
     <div class="description">
         <h4>${friendShip.friend.firstname} ${friendShip.friend.lastname}</h4>
-        <a href="@{user.detail(friendShip.friend.id)}" title="&{'friend.detail_me'}">
+        <a href="@{user.details(friendShip.friend.id)}" title="&{'friend.detail_me'}">
             <img src="@{'public/images/icons/24/detail.png'}" alt="&{'friend.detail_me'}" />
         </a>
         <a href="@{friend.delete(friendShip.id)}" title="&{'friend.delete_me'}" class="delete_confirmation">
