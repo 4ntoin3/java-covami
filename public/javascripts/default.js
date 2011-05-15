@@ -150,6 +150,13 @@ $(document).ready(function(){
         });
     });
     
+    /**
+     * Désactive / Active les villes sélectionné dans une ville de trajet
+     * 
+     * @element citySelector
+     * @event onChange
+     * @action Hide the selected city in the other list
+     */
     $('.citySelector').bind("change", function(){
         var that = $(this);
         
@@ -162,6 +169,18 @@ $(document).ready(function(){
         }
         
         $('#fieldWayfinishCity option[value=-1], #fieldWaystartCity option[value=-1]').attr("disabled", "disabled");
+    });
+    
+    $('#fieldWaystartCity, #fieldWayfinishCity, #fieldWaycar').bind("change", function(){
+        var startCity = $('#fieldWaystartCity');
+        var finishCity = $('#fieldWayfinishCity');
+        var car = $('#fieldWaycar');
+        
+        if (car.val() != -1 && startCity.val() != -1 && finishCity.val() != -1) {
+            $('.second_part_form').fadeOut();
+            console.debug("ajax");
+            $('.second_part_form').fadeIn();
+        }
     });
     
 });

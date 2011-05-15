@@ -58,6 +58,7 @@ public class Way extends Model {
         this.startCity = startCity;
         this.finishCity = finishCity;
         this.car = car;
+        this.cities = new ArrayList<City>();
     }
 
     /**
