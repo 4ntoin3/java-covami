@@ -132,9 +132,25 @@ public class Way extends Controller {
 
         if (str == null || str.isEmpty()) {
             ways = models.Way.find("driver.id != ? order by datehourstart", User.connected().id).fetch();
+            ways = removeParticipationInArray(ways);
             render(ways);
         }
         ways = models.Way.find("driver.id != ? and (firstCity.name like ? OR finishCity.name like ?) order by datehourstart", User.connected().id, "%" + str + "%", "%" + str + "%").fetch();
+        ways = removeParticipationInArray(ways);
         render(ways);
+    }
+    
+    private static List<models.Way> removeParticipationInArray(List<models.Way> ways) {
+        List<models.WayParticipation> wayParticipations;
+        ArrayList<models.Way> participations = new ArrayList<models.Way>();
+        
+        wayParticipations = models.WayParticipation.find("participant = ? and status != 1", User.connected()).fetch();
+        
+        for (models.WayParticipation participation : wayParticipations) {
+            participations.add(participation.way);
+        }
+        ways.removeAll(participations);
+
+        return ways;
     }
 }

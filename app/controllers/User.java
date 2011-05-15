@@ -22,10 +22,21 @@ public class User extends Controller {
         models.User user = User.connected();
         renderArgs.put("user", user);
         
-        List<models.WayParticipation> ways_waiting = models.WayParticipation.find("way.driver = ?", user).fetch();
-        renderArgs.put("ways_waiting", ways_waiting);
+        List<models.WayParticipation> participations_waiting = models.WayParticipation.find("way.driver = ? and status = ?", user, 0).fetch();
+        renderArgs.put("participations_waiting", participations_waiting);
         
-
+        List<models.WayParticipation> participations_refuse = models.WayParticipation.find("participant = ? and status = ?", user, 1).fetch();
+        renderArgs.put("participations_refuse", participations_refuse);
+        
+        List<models.WayParticipation> participations_accept = models.WayParticipation.find("participant = ? and status = ?", user, 2).fetch();
+        renderArgs.put("participations_accept", participations_accept);
+        
+        List<models.WayParticipation> participations_cancel = models.WayParticipation.find("way.driver = ? and status = ?", user, 3).fetch();
+        renderArgs.put("participations_cancel", participations_cancel);
+        
+        List<models.WayParticipation> ways_cancel = models.WayParticipation.find("participant = ? and status = ?", user, 4).fetch();
+        renderArgs.put("ways_cancel", ways_cancel);        
+        
         List<FriendShip> friends_waiting = FriendShip.find("friend = ? and status = ?", user, 0).fetch();
         renderArgs.put("friends_waiting", friends_waiting);
 

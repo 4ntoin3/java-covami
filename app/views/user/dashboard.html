@@ -5,32 +5,39 @@
 <div class="box_dashboard" id="box_way">
     <h4><span class="toggler">&star;</span> &{'user.dashboard.way_activity'}</h4>
     <div class="content">
+        #{if participations_accept.size() == 0 && participations_refuse.size() == 0 && participations_waiting.size() == 0 && ways_cancel.size() == 0}
         <p class="empty_box">
             &{'user.dashboard.no_recent_activity_way'}.
         </p>
-        
-        
-        <hr/>
-        
+        #{/if}        
         
         <ul>
-            
+            #{list participations_accept, as:'participation_accept'}
             <li>
+                <a href="@{User.details(participation_accept.way.driver.id)}">${participation_accept.way.driver.firstname} ${participation_accept.way.driver.lastname}</a> &{'user.dashboard.accept_participation'} <a href="">${participation_accept.way.startCity.name} - ${participation_accept.way.finishCity.name}</a> <a href="@{WayParticipation.validNotification(participation_accept.id)}">supprimer</a>
+            </li>
+           #{/list}            
+<!--            <li>
                 <a href="lien/vers/le/friend">Pierre Gasté</a> &{'user.dashboard.accept_participation'} <a href="lien/voyage">Angers - Paris</a>
-            </li>
+            </li>-->
+            #{list participations_refuse, as:'participation_refuse'}
             <li>
-                <a href="lien/vers/le/friend">Jean Dupuis</a> &{'user.dashboard.refuse_participation'} <a href="lien/voyage">Niort - Lille</a>
+                <a href="@{User.details(participation_refuse.way.driver.id)}">${participation_refuse.way.driver.firstname} ${participation_refuse.way.driver.lastname}</a> &{'user.dashboard.refuse_participation'} <a href="">${participation_refuse.way.startCity.name} - ${participation_refuse.way.finishCity.name}</a> <a href="@{WayParticipation.validNotification(participation_refuse.id)}">supprimer</a>
             </li>
-            #{list ways_waiting, as:'way_waiting'}
+           #{/list}
+           
+            #{list participations_waiting, as:'participation_waiting'}
             <li>
-                <a href="@{User.details(way_waiting.participant.id)}">${way_waiting.participant.firstname}</a> &{'user.dashboard.want_to_participate'} <a href="">${way_waiting.way.startCity.name} - ${way_waiting.way.finishCity.name}</a>
-                <a href="lien/voyage/accept/user">&{'yes'}</a> • <a href="lien/voyage/refuse/user">&{'no'}</a>
+                <a href="@{User.details(participation_waiting.participant.id)}">${participation_waiting.participant.firstname} ${participation_waiting.participant.lastname}</a> &{'user.dashboard.want_to_participate'} <a href="">${participation_waiting.way.startCity.name} - ${participation_waiting.way.finishCity.name}</a>
+                <a href="@{WayParticipation.accept(participation_waiting.id)}">&{'yes'}</a> • <a href="@{WayParticipation.refuse(participation_waiting.id)}">&{'no'}</a>
             </li>
             #{/list}
-<!--            <li>
-               <a href="lien/vers/le/user">Antoine Esnault</a> &{'user.dashboard.want_to_participate'} <a href="lien/trajet">Lens - Lyon</a> ?
-               <a href="lien/voyage/accept/user">&{'yes'}</a> • <a href="lien/voyage/refuse/user">&{'no'}</a>
-            </li>-->
+            
+            #{list ways_cancel, as:'way_cancel'}
+            <li>
+                <a href="@{User.details(way_cancel.way.driver.id)}">${way_cancel.way.driver.firstname} ${way_cancel.way.driver.lastname}</a> &{'user.dashboard.cancel_participate'} <a href="">${way_cancel.way.startCity.name} - ${way_cancel.way.finishCity.name}</a> <a href="@{WayParticipation.validNotification(way_cancel.id)}">supprimer</a>
+            </li>
+            #{/list}
         </ul>        
     </div>
 </div>

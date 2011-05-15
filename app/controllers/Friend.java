@@ -53,7 +53,7 @@ public class Friend extends Controller {
     public static void validNotification(Long id) {
         FriendShip friendship = FriendShip.findById(id);
 
-        if (friendship != null && (friendship.status == 1 || friendship.status == 2) && friendship.user == User.connected()) {
+        if (friendship != null && friendship.user == User.connected()) {
             if (friendship.status == 1) {
                 friendship.delete();
             } else if (friendship.status == 2) {
