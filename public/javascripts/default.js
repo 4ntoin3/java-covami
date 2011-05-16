@@ -242,4 +242,27 @@ $(document).ready(function(){
         }
     });
     
+    /**
+     * Entrer dans un champ avec placeholder
+     */
+    $('.placeholder').bind("focus", function(){
+        var that = $(this);     
+        if (that.val() == that.attr('rel')) {
+            that.val("");
+        }
+    });
+    
+    /**
+     * Sortie de champ avec placeholder
+     */
+    $('.placeholder').bind("blur", function(){
+        var that = $(this);
+                
+        if (that.val() == "") {
+            that.val(that.attr('rel'));
+        }
+    });
+    
+    $('input[name=fromDate]').datepicker({minDate: 0});
+    
 });

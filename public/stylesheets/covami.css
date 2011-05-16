@@ -208,3 +208,11 @@ button.withPix {
 .icon_delete:hover, .icon_confirm:hover, .icon_refuse:hover {
     opacity: 1;
 }
+
+/* Champs de recherche de trajet
+------------------------------------------------- */
+.search_way_field {
+    font-size: 17px;
+    padding: 5px;
+    border: 1px solid #CCC;
+}

@@ -94,14 +94,15 @@ public class Way extends Controller {
      */
     public static void search() {
         List<models.Way> ways = new ArrayList<models.Way>();
-
+        List<City> cities = City.find("order by name").fetch();
+        
         for (models.User friend : User.connected().friends()) {
             for (models.Way way : friend.ways_driver()) {
                 ways.add(way);
             }
         }
         ways = _removeParticipationInArray(ways);
-        render(ways);
+        render(ways, cities);
     }
 
     /**
@@ -247,7 +248,7 @@ public class Way extends Controller {
         render(ways);
     }
 
-        /**
+    /**
      * [POST] Retourne le cout d'un trajet sous un format JSON
      * 
      * @param startCityId
@@ -266,7 +267,7 @@ public class Way extends Controller {
 
         renderJSON(jsonReturn);
     }
-    
+
     /**
      * Méthode supprimant tous les trajet ou l'utilisateur participe
      * 
