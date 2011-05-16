@@ -22,7 +22,7 @@ public class User extends Controller {
         models.User user = User.connected();
         renderArgs.put("user", user);
         
-        List<models.WayParticipation> participations_waiting = models.WayParticipation.find("way.driver = ? and status = ?", user, 0).fetch();
+        List<models.WayParticipation> participations_waiting = models.WayParticipation.find("way.driver = ? and status = ? and way.datehourstart < ?", user, 0, new Date()).fetch();
         renderArgs.put("participations_waiting", participations_waiting);
         
         List<models.WayParticipation> participations_refuse = models.WayParticipation.find("participant = ? and status = ?", user, 1).fetch();

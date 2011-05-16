@@ -194,3 +194,6 @@ validation.ipv6=La valeur n'est pas une adresse IP v6 valide.
 
 # [Section Confirmation]
 confirmation.remove_item=Êtes vous certain de supprimer cet enregistrement ?
+
+# [Section Secure]
+secure.error=Login ou mot de passe invalide.
