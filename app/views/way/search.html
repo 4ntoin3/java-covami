@@ -1,6 +1,9 @@
 #{extends 'main.html' /}
 #{set title: play.i18n.Messages.get('title.way') /}
 #{set subtitle: play.i18n.Messages.get('subtitle.way') /}
+#{set 'moreStyles'}
+#{stylesheet 'way.css' /}
+#{/set}
 
 <div class="rightTopButtonBox">
     <button class="addButton withPix pix16_way_add">&{'btn.add.way'}</button>
@@ -8,58 +11,29 @@
     <div style="clear: both;"></div>
 </div>
 
-<table class="covami_table">
-    <thead>
-        <tr>
-            <th class="table_col_action">&{'way.list.col.actions'}</th>
-            <th>&{'way.list.col.label'}</th>
-            <th>&{'way.list.col.driver'}</th>
-            <th>&{'way.list.col.placeRemain'}</th>
-            <th>&{'way.list.col.date'}</th>
-            <th>&{'way.list.col.distance'}</th>
-            <th>&{'way.list.col.cost'}</th>
-        </tr>
-    </thead>
-    <tbody>
-        #{if ways == null}
-        <tr>
-            <td class="table_empty" colspan="3">
-                &{'way.empty'}.<br/>
-                <a href="@{way.add}">&{'way.add_first'}!</a>
-            </td>
-        </tr>
-        #{/if}
-        #{else}
-        #{list items:ways, as:'way'}
-        <tr>
-            <td class="table_col_action">
-                <a href="@{wayParticipation.add(way.id)}" title="&{'wayparticipation.add_me'}">
-                    <img src="@{'public/images/icons/way_add.png'}" alt="&{'wayparticipation.add_me'}" />
-                </a>
-                <a href="@{way.details(way.id)}" title="&{'way.list.detail_me'}">
-                    <img src="@{'public/images/icons/24/detail.png'}" alt="&{'way.list.detail_me'}" />
-                </a>
-            </td>
-            <td>
-                ${way.startCity.name} => ${way.finishCity.name}
-            </td>
-            <td>
-                ${way.driver.firstname} ${way.driver.lastname}
-            </td>
-            <td>
-                ${way.placeRemain()}
-            </td>
-            <td>
-                ${way.dateHourStart.getTime().asdate('dd/MM/yyyy HH:mm')}
-            </td>
-            <td>
-                ${(int)way.distance}
-            </td>
-            <td>
-                ${way.cost}
-            </td>
-        </tr>
-        #{/list}
-        #{/else}
-    </tbody>
-</table>
+<h2>&#9733; &{'way.search.param_search'}</h2>
+<h2>&#9733; &{'way.search.result_search'}</h2>
+#{if ways.size == 0}
+<div class="empty_add_first">
+    &{'way.empty'}.<br/>
+    <a href="@{way.add}">&{'way.add_yours'}!</a>
+</div>
+#{/if}
+#{else}
+#{list items:ways, as:'way'}
+<div class="way">
+    <div class="description">
+        <h4>${way.startCity.name} => ${way.finishCity.name}</h4>
+        <p>${way.dateHourStart.getTime().asdate('dd/MM/yyyy HH:mm')}</p>
+        <p>${way.cost} € / personne</p>
+        <p>${way.placeRemain()} &{'way.place_restante'} / ${way.placeAvailable}</p>
+        <small>proposé par ${way.driver.firstname} ${way.driver.lastname}</small><br/>
+        <a href="@{way.details(way.id)}" title="&{'way.detail_me'}">
+            <img src="@{'public/images/icons/24/detail.png'}" alt="&{'way.detail_me'}" />
+        </a>
+    </div>
+    <div class="clear"></div>
+</div>
+#{/list}
+#{/else}
+<div class="clear"></div>

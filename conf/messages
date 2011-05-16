@@ -159,6 +159,9 @@ way.no_place=Plus aucune place n'est disponible pour ce trajet.
 way.too_late=Ce trajet est dépassé.
 way.my_futur_driver_way=Mes futurs trajets (côté conducteur)
 way.my_futur_participate_way=Mes futurs trajets (côté participant)
+way.search.param_search=Paramètres de recherche
+way.search.result_search=Résultats de la recherche
+way.add_yours=Ajouter le votre !
 
 # [Section Friend]
 friend.back_to_list=Retour à la liste des amis
