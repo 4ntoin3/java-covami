@@ -45,6 +45,16 @@
             </li>
             #{/list}
             
+            #{list participations_cancel, as:'participation_cancel'}
+            <li>
+                <a href="@{User.details(participation_cancel.participant.id)}">${participation_cancel.participant.firstname} ${participation_cancel.participant.lastname}</a> 
+                &{'user.dashboard.cancel_participation'} <a href="@{Way.details(participation_cancel.way.id)}">${participation_cancel.way.startCity.name} - ${participation_cancel.way.finishCity.name}</a>
+                <a href="@{WayParticipation.validNotification(participation_cancel.id)}" title="&{'mark_as_read'}">
+                    <img src="@{'public/images/delete.png'}" alt="&{'mark_as_read'}" class="icon_delete" />
+                </a>                
+            </li>
+            #{/list}
+            
             #{list ways_cancel, as:'way_cancel'}
             <li>
                 <a href="@{User.details(way_cancel.way.driver.id)}">${way_cancel.way.driver.firstname} ${way_cancel.way.driver.lastname}</a> 

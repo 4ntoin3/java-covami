@@ -121,6 +121,7 @@ user.dashboard.way_activity=Activité sur mes trajets
 user.dashboard.want_to_participate=souhaite participer à
 user.dashboard.accept_participation=a accepté votre participation pour
 user.dashboard.refuse_participation=a refusé votre participation pour
+user.dashboard.cancel_participation=a annulé sa participation
 user.dashboard.no_recent_activity_way=Aucune activité récente concernant vos trajets
 user.dashboard.stats=Mes statistiques Covamienne
 user.dashboard.proposed_way=voyage(s) proposé(s)
