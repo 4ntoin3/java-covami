@@ -15,7 +15,7 @@
             #{list participations_accept, as:'participation_accept'}
             <li>
                 <a href="@{User.details(participation_accept.way.driver.id)}">${participation_accept.way.driver.firstname} ${participation_accept.way.driver.lastname}</a> 
-                &{'user.dashboard.accept_participation'} <a href="">${participation_accept.way.startCity.name} - ${participation_accept.way.finishCity.name}</a> 
+                &{'user.dashboard.accept_participation'} <a href="@{Way.details(participation_accept.way.id)}">${participation_accept.way.startCity.name} - ${participation_accept.way.finishCity.name}</a> 
                 <a href="@{WayParticipation.validNotification(participation_accept.id)}" title="&{'mark_as_read'}">
                     <img src="@{'public/images/delete.png'}" alt="&{'mark_as_read'}" class="icon_delete" />
                 </a>
@@ -25,7 +25,7 @@
             #{list participations_refuse, as:'participation_refuse'}
             <li>
                 <a href="@{User.details(participation_refuse.way.driver.id)}">${participation_refuse.way.driver.firstname} ${participation_refuse.way.driver.lastname}</a> 
-                &{'user.dashboard.refuse_participation'} <a href="">${participation_refuse.way.startCity.name} - ${participation_refuse.way.finishCity.name}</a> 
+                &{'user.dashboard.refuse_participation'} <a href="@{Way.details(participation_refuse.way.id)}">${participation_refuse.way.startCity.name} - ${participation_refuse.way.finishCity.name}</a> 
                 <a href="@{WayParticipation.validNotification(participation_refuse.id)}" title="&{'mark_as_read'}">
                     <img src="@{'public/images/delete.png'}" alt="&{'mark_as_read'}" class="icon_delete" />
                 </a>
@@ -34,7 +34,8 @@
            
             #{list participations_waiting, as:'participation_waiting'}
             <li>
-                <a href="@{User.details(participation_waiting.participant.id)}">${participation_waiting.participant.firstname} ${participation_waiting.participant.lastname}</a> &{'user.dashboard.want_to_participate'} <a href="">${participation_waiting.way.startCity.name} - ${participation_waiting.way.finishCity.name}</a>
+                <a href="@{User.details(participation_waiting.participant.id)}">${participation_waiting.participant.firstname} ${participation_waiting.participant.lastname}</a> 
+                &{'user.dashboard.want_to_participate'} <a href="@{Way.details(participation_waiting.way.id)}">${participation_waiting.way.startCity.name} - ${participation_waiting.way.finishCity.name}</a>
                 <a href="@{WayParticipation.accept(participation_waiting.id)}" title="&{'yes'}">
                     <img src="@{'public/images/confirm.png'}" alt="&{'yes'}" class="icon_confirm" />
                 </a>
@@ -47,7 +48,7 @@
             #{list ways_cancel, as:'way_cancel'}
             <li>
                 <a href="@{User.details(way_cancel.way.driver.id)}">${way_cancel.way.driver.firstname} ${way_cancel.way.driver.lastname}</a> 
-                &{'user.dashboard.cancel_way'} <a href="">${way_cancel.way.startCity.name} - ${way_cancel.way.finishCity.name}</a> 
+                &{'user.dashboard.cancel_way'} <a href="@{Way.details(way_cancel.way.id)}">${way_cancel.way.startCity.name} - ${way_cancel.way.finishCity.name}</a> 
                 <a href="@{WayParticipation.validNotification(way_cancel.id)}" title="&{'mark_as_read'}">
                     <img src="@{'public/images/delete.png'}" alt="&{'mark_as_read'}" class="icon_delete" />
                 </a>
@@ -131,7 +132,7 @@
         </p>
         <p class="stats">
             <img src="@{'public/images/icons/euro.png'}" alt="&{'user.dashboard.avg_cost'}" /> <i>&{'user.dashboard.avg_cost'}</i> : 4 €<br/>
-            <img src="@{'public/images/icons/smile.png'}" alt="&{'user.dashboard.my_covanote'}" /> <i>&{'user.dashboard.my_covanote'} : </i> 4,6 / 5
+            <!--<img src="@{'public/images/icons/smile.png'}" alt="&{'user.dashboard.my_covanote'}" /> <i>&{'user.dashboard.my_covanote'} : </i> 4,6 / 5-->
         </p>
     </div>
 </div>

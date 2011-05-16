@@ -6,22 +6,20 @@ import play.data.binding.As;
 import play.data.validation.Required;
 import play.mvc.*;
 
-/**
- *
- * @author pierregaste
- */
 @With(Secure.class)
 public class Way extends Controller {
 
     /**
-     * Action par défaut
+     * [GET] Route par défaut
+     * 
      */
     public static void index() {
         redirect("/way/list");
     }
 
     /**
-     * Listing des trajets
+     * [GET] Liste des trajets concernant l'utilisateur connecté
+     * 
      */
     public static void list() {
         List<models.Way> ways = models.Way.find("driver = ? and deleted = 0 order by datehourstart", User.connected()).fetch();
@@ -30,14 +28,95 @@ public class Way extends Controller {
         render(ways, ways_participate);
     }
 
+    /**
+     * [GET] Formulaire d'ajout de trajet
+     * 
+     */
     public static void add() {
-
         List<City> cities = City.find("order by name").fetch();
-        List<models.Car> cars = models.Car.find("owner = ? and deleted = 0 order by name", User.connected()).fetch();
+        List<models.Car> cars = models.Car.find("owner = ? order by name", User.connected()).fetch();
 
         render(cities, cars);
     }
 
+    /**
+     * [GET] Formulaire d'édition de trajet
+     * 
+     * @param id 
+     */
+    public static void edit(Long id) {
+        models.Way way = models.Way.findById(id);
+        List<City> cities = City.find("order by name").fetch();
+        List<models.Car> cars = models.Car.find("owner = ? order by name", User.connected()).fetch();
+
+        render(way, cities, cars);
+    }
+
+    /**
+     * [GET] Page de détails d'un trajet
+     * 
+     * @param id 
+     */
+    public static void details(Long id) {
+        models.Way way = models.Way.findById(id);
+        render(way);
+    }
+
+    /**
+     * [GET] Requete d'annulation d'un trajet
+     * 
+     * @param id 
+     */
+    public static void cancel(Long id) {
+        models.Way way = models.Way.findById(id);
+
+        if (way != null && way.driver == User.connected()) {
+            List<models.WayParticipation> participants = models.WayParticipation.find("byWay", way).fetch();
+
+            if (participants.isEmpty()) {
+                way.delete();
+            } else {
+                way.deleted = 1;
+                for (models.WayParticipation participant : participants) {
+                    participant.status = 3;
+                    participant.save();
+                }
+                way.save();
+            }
+        }
+
+        redirect("/way/list");
+    }
+
+    /**
+     * [GET] Page de recherche de trajet
+     * 
+     */
+    public static void search() {
+        List<models.Way> ways = new ArrayList<models.Way>();
+
+        for (models.User friend : User.connected().friends()) {
+            for (models.Way way : friend.ways_driver()) {
+                ways.add(way);
+            }
+        }
+        ways = _removeParticipationInArray(ways);
+        render(ways);
+    }
+
+    /**
+     * [POST] Soumission du formulaire d'ajout du trajet
+     * 
+     * @param startCityId
+     * @param finishCityId
+     * @param carId
+     * @param cost
+     * @param placeAvailable
+     * @param dateStart
+     * @param hourStart
+     * @param minCost
+     * @param maxCost
+     */
     public static void addWay(@Required Long startCityId,
             @Required Long finishCityId,
             @Required Long carId,
@@ -47,7 +126,6 @@ public class Way extends Controller {
             @Required String hourStart,
             @Required Double minCost,
             @Required Double maxCost) {
-
         dateStart.setHours(Integer.parseInt(hourStart.split(":")[0]));
         dateStart.setMinutes(Integer.parseInt(hourStart.split(":")[1]));
         if (dateStart.getTime() < new Date().getTime()) {
@@ -56,8 +134,8 @@ public class Way extends Controller {
 
         validation.match(hourStart, "\\d\\d:\\d\\d").message("Heure invalide.");
         if (validation.hasErrors()) {
-            params.flash(); // add http parameters to the flash scope
-            validation.keep(); // keep the errors for the next request
+            params.flash();
+            validation.keep();
             add();
         }
 
@@ -70,35 +148,30 @@ public class Way extends Controller {
         try {
             way.calculateWay();
         } catch (Exception ex) {
-            params.put("fail", "error during the calcul");
-            params.flash(); // add http parameters to the flash scope
-            validation.keep(); // keep the errors for the next request
+            params.put("fail", "Erreur pendant le calcul.");
+            params.flash();
+            validation.keep();
             add();
         }
         way.save();
+
         redirect("/way/list");
     }
 
-    public static void calculCost(Long startCityId, Long finishCityId, Long carId) throws Exception {
-        models.City startCity = models.City.findById(startCityId);
-        models.City finishCity = models.City.findById(finishCityId);
-        models.Car car = models.Car.findById(carId);
-
-        List<Object> jsonReturn = new ArrayList<Object>();
-        jsonReturn.add(new models.Way(startCity, finishCity, car).cost());
-        jsonReturn.add(car.nbPlace);
-
-        renderJSON(jsonReturn);
-    }
-
-    public static void edit(Long id) {
-        models.Way way = models.Way.findById(id);
-        List<City> cities = City.find("order by name").fetch();
-        List<models.Car> cars = models.Car.find("owner = ? and deleted = 0 order by name", User.connected()).fetch();
-
-        render(way, cities, cars);
-    }
-
+    /**
+     * [POST] Soumission d'édition de trajet
+     * 
+     * @param id
+     * @param startCityId
+     * @param finishCityId
+     * @param cost
+     * @param carId
+     * @param placeAvailable
+     * @param dateStart
+     * @param hourStart
+     * @param minCost
+     * @param maxCost 
+     */
     public static void editWay(Long id,
             @Required Long startCityId,
             @Required Long finishCityId,
@@ -148,44 +221,13 @@ public class Way extends Controller {
         redirect("/way/list");
     }
 
-    public static void details(Long id) {
-        models.Way way = models.Way.findById(id);
-        render(way);
-    }
-
-    public static void cancel(Long id) {
-        models.Way way = models.Way.findById(id);
-
-        if (way != null && way.driver == User.connected()) {
-            List<models.WayParticipation> participants = models.WayParticipation.find("byWay", way).fetch();
-
-            if (participants.isEmpty()) {
-                way.delete();
-            } else {
-                way.deleted = 1;
-                for (models.WayParticipation participant : participants) {
-                    participant.status = 3;
-                    participant.save();
-                }
-                way.save();
-            }
-        }
-
-        redirect("/way/list");
-    }
-
-    public static void search() {
-        List<models.Way> ways = new ArrayList<models.Way>();
-
-        for (models.User friend : User.connected().friends()) {
-            for (models.Way way : friend.ways_driver()) {
-                ways.add(way);
-            }
-        }
-        ways = removeParticipationInArray(ways);
-        render(ways);
-    }
-
+    /**
+     * [POST] Soumission d'une recherche de formulaire
+     * 
+     * @param startCityId
+     * @param finishCityId
+     * @param fromDate 
+     */
     public static void search(Long startCityId, Long finishCityId, @As("dd/MM/yyyy") Date fromDate) {
         models.City startCity = models.City.findById(startCityId);
         models.City finishCity = models.City.findById(finishCityId);
@@ -201,11 +243,37 @@ public class Way extends Controller {
             }
         }
 
-        ways = removeParticipationInArray(ways);
+        ways = _removeParticipationInArray(ways);
         render(ways);
     }
 
-    private static List<models.Way> removeParticipationInArray(List<models.Way> ways) {
+        /**
+     * [POST] Retourne le cout d'un trajet sous un format JSON
+     * 
+     * @param startCityId
+     * @param finishCityId
+     * @param carId
+     * @throws Exception 
+     */
+    public static void calculCost(Long startCityId, Long finishCityId, Long carId) throws Exception {
+        models.City startCity = models.City.findById(startCityId);
+        models.City finishCity = models.City.findById(finishCityId);
+        models.Car car = models.Car.findById(carId);
+
+        List<Object> jsonReturn = new ArrayList<Object>();
+        jsonReturn.add(new models.Way(startCity, finishCity, car).cost());
+        jsonReturn.add(car.nbPlace);
+
+        renderJSON(jsonReturn);
+    }
+    
+    /**
+     * Méthode supprimant tous les trajet ou l'utilisateur participe
+     * 
+     * @param ways
+     * @return 
+     */
+    private static List<models.Way> _removeParticipationInArray(List<models.Way> ways) {
         List<models.WayParticipation> wayParticipations;
         ArrayList<models.Way> participations = new ArrayList<models.Way>();
 
