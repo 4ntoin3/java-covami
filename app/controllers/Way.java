@@ -35,7 +35,15 @@ public class Way extends Controller {
         render(cities, cars);
     }
 
-    public static void addWay(@Required Long startCityId, @Required Long finishCityId, @Required Long carId, @Required Double cost, @Required Integer placeAvailable, @Required @As("dd/MM/yyyy") Date dateStart, @Required String hourStart) {
+    public static void addWay(@Required Long startCityId, 
+            @Required Long finishCityId, 
+            @Required Long carId, 
+            @Required Double cost, 
+            @Required Integer placeAvailable, 
+            @Required @As("dd/MM/yyyy") Date dateStart, 
+            @Required String hourStart, 
+            @Required Double minCost,
+            @Required Double maxCost) {
 
         validation.match(hourStart, "\\d\\d:\\d\\d").message("heure non valide");
         if (validation.hasErrors()) {
@@ -51,7 +59,7 @@ public class Way extends Controller {
         dateStart.setMinutes(Integer.parseInt(hourStart.split(":")[1]));
         models.Car car = models.Car.findById(carId);
         
-        models.Way way = new models.Way(startCity, finishCity, driver, dateStart, car, placeAvailable, cost);                
+        models.Way way = new models.Way(startCity, finishCity, driver, dateStart, car, placeAvailable, cost, minCost, maxCost);                
         try {
             way.calculateWay();
         } catch (Exception ex) {
@@ -84,7 +92,16 @@ public class Way extends Controller {
         render(way, cities, cars);
     }
     
-    public static void editWay(Long id, @Required Long startCityId, @Required Long finishCityId, @Required Double cost, @Required Long carId, @Required Integer placeAvailable, @Required @As("dd/MM/yyyy") Date dateStart, @Required String hourStart) {
+    public static void editWay(Long id, 
+            @Required Long startCityId, 
+            @Required Long finishCityId, 
+            @Required Double cost, 
+            @Required Long carId, 
+            @Required Integer placeAvailable, 
+            @Required @As("dd/MM/yyyy") Date dateStart, 
+            @Required String hourStart,
+            @Required Double minCost,
+            @Required Double maxCost) {
 
         validation.match(hourStart, "\\d\\d:\\d\\d").message("heure non valide");
         if (validation.hasErrors()) {
@@ -104,6 +121,9 @@ public class Way extends Controller {
         way.finishCity = finishCity;
         way.dateHourStart = dateStart;
         way.car = car;
+        way.cost = cost;
+        way.minCost = minCost;
+        way.maxCost = maxCost;
         
         try {
             way.calculateWay();

@@ -38,9 +38,21 @@ public class Way extends Model {
     
     public Double cost;
     
+    public Double minCost;
+    
+    public Double maxCost;
+    
     public Integer deleted;
 
-    public Way(City startCity, City finishCity, User driver, Date dateHourStart, Car car, Integer placeAvailable, Double cost) {
+    public Way(City startCity, 
+            City finishCity, 
+            User driver, 
+            Date dateHourStart, 
+            Car car, 
+            Integer placeAvailable, 
+            Double cost,
+            Double minCost,
+            Double maxCost) {
         this.startCity = startCity;
         this.finishCity = finishCity;
         this.driver = driver;
@@ -51,6 +63,8 @@ public class Way extends Model {
         this.placeAvailable = placeAvailable;
         this.cost = cost;
         this.deleted = 0;
+        this.minCost = minCost;
+        this.maxCost = maxCost;
     }
     
     public Way(City startCity, City finishCity, Car car){
