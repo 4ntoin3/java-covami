@@ -88,7 +88,6 @@ public class User extends Controller {
     public static void details(Long id) {
         models.User user = models.User.findById(id);
         List<models.Way> waysDriver = models.Way.find("byDriver", user).fetch();
-//        List<models.Way> wayPassengers = models.Way.waysByUserAsPassenger(user);
         List<models.WayParticipation> wayPassengers = models.WayParticipation.find("participant = ? and way.dateHourStart < ? and (status = 2 or status = 4) ", user, new Date()).fetch();
 
         render(user, waysDriver, wayPassengers);

@@ -28,7 +28,7 @@ public class Car extends Controller {
      */
     public static void list()
     {
-        List<Car> cars =  models.Car.find("byOwner", User.connected()).fetch();
+        List<Car> cars =  models.Car.find("owner = ? and deleted = 0", User.connected()).fetch();
         render(cars);
     }
     
@@ -94,7 +94,14 @@ public class Car extends Controller {
     {
         checkIfTheCarBelongTheUserConnected(id);
         models.Car car = models.Car.findById(id);
-        car.delete();
+        car.deleted = 1;
+        car.save();
+        
+        List<models.Way> ways = models.Way.find("byCar", car).fetch();
+        
+        for (models.Way way : ways) {
+            Way.cancel(way.id);
+        }
         
         redirect("/car/list");
     }

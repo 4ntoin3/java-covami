@@ -34,7 +34,7 @@ public class Way extends Controller {
      */
     public static void add() {
         List<City> cities = City.find("order by name").fetch();
-        List<models.Car> cars = models.Car.find("owner = ? order by name", User.connected()).fetch();
+        List<models.Car> cars = models.Car.find("owner = ? and deleted = 0 order by name", User.connected()).fetch();
 
         render(cities, cars);
     }
@@ -47,7 +47,7 @@ public class Way extends Controller {
     public static void edit(Long id) {
         models.Way way = models.Way.findById(id);
         List<City> cities = City.find("order by name").fetch();
-        List<models.Car> cars = models.Car.find("owner = ? order by name", User.connected()).fetch();
+        List<models.Car> cars = models.Car.find("owner = ? and deleted = 0 order by name", User.connected()).fetch();
 
         render(way, cities, cars);
     }
@@ -248,7 +248,7 @@ public class Way extends Controller {
         render(ways);
     }
 
-    /**
+        /**
      * [POST] Retourne le cout d'un trajet sous un format JSON
      * 
      * @param startCityId
@@ -267,7 +267,7 @@ public class Way extends Controller {
 
         renderJSON(jsonReturn);
     }
-
+    
     /**
      * Méthode supprimant tous les trajet ou l'utilisateur participe
      * 

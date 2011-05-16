@@ -79,18 +79,21 @@ Car(clioBob):
     nbPlace:        4
     cost:           6
     owner:          bob
+    deleted:        0
  
 Car(twingoBob):
     name:           twingo
     nbPlace:        4
     cost:           1
     owner:          bob
+    deleted:        0
              
 Car(picassoJeff):
     name:           picasso
     nbPlace:        8
     cost:           2
     owner:          jeff
+    deleted:        0
     
 City(nantes):
     name:           "Nantes"
