@@ -1,142 +1,147 @@
 #{extends 'main.html' /}
-#{set title: play.i18n.Messages.get('title.way.add') /}
-#{set subtitle: play.i18n.Messages.get('subtitle.way.add') /}
+#{set title: play.i18n.Messages.get('title.way.edit') /}
+#{set subtitle: play.i18n.Messages.get('subtitle.way.edit') /}
 
 <div class="mainForm">
-#{form @way.editWay(way.id)}
+    #{form @way.editWay(way.id), name:"way_form"}
 
     #{ifErrors}
     <p class="main_error">
-       &{'errors'} : &{'error.cant_continue'}
+        &{'errors'} : &{'error.cant_continue'}
     </p>  
     #{/ifErrors}
 
-    <label for="fieldWaystartCity">&{'field.waystartCity'}</label>
+    <label for="fieldWaystartCity">&{'way.start_city'}</label>
     <div class="formField">
         #{if flash['startCityId'] == null}
-        <select name="startCityId" id="fieldWaystartCity">
+        <select name="startCityId" id="fieldWaystartCity" class="citySelector" style="width: 270px;">
+            <option value="-1">&{'way.selectStartCity'}</option>
             #{list items:cities, as:'city'}
-                <option value=${city.id} #{if "${way.startCity.id}"=="${city.id}"} selected #{/if}>${city.name.capFirst()}</option>
+            <option value=${city.id} #{if "${way.startCity.id}"=="${city.id}"} selected #{/if}>${city.name.capFirst()}</option>
             #{/list}
         </select>
         #{/if}
         #{else}
-        <select name="startCityId" id="fieldWaystartCity">
+        <select name="startCityId" id="fieldWaystartCity" class="citySelector" style="width: 270px;">
             #{list items:cities, as:'city'}
-                <option value=${city.id} #{if flash["startCityId"]=="${city.id}"} selected #{/if}>${city.name.capFirst()}</option>
+            <option value=${city.id} #{if flash["startCityId"]=="${city.id}"} selected #{/if}>${city.name.capFirst()}</option>
             #{/list}
         </select>
         #{/else}
     </div>
-    
-    <label for="fieldWayfinishCity">&{'field.wayfinishCity'}</label>
+
+    <label for="fieldWayfinishCity">&{'way.finish_city'}</label>
     <div class="formField">
         #{if flash['startCityId'] == null}
-        <select name="finishCityId" id="fieldWayfinishCity">
+        <select name="finishCityId" id="fieldWayfinishCity" class="citySelector" style="width: 270px;">
             #{list items:cities, as:'city'}
-                <option value=${city.id} #{if "${way.finishCity.id}"=="${city.id}"} selected #{/if}>${city.name.capFirst()}</option>
+            <option value=${city.id} #{if "${way.finishCity.id}"=="${city.id}"} selected #{/if}>${city.name.capFirst()}</option>
             #{/list}
         </select>
         #{/if}
         #{else}
-        <select name="finishCityId" id="fieldWayfinishCity">
+        <<select name="finishCityId" id="fieldWayfinishCity" class="citySelector" style="width: 270px;">
             #{list items:cities, as:'city'}
-                <option value=${city.id} #{if flash["finishCityId"]=="${city.id}"} selected #{/if}>${city.name.capFirst()}</option>
+            <option value=${city.id} #{if flash["finishCityId"]=="${city.id}"} selected #{/if}>${city.name.capFirst()}</option>
             #{/list}
         </select>
         #{/else}
     </div>    
-    
-    <label for="fieldWaycar">&{'field.waycar'}</label>
+
+    <label for="fieldWaycar">&{'way.car'}</label>
     <div class="formField">
         #{if flash['carId'] == null}
-        <select name="carId" id="fieldWaycar">
+        <select name="carId" id="fieldWaycar" style="width: 270px;">
             #{list items:cars, as:'car'}
-                <option value=${car.id} #{if "${way.car.id}"=="${car.id}"} selected #{/if}>${car.name.capFirst()}</option>
+            <option value=${car.id} #{if "${way.car.id}"=="${car.id}"} selected #{/if}>${car.name.capFirst()}</option>
             #{/list}
         </select>
         #{/if}
         #{else}
-        <select name="carId" id="fieldWaycar">
+        <select name="carId" id="fieldWaycar" style="width: 270px;">
             #{list items:cars, as:'car'}
-                <option value=${car.id} #{if flash["carId"]=="${car.id}"} selected #{/if}>${car.name.capFirst()}</option>
+            <option value=${car.id} #{if flash["carId"]=="${car.id}"} selected #{/if}>${car.name.capFirst()}</option>
             #{/list}
         </select>
         #{/else}
         <span class="error">#{error 'carId' /}</span>
     </div>
-    
-    #{if flash['cost'] == null}
-    <label for="fieldWaydCost">&{'field.waycost'}</label>
-    <div class="formField">
-        <input type="text" name="cost" id="fieldWaydCost"  value="${way.cost}"/>
-        <p class="error">#{error 'cost' /}</p>
+    <div class="second_part_form" style="display:block;">
+        <label for="fieldWaydCost">&{'way.priceByPassenger'}</label>
+        <div class="formField" style="padding: 13px 7px;">
+            <div id="slider"></div>
+            <div id="slider_show_value">#{if flash['cost'] == null}${way.cost}#{/if}#{else}${flash['cost']}#{/else} &euro;</div>
+            <input type="hidden" name="cost" id="fieldWaydCost"  value="#{if flash['cost'] == null}${way.cost}#{/if}#{else}${flash['cost']}#{/else}"/>
+            <input type="hidden" name="minCost" id="fieldWayMinCost"  value="#{if flash['cost'] == null}${way.minCost}#{/if}#{else}${flash['minCost']}#{/else}"/>
+            <input type="hidden" name="maxCost" id="fieldWayMaxCost"  value="#{if flash['cost'] == null}${way.maxCost}#{/if}#{else}${flash['maxCost']}#{/else}"/>
+            <p class="error">#{error 'cost' /}</p>
+        </div>
+
+        <label for="fieldWayplaceAvailable">&{'way.availablePlaces'}</label>
+        <div class="formField">
+            #{if flash['placeAvailable'] == null}
+            <select name="placeAvailable" id="fieldCarcapacity">
+                #{list items:1..way.car.nbPlace, as:'i'}
+                <option value=${i} #{if "${way.placeAvailable}"=="${i}"}selected#{/if}>${i}</option>
+                #{/list}
+            </select>
+            #{/if}
+            #{else}
+            <select name="placeAvailable" id="fieldCarcapacity">
+                #{list items:1..way.car.nbPlace, as:'i'}
+                <option value=${i} #{if flash["placeAvailable"]=="${i}"}selected#{/if}>${i}</option>
+                #{/list}
+            </select>
+            #{/else}
+        </div>
+
+
+        <label for="fieldWaydateStart">&{'way.dateStart'}</label>
+        <div class="formField">
+            <input class="datePickerField" type="text" name="dateStart" id="fieldWaydateStart"  value="#{if flash['dateStart'] == null}${way.dateHourStart.getTime().asdate('dd/MM/yyyy')}#{/if}#{else}${flash['dateStart']}#{/else}"/>
+            <p class="error">#{error 'dateStart' /}</p>
+        </div>
+
+        <label for="fieldWayHourStart">&{'way.hourStart'}</label>
+        <div class="formField">
+            <input class="timePickerField" type="text" name="hourStart" id="fieldWayhourStart"  value="#{if flash['hourStart'] == null}${way.dateHourStart.getTime().asdate('HH:mm')}#{/if}#{else}${flash['hourStart']}#{/else}"/>
+            <p class="error">#{error 'hourStart' /}</p>
+        </div>
+
+
+        <div class="fieldButtonValidation">
+            <span style="color: red">${flash['fail']}</span>
+            <button type="button" name="btnCancel" class="cancelButton withPix pix16_cancel">&{'btn.annuler'}</button>
+            <button type="submit" name="btnValidation" class="withPix pix16_valid">&{'btn.valider'}</button>
+            <div class="clear"></div>
+        </div>
     </div>
-    #{/if}
-    #{else}
-    <label for="fieldWaydCost">&{'field.waycost'}</label>
-    <div class="formField">
-        <input type="text" name="cost" id="fieldWaydCost"  value="${flash['cost']}"/>
-        <p class="error">#{error 'cost' /}</p>
-    </div>
-    #{/else}
-    
-    <label for="fieldWayplaceAvailable">&{'field.wayplaceAvailable'}</label>
-    <div class="formField">
-        #{if flash['placeAvailable'] == null}
-        <select name="placeAvailable" id="fieldCarcapacity">
-        #{list items:1..8, as:'i'}
-            <option value=${i} #{if "${way.placeAvailable}"=="${i}"}selected#{/if}>${i}</option>
-        #{/list}
-        </select>
+    <div class="clear"></div>
+    #{/form}
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        #{if flash['cost'] == null}
+        var cout = "${way.cost}";
+        var min = "${way.minCost}";
+        var max = "${way.maxCost}";
         #{/if}
         #{else}
-        <select name="placeAvailable" id="fieldCarcapacity">
-        #{list items:1..8, as:'i'}
-            <option value=${i} #{if flash["placeAvailable"]=="${i}"}selected#{/if}>${i}</option>
-        #{/list}
-        </select>
+        var cout = "${flash['cost']}";
+        var min = "${flash['minCost']}";
+        var max = "${flash['maxCost']}";
         #{/else}
-    </div>
-    
-    #{if flash['dateStart'] == null}
-    <label for="fieldWaydateStart">&{'field.waydateStart'}</label>
-    <div class="formField">
-        <input class="datePickerField" type="text" name="dateStart" id="fieldWaydateStart"  value="${way.dateHourStart.getTime().asdate('dd/MM/yyyy')}"/>
-        <p class="error">#{error 'dateStart' /}</p>
-    </div>
-    #{/if}
-    #{else}
-    <label for="fieldWaydateStart">&{'field.waydateStart'}</label>
-    <div class="formField">
-        <input class="datePickerField" type="text" name="dateStart" id="fieldWaydateStart"  value="${flash['dateStart']}"/>
-        <p class="error">#{error 'dateStart' /}</p>
-    </div>
-    #{/else}
-    
-    #{if flash['hourStart'] == null}
-    <label for="fieldWayHourStart">&{'field.wayHourStart'}</label>
-    <div class="formField">
-        <input class="timePickerField" type="text" name="hourStart" id="fieldWayhourStart"  value="${way.dateHourStart.getTime().asdate('hh:mm')}"/>
-        <p class="error">#{error 'hourStart' /}</p>
-    </div>
-    #{/if}
-    #{else}
-    <label for="fieldWayHourStart">&{'field.wayHourStart'}</label>
-    <div class="formField">
-        <input class="timePickerField" type="text" name="hourStart" id="fieldWayhourStart"  value="${flash['hourStart']}"/>
-        <p class="error">#{error 'hourStart' /}</p>
-    </div>
-    #{/else}
-
-    <div class="fieldButtonValidation">
-        <span style="color: red">${flash['fail']}</span>
-        <button type="button" name="btnCancel" class="cancelButton withPix pix16_cancel">&{'btn.annuler'}</button>
-        <button type="submit" name="btnValidation" class="withPix pix16_valid">&{'btn.valider'}</button>
-        <div class="clear"></div>
-    </div>
-
-    <div class="clear"></div>
-#{/form}
-</div>
-<p></p>
+        
+        $("#slider").slider({
+            value: cout,
+            min: parseFloat(min),
+            max: parseFloat(max),   
+            step: 0.5,
+            slide: function( event, ui ) {
+                $('#slider_show_value').text(ui.value + " €");
+                $('#fieldWaydCost').val(ui.value);
+            }
+        });
+    });
+</script>

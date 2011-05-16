@@ -24,7 +24,7 @@
 <div class="way">
     <div class="description">
         <h4>${way.startCity.name} => ${way.finishCity.name}</h4>
-        <p>${way.dateHourStart.getTime().asdate('dd/MM/yyyy hh:mm')}</p>
+        <p>${way.dateHourStart.getTime().asdate('dd/MM/yyyy HH:mm')}</p>
         <p>${way.cost} € / personne</p>
         <a href="@{way.details(way.id)}" title="&{'way.detail_me'}">
             <img src="@{'public/images/icons/24/detail.png'}" alt="&{'way.detail_me'}" />
