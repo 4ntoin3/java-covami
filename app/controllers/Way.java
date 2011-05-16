@@ -33,7 +33,7 @@ public class Way extends Controller {
     public static void add() {
 
         List<City> cities = City.find("order by name").fetch();
-        List<models.Car> cars = models.Car.find("owner = ? order by name", User.connected()).fetch();
+        List<models.Car> cars = models.Car.find("owner = ? and deleted = 0 order by name", User.connected()).fetch();
 
         render(cities, cars);
     }
