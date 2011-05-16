@@ -141,7 +141,7 @@ public class Way extends Model {
     public double cost() throws Exception{
         double litreByKm = this.car.cost/100.0;
         double cost_fuel = 1.5290858352582;
-        double tollByKm = 0.0599893844621958;
+        double tollByKm = 0.25;
         double costWay = 0;
         
         this.calculateWay();
