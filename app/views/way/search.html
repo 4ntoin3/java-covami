@@ -13,18 +13,23 @@
 
 <h2>&#9733; &{'way.search.param_search'}</h2>
 
-#{form @way.search(), name:"way_form"}
+#{form @way.searchResult(), name:"way_form"}
 <select name="startCityId" class="search_way_field">
+    <option value="-1">Toutes</option>
     #{list items:cities, as:'city'}
     <option value=${city.id}>${city.name.capFirst()}</option>
     #{/list}
 </select>
+
 <select name="finishCityId" class="search_way_field">
+    <option value="-1">Toutes</option>
     #{list items:cities, as:'city'}
     <option value=${city.id}>${city.name.capFirst()}</option>
     #{/list}
 </select>
+
 <input type="text" name="fromDate" value="A partir du" class="placeholder search_way_field" rel="A partir du" style="width: 110px;" />
+
 <button type="submit" name="btnRecherche" class="search_way_field">Rechercher</button>
 #{/form}
 

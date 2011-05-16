@@ -95,7 +95,7 @@ public class Way extends Controller {
     public static void search() {
         List<models.Way> ways = new ArrayList<models.Way>();
         List<City> cities = City.find("order by name").fetch();
-        
+
         for (models.User friend : User.connected().friends()) {
             for (models.Way way : friend.ways_driver()) {
                 ways.add(way);
@@ -229,12 +229,13 @@ public class Way extends Controller {
      * @param finishCityId
      * @param fromDate 
      */
-    public static void search(Long startCityId, Long finishCityId, @As("dd/MM/yyyy") Date fromDate) {
+    public static void searchResult(Long startCityId, Long finishCityId, @As("dd/MM/yyyy") Date fromDate) {
         models.City startCity = models.City.findById(startCityId);
         models.City finishCity = models.City.findById(finishCityId);
         List<models.Way> ways = new ArrayList<models.Way>();
-
-        if (startCity == null || finishCity == null) {
+        List<City> cities = City.find("order by name").fetch();
+        
+        if (startCity != null && finishCity != null) {
             for (models.User friend : User.connected().friends()) {
                 for (models.Way way : friend.ways_driver()) {
                     if (way.startCity == startCity && way.finishCity == finishCity && way.dateHourStart.getTime() >= fromDate.getTime()) {
@@ -245,10 +246,10 @@ public class Way extends Controller {
         }
 
         ways = _removeParticipationInArray(ways);
-        render(ways);
+        render("way/search.html", ways, cities);
     }
 
-        /**
+    /**
      * [POST] Retourne le cout d'un trajet sous un format JSON
      * 
      * @param startCityId
@@ -267,7 +268,7 @@ public class Way extends Controller {
 
         renderJSON(jsonReturn);
     }
-    
+
     /**
      * Méthode supprimant tous les trajet ou l'utilisateur participe
      * 
