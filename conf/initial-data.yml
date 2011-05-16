@@ -1083,6 +1083,7 @@ Way(parisMarseille):
     car:            clioBob
     placeAvailable: 1
     dateHourStart:  2010-03-02 10:00:00
+    deleted:        0
     
 WayParticipation(kevin_parisMarseille):
     way:            parisMarseille
@@ -1098,6 +1099,7 @@ Way(marseilleParis):
     car:            clioBob
     placeAvailable: 3
     dateHourStart:  2010-03-03 10:00:00
+    deleted:        0
 
 WayParticipation(pierre_marseilleParis):
     way:            marseilleParis
@@ -1113,6 +1115,7 @@ Way(parisBordeaux):
     car:            picassoJeff
     placeAvailable: 3    
     dateHourStart:  2010-03-04 10:00:00
+    deleted:        0
 
 WayParticipation(antoine_parisBordeaux):
     way:            parisBordeaux
@@ -1128,6 +1131,7 @@ Way(marseilleParisBis):
     car:            clioBob
     placeAvailable: 3
     dateHourStart:  2010-03-05 10:00:00
+    deleted:        0
    
 WayParticipation(jeff_marseilleParisBis):
     way:            marseilleParisBis
