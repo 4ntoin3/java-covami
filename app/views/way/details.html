@@ -6,6 +6,10 @@
 
 <h2>&#9733; &{way.startCity?.getName()} - &{way.finishCity?.getName()}</h2>
 <div class="mainForm">
+    
+    <label>&{'way.driver'}</label>
+    <div class="formField labelLine">${way.driver.firstname} ${way.driver.lastname}</div>
+    
     <label>&{'way.start_city'}</label>
     <div class="formField labelLine">${way.startCity?.getName()}</div>
 
@@ -28,7 +32,7 @@
 
     <label>&{'way.availablePlaces'}</label>
     <div class="formField labelLine">
-        #{if way.placeRemain() != 0}
+        #{if way.placeRemain() == 0}
         <span style="color: red">&{'way.no_place'}</span>
         #{/if}
         #{else}

@@ -61,9 +61,18 @@ public class User extends Controller {
         int number_way_total = number_way_driver + number_way_passenger;
         renderArgs.put("number_way_total", number_way_total);
 
-        List<Way> ways_driver = models.Way.find("driver = ? and datehourstart > ? and deleted = 0 order by datehourstart", user, new Date()).fetch();
+        List<models.Way> ways_driver = models.Way.find("driver = ? and datehourstart > ? and deleted = 0 order by datehourstart", user, new Date()).fetch();
         renderArgs.put("ways_driver", ways_driver);
 
+        Double sum = 0.0;
+        Integer nb = 0;
+        
+        for(models.Way way : ways_driver){
+            sum += way.cost;
+            nb++;
+        }
+        
+        renderArgs.put("avg_price", (nb == 0) ? 0 : sum/nb);
         render();
     }
 

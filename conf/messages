@@ -163,6 +163,9 @@ way.my_futur_participate_way=Mes futurs trajets (côté participant)
 way.search.param_search=Paramètres de recherche
 way.search.result_search=Résultats de la recherche
 way.add_yours=Ajouter le votre !
+way.cancel_me=Annuler ma participation
+way.add_me=Rejoindre le trajet
+way.driver=Conducteur
 
 # [Section Friend]
 friend.back_to_list=Retour à la liste des amis

@@ -10,7 +10,7 @@
     <div style="clear: both;"></div>
 </div>
 
-#{if cars == null}
+#{if cars.size == 0}
     <div class="empty_add_first">
         &{'car.empty'}.<br/>
     <a href="@{Car.add}">&{'car.add_first'}!</a>

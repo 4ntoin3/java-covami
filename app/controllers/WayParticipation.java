@@ -50,7 +50,7 @@ public class WayParticipation extends Controller {
             participation.save();
         }
 
-        redirect("/way/search");
+        redirect("/way");
     }
 
     public static void validNotification(Long id) {
