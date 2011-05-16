@@ -25,8 +25,8 @@ public class Way extends Controller {
      */
     public static void list() {
         List<models.Way> ways = models.Way.find("driver = ? and deleted = 0 order by datehourstart", User.connected()).fetch();
-        List<models.Way> ways_participate = new ArrayList<models.Way>();
-        
+        List<models.WayParticipation> ways_participate = models.WayParticipation.find("participant = ? and status != 1", User.connected()).fetch();
+
         render(ways, ways_participate);
     }
 
@@ -174,6 +174,18 @@ public class Way extends Controller {
         redirect("/way/list");
     }
 
+    public static void search() {
+        List<models.Way> ways = new ArrayList<models.Way>();
+
+        for (models.User friend : User.connected().friends()) {
+            for (models.Way way : friend.ways_driver()) {
+                ways.add(way);
+            }
+        }
+        ways = removeParticipationInArray(ways);
+        render(ways);
+    }
+
     public static void search(Long startCityId, Long finishCityId, @As("dd/MM/yyyy") Date fromDate) {
         models.City startCity = models.City.findById(startCityId);
         models.City finishCity = models.City.findById(finishCityId);
@@ -182,17 +194,9 @@ public class Way extends Controller {
         if (startCity == null || finishCity == null) {
             for (models.User friend : User.connected().friends()) {
                 for (models.Way way : friend.ways_driver()) {
-                    ways.add(way);
-                }
-            }
-            ways = removeParticipationInArray(ways);
-            render(ways);
-        }
-
-        for (models.User friend : User.connected().friends()) {
-            for (models.Way way : friend.ways_driver()) {
-                if (way.startCity == startCity && way.finishCity == finishCity && way.dateHourStart.getTime() >= fromDate.getTime()) {
-                    ways.add(way);
+                    if (way.startCity == startCity && way.finishCity == finishCity && way.dateHourStart.getTime() >= fromDate.getTime()) {
+                        ways.add(way);
+                    }
                 }
             }
         }
