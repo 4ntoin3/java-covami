@@ -37,6 +37,8 @@ public class Way extends Model {
     public Integer placeAvailable;
     
     public Double cost;
+    
+    public Integer deleted;
 
     public Way(City startCity, City finishCity, User driver, Date dateHourStart, Car car, Integer placeAvailable, Double cost) {
         this.startCity = startCity;
@@ -48,6 +50,7 @@ public class Way extends Model {
         this.car = car;
         this.placeAvailable = placeAvailable;
         this.cost = cost;
+        this.deleted = 0;
     }
     
     public Way(City startCity, City finishCity, Car car){

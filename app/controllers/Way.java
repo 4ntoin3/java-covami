@@ -122,7 +122,23 @@ public class Way extends Controller {
     }
 
     public static void cancel(Long id) {
-        models.Way.findById(id)._delete();
+        models.Way way = models.Way.findById(id);
+        
+        if(way != null && way.driver == User.connected()){
+            List<models.WayParticipation> participants = models.WayParticipation.find("byWay", way).fetch();
+            
+            if(participants.isEmpty()){
+                way.delete();
+            }
+            else{
+                way.deleted = 1;
+                for (models.WayParticipation participant : participants) {
+                    participant.status = 3;
+                    participant.save();
+                }
+                way.save();
+            }
+        }
         
         redirect("/way/list");
     }
