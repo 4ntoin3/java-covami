@@ -23,8 +23,9 @@ public class Friend extends Controller {
      */
     public static void list() {
         List<models.User> friendShips = models.FriendShip.find("user = ? and (status = ? or status = ?)", User.connected(), 2, 3).fetch();
-
-        render(friendShips);
+        List<models.User> friendShips_awaiting = models.FriendShip.find("user = ? and status = 0", User.connected()).fetch();
+        
+        render(friendShips, friendShips_awaiting);
     }
 
     /**
