@@ -14,7 +14,7 @@
     <label for="fieldWaystartCity">&{'way.start_city'}</label>
     <div class="formField">
         <select name="startCityId" id="fieldWaystartCity" class="citySelector" style="width: 270px;">
-            <option value="-1" disabled>Sélectionner une ville de départ</option>
+            <option value="-1">&{'way.selectStartCity'}</option>
             #{list items:cities, as:'city'}
             <option value=${city.id} #{if flash["startCityId"]=="${city.id}"} selected #{/if}>${city.name.capFirst()}</option>
             #{/list}
@@ -24,7 +24,7 @@
     <label for="fieldWayfinishCity">&{'way.finish_city'}</label>
     <div class="formField">
         <select name="finishCityId" id="fieldWayfinishCity" class="citySelector" style="width: 270px;">
-            <option value="-1" disabled>Sélectionner une ville d'arrivée</option>
+            <option value="-1">&{'way.selectStartCity'}</option>
             #{list items:cities, as:'city'}
             <option value=${city.id} #{if flash["finishCityId"]=="${city.id}"} selected #{/if}>${city.name.capFirst()}</option>
             #{/list}
@@ -34,7 +34,7 @@
     <label for="fieldWaycar">&{'way.car'}</label>
     <div class="formField">
         <select name="carId" id="fieldWaycar" style="width: 270px;">
-            <option value="-1" disabled>Sélectionner la voiture du trajet</option>
+            <option value="-1">&{'way.selectCar'}</option>
             #{list items:cars, as:'car'}
             <option value=${car.id} #{if flash["carId"]=="${car.id}"} selected #{/if}>${car.name.capFirst()}</option>
             #{/list}
@@ -42,14 +42,18 @@
         <span class="error">#{error 'carId' /}</span>
     </div>
 
-    <div class="second_part_form">
-        <label for="fieldWaydCost">&{'field.waycost'}</label>
-        <div class="formField">
-            <input type="text" name="cost" id="fieldWaydCost"  value="${flash['cost']}"/>
+    <div class="second_part_form" style="#{if flash['cost']}display:block;#{/if}">
+        <label for="fieldWaydCost">&{'way.priceByPassenger'}</label>
+        <div class="formField" style="padding: 13px 7px;">
+            <div id="slider"></div>
+            <div id="slider_show_value">${flash['cost']} &euro;</div>
+            <input type="hidden" name="cost" id="fieldWaydCost" value="${flash['cost']}"/>
+            <input type="hidden" name="minCost" id="fieldWayMinCost" value="${flash['minCost']}"/>
+            <input type="hidden" name="maxCost" id="fieldWayMaxCost" value="${flash['maxCost']}"/>
             <p class="error">#{error 'cost' /}</p>
         </div>
 
-        <label for="fieldWayplaceAvailable">&{'field.wayplaceAvailable'}</label>
+        <label for="fieldWayplaceAvailable">&{'way.availablePlaces'}</label>
         <div class="formField">
             <select name="placeAvailable" id="fieldCarcapacity">
                 #{list items:1..8, as:'i'}
@@ -58,13 +62,13 @@
             </select>
         </div>
 
-        <label for="fieldWaydateStart">&{'field.waydateStart'}</label>
+        <label for="fieldWaydateStart">&{'way.dateStart'}</label>
         <div class="formField">
             <input class="datePickerField" type="text" name="dateStart" id="fieldWaydateStart"  value="${flash['dateStart']}"/>
             <p class="error">#{error 'dateStart' /}</p>
         </div>
 
-        <label for="fieldWayHourStart">&{'field.wayHourStart'}</label>
+        <label for="fieldWayHourStart">&{'way.hourStart'}</label>
         <div class="formField">
             <input class="timePickerField" type="text" name="hourStart" id="fieldWayhourStart"  value="${flash['hourStart']}"/>
             <p class="error">#{error 'hourStart' /}</p>
@@ -81,4 +85,22 @@
     <div class="clear"></div>
     #{/form}
 </div>
-<p></p>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var cout = "${flash['cost']}";
+        var min = "${flash['minCost']}";
+        var max = "${flash['maxCost']}";
+        
+        $("#slider").slider({
+            value: cout,
+            min: parseFloat(min),
+            max: parseFloat(max),   
+            step: 0.5,
+            slide: function( event, ui ) {
+                $('#slider_show_value').text(ui.value + " €");
+                $('#fieldWaydCost').val(ui.value);
+            }
+        });
+    });
+</script>

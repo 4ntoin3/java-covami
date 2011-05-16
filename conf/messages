@@ -134,10 +134,18 @@ way.empty=Aucun trajet pour le moment
 way.add_first=Cliquez ici pour ajouter le premier trajet
 way.start_city=Ville de départ
 way.finish_city=Ville d'arrivée
+way.priceByPassenger=Prix par passager
+way.availablePlaces=Places disponibles
 way.car=Voiture
 way.detail_me=Voir le détail du trajet
 way.edit_me=Editer ce trajet
 way.cancel_me=Supprimer ce trajet
+way.ajax_request_error=Impossible de créer le trajet avec ces paramètres.
+way.selectStartCity=Sélectionner une ville de départ
+way.selectFinishCity=Sélectionner une ville d'arrivée
+way.selectCar=Sélectionner la voiture du trajet
+way.dateStart=Date de départ
+way.hourStart=Heure de départ
 
 # [Section Friend]
 friend.back_to_list=Retour à la liste des amis

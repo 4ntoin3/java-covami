@@ -182,3 +182,17 @@ button.withPix {
 .second_part_form {
     display: none;
 }
+
+/* Slider
+------------------------------------------------- */
+#slider {
+    width: 90%;
+    float: left;
+}
+
+#slider_show_value {
+    float: left;
+    margin: 0px 0px 0px 10px;
+    font-weight: bold;
+    color: red;
+}
