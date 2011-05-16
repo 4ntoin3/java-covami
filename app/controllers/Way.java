@@ -1,27 +1,27 @@
 package controllers;
-
 import java.util.*;
+import javax.persistence.Query;
 import models.*;
 import play.data.binding.As;
 import play.data.validation.Required;
+import play.db.jpa.JPA;
 import play.mvc.*;
 
-/**
- *
- * @author pierregaste
- */
 @With(Secure.class)
 public class Way extends Controller {
-
+    
     /**
-     * Action par défaut
+     * [GET] Default route
      */
     public static void index() {
         redirect("/way/list");
     }
 
     /**
-     * Listing des trajets
+     * [GET] Liste des trajets concernant l'utilisateur connecté
+     * 
+     * @return  View composé d'une liste des trajets créé par l'utilisateur
+     *          et une liste des trajets auquel il va participer.
      */
     public static void list() {
         List<models.Way> ways = models.Way.find("driver = ? and deleted = 0 order by datehourstart", User.connected()).fetch();
@@ -30,14 +30,34 @@ public class Way extends Controller {
         render(ways, ways_participate);
     }
 
+    /**
+     * [GET] Formulaire d'ajout de trajet
+     * 
+     * @return  View composé du formulaire avec la liste des voitures et la
+     *          liste de toutes les villes disponibles.
+     */
     public static void add() {
-
         List<City> cities = City.find("order by name").fetch();
         List<models.Car> cars = models.Car.find("owner = ? order by name", User.connected()).fetch();
 
         render(cities, cars);
     }
 
+    /**
+     * [POST] Soumission du formulaire d'ajout du trajet
+     * 
+     * @param startCityId
+     * @param finishCityId
+     * @param carId
+     * @param cost
+     * @param placeAvailable
+     * @param dateStart
+     * @param hourStart
+     * @param minCost
+     * @param maxCost
+     * 
+     * @return Redirection vers Way > List
+     */
     public static void addWay(@Required Long startCityId,
             @Required Long finishCityId,
             @Required Long carId,
@@ -47,17 +67,18 @@ public class Way extends Controller {
             @Required String hourStart,
             @Required Double minCost,
             @Required Double maxCost) {
-
+        
+        // Vérification de la date
         dateStart.setHours(Integer.parseInt(hourStart.split(":")[0]));
         dateStart.setMinutes(Integer.parseInt(hourStart.split(":")[1]));
         if (dateStart.getTime() < new Date().getTime()) {
             validation.addError("dateStart", "Date antérieur.");
         }
-
+        
         validation.match(hourStart, "\\d\\d:\\d\\d").message("Heure invalide.");
         if (validation.hasErrors()) {
-            params.flash(); // add http parameters to the flash scope
-            validation.keep(); // keep the errors for the next request
+            params.flash();
+            validation.keep();
             add();
         }
 
