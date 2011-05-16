@@ -1079,38 +1079,59 @@ Way(parisMarseille):
     startCity:      paris
     finishCity:     marseille
     driver:         bob
-    passengers:     [jeff, kevin]
     distance:       500
     car:            clioBob
     placeAvailable: 1
     dateHourStart:  2010-03-02 10:00:00
     
+WayParticipation(kevin_parisMarseille):
+    way:            parisMarseille
+    participant:    kevin
+    status:         0
+    date:           2010-03-02 10:00:00
+
 Way(marseilleParis):
     startCity:      marseille
     finishCity:     paris
     driver:         bob
-    passengers:     [jeff]
     distance:       500
     car:            clioBob
     placeAvailable: 3
     dateHourStart:  2010-03-03 10:00:00
+
+WayParticipation(pierre_marseilleParis):
+    way:            marseilleParis
+    participant:    pierre
+    status:         1
+    date:           2010-03-02 10:00:00
     
 Way(parisBordeaux):
     startCity:      paris
     finishCity:     bordeaux
     driver:         jeff
-    passengers:     [bob]
     distance:       400
     car:            picassoJeff
     placeAvailable: 3    
     dateHourStart:  2010-03-04 10:00:00
-    
+
+WayParticipation(antoine_parisBordeaux):
+    way:            parisBordeaux
+    participant:    antoine
+    status:         0
+    date:           2010-03-02 10:00:00
+      
 Way(marseilleParisBis):
     startCity:      marseille
     finishCity:     paris
     driver:         bob
-    passengers:     [jeff]
     distance:       500
     car:            clioBob
     placeAvailable: 3
     dateHourStart:  2010-03-05 10:00:00
+   
+WayParticipation(jeff_marseilleParisBis):
+    way:            marseilleParisBis
+    participant:    jeff
+    status:         1
+    date:           2010-03-02 10:00:00
+  
