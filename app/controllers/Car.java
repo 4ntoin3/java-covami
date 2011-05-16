@@ -95,6 +95,7 @@ public class Car extends Controller {
         checkIfTheCarBelongTheUserConnected(id);
         models.Car car = models.Car.findById(id);
         car.deleted = 1;
+        car.save();
         
         List<models.Way> ways = models.Way.find("byCar", car).fetch();
         
