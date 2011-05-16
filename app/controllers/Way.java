@@ -1,11 +1,9 @@
 package controllers;
 
 import java.util.*;
-import javax.persistence.Query;
 import models.*;
 import play.data.binding.As;
 import play.data.validation.Required;
-import play.db.jpa.JPA;
 import play.mvc.*;
 
 @With(Secure.class)
@@ -25,7 +23,7 @@ public class Way extends Controller {
      */
     public static void list() {
         List<models.Way> ways = models.Way.find("driver = ? and deleted = 0 order by datehourstart", User.connected()).fetch();
-        List<models.Way> ways_participate = new ArrayList<models.Way>();
+        List<models.WayParticipation> ways_participate = models.WayParticipation.find("participant = ? and status != 1", User.connected()).fetch();
 
         render(ways, ways_participate);
     }
@@ -88,6 +86,22 @@ public class Way extends Controller {
         }
 
         redirect("/way/list");
+    }
+
+    /**
+     * [GET] Page de recherche de trajet
+     * 
+     */
+    public static void search() {
+        List<models.Way> ways = new ArrayList<models.Way>();
+
+        for (models.User friend : User.connected().friends()) {
+            for (models.Way way : friend.ways_driver()) {
+                ways.add(way);
+            }
+        }
+        ways = _removeParticipationInArray(ways);
+        render(ways);
     }
 
     /**
@@ -207,6 +221,13 @@ public class Way extends Controller {
         redirect("/way/list");
     }
 
+    /**
+     * [POST] Soumission d'une recherche de formulaire
+     * 
+     * @param startCityId
+     * @param finishCityId
+     * @param fromDate 
+     */
     public static void search(Long startCityId, Long finishCityId, @As("dd/MM/yyyy") Date fromDate) {
         models.City startCity = models.City.findById(startCityId);
         models.City finishCity = models.City.findById(finishCityId);
@@ -215,26 +236,44 @@ public class Way extends Controller {
         if (startCity == null || finishCity == null) {
             for (models.User friend : User.connected().friends()) {
                 for (models.Way way : friend.ways_driver()) {
-                    ways.add(way);
-                }
-            }
-            ways = removeParticipationInArray(ways);
-            render(ways);
-        }
-
-        for (models.User friend : User.connected().friends()) {
-            for (models.Way way : friend.ways_driver()) {
-                if (way.startCity == startCity && way.finishCity == finishCity && way.dateHourStart.getTime() >= fromDate.getTime()) {
-                    ways.add(way);
+                    if (way.startCity == startCity && way.finishCity == finishCity && way.dateHourStart.getTime() >= fromDate.getTime()) {
+                        ways.add(way);
+                    }
                 }
             }
         }
 
-        ways = removeParticipationInArray(ways);
+        ways = _removeParticipationInArray(ways);
         render(ways);
     }
 
-    private static List<models.Way> removeParticipationInArray(List<models.Way> ways) {
+        /**
+     * [POST] Retourne le cout d'un trajet sous un format JSON
+     * 
+     * @param startCityId
+     * @param finishCityId
+     * @param carId
+     * @throws Exception 
+     */
+    public static void calculCost(Long startCityId, Long finishCityId, Long carId) throws Exception {
+        models.City startCity = models.City.findById(startCityId);
+        models.City finishCity = models.City.findById(finishCityId);
+        models.Car car = models.Car.findById(carId);
+
+        List<Object> jsonReturn = new ArrayList<Object>();
+        jsonReturn.add(new models.Way(startCity, finishCity, car).cost());
+        jsonReturn.add(car.nbPlace);
+
+        renderJSON(jsonReturn);
+    }
+    
+    /**
+     * Méthode supprimant tous les trajet ou l'utilisateur participe
+     * 
+     * @param ways
+     * @return 
+     */
+    private static List<models.Way> _removeParticipationInArray(List<models.Way> ways) {
         List<models.WayParticipation> wayParticipations;
         ArrayList<models.Way> participations = new ArrayList<models.Way>();
 
@@ -252,26 +291,5 @@ public class Way extends Controller {
         }
 
         return ways;
-    }
-
-    /**
-     * Calcul du cout d'un trajet donné pour une ville de départ, une ville
-     * d'arrivée et une voiture.
-     * 
-     * @param startCityId
-     * @param finishCityId
-     * @param carId
-     * @throws Exception 
-     */
-    public static void calculCost(Long startCityId, Long finishCityId, Long carId) throws Exception {
-        models.City startCity = models.City.findById(startCityId);
-        models.City finishCity = models.City.findById(finishCityId);
-        models.Car car = models.Car.findById(carId);
-
-        List<Object> jsonReturn = new ArrayList<Object>();
-        jsonReturn.add(new models.Way(startCity, finishCity, car).cost());
-        jsonReturn.add(car.nbPlace);
-
-        renderJSON(jsonReturn);
     }
 }
