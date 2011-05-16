@@ -5,6 +5,7 @@
 package models;
 
 import java.util.*;
+import java.util.Collections.*;
 import javax.persistence.*;
 import play.db.jpa.Model;
 
@@ -128,6 +129,7 @@ public class Way extends Model {
                 cities.add(road.firstCity);
             }
         }
+        Collections.reverse(cities);
     }
 
     private double calculDistanceInKm(List<City> way) {

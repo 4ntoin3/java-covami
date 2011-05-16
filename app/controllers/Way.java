@@ -25,7 +25,9 @@ public class Way extends Controller {
      */
     public static void list() {
         List<models.Way> ways = models.Way.find("driver = ? and deleted = 0 order by datehourstart", User.connected()).fetch();
-        render(ways);
+        List<models.Way> ways_participate = new ArrayList<models.Way>();
+        
+        render(ways, ways_participate);
     }
 
     public static void add() {

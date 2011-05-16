@@ -1,0 +1,49 @@
+#{extends 'main.html' /}
+#{set title: play.i18n.Messages.get('title.way.details') /}
+#{set subtitle: play.i18n.Messages.get('subtitle.way.details') /}
+
+<a href="@{Way.list}">&DDotrahd; &{'way.back_to_list'}</a>
+
+<h2>&#9733; &{way.startCity?.getName()} - &{way.finishCity?.getName()}</h2>
+<div class="mainForm">
+    <label>&{'way.start_city'}</label>
+    <div class="formField labelLine">${way.startCity?.getName()}</div>
+
+    <label>&{'way.finish_city'}</label>
+    <div class="formField labelLine">${way.finishCity?.getName()}</div>
+
+    <label>&{'way.dateStart'}</label>
+    <div class="formField labelLine">
+        ${way.dateHourStart.getTime().asdate('dd/MM/yyyy')}
+        #{if way.dateHourStart.getTime() < new Date().getTime()}
+        <br/><span style="color: red">&{'way.too_late'}</span>
+        #{/if}
+    </div>
+
+    <label>&{'way.hourStart'}</label>
+    <div class="formField labelLine">${way.dateHourStart.getTime().asdate('HH:mm')}</div>
+
+    <label>&{'way.priceByPassenger'}</label>
+    <div class="formField labelLine">${way.cost} euros</div>
+
+    <label>&{'way.availablePlaces'}</label>
+    <div class="formField labelLine">
+        #{if way.placeRemain() != 0}
+        <span style="color: red">&{'way.no_place'}</span>
+        #{/if}
+        #{else}
+        ${way.placeAvailable} disponible : ${way.placeRemain()} place(s) restante(s)
+        #{/else}
+    </div>
+
+    <label>&{'way.steps'}</label>
+    <div class="formField labelLine">
+        <ul>
+            #{list items:way.cities, as:'city'}
+            <li style="list-style: disc; margin-left: 20px;">${city?.getName()}</li>
+            #{/list}
+        </ul>
+    </div>
+    
+    <div class="clear"></div>
+</div>
