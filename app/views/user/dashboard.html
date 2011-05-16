@@ -16,10 +16,8 @@
             <li>
                 <a href="@{User.details(participation_accept.way.driver.id)}">${participation_accept.way.driver.firstname} ${participation_accept.way.driver.lastname}</a> &{'user.dashboard.accept_participation'} <a href="">${participation_accept.way.startCity.name} - ${participation_accept.way.finishCity.name}</a> <a href="@{WayParticipation.validNotification(participation_accept.id)}">supprimer</a>
             </li>
-           #{/list}            
-<!--            <li>
-                <a href="lien/vers/le/friend">Pierre Gasté</a> &{'user.dashboard.accept_participation'} <a href="lien/voyage">Angers - Paris</a>
-            </li>-->
+           #{/list}
+           
             #{list participations_refuse, as:'participation_refuse'}
             <li>
                 <a href="@{User.details(participation_refuse.way.driver.id)}">${participation_refuse.way.driver.firstname} ${participation_refuse.way.driver.lastname}</a> &{'user.dashboard.refuse_participation'} <a href="">${participation_refuse.way.startCity.name} - ${participation_refuse.way.finishCity.name}</a> <a href="@{WayParticipation.validNotification(participation_refuse.id)}">supprimer</a>
@@ -35,7 +33,7 @@
             
             #{list ways_cancel, as:'way_cancel'}
             <li>
-                <a href="@{User.details(way_cancel.way.driver.id)}">${way_cancel.way.driver.firstname} ${way_cancel.way.driver.lastname}</a> &{'user.dashboard.cancel_participate'} <a href="">${way_cancel.way.startCity.name} - ${way_cancel.way.finishCity.name}</a> <a href="@{WayParticipation.validNotification(way_cancel.id)}">supprimer</a>
+                <a href="@{User.details(way_cancel.way.driver.id)}">${way_cancel.way.driver.firstname} ${way_cancel.way.driver.lastname}</a> &{'user.dashboard.cancel_way'} <a href="">${way_cancel.way.startCity.name} - ${way_cancel.way.finishCity.name}</a> <a href="@{WayParticipation.validNotification(way_cancel.id)}">supprimer</a>
             </li>
             #{/list}
         </ul>        

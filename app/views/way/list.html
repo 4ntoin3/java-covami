@@ -26,13 +26,14 @@
         <h4>${way.startCity.name} => ${way.finishCity.name}</h4>
         <p>${way.dateHourStart.getTime().asdate('dd/MM/yyyy HH:mm')}</p>
         <p>${way.cost} € / personne</p>
+        <p>${way.placeRemain()} &{'way.place_restante'} / ${way.placeAvailable}</p>
         <a href="@{way.details(way.id)}" title="&{'way.detail_me'}">
             <img src="@{'public/images/icons/24/detail.png'}" alt="&{'way.detail_me'}" />
         </a>
         <a href="@{way.edit(way.id)}" title="&{'way.edit_me'}">
             <img src="@{'public/images/icons/24/edit.png'}" alt="&{'way.edit_me'}" />
         </a>
-        <a href="@{way.cancel(way.id)}" title="&{'way.cancel_me'}">
+        <a href="@{way.cancel(way.id)}" title="&{'way.cancel_me'}" class="delete_confirmation">
             <img src="@{'public/images/icons/24/delete.png'}" alt="&{'way.delete_me'}" />
         </a>
     </div>

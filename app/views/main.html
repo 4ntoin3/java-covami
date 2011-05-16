@@ -45,7 +45,7 @@
                 <li><a class="${request.action == 'User.dashboard' ? 'current' : ''}" href="@{User.dashboard}">&{'menu.home'}</a></li>
                 <li><a class="${request.controller == 'Carte' ? 'current' : ''}" href="@{Carte.index}">&{'menu.map'}</a></li>
                 <li><a class="${request.controller == 'Way' ? 'current' : ''}" href="@{Way.index}">&{'menu.ways'}</a></li>
-                <li><a class="${request.controller == 'Friend' || request.action == 'User.detail' ? 'current' : ''}" href="@{Friend.index}">&{'menu.friend'}</a></li>
+                <li><a class="${request.controller == 'Friend' || request.action == 'User.details' ? 'current' : ''}" href="@{Friend.index}">&{'menu.friend'}</a></li>
                 <li><a class="${request.controller == 'Car' ? 'current' : ''}" href="@{Car.index}">&{'menu.cars'}</a></li>
                 <li><a class="${request.action == 'User.profile' ? 'current' : ''}" href="@{User.profile}">&{'menu.profile'}</a></li>
                 <li><a href="@{User.logout}">&{'menu.deconnexion'}</a></li>

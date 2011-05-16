@@ -5,7 +5,7 @@ User(kevin):
     lastname:       DUGLAND
     
 User(damien):
-    email:          damien@gamail.com
+    email:          damien@gmail.com
     password:       secret
     firstname:      damien
     lastname:       DUBATEAU
@@ -1082,14 +1082,15 @@ Way(parisMarseille):
     distance:       500
     car:            clioBob
     placeAvailable: 1
-    dateHourStart:  2010-03-02 10:00:00
+    dateHourStart:  2011-05-30 10:00:00
     deleted:        0
+    cost:           15.5
     
 WayParticipation(kevin_parisMarseille):
     way:            parisMarseille
     participant:    kevin
     status:         0
-    date:           2010-03-02 10:00:00
+    date:           2011-05-01 10:00:00
 
 Way(marseilleParis):
     startCity:      marseille
@@ -1098,8 +1099,9 @@ Way(marseilleParis):
     distance:       500
     car:            clioBob
     placeAvailable: 3
-    dateHourStart:  2010-03-03 10:00:00
+    dateHourStart:  2011-06-03 10:00:00
     deleted:        0
+    cost:           150.5
 
 WayParticipation(pierre_marseilleParis):
     way:            marseilleParis
@@ -1114,8 +1116,9 @@ Way(parisBordeaux):
     distance:       400
     car:            picassoJeff
     placeAvailable: 3    
-    dateHourStart:  2010-03-04 10:00:00
+    dateHourStart:  2011-05-04 10:00:00
     deleted:        0
+    cost:           34
 
 WayParticipation(antoine_parisBordeaux):
     way:            parisBordeaux
@@ -1130,8 +1133,9 @@ Way(marseilleParisBis):
     distance:       500
     car:            clioBob
     placeAvailable: 3
-    dateHourStart:  2010-03-05 10:00:00
+    dateHourStart:  2011-05-05 10:00:00
     deleted:        0
+    cost:           34.9
    
 WayParticipation(jeff_marseilleParisBis):
     way:            marseilleParisBis

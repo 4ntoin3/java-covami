@@ -125,6 +125,8 @@ user.dashboard.proposed_way=voyage(s) proposé(s)
 user.dashboard.participation_way=voyage(s) participant(s)
 user.dashboard.avg_cost=Coût moyen de mes voyages
 user.dashboard.my_covanote=Ma Covanote
+user.dashboard.cancel_participate=à annulé sa participation au trajet
+user.dashboard.cancel_way=à annulé le trajet
 user.his_driver_way=Trajets proposés (conducteur) sur le réseau
 user.his_passenger_way=Trajets effectués (passager) sur le réseau
 
@@ -148,6 +150,7 @@ way.selectFinishCity=Sélectionner une ville d'arrivée
 way.selectCar=Sélectionner la voiture du trajet
 way.dateStart=Date de départ
 way.hourStart=Heure de départ
+way.place_restante=place(s) restante(s)
 
 # [Section Friend]
 friend.back_to_list=Retour à la liste des amis
