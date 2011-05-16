@@ -195,15 +195,29 @@ public class Way extends Controller {
         redirect("/way/list");
     }
 
-    public static void search(String str) {
-        List<models.Way> ways;
+    public static void search(Long startCityId, Long finishCityId, @As("dd/MM/yyyy") Date fromDate) {
+        models.City startCity = models.City.findById(startCityId);
+        models.City finishCity = models.City.findById(finishCityId);
+        List<models.Way> ways = new ArrayList<models.Way>();
 
-        if (str == null || str.isEmpty()) {
-            ways = models.Way.find("driver.id != ? and deleted = 0 order by datehourstart", User.connected().id).fetch();
+        if (startCity == null || finishCity == null) {
+            for (models.User friend : User.connected().friends()) {
+                for (models.Way way : friend.ways_driver()) {
+                    ways.add(way);
+                }
+            }
             ways = removeParticipationInArray(ways);
             render(ways);
         }
-        ways = models.Way.find("driver.id != ? and (firstCity.name like ? OR finishCity.name like ?) order by datehourstart", User.connected().id, "%" + str + "%", "%" + str + "%").fetch();
+
+        for (models.User friend : User.connected().friends()) {
+            for (models.Way way : friend.ways_driver()) {
+                if (way.startCity == startCity && way.finishCity == finishCity && way.dateHourStart.getTime() >= fromDate.getTime()) {
+                    ways.add(way);
+                }
+            }
+        }
+
         ways = removeParticipationInArray(ways);
         render(ways);
     }

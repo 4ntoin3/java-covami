@@ -117,13 +117,7 @@ public class Friend extends Controller {
      * @return une liste d'utilisateur
      */
     private static List<models.User> removeFriendInArray(List<models.User> users) {
-        List<FriendShip> friendShips;
-        ArrayList<models.User> friends = new ArrayList<models.User>();
-        friendShips = models.FriendShip.find("user = ? and status != 1", User.connected()).fetch();
-        for (FriendShip friendShip : friendShips) {
-            friends.add(friendShip.friend);
-        }
-        users.removeAll(friends);
+        users.removeAll(User.connected().friends());
 
         return users;
     }
