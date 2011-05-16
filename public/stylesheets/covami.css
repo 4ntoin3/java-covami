@@ -196,3 +196,15 @@ button.withPix {
     font-weight: bold;
     color: red;
 }
+
+
+/* Icon de suppression de notification
+------------------------------------------------- */
+.icon_delete, .icon_confirm, .icon_refuse {
+    vertical-align: text-top;
+    opacity: 0.4;
+    float: right;
+}
+.icon_delete:hover, .icon_confirm:hover, .icon_refuse:hover {
+    opacity: 1;
+}

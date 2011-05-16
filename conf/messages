@@ -171,6 +171,7 @@ way=voyage
 yes=Oui
 no=Non
 errors=Erreurs
+mark_as_read=Marquer comme lu
 
 # [Section Validation]
 validation.required=Ce champ doit être complété.
