@@ -23,9 +23,9 @@ public class Way extends Controller {
      */
     public static void list() {
         List<models.Way> ways = models.Way.find("driver = ? and deleted = 0 order by datehourstart", User.connected()).fetch();
-        List<models.WayParticipation> ways_participate = models.WayParticipation.find("participant = ? and status != 1", User.connected()).fetch();
+        List<models.WayParticipation> ways_participation = models.WayParticipation.find("participant = ? and status != 1", User.connected()).fetch();
 
-        render(ways, ways_participate);
+        render(ways, ways_participation);
     }
 
     /**

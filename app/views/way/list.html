@@ -48,14 +48,14 @@
 </div>
 #{/if}
 #{else}
-#{list items:ways_participate, as:'way'}
+#{list items:ways_participation, as:'way_participation'}
 <div class="way">
     <div class="description">
-        <h4>${way.startCity.name} => ${way.finishCity.name}</h4>
-        <p>${way.dateHourStart.getTime().asdate('dd/MM/yyyy HH:mm')}</p>
-        <p>${way.cost} € / personne</p>
-        <p>${way.placeRemain()} &{'way.place_restante'} / ${way.placeAvailable}</p>
-        <a href="@{way.details(way.id)}" title="&{'way.detail_me'}">
+        <h4>${way_participation.way.startCity.name} => ${way_participation.way.finishCity.name}</h4>
+        <p>${way_participation.way.dateHourStart.getTime().asdate('dd/MM/yyyy HH:mm')}</p>
+        <p>${way_participation.way.cost} € / personne</p>
+        <p>${way_participation.way.placeRemain()} &{'way_participation.way.place_restante'} / ${way_participation.way.placeAvailable}</p>
+        <a href="@{way.details(way_participation.way.id)}" title="&{'way.detail_me'}">
             <img src="@{'public/images/icons/24/detail.png'}" alt="&{'way.detail_me'}" />
         </a>
     </div>
