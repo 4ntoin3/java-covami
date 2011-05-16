@@ -41,9 +41,9 @@
     &{'friend.empty_list_way_for_user'}.
     #{/if}
     #{else}
-    #{list items:wayPassengers, as:'way'}
-    <label>${way.dateHourStart.getTime().asdate('dd/MM/yyyy hh:mm')}</label>
-    <div class="formField labelLine">${way.startCity?.name} => ${way.finishCity?.name} (${way?.distance} kms)</div>      
+    #{list items:wayPassengers, as:'participation'}
+    <label>${participation.way.dateHourStart.getTime().asdate('dd/MM/yyyy hh:mm')}</label>
+    <div class="formField labelLine">${participation.way.startCity?.name} => ${participation.way.finishCity?.name} (${participation.way?.distance} kms)</div>      
     #{/list}
     #{/else}
     <div class="clear"></div>

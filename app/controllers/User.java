@@ -55,7 +55,7 @@ public class User extends Controller {
         int number_way_driver = (int) models.Way.count("byDriver", user);
         renderArgs.put("number_way_driver", number_way_driver);
 
-        int number_way_passenger = models.Way.waysByUserAsPassenger(user).size();
+        int number_way_passenger = models.WayParticipation.find("participant = ? and way.dateHourStart < ? and (status = 2 or status = 4) ", user, new Date()).fetch().size();
         renderArgs.put("number_way_passenger", number_way_passenger);
 
         int number_way_total = number_way_driver + number_way_passenger;
@@ -88,7 +88,9 @@ public class User extends Controller {
     public static void details(Long id) {
         models.User user = models.User.findById(id);
         List<models.Way> waysDriver = models.Way.find("byDriver", user).fetch();
-        List<models.Way> wayPassengers = models.Way.waysByUserAsPassenger(user);
+//        List<models.Way> wayPassengers = models.Way.waysByUserAsPassenger(user);
+        List<models.WayParticipation> wayPassengers = models.WayParticipation.find("participant = ? and way.dateHourStart < ? and (status = 2 or status = 4) ", user, new Date()).fetch();
+
         render(user, waysDriver, wayPassengers);
     }
 
