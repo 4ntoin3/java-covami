@@ -25,10 +25,10 @@ public class WayParticipation extends Model {
     
     public Date date;
 
-    public WayParticipation(Way way, User participant, Integer status) {
+    public WayParticipation(Way way, User participant) {
         this.way = way;
         this.participant = participant;
-        this.status = status;
+        this.status = 0;
         this.date = new Date();
     }
 }

@@ -25,11 +25,14 @@ public class Car extends Model {
     
     @ManyToOne
     public User owner;
+    
+    public Integer status;
 
     public Car(String name, Integer nbPlace, Integer cost, User owner) {
         this.name = name;
         this.nbPlace = nbPlace;
         this.cost = cost;
         this.owner = owner;
+        this.status = 1;
     }
 }

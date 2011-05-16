@@ -15,7 +15,7 @@ public class WayParticipation extends Controller {
         models.Way way = models.Way.findById(id);
 
         if (way != null) {
-            new models.WayParticipation(way, User.connected(), 0).save();
+            new models.WayParticipation(way, User.connected()).save();
         }
 
         redirect("/way/search");
