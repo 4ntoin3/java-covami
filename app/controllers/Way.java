@@ -23,7 +23,7 @@ public class Way extends Controller {
      * Listing des trajets
      */
     public static void list() {
-        List<models.Way> ways = models.Way.find("driver = ? order by datehourstart", User.connected()).fetch();
+        List<models.Way> ways = models.Way.find("driver = ? and deleted = 0 order by datehourstart", User.connected()).fetch();
         render(ways);
     }
 
@@ -147,7 +147,7 @@ public class Way extends Controller {
         List<models.Way> ways;
 
         if (str == null || str.isEmpty()) {
-            ways = models.Way.find("driver.id != ? order by datehourstart", User.connected().id).fetch();
+            ways = models.Way.find("driver.id != ? and deleted = 0 order by datehourstart", User.connected().id).fetch();
             ways = removeParticipationInArray(ways);
             render(ways);
         }
@@ -166,6 +166,12 @@ public class Way extends Controller {
             participations.add(participation.way);
         }
         ways.removeAll(participations);
+        
+        for (models.Way way : ways) {
+            if(way.placeRemain() == 0){
+                ways.remove(way);
+            }
+        }
 
         return ways;
     }

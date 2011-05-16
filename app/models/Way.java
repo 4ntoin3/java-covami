@@ -59,6 +59,12 @@ public class Way extends Model {
         this.car = car;
         this.cities = new ArrayList<City>();
     }
+    
+    public Integer placeRemain(){        
+        List<models.WayParticipation> participants = models.WayParticipation.find("way = ? and (status = 2 or status = 4)", this).fetch();
+        
+        return this.placeAvailable - participants.size();
+    }
 
     /**
      * Recherche le chemin à prendre

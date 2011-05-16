@@ -34,7 +34,7 @@ public class User extends Controller {
         List<models.WayParticipation> participations_cancel = models.WayParticipation.find("way.driver = ? and status = ?", user, 3).fetch();
         renderArgs.put("participations_cancel", participations_cancel);
         
-        List<models.WayParticipation> ways_cancel = models.WayParticipation.find("participant = ? and status = ?", user, 4).fetch();
+        List<models.WayParticipation> ways_cancel = models.WayParticipation.find("participant = ? and way.deleted = ? and status = ?", user, 1, 3).fetch();
         renderArgs.put("ways_cancel", ways_cancel);        
         
         List<FriendShip> friends_waiting = FriendShip.find("friend = ? and status = ?", user, 0).fetch();

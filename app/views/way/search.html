@@ -14,7 +14,7 @@
             <th class="table_col_action">&{'way.list.col.actions'}</th>
             <th>&{'way.list.col.label'}</th>
             <th>&{'way.list.col.driver'}</th>
-            <th>&{'way.list.col.nbPassenger'}</th>
+            <th>&{'way.list.col.placeRemain'}</th>
             <th>&{'way.list.col.date'}</th>
             <th>&{'way.list.col.distance'}</th>
             <th>&{'way.list.col.cost'}</th>
@@ -47,7 +47,7 @@
                 ${way.driver.firstname} ${way.driver.lastname}
             </td>
             <td>
-                ${way.passengers.size()}
+                ${way.placeRemain()}
             </td>
             <td>
                 ${way.dateHourStart.getTime().asdate('dd/MM/yyyy hh:mm')}
