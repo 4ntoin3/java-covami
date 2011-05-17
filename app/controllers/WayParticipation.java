@@ -3,13 +3,14 @@ package controllers;
 import play.mvc.Controller;
 import play.mvc.With;
 
-/**
- *
- * @author pierregaste
- */
 @With(Secure.class)
 public class WayParticipation extends Controller {
 
+    /**
+     * [GET] Ajout d'une participation à un trajet
+     * 
+     * @param id 
+     */
     public static void add(Long id) {
         models.Way way = models.Way.findById(id);
 
@@ -20,6 +21,11 @@ public class WayParticipation extends Controller {
         redirect("/way/search");
     }
 
+    /**
+     * [GET] Accepter une participation à un trajet
+     * 
+     * @param id 
+     */
     public static void accept(Long id) {
         models.WayParticipation participation = models.WayParticipation.findById(id);
 
@@ -31,6 +37,11 @@ public class WayParticipation extends Controller {
         User.dashboard();
     }
 
+    /**
+     * [GET] Refuser une participation à un trajet
+     * 
+     * @param id 
+     */
     public static void refuse(Long id) {
         models.WayParticipation participation = models.WayParticipation.findById(id);
 
@@ -42,6 +53,11 @@ public class WayParticipation extends Controller {
         User.dashboard();
     }
 
+    /**
+     * [GET] Annulation d'une participation à un trajet
+     * 
+     * @param id 
+     */
     public static void cancel(Long id) {
         models.WayParticipation participation = models.WayParticipation.findById(id);
 
@@ -53,6 +69,11 @@ public class WayParticipation extends Controller {
         redirect("/way");
     }
 
+    /**
+     * [GET] Passe une notification comme lu
+     * 
+     * @param id 
+     */
     public static void validNotification(Long id) {
         models.WayParticipation participation = models.WayParticipation.findById(id);
 
