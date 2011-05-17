@@ -1,3 +1,7 @@
 #{extends 'main.html' /}
 #{set title: play.i18n.Messages.get('title.map') /}
 #{set subtitle: play.i18n.Messages.get('subtitle.map') /}
+
+<applet code="View.class" codebase="." archive="@{'/public/applet/DisplayWays.jar'}" width="754" height="800" alt="Carte du covoiturage">
+<!--    <param name="ways" value="${ways}">-->
+</applet>
