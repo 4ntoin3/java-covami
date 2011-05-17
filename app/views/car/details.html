@@ -23,7 +23,7 @@
     #{else}
     #{list items:ways, as:'way'}
     <label>${way.dateHourStart.getTime().asdate('dd/MM/yyyy hh:mm')}</label>
-    <div class="formField labelLine">${way.startCity?.name} => ${way.finishCity?.name} (${way?.distance} kms)</div>      
+    <div class="formField labelLine">${way.startCity?.name} => ${way.finishCity?.name} (${(int)way?.distance} kms)</div>      
     #{/list}
     #{/else}
     <div class="clear"></div>

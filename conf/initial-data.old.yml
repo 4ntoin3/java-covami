@@ -1,0 +1,1148 @@
+User(kevin):
+    email:          kevin@gmail.com
+    password:       secret
+    firstname:      Kevin
+    lastname:       DUGLAND
+    
+User(damien):
+    email:          damien@gmail.com
+    password:       secret
+    firstname:      damien
+    lastname:       DUBATEAU
+    
+User(antoine):
+    email:          antoine@gmail.com
+    password:       secret
+    firstname:      antoine
+    lastname:       esnault
+    
+User(pierre):
+    email:          pierre@gmail.com
+    password:       secret
+    firstname:      pierre
+    lastname:       gaste
+    
+User(bob):
+    email:          bob@gmail.com
+    password:       secret
+    firstname:      Bob
+    lastname:       LEBRUNT
+
+User(jeff):
+    email:          jeff@gmail.com
+    password:       secret
+    firstname:      Jeff    
+    lastname:       ROBERT
+    
+FriendShip(kevinBob):
+    friend:         kevin
+    user:           bob
+    status:         0
+
+FriendShip(damienBob):
+    friend:         damien
+    user:           bob
+    status:         1    
+    
+FriendShip(antoineBob):
+    friend:         antoine
+    user:           bob
+    status:         2
+    
+FriendShip(bobAntoine):
+    friend:         bob
+    user:           antoine
+    status:         2
+     
+FriendShip(kevinJeff):
+    friend:         kevin
+    user:           jeff
+    status:         0
+    
+FriendShip(bobJeff):
+    friend:         bob
+    user:           jeff
+    status:         0
+    
+FriendShip(antoinePierre):
+    friend:         antoine
+    user:           pierre
+    status:         2
+     
+FriendShip(pierreAntoine):
+    friend:         pierre
+    user:           antoine
+    status:         2
+     
+Car(clioBob):
+    name:           clio
+    nbPlace:        4
+    cost:           6
+    owner:          bob
+    deleted:        0
+ 
+Car(twingoBob):
+    name:           twingo
+    nbPlace:        4
+    cost:           1
+    owner:          bob
+    deleted:        0
+             
+Car(picassoJeff):
+    name:           picasso
+    nbPlace:        8
+    cost:           2
+    owner:          jeff
+    deleted:        0
+    
+City(nantes):
+    name:           "Nantes"
+    codeINSEE:      44109
+    latitude:       47.216667
+    longitude:      -1.55
+ 
+City(grenoble):
+    name:           "Grenoble"
+    codeINSEE:      38185
+    latitude:       45.166667
+    longitude:      5.716667
+ 
+City(dunkerque):
+    name:           "Dunkerque"
+    codeINSEE:      59183
+    latitude:       51.05
+    longitude:      2.366667
+ 
+City(calais):
+    name:           "Calais"
+    codeINSEE:      62193
+    latitude:       50.95
+    longitude:      1.833333
+ 
+City(béthune):
+    name:           "Béthune"
+    codeINSEE:      62119
+    latitude:       50.533333
+    longitude:      2.633333
+ 
+City(lille):
+    name:           "Lille"
+    codeINSEE:      59350
+    latitude:       50.533333
+    longitude:      3.066667
+ 
+City(douai):
+    name:           "Douai"
+    codeINSEE:      59178
+    latitude:       50.366667
+    longitude:      3.066667
+ 
+City(valenciennes):
+    name:           "Valenciennes"
+    codeINSEE:      59606
+    latitude:       50.35
+    longitude:      3.533333
+ 
+City(amiens):
+    name:           "Amiens"
+    codeINSEE:      80021
+    latitude:       49.9
+    longitude:      2.3
+ 
+City(reims):
+    name:           "Reims"
+    codeINSEE:      51454
+    latitude:       49.25
+    longitude:      4.033333
+ 
+City(rouen):
+    name:           "Rouen"
+    codeINSEE:      76540
+    latitude:       49.433333
+    longitude:      1.083333
+ 
+City(lehavre):
+    name:           "Le Havre"
+    codeINSEE:      76351
+    latitude:       49.5
+    longitude:      0.133333
+ 
+City(caen):
+    name:           "Caen"
+    codeINSEE:      14118
+    latitude:       49.183333
+    longitude:      -0.35
+ 
+City(thioncity):
+    name:           "ThionCity"
+    codeINSEE:      57672
+    latitude:       49.366667
+    longitude:      6.166667
+ 
+City(metz):
+    name:           "Metz"
+    codeINSEE:      57463
+    latitude:       49.133333
+    longitude:      6.166667
+ 
+City(paris):
+    name:           "Paris"
+    codeINSEE:      75100
+    latitude:       48.866667
+    longitude:      2.333333
+ 
+City(nancy):
+    name:           "Nancy"
+    codeINSEE:      54395
+    latitude:       48.683333
+    longitude:      6.2
+ 
+City(strasbourg):
+    name:           "Strasbourg"
+    codeINSEE:      67482
+    latitude:       48.583333
+    longitude:      7.75
+ 
+City(troyes):
+    name:           "Troyes"
+    codeINSEE:      10387
+    latitude:       48.3
+    longitude:      4.083333
+ 
+City(lemans):
+    name:           "Le Mans"
+    codeINSEE:      72181
+    latitude:       48.0
+    longitude:      0.2
+ 
+City(rennes):
+    name:           "Rennes"
+    codeINSEE:      35238
+    latitude:       48.083333
+    longitude:      -1.683333
+ 
+City(orléans):
+    name:           "Orléans"
+    codeINSEE:      45234
+    latitude:       47.916667
+    longitude:      1.9
+ 
+City(mulhouse):
+    name:           "Mulhouse"
+    codeINSEE:      68224
+    latitude:       47.75
+    longitude:      7.333333
+ 
+City(montbéliard):
+    name:           "Montbéliard"
+    codeINSEE:      25388
+    latitude:       47.516667
+    longitude:      6.8
+ 
+City(angers):
+    name:           "Angers"
+    codeINSEE:      49007
+    latitude:       47.466667
+    longitude:      -0.55
+ 
+City(tours):
+    name:           "Tours"
+    codeINSEE:      37261
+    latitude:       47.383333
+    longitude:      0.683333
+ 
+City(dijon):
+    name:           "Dijon"
+    codeINSEE:      21231
+    latitude:       47.316667
+    longitude:      5.016667
+ 
+City(besançon):
+    name:           "Besançon"
+    codeINSEE:      25056
+    latitude:       47.25
+    longitude:      6.033333
+ 
+City(poitiers):
+    name:           "Poitiers"
+    codeINSEE:      86194
+    latitude:       46.583333
+    longitude:      0.333333
+ 
+City(perpignan):
+    name:           "Perpignan"
+    codeINSEE:      66136
+    latitude:       42.683333
+    longitude:      2.883333
+ 
+City(toulon):
+    name:           "Toulon"
+    codeINSEE:      83137
+    latitude:       43.12
+    longitude:      5.933333
+ 
+City(marseille):
+    name:           "Marseille"
+    codeINSEE:      13200
+    latitude:       43.3
+    longitude:      5.4
+ 
+City(montpellier):
+    name:           "Montpellier"
+    codeINSEE:      34172
+    latitude:       43.6
+    longitude:      3.883333
+ 
+City(bayonne):
+    name:           "Bayonne"
+    codeINSEE:      64102
+    latitude:       43.483333
+    longitude:      -1.483333
+ 
+City(pau):
+    name:           "Pau"
+    codeINSEE:      64445
+    latitude:       43.3
+    longitude:      -0.366667
+ 
+City(toulouse):
+    name:           "Toulouse"
+    codeINSEE:      31555
+    latitude:       43.6
+    longitude:      1.433333
+ 
+City(nice):
+    name:           "Nice"
+    codeINSEE:      6088
+    latitude:       43.7
+    longitude:      7.25
+ 
+City(nimes):
+    name:           "Nimes"
+    codeINSEE:      30189
+    latitude:       43.833333
+    longitude:      4.35
+ 
+City(avignon):
+    name:           "Avignon"
+    codeINSEE:      84007
+    latitude:       43.95
+    longitude:      4.816667
+ 
+City(valence):
+    name:           "Valence"
+    codeINSEE:      26362
+    latitude:       44.93
+    longitude:      4.9
+ 
+City(bordeaux):
+    name:           "Bordeaux"
+    codeINSEE:      33063
+    latitude:       44.833333
+    longitude:      -0.566667
+ 
+City(saint-etienne):
+    name:           "Saint-Etienne"
+    codeINSEE:      42218
+    latitude:       45.433333
+    longitude:      4.4
+ 
+City(chambéry):
+    name:           "Chambéry"
+    codeINSEE:      73065
+    latitude:       45.566667
+    longitude:      5.933333
+ 
+City(charleville-mézières):
+    name:           "Charleville-Mézières"
+    codeINSEE:      8105
+    latitude:       49.766667
+    longitude:      4.716667
+ 
+City(annecy):
+    name:           "Annecy"
+    codeINSEE:      74010
+    latitude:       45.9
+    longitude:      6.116667
+ 
+City(lyon):
+    name:           "Lyon"
+    codeINSEE:      69380
+    latitude:       45.75
+    longitude:      4.85
+ 
+City(limoges):
+    name:           "Limoges"
+    codeINSEE:      87085
+    latitude:       45.85
+    longitude:      1.25
+ 
+City(clermont-ferrand):
+    name:           "Clermont-Ferrand"
+    codeINSEE:      63113
+    latitude:       45.783333
+    longitude:      3.083333
+ 
+City(abbeville):
+    name:           "Abbeville"
+    codeINSEE:      80001
+    latitude:       50.1
+    longitude:      1.833333
+ 
+City(neufchatel-en-bray):
+    name:           "Neufchatel-en-Bray"
+    codeINSEE:      76462
+    latitude:       49.733333
+    longitude:      1.45
+ 
+City(bourneville):
+    name:           "Bourneville"
+    codeINSEE:      27107
+    latitude:       49.383333
+    longitude:      0.616667
+ 
+City(avranches):
+    name:           "Avranches"
+    codeINSEE:      50025
+    latitude:       48.683333
+    longitude:      -1.366667
+ 
+City(lesessarts):
+    name:           "Les Essarts"
+    codeINSEE:      85084
+    latitude:       46.766667
+    longitude:      -1.233333
+ 
+City(niort):
+    name:           "Niort"
+    codeINSEE:      79191
+    latitude:       46.316667
+    longitude:      -0.466667
+ 
+City(vierzon):
+    name:           "Vierzon"
+    codeINSEE:      18279
+    latitude:       47.216667
+    longitude:      2.083333
+ 
+City(brive-la-gaillarde):
+    name:           "Brive-la-gaillarde"
+    codeINSEE:      19031
+    latitude:       45.15
+    longitude:      1.533333
+ 
+City(montauban):
+    name:           "Montauban"
+    codeINSEE:      82121
+    latitude:       44.016667
+    longitude:      1.35
+ 
+City(saint-gaudens):
+    name:           "Saint-Gaudens"
+    codeINSEE:      31483
+    latitude:       43.116667
+    longitude:      0.733333
+ 
+City(narbonne):
+    name:           "Narbonne"
+    codeINSEE:      11262
+    latitude:       43.183333
+    longitude:      3.0
+ 
+City(mèze):
+    name:           "Mèze"
+    codeINSEE:      34157
+    latitude:       43.416667
+    longitude:      3.6
+ 
+City(salon-de-provence):
+    name:           "Salon-de-Provence"
+    codeINSEE:      13103
+    latitude:       43.633333
+    longitude:      5.1
+ 
+City(lecannet-des-maures):
+    name:           "Le Cannet-des-Maures"
+    codeINSEE:      83031
+    latitude:       43.4
+    longitude:      6.35
+ 
+City(cessieu):
+    name:           "Cessieu"
+    codeINSEE:      38064
+    latitude:       45.566667
+    longitude:      5.366667
+ 
+City(pont-d'ain):
+    name:           "Pont-d'Ain"
+    codeINSEE:      1304
+    latitude:       46.05
+    longitude:      5.333333
+ 
+City(viriat):
+    name:           "Viriat"
+    codeINSEE:      1451
+    latitude:       46.25
+    longitude:      5.216667
+ 
+City(sancé):
+    name:           "Sancé"
+    codeINSEE:      71497
+    latitude:       46.333333
+    longitude:      4.833333
+ 
+City(beaune):
+    name:           "Beaune"
+    codeINSEE:      21054
+    latitude:       47.033333
+    longitude:      4.833333
+ 
+City(saint-seine-en-bâche):
+    name:           "Saint-Seine-en-Bâche"
+    codeINSEE:      21572
+    latitude:       47.116667
+    longitude:      5.366667
+ 
+City(beauchemin):
+    name:           "Beauchemin"
+    codeINSEE:      52042
+    latitude:       47.9
+    longitude:      5.25
+ 
+City(ablaincourt-pressoir):
+    name:           "Ablaincourt-Pressoir"
+    codeINSEE:      80002
+    latitude:       49.839588
+    longitude:      2.820997
+ 
+City(saint-quentin):
+    name:           "Saint-Quentin"
+    codeINSEE:      2691
+    latitude:       49.85
+    longitude:      3.283333
+ 
+City(combles):
+    name:           "Combles"
+    codeINSEE:      80204
+    latitude:       50.016667
+    longitude:      2.866667
+ 
+City(graincourt-les-havrincourt):
+    name:           "Graincourt-les-Havrincourt"
+    codeINSEE:      62384
+    latitude:       50.144181
+    longitude:      3.110075
+ 
+Road(0):
+    name:           "a83"
+    firstCity:      nantes
+    secondCity:     rennes
+ 
+Road(1):
+    name:           "a11"
+    firstCity:      nantes
+    secondCity:     angers
+ 
+Road(2):
+    name:           "a83"
+    firstCity:      nantes
+    secondCity:     lesessarts
+ 
+Road(3):
+    name:           "a48"
+    firstCity:      grenoble
+    secondCity:     cessieu
+ 
+Road(4):
+    name:           "a49"
+    firstCity:      grenoble
+    secondCity:     valence
+ 
+Road(5):
+    name:           "a41"
+    firstCity:      grenoble
+    secondCity:     chambéry
+ 
+Road(6):
+    name:           "a25"
+    firstCity:      dunkerque
+    secondCity:     lille
+ 
+Road(7):
+    name:           "a16"
+    firstCity:      dunkerque
+    secondCity:     calais
+ 
+Road(8):
+    name:           "a26"
+    firstCity:      calais
+    secondCity:     béthune
+ 
+Road(9):
+    name:           "a16"
+    firstCity:      calais
+    secondCity:     abbeville
+ 
+Road(10):
+    name:           "a26"
+    firstCity:      béthune
+    secondCity:     douai
+ 
+Road(11):
+    name:           "a1"
+    firstCity:      lille
+    secondCity:     douai
+ 
+Road(12):
+    name:           "a23"
+    firstCity:      lille
+    secondCity:     valenciennes
+ 
+Road(13):
+    name:           "a26"
+    firstCity:      douai
+    secondCity:     graincourt-les-havrincourt
+ 
+Road(14):
+    name:           "a1"
+    firstCity:      douai
+    secondCity:     combles
+ 
+Road(15):
+    name:           "a2"
+    firstCity:      valenciennes
+    secondCity:     graincourt-les-havrincourt
+ 
+Road(16):
+    name:           "a29"
+    firstCity:      amiens
+    secondCity:     neufchatel-en-bray
+ 
+Road(17):
+    name:           "a16"
+    firstCity:      amiens
+    secondCity:     paris
+ 
+Road(18):
+    name:           "a16"
+    firstCity:      amiens
+    secondCity:     abbeville
+ 
+Road(19):
+    name:           "a29"
+    firstCity:      amiens
+    secondCity:     ablaincourt-pressoir
+ 
+Road(20):
+    name:           "a26"
+    firstCity:      reims
+    secondCity:     saint-quentin
+ 
+Road(21):
+    name:           "a4"
+    firstCity:      reims
+    secondCity:     metz
+ 
+Road(22):
+    name:           "a26"
+    firstCity:      reims
+    secondCity:     troyes
+ 
+Road(23):
+    name:           "a4"
+    firstCity:      reims
+    secondCity:     paris
+ 
+Road(24):
+    name:           "a34"
+    firstCity:      reims
+    secondCity:     charleville-mézières
+ 
+Road(25):
+    name:           "a28"
+    firstCity:      rouen
+    secondCity:     neufchatel-en-bray
+ 
+Road(26):
+    name:           "a13"
+    firstCity:      rouen
+    secondCity:     paris
+ 
+Road(27):
+    name:           "a28"
+    firstCity:      rouen
+    secondCity:     lemans
+ 
+Road(28):
+    name:           "a13"
+    firstCity:      rouen
+    secondCity:     bourneville
+ 
+Road(29):
+    name:           "a29"
+    firstCity:      lehavre
+    secondCity:     bourneville
+ 
+Road(30):
+    name:           "a29"
+    firstCity:      lehavre
+    secondCity:     neufchatel-en-bray
+ 
+Road(31):
+    name:           "a13"
+    firstCity:      caen
+    secondCity:     bourneville
+ 
+Road(32):
+    name:           "a84"
+    firstCity:      caen
+    secondCity:     avranches
+ 
+Road(33):
+    name:           "a31"
+    firstCity:      thioncity
+    secondCity:     metz
+ 
+Road(34):
+    name:           "a4"
+    firstCity:      metz
+    secondCity:     strasbourg
+ 
+Road(35):
+    name:           "a31"
+    firstCity:      metz
+    secondCity:     nancy
+ 
+Road(36):
+    name:           "a1"
+    firstCity:      paris
+    secondCity:     ablaincourt-pressoir
+ 
+Road(37):
+    name:           "a5"
+    firstCity:      paris
+    secondCity:     troyes
+ 
+Road(38):
+    name:           "a6"
+    firstCity:      paris
+    secondCity:     beaune
+ 
+Road(39):
+    name:           "a10"
+    firstCity:      paris
+    secondCity:     orléans
+ 
+Road(40):
+    name:           "a11"
+    firstCity:      paris
+    secondCity:     lemans
+ 
+Road(41):
+    name:           "a31"
+    firstCity:      nancy
+    secondCity:     beauchemin
+ 
+Road(42):
+    name:           "a35"
+    firstCity:      strasbourg
+    secondCity:     mulhouse
+ 
+Road(43):
+    name:           "a5"
+    firstCity:      troyes
+    secondCity:     beauchemin
+ 
+Road(44):
+    name:           "a28"
+    firstCity:      lemans
+    secondCity:     tours
+ 
+Road(45):
+    name:           "a11"
+    firstCity:      lemans
+    secondCity:     angers
+ 
+Road(46):
+    name:           "a81"
+    firstCity:      lemans
+    secondCity:     rennes
+ 
+Road(47):
+    name:           "a84"
+    firstCity:      rennes
+    secondCity:     avranches
+ 
+Road(48):
+    name:           "a71"
+    firstCity:      orléans
+    secondCity:     vierzon
+ 
+Road(49):
+    name:           "a10"
+    firstCity:      orléans
+    secondCity:     tours
+ 
+Road(50):
+    name:           "a36"
+    firstCity:      mulhouse
+    secondCity:     montbéliard
+ 
+Road(51):
+    name:           "a36"
+    firstCity:      montbéliard
+    secondCity:     besançon
+ 
+Road(52):
+    name:           "a85"
+    firstCity:      angers
+    secondCity:     tours
+ 
+Road(53):
+    name:           "a87"
+    firstCity:      angers
+    secondCity:     lesessarts
+ 
+Road(54):
+    name:           "a85"
+    firstCity:      tours
+    secondCity:     vierzon
+ 
+Road(55):
+    name:           "a10"
+    firstCity:      tours
+    secondCity:     poitiers
+ 
+Road(56):
+    name:           "a31"
+    firstCity:      dijon
+    secondCity:     beaune
+ 
+Road(57):
+    name:           "a39"
+    firstCity:      dijon
+    secondCity:     saint-seine-en-bâche
+ 
+Road(58):
+    name:           "a36"
+    firstCity:      besançon
+    secondCity:     saint-seine-en-bâche
+ 
+Road(59):
+    name:           "a10"
+    firstCity:      poitiers
+    secondCity:     niort
+ 
+Road(60):
+    name:           "a9"
+    firstCity:      perpignan
+    secondCity:     narbonne
+ 
+Road(61):
+    name:           "a57"
+    firstCity:      toulon
+    secondCity:     lecannet-des-maures
+ 
+Road(62):
+    name:           "a50"
+    firstCity:      toulon
+    secondCity:     marseille
+ 
+Road(63):
+    name:           "a7"
+    firstCity:      marseille
+    secondCity:     salon-de-provence
+ 
+Road(64):
+    name:           "a9"
+    firstCity:      montpellier
+    secondCity:     nimes
+ 
+Road(65):
+    name:           "a9"
+    firstCity:      montpellier
+    secondCity:     mèze
+ 
+Road(66):
+    name:           "n10"
+    firstCity:      bayonne
+    secondCity:     bordeaux
+ 
+Road(67):
+    name:           "a64"
+    firstCity:      bayonne
+    secondCity:     pau
+ 
+Road(68):
+    name:           "a64"
+    firstCity:      pau
+    secondCity:     saint-gaudens
+ 
+Road(69):
+    name:           "a61"
+    firstCity:      toulouse
+    secondCity:     narbonne
+ 
+Road(70):
+    name:           "a62"
+    firstCity:      toulouse
+    secondCity:     montauban
+ 
+Road(71):
+    name:           "a64"
+    firstCity:      toulouse
+    secondCity:     saint-gaudens
+ 
+Road(72):
+    name:           "a8"
+    firstCity:      nice
+    secondCity:     lecannet-des-maures
+ 
+Road(73):
+    name:           "a54"
+    firstCity:      nimes
+    secondCity:     salon-de-provence
+ 
+Road(74):
+    name:           "a9"
+    firstCity:      nimes
+    secondCity:     avignon
+ 
+Road(75):
+    name:           "a7"
+    firstCity:      avignon
+    secondCity:     salon-de-provence
+ 
+Road(76):
+    name:           "a7"
+    firstCity:      avignon
+    secondCity:     valence
+ 
+Road(77):
+    name:           "a7"
+    firstCity:      valence
+    secondCity:     lyon
+ 
+Road(78):
+    name:           "a62"
+    firstCity:      bordeaux
+    secondCity:     montauban
+ 
+Road(79):
+    name:           "a89"
+    firstCity:      bordeaux
+    secondCity:     brive-la-gaillarde
+ 
+Road(80):
+    name:           "a10"
+    firstCity:      bordeaux
+    secondCity:     niort
+ 
+Road(81):
+    name:           "a72"
+    firstCity:      saint-etienne
+    secondCity:     clermont-ferrand
+ 
+Road(82):
+    name:           "a47"
+    firstCity:      saint-etienne
+    secondCity:     lyon
+ 
+Road(83):
+    name:           "a41"
+    firstCity:      chambéry
+    secondCity:     annecy
+ 
+Road(84):
+    name:           "a43"
+    firstCity:      chambéry
+    secondCity:     cessieu
+ 
+Road(85):
+    name:           "a41"
+    firstCity:      annecy
+    secondCity:     pont-d'ain
+ 
+Road(86):
+    name:           "a43"
+    firstCity:      lyon
+    secondCity:     cessieu
+ 
+Road(87):
+    name:           "a42"
+    firstCity:      lyon
+    secondCity:     pont-d'ain
+ 
+Road(88):
+    name:           "a6"
+    firstCity:      lyon
+    secondCity:     sancé
+ 
+Road(89):
+    name:           "a20"
+    firstCity:      limoges
+    secondCity:     brive-la-gaillarde
+ 
+Road(90):
+    name:           "a20"
+    firstCity:      limoges
+    secondCity:     vierzon
+ 
+Road(91):
+    name:           "a89"
+    firstCity:      clermont-ferrand
+    secondCity:     brive-la-gaillarde
+ 
+Road(92):
+    name:           "a75"
+    firstCity:      clermont-ferrand
+    secondCity:     mèze
+ 
+Road(93):
+    name:           "a71"
+    firstCity:      clermont-ferrand
+    secondCity:     vierzon
+ 
+Road(94):
+    name:           "a28"
+    firstCity:      abbeville
+    secondCity:     neufchatel-en-bray
+ 
+Road(95):
+    name:           "a83"
+    firstCity:      lesessarts
+    secondCity:     niort
+ 
+Road(96):
+    name:           "a20"
+    firstCity:      brive-la-gaillarde
+    secondCity:     montauban
+ 
+Road(97):
+    name:           "a9"
+    firstCity:      narbonne
+    secondCity:     mèze
+ 
+Road(98):
+    name:           "a8"
+    firstCity:      salon-de-provence
+    secondCity:     lecannet-des-maures
+ 
+Road(99):
+    name:           "a40"
+    firstCity:      pont-d'ain
+    secondCity:     viriat
+ 
+Road(100):
+    name:           "a39"
+    firstCity:      viriat
+    secondCity:     saint-seine-en-bâche
+ 
+Road(101):
+    name:           "a40"
+    firstCity:      viriat
+    secondCity:     sancé
+ 
+Road(102):
+    name:           "a6"
+    firstCity:      sancé
+    secondCity:     beaune
+ 
+Road(103):
+    name:           "a36"
+    firstCity:      beaune
+    secondCity:     saint-seine-en-bâche
+ 
+Road(104):
+    name:           "a31"
+    firstCity:      beauchemin
+    secondCity:     dijon
+ 
+Road(105):
+    name:           "a1"
+    firstCity:      ablaincourt-pressoir
+    secondCity:     combles
+ 
+Road(106):
+    name:           "a29"
+    firstCity:      ablaincourt-pressoir
+    secondCity:     saint-quentin
+ 
+Road(107):
+    name:           "a26"
+    firstCity:      saint-quentin
+    secondCity:     graincourt-les-havrincourt
+ 
+Road(108):
+    name:           "a2"
+    firstCity:      combles
+    secondCity:     graincourt-les-havrincourt
+    
+Way(parisMarseille):
+    startCity:      paris
+    finishCity:     marseille
+    driver:         bob
+    distance:       500
+    car:            clioBob
+    placeAvailable: 1
+    dateHourStart:  2011-05-30 10:00:00
+    deleted:        0
+    cost:           15.5
+    
+WayParticipation(kevin_parisMarseille):
+    way:            parisMarseille
+    participant:    kevin
+    status:         0
+    date:           2011-05-01 10:00:00
+
+Way(marseilleParis):
+    startCity:      marseille
+    finishCity:     paris
+    driver:         bob
+    distance:       500
+    car:            clioBob
+    placeAvailable: 3
+    dateHourStart:  2011-06-03 10:00:00
+    deleted:        0
+    cost:           150.5
+
+WayParticipation(pierre_marseilleParis):
+    way:            marseilleParis
+    participant:    pierre
+    status:         2
+    date:           2010-03-02 10:00:00
+    
+Way(parisBordeaux):
+    startCity:      paris
+    finishCity:     bordeaux
+    driver:         jeff
+    distance:       400
+    car:            picassoJeff
+    placeAvailable: 3    
+    dateHourStart:  2011-05-04 10:00:00
+    deleted:        0
+    cost:           34
+
+WayParticipation(antoine_parisBordeaux):
+    way:            parisBordeaux
+    participant:    antoine
+    status:         0
+    date:           2010-03-02 10:00:00
+      
+Way(marseilleParisBis):
+    startCity:      marseille
+    finishCity:     paris
+    driver:         bob
+    distance:       500
+    car:            clioBob
+    placeAvailable: 3
+    dateHourStart:  2011-05-05 10:00:00
+    deleted:        0
+    cost:           34.9
+   
+WayParticipation(jeff_marseilleParisBis):
+    way:            marseilleParisBis
+    participant:    jeff
+    status:         1
+    date:           2010-03-02 10:00:00
+  

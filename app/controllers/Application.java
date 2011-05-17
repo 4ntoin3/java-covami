@@ -1,37 +1,34 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package controllers;
 
 import play.data.validation.Valid;
 import play.mvc.Controller;
 
-/**
- *
- * @author Antoine
- */
 public class Application extends Controller{
     
-        /**
-     * Page d'inscription au service
+    /**
+     * [GET] Formulaire d'inscription
+     * 
      */
     public static void subscribe() {
         render();
     }
     
+    /**
+     * [POST] Soumission d'une inscription
+     * 
+     * @param user 
+     */
     public static void addUser(@Valid models.User user){
-        
         if (validation.hasErrors()) {
-            params.flash(); // add http parameters to the flash scope
-            validation.keep(); // keep the errors for the next request
+            params.flash();
+            validation.keep();
             redirect("/application/subscribe");
         }
         
         if(models.User.find("byEmail", user.email).first() != null){
-            validation.addError("user.email", "email used");
-            params.flash(); // add http parameters to the flash scope
-            validation.keep(); // keep the errors for the next request
+            validation.addError("user.email", "Cet email est déjà utilisé.");
+            params.flash();
+            validation.keep();
             redirect("/application/subscribe");
         }
         

@@ -7,16 +7,18 @@ import play.data.validation.*;
 
 @With(Secure.class)
 public class User extends Controller {
-
+    
     /**
-     * Action par défaut
+     * [GET] Action par défaut
+     * 
      */
     public static void index() {
         redirect("/");
     }
-
+    
     /**
-     * Tableau de bord de l'utilisateur
+     * [GET] Tableau de bord utilisateur
+     * 
      */
     public static void dashboard() {
         models.User user = User.connected();
@@ -77,7 +79,8 @@ public class User extends Controller {
     }
 
     /**
-     * Action de déconnexion
+     * [GET] Déconnexion de l'utilisateur
+     * 
      * @throws Throwable 
      */
     public static void logout() throws Throwable {
@@ -85,15 +88,19 @@ public class User extends Controller {
     }
 
     /**
-     * Page d'édition de profil
+     * [GET] Profil de l'utilisateur
      * 
-     * @view app/view/user/profile.html
      */
     public static void profile() {
         models.User user = User.connected();
         render(user);
     }
 
+    /**
+     * [GET] Détails d'un utilisateur
+     * 
+     * @param id 
+     */
     public static void details(Long id) {
         models.User user = models.User.findById(id);
         List<models.Way> waysDriver = models.Way.find("byDriver", user).fetch();
@@ -102,12 +109,19 @@ public class User extends Controller {
         render(user, waysDriver, wayPassengers);
     }
 
+    /**
+     * [POST] Soumission d'édition de profil
+     * 
+     * @param password
+     * @param firstname
+     * @param lastname 
+     */
     public static void editProfile(@Required String password, @Required String firstname, @Required String lastname) {
         models.User userEdited = User.connected();
 
         if (validation.hasErrors()) {
-            params.flash(); // add http parameters to the flash scope
-            validation.keep(); // keep the errors for the next request
+            params.flash();
+            validation.keep();
             redirect("/user/profile");
         }
 
@@ -119,6 +133,11 @@ public class User extends Controller {
         redirect("/user/profile");
     }
 
+    /**
+     * [GET] Connexion d'un utilisateur
+     * 
+     * @return 
+     */
     public static models.User connected() {
         models.User user = models.User.find("byEmail", Security.connected()).first();
         return user;
