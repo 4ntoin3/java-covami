@@ -1,0 +1,1033 @@
+<?xml version='1.0'?>
+<France>
+    <City id='44109'>
+        <Name>Nantes</Name>
+        <Latitude>47.216667</Latitude>
+        <Longitude>-1.55</Longitude>
+        <Road id='35238'>
+            <Name>A83</Name>
+        </Road>
+        <Road id='49007'>
+            <Name>A11</Name>
+        </Road>
+        <Road id='85084'>
+            <Name>A83</Name>
+        </Road>
+    </City>
+    <City id='38185'>
+        <Name>Grenoble</Name>
+        <Latitude>45.166667</Latitude>
+        <Longitude>5.716667</Longitude>
+        <Road id='38064'>
+            <Name>A48</Name>
+        </Road>
+        <Road id='26362'>
+            <Name>A49</Name>
+        </Road>
+        <Road id='73065'>
+            <Name>A41</Name>
+        </Road>
+    </City>
+    <City id='59183'>
+        <Name>Dunkerque</Name>
+        <Latitude>51.05</Latitude>
+        <Longitude>2.366667</Longitude>
+        <Road id='59350'>
+            <Name>A25</Name>
+        </Road>
+        <Road id='62193'>
+            <Name>A16</Name>
+        </Road>
+    </City>
+    <City id='62193'>
+        <Name>Calais</Name>
+        <Latitude>50.95</Latitude>
+        <Longitude>1.833333</Longitude>
+        <Road id='59163'>
+            <Name>A16</Name>
+        </Road>
+        <Road id='62119'>
+            <Name>A26</Name>
+        </Road>
+        <Road id='80001'>
+            <Name>A16</Name>
+        </Road>
+    </City>
+    <City id='62119'>
+        <Name>Béthune</Name>
+        <Latitude>50.533333</Latitude>
+        <Longitude>2.633333</Longitude>
+        <Road id='62193'>
+            <Name>A26</Name>
+        </Road>
+        <Road id='59178'>
+            <Name>A26</Name>
+        </Road>
+    </City>
+    <City id='59350'>
+        <Name>Lille</Name>
+        <Latitude>50.533333</Latitude>
+        <Longitude>3.066667</Longitude>
+        <Road id='59183'>
+            <Name>A25</Name>
+        </Road>
+        <Road id='59178'>
+            <Name>A1</Name>
+        </Road>
+        <Road id='59606'>
+            <Name>A23</Name>
+        </Road>
+    </City>
+    <City id='59178'>
+        <Name>Douai</Name>
+        <Latitude>50.366667</Latitude>
+        <Longitude>3.066667</Longitude>
+        <Road id='62119'>
+            <Name>A26</Name>
+        </Road>
+        <Road id='59350'>
+            <Name>A1</Name>
+        </Road>
+        <Road id='62384'>
+            <Name>A26</Name>
+        </Road>
+        <Road id='80204'>
+            <Name>A1</Name>
+        </Road>
+    </City>
+    <City id='59606'>
+        <Name>Valenciennes</Name>
+        <Latitude>50.35</Latitude>
+        <Longitude>3.533333</Longitude>
+        <Road id='59350'>
+            <Name>A23</Name>
+        </Road>
+        <Road id='62384'>
+            <Name>A2</Name>
+        </Road>
+    </City>
+    <City id='80021'>
+        <Name>Amiens</Name>
+        <Latitude>49.9</Latitude>
+        <Longitude>2.3</Longitude>
+        <Road id='76462'>
+            <Name>A29</Name>
+        </Road>
+        <Road id='75100'>
+            <Name>A16</Name>
+        </Road>
+        <Road id='80001'>
+            <Name>A16</Name>
+        </Road>
+        <Road id='80002'>
+            <Name>A29</Name>
+        </Road>
+    </City>
+    <City id='51454'>
+        <Name>Reims</Name>
+        <Latitude>49.25</Latitude>
+        <Longitude>4.033333</Longitude>
+        <Road id='02691'>
+            <Name>A26</Name>
+        </Road>
+        <Road id='57463'>
+            <Name>A4</Name>
+        </Road>
+        <Road id='10387'>
+            <Name>A26</Name>
+        </Road>
+        <Road id='75100'>
+            <Name>A4</Name>
+        </Road>
+        <Road id='08105'>
+            <Name>A34</Name>
+        </Road>
+    </City>
+    <City id='76540'>
+        <Name>Rouen</Name>
+        <Latitude>49.433333</Latitude>
+        <Longitude>1.083333</Longitude>
+        <Road id='76462'>
+            <Name>A28</Name>
+        </Road>
+        <Road id='75100'>
+            <Name>A13</Name>
+        </Road>
+        <Road id='72181'>
+            <Name>A28</Name>
+        </Road>
+        <Road id='27107'>
+            <Name>A13</Name>
+        </Road>
+    </City>
+    <City id='76351'>
+        <Name>Le Havre</Name>
+        <Latitude>49.5</Latitude>
+        <Longitude>0.133333</Longitude>
+        <Road id='27107'>
+            <Name>A29</Name>
+        </Road>
+        <Road id='76462'>
+            <Name>A29</Name>
+        </Road>
+    </City>
+    <City id='14118'>
+        <Name>Caen</Name>
+        <Latitude>49.183333</Latitude>
+        <Longitude>-0.35</Longitude>
+        <Road id='27107'>
+            <Name>A13</Name>
+        </Road>
+        <Road id='50025'>
+            <Name>A84</Name>
+        </Road>
+    </City>
+    <City id='57672'>
+        <Name>Thionville</Name>
+        <Latitude>49.366667</Latitude>
+        <Longitude>6.166667</Longitude>
+        <Road id='57463'>
+            <Name>A31</Name>
+        </Road>
+    </City>
+    <City id='57463'>
+        <Name>Metz</Name>
+        <Latitude>49.133333</Latitude>
+        <Longitude>6.166667</Longitude>
+        <Road id='57672'>
+            <Name>A31</Name>
+        </Road>
+        <Road id='67482'>
+            <Name>A4</Name>
+        </Road>
+        <Road id='54395'>
+            <Name>A31</Name>
+        </Road>
+        <Road id='51454'>
+            <Name>A4</Name>
+        </Road>
+    </City>
+    <City id='75100'>
+        <Name>Paris</Name>
+        <Latitude>48.866667</Latitude>
+        <Longitude>2.333333</Longitude>
+        <Road id='80002'>
+            <Name>A1</Name>
+        </Road>
+        <Road id='51454'>
+            <Name>A4</Name>
+        </Road>
+        <Road id='10387'>
+            <Name>A5</Name>
+        </Road>
+        <Road id='21054'>
+            <Name>A6</Name>
+        </Road>
+        <Road id='45234'>
+            <Name>A10</Name>
+        </Road>
+        <Road id='72181'>
+            <Name>A11</Name>
+        </Road>
+        <Road id='76540'>
+            <Name>A13</Name>
+        </Road>
+        <Road id='80021'>
+            <Name>A16</Name>
+        </Road>
+    </City>
+    <City id='54395'>
+        <Name>Nancy</Name>
+        <Latitude>48.683333</Latitude>
+        <Longitude>6.2</Longitude>
+        <Road id='57463'>
+            <Name>A31</Name>
+        </Road>
+        <Road id='52042'>
+            <Name>A31</Name>
+        </Road>
+    </City>
+    <City id='67482'>
+        <Name>Strasbourg</Name>
+        <Latitude>48.583333</Latitude>
+        <Longitude>7.75</Longitude>
+        <Road id='57463'>
+            <Name>A4</Name>
+        </Road>
+        <Road id='68224'>
+            <Name>A35</Name>
+        </Road>
+    </City>
+    <City id='10387'>
+        <Name>Troyes</Name>
+        <Latitude>48.3</Latitude>
+        <Longitude>4.083333</Longitude>
+        <Road id='51454'>
+            <Name>A26</Name>
+        </Road>
+        <Road id='52042'>
+            <Name>A5</Name>
+        </Road>
+        <Road id='75100'>
+            <Name>A5</Name>
+        </Road>
+    </City>
+    <City id='72181'>
+        <Name>Le Mans</Name>
+        <Latitude>48</Latitude>
+        <Longitude>0.2</Longitude>
+        <Road id='75100'>
+            <Name>A11</Name>
+        </Road>
+        <Road id='37261'>
+            <Name>A28</Name>
+        </Road>
+        <Road id='49007'>
+            <Name>A11</Name>
+        </Road>
+        <Road id='35238'>
+            <Name>A81</Name>
+        </Road>
+        <Road id='76540'>
+            <Name>A28</Name>
+        </Road>
+    </City>
+    <City id='35238'>
+        <Name>Rennes</Name>
+        <Latitude>48.083333</Latitude>
+        <Longitude>-1.683333</Longitude>
+        <Road id='50025'>
+            <Name>A84</Name>
+        </Road>
+        <Road id='72181'>
+            <Name>A81</Name>
+        </Road>
+        <Road id='44109'>
+            <Name>N137</Name>
+        </Road>
+    </City>
+    <City id='45234'>
+        <Name>Orléans</Name>
+        <Latitude>47.916667</Latitude>
+        <Longitude>1.9</Longitude>
+        <Road id='75100'>
+            <Name>A10</Name>
+        </Road>
+        <Road id='18279'>
+            <Name>A71</Name>
+        </Road>
+        <Road id='37261'>
+            <Name>A10</Name>
+        </Road>
+    </City>
+    <City id='68224'>
+        <Name>Mulhouse</Name>
+        <Latitude>47.75</Latitude>
+        <Longitude>7.333333</Longitude>
+        <Road id='25388'>
+            <Name>A36</Name>
+        </Road>
+        <Road id='57482'>
+            <Name>A35</Name>
+        </Road>
+    </City>
+    <City id='25388'>
+        <Name>Montbéliard</Name>
+        <Latitude>47.516667</Latitude>
+        <Longitude>6.8</Longitude>
+        <Road id='25056'>
+            <Name>A36</Name>
+        </Road>
+        <Road id='68224'>
+            <Name>A36</Name>
+        </Road>
+    </City>
+    <City id='49007'>
+        <Name>Angers</Name>
+        <Latitude>47.466667</Latitude>
+        <Longitude>-0.55</Longitude>
+        <Road id='44109'>
+            <Name>A11</Name>
+        </Road>
+        <Road id='37261'>
+            <Name>A85</Name>
+        </Road>
+        <Road id='85084'>
+            <Name>A87</Name>
+        </Road>
+        <Road id='72181'>
+            <Name>A11</Name>
+        </Road>
+    </City>
+    <City id='37261'>
+        <Name>Tours</Name>
+        <Latitude>47.383333</Latitude>
+        <Longitude>0.683333</Longitude>
+        <Road id='18279'>
+            <Name>A85</Name>
+        </Road>
+        <Road id='86194'>
+            <Name>A10</Name>
+        </Road>
+        <Road id='49007'>
+            <Name>A85</Name>
+        </Road>
+        <Road id='72181'>
+            <Name>A28</Name>
+        </Road>
+        <Road id='45234'>
+            <Name>A10</Name>
+        </Road>
+    </City>
+    <City id='21231'>
+        <Name>Dijon</Name>
+        <Latitude>47.316667</Latitude>
+        <Longitude>5.016667</Longitude>
+        <Road id='21054'>
+            <Name>A31</Name>
+        </Road>
+        <Road id='21572'>
+            <Name>A39</Name>
+        </Road>
+        <Road id='52042'>
+            <Name>OSEF</Name>
+        </Road>
+    </City>
+    <City id='25056'>
+        <Name>Besançon</Name>
+        <Latitude>47.25</Latitude>
+        <Longitude>6.033333</Longitude>
+        <Road id='21572'>
+            <Name>A36</Name>
+        </Road>
+        <Road id='25388'>
+            <Name>A36</Name>
+        </Road>
+    </City>
+    <City id='86194'>
+        <Name>Poitiers</Name>
+        <Latitude>46.583333</Latitude>
+        <Longitude>0.333333</Longitude>
+        <Road id='79191'>
+            <Name>A10</Name>
+        </Road>
+        <Road id='37261'>
+            <Name>A10</Name>
+        </Road>
+    </City>
+    <City id='66136'>
+        <Name>Perpignan</Name>
+        <Latitude>42.683333</Latitude>
+        <Longitude>2.883333</Longitude>
+        <Road id='11262'>
+            <Name>A9</Name>
+        </Road>
+    </City>
+    <City id='83137'>
+        <Name>Toulon</Name>
+        <Latitude>43.12</Latitude>
+        <Longitude>5.933333</Longitude>
+        <Road id='83031'>
+            <Name>A57</Name>
+        </Road>
+        <Road id='13200'>
+            <Name>A50</Name>
+        </Road>
+    </City>
+    <City id='13200'>
+        <Name>Marseille</Name>
+        <Latitude>43.3</Latitude>
+        <Longitude>5.4</Longitude>
+        <Road id='83137'>
+            <Name>A50</Name>
+        </Road>
+        <Road id='13103'>
+            <Name>A7</Name>
+        </Road>
+    </City>
+    <City id='34172'>
+        <Name>Montpellier</Name>
+        <Latitude>43.6</Latitude>
+        <Longitude>3.883333</Longitude>
+        <Road id='30189'>
+            <Name>A9</Name>
+        </Road>
+        <Road id='34157'>
+            <Name>A9</Name>
+        </Road>
+    </City>
+    <City id='64102'>
+        <Name>Bayonne</Name>
+        <Latitude>43.483333</Latitude>
+        <Longitude>-1.483333</Longitude>
+        <Road id='33063'>
+            <Name>N10</Name>
+        </Road>
+        <Road id='64445'>
+            <Name>A64</Name>
+        </Road>
+    </City>
+    <City id='64445'>
+        <Name>Pau</Name>
+        <Latitude>43.3</Latitude>
+        <Longitude>-0.366667</Longitude>
+        <Road id='31483'>
+            <Name>A64</Name>
+        </Road>
+        <Road id='64102'>
+            <Name>A64</Name>
+        </Road>
+    </City>
+    <City id='31555'>
+        <Name>Toulouse</Name>
+        <Latitude>43.6</Latitude>
+        <Longitude>1.433333</Longitude>
+        <Road id='11262'>
+            <Name>A61</Name>
+        </Road>
+        <Road id='82121'>
+            <Name>A62</Name>
+        </Road>
+        <Road id='31483'>
+            <Name>A64</Name>
+        </Road>
+    </City>
+    <City id='06088'>
+        <Name>Nice</Name>
+        <Latitude>43.7</Latitude>
+        <Longitude>7.25</Longitude>
+        <Road id='83031'>
+            <Name>A8</Name>
+        </Road>
+    </City>
+    <City id='30189'>
+        <Name>Nimes</Name>
+        <Latitude>43.833333</Latitude>
+        <Longitude>4.35</Longitude>
+        <Road id='13103'>
+            <Name>A54</Name>
+        </Road>
+        <Road id='84007'>
+            <Name>A9</Name>
+        </Road>
+        <Road id='34172'>
+            <Name>A9</Name>
+        </Road>
+    </City>
+    <City id='84007'>
+        <Name>Avignon</Name>
+        <Latitude>43.95</Latitude>
+        <Longitude>4.816667</Longitude>
+        <Road id='13103'>
+            <Name>A7</Name>
+        </Road>
+        <Road id='30189'>
+            <Name>A9</Name>
+        </Road>
+        <Road id='26362'>
+            <Name>A7</Name>
+        </Road>
+    </City>
+    <City id='26362'>
+        <Name>Valence</Name>
+        <Latitude>44.93</Latitude>
+        <Longitude>4.9</Longitude>
+        <Road id='84007'>
+            <Name>A7</Name>
+        </Road>
+        <Road id='38185'>
+            <Name>A49</Name>
+        </Road>
+        <Road id='69380'>
+            <Name>A7</Name>
+        </Road>
+    </City>
+    <City id='33063'>
+        <Name>Bordeaux</Name>
+        <Latitude>44.833333</Latitude>
+        <Longitude>-0.566667</Longitude>
+        <Road id='82121'>
+            <Name>A62</Name>
+        </Road>
+        <Road id='64102'>
+            <Name>N10</Name>
+        </Road>
+        <Road id='19031'>
+            <Name>A89</Name>
+        </Road>
+        <Road id='79191'>
+            <Name>A10</Name>
+        </Road>
+    </City>
+    <City id='42218'>
+        <Name>Saint-Etienne</Name>
+        <Latitude>45.433333</Latitude>
+        <Longitude>4.4</Longitude>
+        <Road id='63113'>
+            <Name>A72</Name>
+        </Road>
+        <Road id='69380'>
+            <Name>A47</Name>
+        </Road>
+    </City>
+    <City id='73065'>
+        <Name>Chambéry</Name>
+        <Latitude>45.566667</Latitude>
+        <Longitude>5.933333</Longitude>
+        <Road id='38185'>
+            <Name>A41</Name>
+        </Road>
+        <Road id='74010'>
+            <Name>A41</Name>
+        </Road>
+        <Road id='38064'>
+            <Name>A43</Name>
+        </Road>
+    </City>
+    <City id='08105'>
+        <Name>Charleville-Mézières</Name>
+        <Latitude>49.766667</Latitude>
+        <Longitude>4.716667</Longitude>
+        <Road id='51454'>
+            <Name>A34</Name>
+        </Road>
+    </City>
+    <City id='74010'>
+        <Name>Annecy</Name>
+        <Latitude>45.9</Latitude>
+        <Longitude>6.116667</Longitude>
+        <Road id='73065'>
+            <Name>A41</Name>
+        </Road>
+        <Road id='74012'>
+            <Name>OSEF</Name>
+        </Road>
+    </City>
+    <City id='69380'>
+        <Name>Lyon</Name>
+        <Latitude>45.75</Latitude>
+        <Longitude>4.85</Longitude>
+        <Road id='38064'>
+            <Name>A43</Name>
+        </Road>
+        <Road id='42218'>
+            <Name>A47</Name>
+        </Road>
+        <Road id='26362'>
+            <Name>A7</Name>
+        </Road>
+        <Road id='01304'>
+            <Name>A42</Name>
+        </Road>
+        <Road id='71497'>
+            <Name>A6</Name>
+        </Road>
+    </City>
+    <City id='87085'>
+        <Name>Limoges</Name>
+        <Latitude>45.85</Latitude>
+        <Longitude>1.25</Longitude>
+        <Road id='19031'>
+            <Name>A20</Name>
+        </Road>
+        <Road id='18279'>
+            <Name>A20</Name>
+        </Road>
+    </City>
+    <City id='74012'>
+        <Name>Annemasse</Name>
+        <Latitude>46.2</Latitude>
+        <Longitude>6.25</Longitude>
+        <Road id='01304'>
+            <Name>A40</Name>
+        </Road>
+        <Road id='74010'>
+            <Name>OSEF</Name>
+        </Road>
+    </City>
+    <City id='63113'>
+        <Name>Clermont-Ferrand</Name>
+        <Latitude>45.783333</Latitude>
+        <Longitude>3.083333</Longitude>
+        <Road id='19031'>
+            <Name>A89</Name>
+        </Road>
+        <Road id='34157'>
+            <Name>A75</Name>
+        </Road>
+        <Road id='42218'>
+            <Name>A72</Name>
+        </Road>
+        <Road id='18279'>
+            <Name>A71</Name>
+        </Road>
+    </City>
+    <City id='80001'>
+        <Name>Abbeville</Name>
+        <Latitude>50.1</Latitude>
+        <Longitude>1.833333</Longitude>
+        <Road id='62193'>
+            <Name>A16</Name>
+        </Road>
+        <Road id='80021'>
+            <Name>A16</Name>
+        </Road>
+        <Road id='76462'>
+            <Name>A28</Name>
+        </Road>
+    </City>
+    <City id='76462'>
+        <Name>Neufchatel-en-Bray</Name>
+        <Latitude>49.733333</Latitude>
+        <Longitude>1.45</Longitude>
+        <Road id='80001'>
+            <Name>A28</Name>
+        </Road>
+        <Road id='80021'>
+            <Name>A29</Name>
+        </Road>
+        <Road id='76540'>
+            <Name>A28</Name>
+        </Road>
+        <Road id='76351'>
+            <Name>A29</Name>
+        </Road>
+    </City>
+    <City id='27107'>
+        <Name>Bourneville</Name>
+        <Latitude>49.383333</Latitude>
+        <Longitude>0.616667</Longitude>
+        <Road id='76351'>
+            <Name>A29</Name>
+        </Road>
+        <Road id='76540'>
+            <Name>A13</Name>
+        </Road>
+        <Road id='14118'>
+            <Name>A13</Name>
+        </Road>
+    </City>
+    <City id='50025'>
+        <Name>Avranches</Name>
+        <Latitude>48.683333</Latitude>
+        <Longitude>-1.366667</Longitude>
+        <Road id='14118'>
+            <Name>A84</Name>
+        </Road>
+        <Road id='35238'>
+            <Name>A84</Name>
+        </Road>
+    </City>
+    <City id='85084'>
+        <Name>Les Essarts</Name>
+        <Latitude>46.766667</Latitude>
+        <Longitude>-1.233333</Longitude>
+        <Road id='79191'>
+            <Name>A83</Name>
+        </Road>
+        <Road id='49007'>
+            <Name>A87</Name>
+        </Road>
+        <Road id='44109'>
+            <Name>A83</Name>
+        </Road>
+    </City>
+    <City id='79191'>
+        <Name>Niort</Name>
+        <Latitude>46.316667</Latitude>
+        <Longitude>-0.466667</Longitude>
+        <Road id='33063'>
+            <Name>A10</Name>
+        </Road>
+        <Road id='85084'>
+            <Name>A83</Name>
+        </Road>
+        <Road id='86194'>
+            <Name>A10</Name>
+        </Road>
+    </City>
+    <City id='18279'>
+        <Name>Vierzon</Name>
+        <Latitude>47.216667</Latitude>
+        <Longitude>2.083333</Longitude>
+        <Road id='87085'>
+            <Name>A20</Name>
+        </Road>
+        <Road id='63113'>
+            <Name>A71</Name>
+        </Road>
+        <Road id='45234'>
+            <Name>A71</Name>
+        </Road>
+        <Road id='37261'>
+            <Name>A85</Name>
+        </Road>
+    </City>
+    <City id='19031'>
+        <Name>Brive-la-gaillarde</Name>
+        <Latitude>45.15</Latitude>
+        <Longitude>1.533333</Longitude>
+        <Road id='33063'>
+            <Name>A89</Name>
+        </Road>
+        <Road id='82121'>
+            <Name>A20</Name>
+        </Road>
+        <Road id='63113'>
+            <Name>A89</Name>
+        </Road>
+        <Road id='87085'>
+            <Name>A20</Name>
+        </Road>
+    </City>
+    <City id='82121'>
+        <Name>Montauban</Name>
+        <Latitude>44.016667</Latitude>
+        <Longitude>1.35</Longitude>
+        <Road id='31555'>
+            <Name>A62</Name>
+        </Road>
+        <Road id='33063'>
+            <Name>A62</Name>
+        </Road>
+        <Road id='19031'>
+            <Name>A20</Name>
+        </Road>
+    </City>
+    <City id='31483'>
+        <Name>Saint-Gaudens</Name>
+        <Latitude>43.116667</Latitude>
+        <Longitude>0.733333</Longitude>
+        <Road id='31555'>
+            <Name>A64</Name>
+        </Road>
+        <Road id='64445'>
+            <Name>A64</Name>
+        </Road>
+    </City>
+    <City id='11262'>
+        <Name>Narbonne</Name>
+        <Latitude>43.183333</Latitude>
+        <Longitude>3</Longitude>
+        <Road id='34157'>
+            <Name>A9</Name>
+        </Road>
+        <Road id='66136'>
+            <Name>A9</Name>
+        </Road>
+        <Road id='31555'>
+            <Name>A61</Name>
+        </Road>
+    </City>
+    <City id='34157'>
+        <Name>Mèze</Name>
+        <Latitude>43.416667</Latitude>
+        <Longitude>3.6</Longitude>
+        <Road id='34172'>
+            <Name>A9</Name>
+        </Road>
+        <Road id='63113'>
+            <Name>A75</Name>
+        </Road>
+        <Road id='11262'>
+            <Name>A9</Name>
+        </Road>
+    </City>
+    <City id='13103'>
+        <Name>Salon-de-Provence</Name>
+        <Latitude>43.633333</Latitude>
+        <Longitude>5.1</Longitude>
+        <Road id='13200'>
+            <Name>A7</Name>
+        </Road>
+        <Road id='83031'>
+            <Name>A8</Name>
+        </Road>
+        <Road id='84007'>
+            <Name>A7</Name>
+        </Road>
+        <Road id='30189'>
+            <Name>A54</Name>
+        </Road>
+    </City>
+    <City id='83031'>
+        <Name>Le Cannet-des-Maures</Name>
+        <Latitude>43.4</Latitude>
+        <Longitude>6.35</Longitude>
+        <Road id='06088'>
+            <Name>A8</Name>
+        </Road>
+        <Road id='13103'>
+            <Name>A8</Name>
+        </Road>
+        <Road id='83137'>
+            <Name>A57</Name>
+        </Road>
+    </City>
+    <City id='38064'>
+        <Name>Cessieu</Name>
+        <Latitude>45.566667</Latitude>
+        <Longitude>5.366667</Longitude>
+        <Road id='73065'>
+            <Name>A43</Name>
+        </Road>
+        <Road id='38185'>
+            <Name>A48</Name>
+        </Road>
+        <Road id='69380'>
+            <Name>A43</Name>
+        </Road>
+    </City>
+    <City id='01304'>
+        <Name>Pont-d'Ain</Name>
+        <Latitude>46.05</Latitude>
+        <Longitude>5.333333</Longitude>
+        <Road id='74010'>
+            <Name>A41</Name>
+        </Road>
+        <Road id='69380'>
+            <Name>A42</Name>
+        </Road>
+        <Road id='01451'>
+            <Name>A40</Name>
+        </Road>
+    </City>
+    <City id='01451'>
+        <Name>Viriat</Name>
+        <Latitude>46.25</Latitude>
+        <Longitude>5.216667</Longitude>
+        <Road id='01304'>
+            <Name>A40</Name>
+        </Road>
+        <Road id='21572'>
+            <Name>A39</Name>
+        </Road>
+        <Road id='71497'>
+            <Name>A40</Name>
+        </Road>
+    </City>
+    <City id='71497'>
+        <Name>Sancé</Name>
+        <Latitude>46.333333</Latitude>
+        <Longitude>4.833333</Longitude>
+        <Road id='01451'>
+            <Name>A40</Name>
+        </Road>
+        <Road id='69380'>
+            <Name>A6</Name>
+        </Road>
+        <Road id='21054'>
+            <Name>A6</Name>
+        </Road>
+    </City>
+    <City id='21054'>
+        <Name>Beaune</Name>
+        <Latitude>47.033333</Latitude>
+        <Longitude>4.833333</Longitude>
+        <Road id='71497'>
+            <Name>A6</Name>
+        </Road>
+        <Road id='21231'>
+            <Name>A31</Name>
+        </Road>
+        <Road id='75100'>
+            <Name>A6</Name>
+        </Road>
+        <Road id='21572'>
+            <Name>A36</Name>
+        </Road>
+    </City>
+    <City id='21572'>
+        <Name>Saint-Seine-en-Bâche</Name>
+        <Latitude>47.116667</Latitude>
+        <Longitude>5.366667</Longitude>
+        <Road id='21054'>
+            <Name>A36</Name>
+        </Road>
+        <Road id='01451'>
+            <Name>A39</Name>
+        </Road>
+        <Road id='25056'>
+            <Name>A36</Name>
+        </Road>
+        <Road id='21231'>
+            <Name>A39</Name>
+        </Road>
+    </City>
+    <City id='52042'>
+        <Name>Beauchemin</Name>
+        <Latitude>47.9</Latitude>
+        <Longitude>5.25</Longitude>
+        <Road id='10387'>
+            <Name>A5</Name>
+        </Road>
+        <Road id='54395'>
+            <Name>A31</Name>
+        </Road>
+        <Road id='21231'>
+            <Name>A31</Name>
+        </Road>
+    </City>
+    <City id='80002'>
+        <Name>Ablaincourt-Pressoir</Name>
+        <Latitude>49.839588</Latitude>
+        <Longitude>2.820997</Longitude>
+        <Road id='80204'>
+            <Name>A1</Name>
+        </Road>
+        <Road id='02691'>
+            <Name>A29</Name>
+        </Road>
+        <Road id='75100'>
+            <Name>A1</Name>
+        </Road>
+        <Road id='80021'>
+            <Name>A29</Name>
+        </Road>
+    </City>
+    <City id='02691'>
+        <Name>Saint-Quentin</Name>
+        <Latitude>49.85</Latitude>
+        <Longitude>3.283333</Longitude>
+        <Road id='62384'>
+            <Name>A26</Name>
+        </Road>
+        <Road id='51454'>
+            <Name>A26</Name>
+        </Road>
+        <Road id='80002'>
+            <Name>A29</Name>
+        </Road>
+    </City>
+    <City id='80204'>
+        <Name>Combles</Name>
+        <Latitude>50.016667</Latitude>
+        <Longitude>2.866667</Longitude>
+        <Road id='59178'>
+            <Name>A1</Name>
+        </Road>
+        <Road id='62384'>
+            <Name>A2</Name>
+        </Road>
+        <Road id='80002'>
+            <Name>A1</Name>
+        </Road>
+    </City>
+    <City id='62384'>
+        <Name>Graincourt-les-Havrincourt</Name>
+        <Latitude>50.144181</Latitude>
+        <Longitude>3.110075</Longitude>
+        <Road id='59178'>
+            <Name>A26</Name>
+        </Road>
+        <Road id='59606'>
+            <Name>A2</Name>
+        </Road>
+        <Road id='02691'>
+            <Name>A26</Name>
+        </Road>
+        <Road id='80204'>
+            <Name>A2</Name>
+        </Road>
+    </City>
+</France>
