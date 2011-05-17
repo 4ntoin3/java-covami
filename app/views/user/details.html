@@ -29,7 +29,7 @@
     #{else}
     #{list items:waysDriver, as:'way'}
     <label>${way.dateHourStart.getTime().asdate('dd/MM/yyyy hh:mm')}</label>
-    <div class="formField labelLine">${way.startCity?.name} => ${way.finishCity?.name} (${way?.distance} kms)</div>      
+    <div class="formField labelLine">${way.startCity?.name} => ${way.finishCity?.name} (${(int) (way.distance)} kms)</div>      
     #{/list}
     #{/else}
     <div class="clear"></div>
@@ -43,7 +43,7 @@
     #{else}
     #{list items:wayPassengers, as:'participation'}
     <label>${participation.way.dateHourStart.getTime().asdate('dd/MM/yyyy hh:mm')}</label>
-    <div class="formField labelLine">${participation.way.startCity?.name} => ${participation.way.finishCity?.name} (${participation.way?.distance} kms)</div>      
+    <div class="formField labelLine">${participation.way.startCity?.name} => ${participation.way.finishCity?.name} (${Integer.parseInt(participation.way?.distance)} kms)</div>      
     #{/list}
     #{/else}
     <div class="clear"></div>
